@@ -14,7 +14,9 @@
   "resultados_Voleibol Feminino": 10
  },
  "agente": {
-  "ativo": false
+  "ativo": true,
+  "modelo": "gemini-3.8-flash",
+  "erro": "TimeoutError"
  },
- "atualizado": "2026-11-12T14:05:26Z"
+ "atualizado": "2026-11-12T14:31:07Z"
 }
