@@ -19,6 +19,7 @@ import re
 import sys
 import time
 import unicodedata
+import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
@@ -132,22 +133,33 @@ def pick_model():
     return _model
 
 
-def gemini(prompt, timeout=240):
+def gemini(prompt, timeout=120):
     """Pergunta ao Gemini e devolve JSON. Devolve None se não houver chave ou falhar."""
     if not GEMINI_KEY:
         return None
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{pick_model()}:generateContent"
-    body = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"responseMimeType": "application/json", "temperature": 0},
-    }
-    req = urllib.request.Request(
-        url, data=json.dumps(body).encode(), method="POST",
-        headers={"Content-Type": "application/json", "x-goog-api-key": GEMINI_KEY},
-    )
-    try:
+    def ask(fast):
+        config = {"responseMimeType": "application/json", "temperature": 0}
+        if fast:
+            # Pensar pouco: estas tarefas são simples e assim responde em segundos.
+            config["thinkingConfig"] = {"thinkingLevel": "low"}
+        body = {"contents": [{"parts": [{"text": prompt}]}], "generationConfig": config}
+        req = urllib.request.Request(
+            url, data=json.dumps(body).encode(), method="POST",
+            headers={"Content-Type": "application/json", "x-goog-api-key": GEMINI_KEY},
+        )
         with urllib.request.urlopen(req, timeout=timeout) as r:
-            d = json.loads(r.read().decode())
+            return json.loads(r.read().decode())
+
+    started = time.time()
+    try:
+        try:
+            d = ask(True)
+        except urllib.error.HTTPError as e:
+            if e.code != 400:
+                raise
+            d = ask(False)  # modelo que não aceita a opção "pensar pouco"
+        log("agente respondeu em %.0f s" % (time.time() - started))
         text = d["candidates"][0]["content"]["parts"][0]["text"]
         status["agente"]["ok"] = True
         return json.loads(text)
