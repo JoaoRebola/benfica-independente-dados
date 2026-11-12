@@ -132,7 +132,7 @@ def pick_model():
     return _model
 
 
-def gemini(prompt, timeout=90):
+def gemini(prompt, timeout=240):
     """Pergunta ao Gemini e devolve JSON. Devolve None se não houver chave ou falhar."""
     if not GEMINI_KEY:
         return None
@@ -348,6 +348,7 @@ def do_videos():
             if v not in known and not any(w in up(t) for w in RULE_WORDS) and not re.search(r"\bEP\.?\s*\d+", up(t))}
     if not todo or not GEMINI_KEY:
         return
+    todo = dict(list(todo.items())[:40])  # aos poucos, para não esgotar nem demorar
     res = gemini(
         "Estes são títulos de vídeos do canal de YouTube 'Benfica Independente'. Para cada um, diz a que programa pertence. "
         "Usa um destes nomes se servir: " + ", ".join(PROGRAMS) + ". Se for claramente uma série nova, usa um nome curto "
