@@ -15,8 +15,10 @@
  },
  "agente": {
   "ativo": true,
-  "modelo": "gemini-3.8-flash",
-  "erro": "TimeoutError"
+  "erro": 503,
+  "modelo": "gemini-3.6-flash",
+  "ok": true,
+  "videos": 2
  },
- "atualizado": "2026-11-12T14:31:07Z"
+ "atualizado": "2026-11-12T14:38:46Z"
 }
