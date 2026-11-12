@@ -1,0 +1,38 @@
+name: Robô do Benfica Independente
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: robo
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ir buscar agenda, resultados e vídeos
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python robo.py
+      - name: Guardar o que mudou
+        run: |
+          git config user.name "robo-bi"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet -- data/agenda.json data/results.json data/videos.json; then
+            echo "Sem novidades."
+          else
+            git commit -m "Atualização automática"
+            git push
+          fi

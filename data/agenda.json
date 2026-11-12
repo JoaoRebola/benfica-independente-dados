@@ -1,0 +1,765 @@
+[
+ {
+  "t": 1794501600000,
+  "title": "Portimão International Cup",
+  "detail": "| Sub 14 | Benfica x AF Atlântico",
+  "loc": "Portimão",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1794513600000,
+  "title": "SL Benfica vs Áustria Viena",
+  "detail": "Liga dos Campeões Feminina UEFA | 2026/27 - Jornada 4 (F)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol Feminino"
+ },
+ {
+  "t": 1794560400000,
+  "title": "Portimão International Cup",
+  "detail": "| Sub 14 | -09h00 Benfica x Lincoln Red -11h30 Benfica x Birmingham City -13h10 Benfica x Real Betis",
+  "loc": "Portimão",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1794583800000,
+  "title": "Algarve International Meeting",
+  "detail": "| dia 1 |",
+  "loc": "Complexo de Piscinas Municipais de Albufeira",
+  "sport": "Natação"
+ },
+ {
+  "t": 1794596640000,
+  "title": "Inauguração da Casa Benfica Cantanhede",
+  "detail": "Presença do presidente do SL Benfica, Rui Costa",
+  "loc": "Rua Dr Sá Carneiro - Cantanhede",
+  "sport": "Casas Benfica"
+ },
+ {
+  "t": 1794598200000,
+  "title": "SL Benfica vs HK SK CHEB",
+  "detail": "EHF European League Women | 26/27 - round Jornada 3 (F)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1794646800000,
+  "title": "Algarve International Meeting",
+  "detail": "| dia 2 |",
+  "loc": "Complexo de Piscinas Municipais de Albufeira",
+  "sport": "Natação"
+ },
+ {
+  "t": 1794654000000,
+  "title": "SL Benfica vs Rio Ave",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 18 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1794659400000,
+  "title": "AD Sanjoanense vs SL Benfica",
+  "detail": "WSE Continental Cup Women | 2026 - Semi Final (F)",
+  "loc": "Pavelló Joan Ortoll",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1794666600000,
+  "title": "SL Benfica vs AA São Mamede",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 6 (F)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1794668400000,
+  "title": "SL Benfica vs Amora FC",
+  "detail": "Campeonato Nacional de Sub 17 | 26/27 - Jornada 13 (M)",
+  "loc": "Benfica Campus (campo 7)",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1794668400000,
+  "title": "AA Águas Santas vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 12 (M)",
+  "loc": "Pavilhão Municipal de Águas Santas - Formigueiro",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1794672000000,
+  "title": "SL Benfica vs CAB Madeira",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 7 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1794679200000,
+  "title": "SL Benfica vs Ala de Nun'Alvares",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 5 (M)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1794686400000,
+  "title": "SL Benfica vs Riba d'Ave HC",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 2 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1794731400000,
+  "title": "Zagreb Grand Prix",
+  "detail": "Atleta em competição: Rochele Nunes +78Kg",
+  "loc": "(16h00 final block) Arena Zagreb - Croácia",
+  "sport": "Judo"
+ },
+ {
+  "t": 1794733200000,
+  "title": "Algarve International Meeting",
+  "detail": "| dia 3 |",
+  "loc": "Complexo de Piscinas Municipais de Albufeira",
+  "sport": "Natação"
+ },
+ {
+  "t": 1794733200000,
+  "title": "Abidjan African Open",
+  "detail": "Atletas em competição: Evanilde Mendes -57 kg e Claudiano Semedo -90 kg",
+  "loc": "(16h00 final block) Abidjan - Costa do Marfim",
+  "sport": "Judo"
+ },
+ {
+  "t": 1794740400000,
+  "title": "SL Benfica vs Vitória SC",
+  "detail": "Campeonato Nacional de Iniciados Sub 15 | 26/27 - Jornada 11 (M)",
+  "loc": "Benfica Campus (campo 1)",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1794754800000,
+  "title": "GD Aldeia Nova vs SL Benfica",
+  "detail": "Taça de Portugal Feminina | 26/27 - Jornada 3 (F)",
+  "loc": "Complexo Desp. GD Aldeia Nova",
+  "sport": "Futebol Feminino"
+ },
+ {
+  "t": 1794754800000,
+  "title": "TOMBAI vs SL Benfica",
+  "detail": "Campeonato Nacional de Divisão de Honra Feminino 26/27 - Jornada 5 (F)",
+  "loc": "Campo da Bairrada",
+  "sport": "Rugby"
+ },
+ {
+  "t": 1794760200000,
+  "title": "Maia FC vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 8 (F)",
+  "loc": "Pavilhão Municipal da Maia",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1794762000000,
+  "title": "SL Benfica vs AEF Faro",
+  "detail": "Campeonato Nacional Sub-17 II Divisão | 26/27 - Jornada 8 (M)",
+  "loc": "Campo Complexo Desportivo Penha",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1794767400000,
+  "title": "Sporting CP vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 7 (F)",
+  "loc": "Pavilhão João Rocha",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1794862800000,
+  "title": "CB Amadora-B vs SL Benfica-A",
+  "detail": "Campeonato Regional Sul de Carambola | 26/27 - Jornada 4 (M)",
+  "loc": "Sala de Bilhar CBA",
+  "sport": "Bilhar"
+ },
+ {
+  "t": 1794924000000,
+  "title": "Yukatel Denizli Basket vs SL Benfica",
+  "detail": "Fiba Europe Cup | 26/27 - Grupo G Jornada 7 (M)",
+  "loc": "Pamukkale Üniversitesi Spor Salonu",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1794944700000,
+  "title": "SL Benfica vs HCB Karvina",
+  "detail": "EHF European League | 26/27 - Grupo F Jornada 3 (M)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1794949200000,
+  "title": "SL Benfica-B vs Bridge Club-B",
+  "detail": "Campeonato Regional Sul de Carambola | 26/27 - Jornada 4 (M)",
+  "loc": "Sala de Bilhar SL Benfica",
+  "sport": "Bilhar"
+ },
+ {
+  "t": 1795032900000,
+  "title": "SL Benfica vs FC Famalicão",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1795033800000,
+  "title": "CD Feirense vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 10 (F)",
+  "loc": "Pavilhão Mun. São João de Ver",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1795118400000,
+  "title": "SL Benfica vs AS Roma",
+  "detail": "Liga dos Campeões Feminina UEFA | 2026/27 - Jornada 5 (F)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol Feminino"
+ },
+ {
+  "t": 1795197600000,
+  "title": "Estoril Praia vs SL Benfica",
+  "detail": "Liga Next Gen | 26/27 - Jornada 12 (M)",
+  "loc": "Estádio António Coimbra da Mota",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795208400000,
+  "title": "SL Benfica vs CRIAR-T",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 2 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1795273200000,
+  "title": "SCU Torreense vs SL Benfica",
+  "detail": "Campeonato Sub-19 26/27 - Jornada 12 (M)",
+  "loc": "Academia Torreense",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795276800000,
+  "title": "VC Viana vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 6 (M)",
+  "loc": "Pavilhão Municipal de Santa Maria Maior",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1795280400000,
+  "title": "SL Benfica vs Póvoa AC",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 13 (M)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1795281300000,
+  "title": "Juve Lis vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 11 (F)",
+  "loc": "Pavilhão da Juventude Desportiva do Lis",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1795294800000,
+  "title": "SL Benfica vs Vitória SC",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 8 (F)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1795296600000,
+  "title": "CP Esgueira vs SL Benfica",
+  "detail": "Campeonato Nacional Liga Feminina | 26/27 - Grupo G Jornada 7 (F)",
+  "loc": "Pavilhão CP de Esgueira",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1795345200000,
+  "title": "CD Nacional vs SL Benfica",
+  "detail": "Campeonato Nacional de Sub 17 | 26/27 - Jornada 12 (M)",
+  "loc": "Cristiano Ronaldo Campus Futebol",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795359600000,
+  "title": "Biblioteca IR vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 3 (F)",
+  "loc": "Pavilhão Amável dos Santos Pereira",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1795359600000,
+  "title": "SL Benfica vs Ovarense",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Grupo G Jornada 8 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1795363200000,
+  "title": "Castêlo da Maia GC vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 1 (M)",
+  "loc": "Pavilhão do Castêlo da Maia Ginásio Clube",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1795375800000,
+  "title": "Sporting CP vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 3 (M)",
+  "loc": "Pavilhão João Rocha",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1795380300000,
+  "title": "SCU Torreense vs SL Benfica",
+  "detail": "Taça de Portugal 26/27 - Fase 4 Jornada 1 (M)",
+  "loc": "Estádio Nacional do Jamor",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795460400000,
+  "title": "SC Braga vs SL Benfica",
+  "detail": "LIGA BPI | 26/27 - Jornada 7 (F)",
+  "loc": "Estádio Amélia Morais",
+  "sport": "Futebol Feminino"
+ },
+ {
+  "t": 1795549500000,
+  "title": "BM Torrelavega vs SL Benfica",
+  "detail": "EHF European League | 26/27 - Grupo F Jornada 4 (M)",
+  "loc": "Pabellon Vicente Trueba",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1795608000000,
+  "title": "GNK Dinamo vs SL Benfica",
+  "detail": "UEFA Liga Jovem 26/27 - round (M)",
+  "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795618800000,
+  "title": "UD Leiria vs SL Benfica",
+  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 10 (M)",
+  "loc": "Campo da Mata Santa Eufemia",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795643100000,
+  "title": "Parede FC vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 1 (F)",
+  "loc": "Pavilhão da Parede",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1795715100000,
+  "title": "Vitória Plzen vs SL Benfica",
+  "detail": "Liga Europa UEFA 26/27 - Jornada 5 (M)",
+  "loc": "Arena Doosan",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795723200000,
+  "title": "SL Benfica vs UZKK Student Nis",
+  "detail": "Euro Cup Women | 26/27 - Grupo I Jornada 5 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1795723200000,
+  "title": "FC Porto vs SL Benfica",
+  "detail": "WSE Champions League Men | 26/27 - Jornada 1 (M)",
+  "loc": "Dragão Arena",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1795806000000,
+  "title": "SL Benfica vs SLU Serpense",
+  "detail": "Campeonato Nacional de Ténis de Mesa, Div. Honra | 26/27 - Jornada 4 (M)",
+  "loc": "Instituto Pupilos do Exército",
+  "sport": "Ténis de Mesa"
+ },
+ {
+  "t": 1795878000000,
+  "title": "SL Benfica vs GD Árvore",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 9 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1795878000000,
+  "title": "SL Benfica vs CDUL",
+  "detail": "Super XV | 26/27 - Jornada 5 (M)",
+  "loc": "Estádio de Honra",
+  "sport": "Rugby"
+ },
+ {
+  "t": 1795878000000,
+  "title": "SL Benfica vs FC Alverca",
+  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 13 (M)",
+  "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795885200000,
+  "title": "SL Benfica vs Vitória SC",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Grupo I Jornada 7 (M)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1795888800000,
+  "title": "FC Porto vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 14 (M)",
+  "loc": "Dragão Arena",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1795892400000,
+  "title": "SL Benfica vs Telecable HC",
+  "detail": "WSE Champions League Women | 26/27 - Jornada 1 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1795894200000,
+  "title": "Eléctrico FC vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 9 (M)",
+  "loc": "Pavilhão Municipal de Ponte de Sor",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1795951800000,
+  "title": "SL Benfica vs GDESSA Barreiro",
+  "detail": "Campeonato Nacional Liga Feminina | 26/27 - Grupo I Jornada 8 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1795962600000,
+  "title": "SL Benfica vs Lousada Século XXI",
+  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 3 (F)",
+  "loc": "Piscina Algés e Dafundo",
+  "sport": "Polo Aquático"
+ },
+ {
+  "t": 1795966200000,
+  "title": "FC Penafiel vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 12 (M)",
+  "loc": "Estádio Municipal 25 de Abril",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795968000000,
+  "title": "FC Porto vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Grupo I Jornada 9 (F)",
+  "loc": "Dragão Arena",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1795978800000,
+  "title": "SL Benfica vs UD Oliveirense",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 4 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1796069700000,
+  "title": "SL Benfica vs FC Famalicão",
+  "detail": "Liga Portugal 26/27 - Jornada 12 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1796137200000,
+  "title": "SL Benfica vs FC Famalicão",
+  "detail": "Liga Next Gen | 26/27 - Jornada 13 (M)",
+  "loc": "Benfica Campus (campo 1)",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1796146200000,
+  "title": "SL Benfica vs Leixões SC",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Grupo I Jornada 8 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1796154300000,
+  "title": "SL Benfica vs TTH Holstebro",
+  "detail": "EHF European League | 26/27 - Grupo F Jornada 5 (M)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1796160600000,
+  "title": "SL Benfica vs Futsal Feijó",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 9 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1796230800000,
+  "title": "Sopron Basket vs SL Benfica",
+  "detail": "Euro Cup Women | 26/27 - Grupo I Jornada 6 (F)",
+  "loc": ".",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1796234400000,
+  "title": "SL Benfica B vs AFS",
+  "detail": "Segunda Liga 26/27 - Jornada 11 (M)",
+  "loc": "Benfica Campus",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1796245200000,
+  "title": "Juventude Pacense vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 5 (M)",
+  "loc": "Pavilhão Municipal de Paços de Ferreira",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1796414400000,
+  "title": "SL Benfica vs Kauno Zalgiris",
+  "detail": "UEFA Futsal Champions League | 26/27 - Grupo I Jornada 4 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1796482800000,
+  "title": "SL Benfica vs Sporting CP",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Grupo I Jornada 15 (M)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1796484600000,
+  "title": "CD Nacional vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 13 (M)",
+  "loc": "Estádio da Madeira",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1796490000000,
+  "title": "SC Espinho vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Grupo I Jornada 9 (M)",
+  "loc": "Nave Desportiva de Espinho",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1796490000000,
+  "title": "SL Benfica vs AJ Viana",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 6 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1796493600000,
+  "title": "SC Braga vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Grupo F Jornada 9 (M)",
+  "loc": "AMCO Arena",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1796554800000,
+  "title": "VRAC vs SL Benfica",
+  "detail": "Taça Ibérica 26/27 - round (M)",
+  "loc": "Campos de Rugby Pepe Rojo",
+  "sport": "Rugby"
+ },
+ {
+  "t": 1796569200000,
+  "title": "SL Benfica vs Quinta dos Lombos",
+  "detail": "Campeonato Nacional Liga Feminina | 26/27 - Grupo I Jornada 10 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1796569200000,
+  "title": "Sporting Clube Farense vs SL Benfica",
+  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 14 (M)",
+  "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1796576400000,
+  "title": "SL Benfica vs Castêlo da Maia GC",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Grupo I Jornada 10 (F)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Voleibol"
+ },
+ {
+  "t": 1796580000000,
+  "title": "SL Benfica B vs Lusitania FC Lourosa",
+  "detail": "Segunda Liga 26/27 - Jornada 13 (M)",
+  "loc": "Benfica Campus",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1796583600000,
+  "title": "SL Benfica vs Stuart Massamá",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 4 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1796828400000,
+  "title": "SL Benfica vs GNK Dinamo",
+  "detail": "UEFA Liga Jovem 26/27 - round (M)",
+  "loc": "Benfica Campus",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1796932800000,
+  "title": "SL Benfica vs OFI Crete FC",
+  "detail": "Liga Europa UEFA 26/27 - Jornada 6 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1797087600000,
+  "title": "SL Benfica vs CD Mafra",
+  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 15 (M)",
+  "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1797120000000,
+  "title": "SCU Torreense vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 11 (F)",
+  "loc": "Pavilhão Desportivo do Externato de Penafirme",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1797190200000,
+  "title": "SL Benfica vs SC Braga",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 10 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1797271200000,
+  "title": "SL Benfica B vs FC Vizela",
+  "detail": "Segunda Liga 26/27 - Jornada 14 (M)",
+  "loc": "Benfica Campus",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1797279300000,
+  "title": "SL Benfica vs SC Braga",
+  "detail": "Liga Portugal 26/27 - Jornada 14 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1797444000000,
+  "title": "SL Benfica vs SCU Torreense",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 6 (M)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Futsal"
+ },
+ {
+  "t": 1797451200000,
+  "title": "HB Køge vs SL Benfica",
+  "detail": "Liga dos Campeões Feminina UEFA | 2026/27 - Jornada 6 (F)",
+  "loc": "Koge Stadium",
+  "sport": "Futebol Feminino"
+ },
+ {
+  "t": 1797764400000,
+  "title": "SL Benfica vs Santa Clara SAD",
+  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 16 (M)",
+  "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1797768000000,
+  "title": "Rio Ave FC vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 15 (M)",
+  "loc": "Estádio dos Arcos",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1797768000000,
+  "title": "CD Tondela vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 15 (M)",
+  "loc": "Estádio João Cardoso",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1797789600000,
+  "title": "SL Benfica vs Valadares Gaia",
+  "detail": "LIGA BPI | 26/27 - Jornada 8 (F)",
+  "loc": "Benfica Campus (campo 1)",
+  "sport": "Futebol Feminino"
+ },
+ {
+  "t": 1798372800000,
+  "title": "SL Benfica vs Sporting CP",
+  "detail": "Liga Portugal 26/27 - Jornada 16 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1798372800000,
+  "title": "SL Benfica B vs Sporting CP B",
+  "detail": "Segunda Liga 26/27 - Jornada 16 (M)",
+  "loc": "Benfica Campus",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1798988400000,
+  "title": "SL Benfica vs Vitória SC",
+  "detail": "LIGA BPI | 26/27 - Jornada 3 (F)",
+  "loc": "Benfica Campus (campo 1)",
+  "sport": "Futebol Feminino"
+ },
+ {
+  "t": 1799180100000,
+  "title": "FC Porto vs SL Benfica",
+  "detail": "Taça da Liga 26/27 - Semi Final (M)",
+  "loc": "Estádio Municipal de Leiria",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1799506800000,
+  "title": "Sporting CP vs SL Benfica",
+  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 17 (M)",
+  "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1799582400000,
+  "title": "FC Arouca vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Municipal de Arouca",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1799582400000,
+  "title": "Porto B vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Dr. Jorge Sampaio",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1800111600000,
+  "title": "SL Benfica vs Casa Pia AC",
+  "detail": "Campeonato Sub-19 26/27 - Jornada 18 (M)",
+  "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1800187200000,
+  "title": "Académico Viseu FC vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 18 (M)",
+  "loc": "Estádio do Fontelo",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1815804000000,
+  "title": "European Championship Olomouc",
+  "detail": "Atleta : Leonor Coelho",
+  "loc": "República Checa",
+  "sport": "Dressage"
+ }
+]

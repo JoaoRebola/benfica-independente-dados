@@ -1,0 +1,1102 @@
+[
+ {
+  "s": "Futebol",
+  "c": "Liga Portugal 26/27",
+  "h": "CF Estrela Amadora",
+  "a": "SL Benfica",
+  "hg": 2,
+  "ag": 3,
+  "v": "Estádio José Gomes",
+  "d": "domingo 08 novembro"
+ },
+ {
+  "s": "Futebol",
+  "c": "Liga Europa UEFA 26/27",
+  "h": "SL Benfica",
+  "a": "KKS Lech Poznan",
+  "hg": 3,
+  "ag": 1,
+  "v": "Estádio do Sport Lisboa e Benfica",
+  "d": "quinta-feira 05 novembro"
+ },
+ {
+  "s": "Futebol",
+  "c": "Liga Portugal 26/27",
+  "h": "SL Benfica",
+  "a": "FC Alverca",
+  "hg": 1,
+  "ag": 0,
+  "v": "Estádio do Sport Lisboa e Benfica",
+  "d": "segunda-feira 02 novembro"
+ },
+ {
+  "s": "Futebol",
+  "c": "Taça da Liga 26/27",
+  "h": "SL Benfica",
+  "a": "Gil Vicente FC",
+  "hg": 4,
+  "ag": 1,
+  "v": "Estádio do Sport Lisboa e Benfica",
+  "d": "quinta-feira 29 outubro"
+ },
+ {
+  "s": "Futebol",
+  "c": "Liga Portugal 26/27",
+  "h": "Santa Clara",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 2,
+  "v": "Estádio de Sao Miguel",
+  "d": "segunda-feira 26 outubro"
+ },
+ {
+  "s": "Futebol",
+  "c": "Liga Europa UEFA 26/27",
+  "h": "Omonia FC",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 4,
+  "v": "Estádio GSP",
+  "d": "quinta-feira 22 outubro"
+ },
+ {
+  "s": "Futebol",
+  "c": "Liga Europa UEFA 26/27",
+  "h": "SL Benfica",
+  "a": "Celtic Glasgow",
+  "hg": 4,
+  "ag": 1,
+  "v": "Estádio do Sport Lisboa e Benfica",
+  "d": "quinta-feira 15 outubro"
+ },
+ {
+  "s": "Futebol",
+  "c": "Liga Portugal 26/27",
+  "h": "SL Benfica",
+  "a": "Vitória SC",
+  "hg": 2,
+  "ag": 0,
+  "v": "Estádio do Sport Lisboa e Benfica",
+  "d": "domingo 11 outubro"
+ },
+ {
+  "s": "Futebol",
+  "c": "Liga Portugal 26/27",
+  "h": "FC Porto",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 1,
+  "v": "Estádio do Dragão",
+  "d": "domingo 20 setembro"
+ },
+ {
+  "s": "Futebol",
+  "c": "Liga Europa UEFA 26/27",
+  "h": "AC Milan",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 2,
+  "v": "San Siro",
+  "d": "quarta-feira 16 setembro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "LIGA BPI | 26/27",
+  "h": "SCU Torreense",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 1,
+  "v": "Campo Manuel Marques",
+  "d": "terça-feira 03 novembro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "Liga dos Campeões Feminina UEFA | 2026/27",
+  "h": "Arsenal FC",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 0,
+  "v": "Meadow Park",
+  "d": "quarta-feira 28 outubro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "LIGA BPI | 26/27",
+  "h": "SL Benfica",
+  "a": "Sporting CP",
+  "hg": 4,
+  "ag": 1,
+  "v": "Estádio do Sport Lisboa e Benfica",
+  "d": "sábado 24 outubro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "LIGA BPI | 26/27",
+  "h": "CS Marítimo",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 4,
+  "v": "Campo Imaculada Conceição",
+  "d": "domingo 18 outubro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "Taça da Liga Feminina | 26/27",
+  "h": "SC Braga",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 6,
+  "v": "Estádio Amélia Morais",
+  "d": "domingo 04 outubro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "Liga dos Campeões Feminina UEFA | 2026/27",
+  "h": "SL Benfica",
+  "a": "Bayern München",
+  "hg": 0,
+  "ag": 3,
+  "v": "Estádio do Sport Lisboa e Benfica",
+  "d": "quarta-feira 30 setembro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "Liga dos Campeões Feminina UEFA | 2026/27",
+  "h": "Juventus FC",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 2,
+  "v": "Estádio Allianz",
+  "d": "terça-feira 22 setembro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "LIGA BPI | 26/27",
+  "h": "Rio Ave FC",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 2,
+  "v": "Estádio dos Arcos",
+  "d": "sexta-feira 18 setembro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "LIGA BPI | 26/27",
+  "h": "SL Benfica",
+  "a": "Racing Power FC",
+  "hg": 3,
+  "ag": 0,
+  "v": "Benfica Campus (campo 1)",
+  "d": "sábado 12 setembro"
+ },
+ {
+  "s": "Futebol Feminino",
+  "c": "Supertaça Feminina de Futebol | 26/27",
+  "h": "SL Benfica",
+  "a": "FC Porto",
+  "hg": 5,
+  "ag": 1,
+  "v": "Estádio do Fontelo",
+  "d": "domingo 06 setembro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Fiba Europe Cup | 26/27",
+  "h": "SL Benfica",
+  "a": "Bakken Bears",
+  "hg": 94,
+  "ag": 79,
+  "v": "Pavilhão Fidelidade (à porta fechada)",
+  "d": "quarta-feira 11 novembro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "CP Esgueira",
+  "hg": 112,
+  "ag": 78,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 07 novembro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Fiba Europe Cup | 26/27",
+  "h": "SL Benfica",
+  "a": "LANDAU Lions",
+  "hg": 97,
+  "ag": 76,
+  "v": "Pavilhão Fidelidade",
+  "d": "quarta-feira 04 novembro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "Portimonense",
+  "a": "SL Benfica",
+  "hg": 72,
+  "ag": 86,
+  "v": "Pavilhão Desportivo da Boavista",
+  "d": "sábado 31 outubro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Fiba Europe Cup | 26/27",
+  "h": "Lions de Geneve",
+  "a": "SL Benfica",
+  "hg": 93,
+  "ag": 90,
+  "v": "Centre Sportif de la Queue-d'Arve",
+  "d": "quarta-feira 28 outubro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "CA Queluz",
+  "a": "SL Benfica",
+  "hg": 72,
+  "ag": 89,
+  "v": "Pavilhão Henrique Miranda",
+  "d": "sábado 24 outubro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Fiba Europe Cup | 26/27",
+  "h": "SL Benfica",
+  "a": "BC Prievidza",
+  "hg": 98,
+  "ag": 83,
+  "v": "Pavilhão Fidelidade",
+  "d": "quarta-feira 21 outubro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "UD Oliveirense",
+  "hg": 92,
+  "ag": 67,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 17 outubro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Fiba Europe Cup | 26/27",
+  "h": "SL Benfica",
+  "a": "Yukatel Denizli Basket",
+  "hg": 96,
+  "ag": 91,
+  "v": "Pavilhão Fidelidade",
+  "d": "quarta-feira 14 outubro"
+ },
+ {
+  "s": "Basquetebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "FC Porto",
+  "a": "SL Benfica",
+  "hg": 93,
+  "ag": 86,
+  "v": "Dragão Arena",
+  "d": "domingo 11 outubro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Campeonato Nacional Liga Feminina | 26/27",
+  "h": "SL Benfica",
+  "a": "União Sportiva",
+  "hg": 96,
+  "ag": 49,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 07 novembro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Euro Cup Women | 26/27",
+  "h": "Saarlouis Royals",
+  "a": "SL Benfica",
+  "hg": 52,
+  "ag": 61,
+  "v": "Stadtgartenhalle Saarlouis",
+  "d": "quarta-feira 04 novembro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Campeonato Nacional Liga Feminina | 26/27",
+  "h": "SL Benfica",
+  "a": "BC Barcelos",
+  "hg": 76,
+  "ag": 70,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 31 outubro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Euro Cup Women | 26/27",
+  "h": "SL Benfica",
+  "a": "Sopron Basket",
+  "hg": 72,
+  "ag": 62,
+  "v": "Pavilhão Fidelidade",
+  "d": "quinta-feira 29 outubro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Euro Cup Women | 26/27",
+  "h": "UZKK Student Nis",
+  "a": "SL Benfica",
+  "hg": 75,
+  "ag": 82,
+  "v": "Sports Centre Cair",
+  "d": "quinta-feira 22 outubro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Campeonato Nacional Liga Feminina | 26/27",
+  "h": "CDE Francisco Franco",
+  "a": "SL Benfica",
+  "hg": 63,
+  "ag": 88,
+  "v": "Pavilhão Francisco Franco",
+  "d": "domingo 18 outubro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Campeonato Nacional Liga Feminina | 26/27",
+  "h": "CAB Madeira",
+  "a": "SL Benfica",
+  "hg": 83,
+  "ag": 73,
+  "v": "Pavilhão do CAB",
+  "d": "sábado 17 outubro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Euro Cup Women | 26/27",
+  "h": "SL Benfica",
+  "a": "Saarlouis Royals",
+  "hg": 69,
+  "ag": 65,
+  "v": "Pavilhão Fidelidade",
+  "d": "terça-feira 13 outubro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Campeonato Nacional Liga Feminina | 26/27",
+  "h": "SL Benfica",
+  "a": "AD Sanjoanense",
+  "hg": 97,
+  "ag": 50,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 10 outubro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Campeonato Nacional Liga Feminina | 26/27",
+  "h": "Sporting CP",
+  "a": "SL Benfica",
+  "hg": 63,
+  "ag": 75,
+  "v": "Pavilhão João Rocha",
+  "d": "domingo 04 outubro"
+ },
+ {
+  "s": "Futsal",
+  "c": "UEFA Futsal Champions League | 26/27",
+  "h": "Tigers Roermond",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 7,
+  "v": "Sporthal Jo Gerrishal",
+  "d": "sábado 31 outubro"
+ },
+ {
+  "s": "Futsal",
+  "c": "UEFA Futsal Champions League | 26/27",
+  "h": "El Pozo",
+  "a": "SL Benfica",
+  "hg": 2,
+  "ag": 3,
+  "v": "Sporthal Jo Gerrishal",
+  "d": "quinta-feira 29 outubro"
+ },
+ {
+  "s": "Futsal",
+  "c": "UEFA Futsal Champions League | 26/27",
+  "h": "SL Benfica",
+  "a": "FC HIT Kyiv",
+  "hg": 4,
+  "ag": 4,
+  "v": "Sporthal Jo Gerrishal",
+  "d": "quarta-feira 28 outubro"
+ },
+ {
+  "s": "Futsal",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "AD Fundão",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 2,
+  "v": "Pavilhão Municipal do Fundão",
+  "d": "sábado 10 outubro"
+ },
+ {
+  "s": "Futsal",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "Leões de Porto Salvo",
+  "hg": 6,
+  "ag": 2,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 03 outubro"
+ },
+ {
+  "s": "Futsal",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "Sporting CP",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 3,
+  "v": "Pavilhão João Rocha",
+  "d": "domingo 27 setembro"
+ },
+ {
+  "s": "Futsal",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "Portimonense SC",
+  "a": "SL Benfica",
+  "hg": 2,
+  "ag": 2,
+  "v": "Pavilhão Gimnodesportivo de Portimão ",
+  "d": "sábado 19 setembro"
+ },
+ {
+  "s": "Futsal",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "UP Venda Nova",
+  "hg": 4,
+  "ag": 1,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 12 setembro"
+ },
+ {
+  "s": "Futsal",
+  "c": "Supertaça Masculina| 26/27",
+  "h": "SL Benfica",
+  "a": "Sporting CP",
+  "hg": 2,
+  "ag": 3,
+  "v": "Pavilhão Municipal de Vila do Conde",
+  "d": "sábado 05 setembro"
+ },
+ {
+  "s": "Futsal",
+  "c": "International Masters Futsal | 2026",
+  "h": "SL Benfica",
+  "a": "Palma Futsal",
+  "hg": 2,
+  "ag": 3,
+  "v": "Portimão Arena",
+  "d": "domingo 30 agosto"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "Atlético CP",
+  "hg": 5,
+  "ag": 2,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sábado 07 novembro"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "GCR Nun'álvares",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 3,
+  "v": "Pavilhão do GCR Nun'Álvares",
+  "d": "sábado 31 outubro"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "Novasemente",
+  "hg": 5,
+  "ag": 0,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 24 outubro"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "Santa Luzia FC",
+  "hg": 4,
+  "ag": 1,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sábado 17 outubro"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Leões de Porto Salvo",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 1,
+  "v": "Pavilhão Do Leões Porto Salvo",
+  "d": "sábado 26 setembro"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "SCU Torreense",
+  "hg": 4,
+  "ag": 0,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 19 setembro"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Futsal Feijó",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 6,
+  "v": "Pavilhão Escola Sec. Romeu Correia",
+  "d": "domingo 13 setembro"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Supertaça Futsal Feminino| 26/27",
+  "h": "SL Benfica",
+  "a": "GCR Nun'álvares",
+  "hg": 3,
+  "ag": 1,
+  "v": "Pavilhão Municipal de Vila do Conde",
+  "d": "sábado 05 setembro"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Copa Ibérica Futsal Feminino | 2026",
+  "h": "SL Benfica",
+  "a": "Castro FSF",
+  "hg": 0,
+  "ag": 0,
+  "v": "Pavillón Piño Vilachá",
+  "d": "domingo 30 agosto"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Copa Ibérica Futsal Feminino | 2026",
+  "h": "SL Benfica",
+  "a": "Futsi Atlético Navalcarnero",
+  "hg": 0,
+  "ag": 0,
+  "v": "Pavillón Piño Vilachá",
+  "d": "sábado 29 agosto"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "FC Porto",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 2,
+  "v": "Dragão Arena",
+  "d": "quarta-feira 11 novembro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Supertaça António Livramento | 2026",
+  "h": "SL Benfica",
+  "a": "Sporting CP",
+  "hg": 3,
+  "ag": 2,
+  "v": "Pavilhão Municipal de Santo Tirso",
+  "d": "sábado 07 novembro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Elite Cup 26/27",
+  "h": "SL Benfica",
+  "a": "OC Barcelos",
+  "hg": 1,
+  "ag": 2,
+  "v": "Pavilhão Municipal de Santo Tirso",
+  "d": "sábado 31 outubro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Elite Cup 26/27",
+  "h": "SL Benfica",
+  "a": "AD Valongo",
+  "hg": 6,
+  "ag": 1,
+  "v": "Pavilhão Municipal de Santo Tirso",
+  "d": "quinta-feira 29 outubro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Jogo Amigável 26/27",
+  "h": "SC Tomar",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 0,
+  "v": "Pavilhão Municipal Patrícia Sampaio",
+  "d": "sábado 24 outubro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Taça Jesus Correia | 26/27",
+  "h": "Sporting CP",
+  "a": "SL Benfica",
+  "hg": 6,
+  "ag": 4,
+  "v": "Pavilhão AE Física ",
+  "d": "sábado 17 outubro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Taça Jesus Correia | 26/27",
+  "h": "SL Benfica",
+  "a": "GRF Murches",
+  "hg": 6,
+  "ag": 1,
+  "v": "Pavilhão da Parede",
+  "d": "sábado 10 outubro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Taça Jesus Correia | 26/27",
+  "h": "Stuart HC Massamá",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 10,
+  "v": "Pavilhão Professor João Campelo",
+  "d": "sexta-feira 25 setembro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Taça Jesus Correia | 26/27",
+  "h": "Parede FC",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 7,
+  "v": "Pavilhão da Parede",
+  "d": "terça-feira 22 setembro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Taça Jesus Correia | 26/27",
+  "h": "APAC Tojal",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 2,
+  "v": "Polidesportivo de S. Julião do Tojal",
+  "d": "sábado 19 setembro"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Supertaça Feminina de hóquei | 2026",
+  "h": "SL Benfica",
+  "a": "Stuart Massamá",
+  "hg": 3,
+  "ag": 1,
+  "v": "Pavilhão Municipal de Santo Tirso",
+  "d": "sábado 07 novembro"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Elite Cup Feminina | 26/27",
+  "h": "SL Benfica",
+  "a": "AD Sanjoanense",
+  "hg": 4,
+  "ag": 2,
+  "v": "Pavilhão Municipal de Santo Tirso",
+  "d": "domingo 01 novembro"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Elite Cup Feminina | 26/27",
+  "h": "SL Benfica",
+  "a": "Escola Livre",
+  "hg": 5,
+  "ag": 1,
+  "v": "Pavilhão Municipal de Santo Tirso",
+  "d": "sábado 31 outubro"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 25/26",
+  "h": "ACD Gulpilhares",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 4,
+  "v": "Pavilhão Municipal de Gulpilhares",
+  "d": "sábado 27 junho"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 25/26",
+  "h": "SL Benfica",
+  "a": "ACD Gulpilhares",
+  "hg": 7,
+  "ag": 0,
+  "v": "Pavilhão Fidelidade",
+  "d": "domingo 21 junho"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 25/26",
+  "h": "AD Sanjoanense",
+  "a": "SL Benfica",
+  "hg": 5,
+  "ag": 7,
+  "v": "Pavilhão da Associação Desportiva Sanjoanense",
+  "d": "quarta-feira 10 junho"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 25/26",
+  "h": "SL Benfica",
+  "a": "AD Sanjoanense",
+  "hg": 4,
+  "ag": 2,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 30 maio"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 25/26",
+  "h": "SL Benfica",
+  "a": "AA Coimbra",
+  "hg": 12,
+  "ag": 0,
+  "v": "Pavilhão Fidelidade",
+  "d": "domingo 24 maio"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 25/26",
+  "h": "Escola Livre",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 3,
+  "v": "Pavilhão Escola Livre de Azemeis",
+  "d": "domingo 17 maio"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 25/26",
+  "h": "HC Maia",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 9,
+  "v": "Pavilhão Municipal Nortecoope",
+  "d": "sábado 16 maio"
+ },
+ {
+  "s": "Andebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "Vitória SC",
+  "a": "SL Benfica",
+  "hg": 25,
+  "ag": 37,
+  "v": "Pavilhão Desportivo Unidade Vimaranense",
+  "d": "sábado 31 outubro"
+ },
+ {
+  "s": "Andebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "Marítimo Madeira",
+  "a": "SL Benfica",
+  "hg": 28,
+  "ag": 27,
+  "v": "Pavilhão do CS Marítimo",
+  "d": "domingo 25 outubro"
+ },
+ {
+  "s": "Andebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "AD Carvalhos",
+  "a": "SL Benfica",
+  "hg": 26,
+  "ag": 35,
+  "v": "Pavilhão Municipal de Vila Nova de Gaia",
+  "d": "segunda-feira 19 outubro"
+ },
+ {
+  "s": "Andebol",
+  "c": "EHF European League | 26/27",
+  "h": "HCB Karvina",
+  "a": "SL Benfica",
+  "hg": 26,
+  "ag": 35,
+  "v": "Hala STaRS",
+  "d": "terça-feira 13 outubro"
+ },
+ {
+  "s": "Andebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "Belenenses",
+  "hg": 35,
+  "ag": 31,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sábado 10 outubro"
+ },
+ {
+  "s": "Andebol",
+  "c": "EHF European League | 26/27",
+  "h": "TTH Holstebro",
+  "a": "SL Benfica",
+  "hg": 32,
+  "ag": 31,
+  "v": "Gräkjaer Arena ",
+  "d": "terça-feira 06 outubro"
+ },
+ {
+  "s": "Andebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "GC Santo Tirso",
+  "hg": 38,
+  "ag": 21,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sábado 03 outubro"
+ },
+ {
+  "s": "Andebol",
+  "c": "EHF European League | 26/27",
+  "h": "SL Benfica",
+  "a": "BM Torrelavega",
+  "hg": 24,
+  "ag": 31,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "terça-feira 29 setembro"
+ },
+ {
+  "s": "Andebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "ABC de Braga",
+  "a": "SL Benfica",
+  "hg": 34,
+  "ag": 39,
+  "v": "Pavilhão Flávio Sá Leite",
+  "d": "sábado 26 setembro"
+ },
+ {
+  "s": "Andebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "AA Avanca",
+  "hg": 38,
+  "ag": 20,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "quarta-feira 23 setembro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "AA Espinho",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 3,
+  "v": "Pavilhão Arquitecto Jerónimo Reis.",
+  "d": "sábado 07 novembro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "Clube K",
+  "hg": 3,
+  "ag": 0,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 31 outubro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "AA São Mamede",
+  "hg": 3,
+  "ag": 0,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sábado 24 outubro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Supertaça Masculina 2026",
+  "h": "Sporting CP",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 0,
+  "v": "Pavilhão Cidade de Viseu",
+  "d": "sábado 17 outubro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Taça Ibérica | 2026",
+  "h": "CV Melilla",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 3,
+  "v": "Gran Canaria Arena",
+  "d": "domingo 11 outubro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Taça Ibérica | 2026",
+  "h": "CV Guaguas",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 0,
+  "v": "Gran Canaria Arena",
+  "d": "sábado 10 outubro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Jogo amigável | 26/27",
+  "h": "Unicaja Almería Voley",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 3,
+  "v": "Pavilhão Moisés Ruiz",
+  "d": "quarta-feira 07 outubro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Jogo amigável | 26/27",
+  "h": "Unicaja Almería Voley",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 0,
+  "v": "Pavilhão Moisés Ruiz",
+  "d": "terça-feira 06 outubro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Jogo de Apresentação | 26/27",
+  "h": "SL Benfica",
+  "a": "Leixões SC",
+  "hg": 3,
+  "ag": 1,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sexta-feira 02 outubro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Campeonato Nacional Masculino | 25/26",
+  "h": "Sporting CP",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 0,
+  "v": "Pavilhão João Rocha",
+  "d": "quarta-feira 06 maio"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "GC Vilacondense",
+  "hg": 3,
+  "ag": 0,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "domingo 08 novembro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "CEV Challenge Cup Women | 26/27",
+  "h": "SL Benfica",
+  "a": "Olympiacos PIRAEUS",
+  "hg": 2,
+  "ag": 3,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "quarta-feira 04 novembro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Leixões SC",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 2,
+  "v": "Nave Ilídio Ramos ",
+  "d": "domingo 01 novembro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "CEV Challenge Cup Women | 26/27",
+  "h": "Olympiacos PIRAEUS",
+  "a": "SL Benfica",
+  "hg": 3,
+  "ag": 2,
+  "v": "Melina Mercouri Rentis",
+  "d": "terça-feira 27 outubro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "SC Braga",
+  "hg": 3,
+  "ag": 0,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sexta-feira 23 outubro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "PV Colégio Efanor",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 3,
+  "v": "Pavilhão do Colégio Efanor",
+  "d": "domingo 18 outubro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Clube K",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 3,
+  "v": "(menos uma hora nos Açores) Complexo Desportivo das Laranjeiras",
+  "d": "domingo 11 outubro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Jogo de Apresentação | 26/27",
+  "h": "SL Benfica",
+  "a": "PV Colégio Efanor",
+  "hg": 3,
+  "ag": 0,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "domingo 04 outubro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Torneio das Vindimas 2026",
+  "h": "SL Benfica",
+  "a": "Sporting CP",
+  "hg": 3,
+  "ag": 1,
+  "v": "Pavilhão Multiusos de Lamego",
+  "d": "sábado 26 setembro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Torneio Internacional de Voleibol | 19/20",
+  "h": "Sporting CP",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 0,
+  "v": "Pavilhão Multiusos de Lamego",
+  "d": "sábado 26 setembro"
+ }
+]

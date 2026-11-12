@@ -1,0 +1,20 @@
+{
+ "robo": {
+  "agenda": 109,
+  "resultados_Futebol": 10,
+  "resultados_Futebol Feminino": 10,
+  "resultados_Basquetebol": 10,
+  "resultados_Basquetebol Feminino": 10,
+  "resultados_Futsal": 10,
+  "resultados_Futsal Feminino": 10,
+  "resultados_Hóquei em Patins": 10,
+  "resultados_Hóquei em Patins Feminino": 10,
+  "resultados_Andebol": 10,
+  "resultados_Voleibol": 10,
+  "resultados_Voleibol Feminino": 10
+ },
+ "agente": {
+  "ativo": false
+ },
+ "atualizado": "2026-11-12T14:05:26Z"
+}
