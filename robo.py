@@ -100,11 +100,43 @@ def save(name, value):
 
 
 # ---------------------------------------------------------------- agente (Gemini)
+_model = None
+
+
+def pick_model():
+    """Escolhe sozinho o modelo "flash" mais recente disponível para esta chave (os nomes mudam com o tempo)."""
+    global _model
+    if _model:
+        return _model
+    try:
+        req = urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/models?pageSize=200",
+                                     headers={"x-goog-api-key": GEMINI_KEY})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            models = json.loads(r.read().decode()).get("models", [])
+        names = []
+        for m in models:
+            name = m.get("name", "").split("/")[-1]
+            if "generateContent" not in m.get("supportedGenerationMethods", []):
+                continue
+            if "flash" not in name or any(w in name for w in ("lite", "image", "tts", "audio", "live", "exp", "thinking")):
+                continue
+            ver = re.search(r"gemini-(\d+(?:\.\d+)?)", name)
+            names.append((float(ver.group(1)) if ver else 0, "preview" not in name, "latest" in name, name))
+        if names:
+            _model = max(names)[3]
+    except Exception as e:
+        log("não consegui ver os modelos:", type(e).__name__)
+    _model = _model or GEMINI_MODEL
+    log("agente: modelo", _model)
+    status["agente"]["modelo"] = _model
+    return _model
+
+
 def gemini(prompt, timeout=90):
     """Pergunta ao Gemini e devolve JSON. Devolve None se não houver chave ou falhar."""
     if not GEMINI_KEY:
         return None
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{pick_model()}:generateContent"
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0},
@@ -117,6 +149,7 @@ def gemini(prompt, timeout=90):
         with urllib.request.urlopen(req, timeout=timeout) as r:
             d = json.loads(r.read().decode())
         text = d["candidates"][0]["content"]["parts"][0]["text"]
+        status["agente"]["ok"] = True
         return json.loads(text)
     except urllib.error.HTTPError as e:
         # 429 = acabaram os pedidos grátis do dia: o robô continua sozinho.
