@@ -124,20 +124,31 @@ def pick_model():
             ver = re.search(r"gemini-(\d+(?:\.\d+)?)", name)
             names.append((float(ver.group(1)) if ver else 0, "preview" not in name, "latest" in name, name))
         if names:
-            _model = max(names)[3]
+            _model = [n[3] for n in sorted(names, reverse=True)][:4]
     except Exception as e:
         log("não consegui ver os modelos:", type(e).__name__)
-    _model = _model or GEMINI_MODEL
-    log("agente: modelo", _model)
-    status["agente"]["modelo"] = _model
+    _model = _model or [GEMINI_MODEL]
+    log("agente: modelos", ", ".join(_model))
     return _model
 
 
-def gemini(prompt, timeout=120):
+def gemini(prompt, timeout=90):
     """Pergunta ao Gemini e devolve JSON. Devolve None se não houver chave ou falhar."""
     if not GEMINI_KEY:
         return None
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{pick_model()}:generateContent"
+    for model in pick_model():
+        result = _ask_model(model, prompt, timeout)
+        if result is not _BUSY:
+            return result
+    return None
+
+
+_BUSY = object()
+
+
+def _ask_model(model, prompt, timeout):
+    """Um modelo. Devolve _BUSY se estiver ocupado/lento (tenta-se o seguinte)."""
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
     def ask(fast):
         config = {"responseMimeType": "application/json", "temperature": 0}
         if fast:
@@ -159,19 +170,20 @@ def gemini(prompt, timeout=120):
             if e.code != 400:
                 raise
             d = ask(False)  # modelo que não aceita a opção "pensar pouco"
-        log("agente respondeu em %.0f s" % (time.time() - started))
+        log("agente (%s) respondeu em %.0f s" % (model, time.time() - started))
+        status["agente"]["modelo"] = model
         text = d["candidates"][0]["content"]["parts"][0]["text"]
         status["agente"]["ok"] = True
         return json.loads(text)
     except urllib.error.HTTPError as e:
-        # 429 = acabaram os pedidos grátis do dia: o robô continua sozinho.
-        log("agente indisponível:", e.code)
+        # 429 = acabaram os pedidos grátis do dia deste modelo; 503 = ocupado: tenta o seguinte.
+        log("agente (%s) indisponível: %s" % (model, e.code))
         status["agente"]["erro"] = e.code
-        return None
+        return _BUSY if e.code in (404, 429, 500, 503) else None
     except Exception as e:
-        log("agente falhou:", type(e).__name__)
+        log("agente (%s) falhou: %s" % (model, type(e).__name__))
         status["agente"]["erro"] = type(e).__name__
-        return None
+        return _BUSY
 
 
 # ---------------------------------------------------------------- agenda
