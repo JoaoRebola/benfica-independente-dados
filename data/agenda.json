@@ -21,13 +21,6 @@
   "sport": "Casas Benfica"
  },
  {
-  "t": 1794598200000,
-  "title": "SL Benfica vs HK SK CHEB",
-  "detail": "EHF European League Women | 26/27 - round Jornada 3 (F)",
-  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "sport": "Andebol"
- },
- {
   "t": 1794646800000,
   "title": "Algarve International Meeting",
   "detail": "| dia 2 |",
@@ -602,6 +595,13 @@
   "sport": "Hóquei em Patins"
  },
  {
+  "t": 1796742000000,
+  "title": "GC Santo Tirso vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 18 (M)",
+  "loc": "Pavilhão Municipal de Santo Tirso",
+  "sport": "Andebol"
+ },
+ {
   "t": 1796828400000,
   "title": "SL Benfica vs GNK Dinamo",
   "detail": "UEFA Liga Jovem 26/27 - round (M)",
@@ -621,6 +621,13 @@
   "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 15 (M)",
   "loc": "",
   "sport": "Futebol"
+ },
+ {
+  "t": 1797102000000,
+  "title": "SL Benfica vs ABC de Braga",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 12 (F)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Andebol"
  },
  {
   "t": 1797120000000,
@@ -663,6 +670,27 @@
   "detail": "Liga dos Campeões Feminina UEFA | 2026/27 - Jornada 6 (F)",
   "loc": "Koge Stadium",
   "sport": "Futebol Feminino"
+ },
+ {
+  "t": 1797454800000,
+  "title": "AA Avanca vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 16 (M)",
+  "loc": "Pavilhão Comendador Adelino Dias Costa",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1797699600000,
+  "title": "SL Benfica vs ABC de Braga",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 17 (M)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1797703200000,
+  "title": "CDE Gil Eanes vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 13 (F)",
+  "loc": "Pavilhão da Escola Secundária Gil Eanes",
+  "sport": "Andebol"
  },
  {
   "t": 1797764400000,
@@ -725,34 +753,6 @@
   "title": "Sporting CP vs SL Benfica",
   "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 17 (M)",
   "loc": "",
-  "sport": "Futebol"
- },
- {
-  "t": 1799582400000,
-  "title": "FC Arouca vs SL Benfica",
-  "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
-  "loc": "Estádio Municipal de Arouca",
-  "sport": "Futebol"
- },
- {
-  "t": 1799582400000,
-  "title": "Porto B vs SL Benfica B",
-  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
-  "loc": "Estádio Dr. Jorge Sampaio",
-  "sport": "Futebol"
- },
- {
-  "t": 1800111600000,
-  "title": "SL Benfica vs Casa Pia AC",
-  "detail": "Campeonato Sub-19 26/27 - Jornada 18 (M)",
-  "loc": "",
-  "sport": "Futebol"
- },
- {
-  "t": 1800187200000,
-  "title": "Académico Viseu FC vs SL Benfica",
-  "detail": "Liga Portugal 26/27 - Jornada 18 (M)",
-  "loc": "Estádio do Fontelo",
   "sport": "Futebol"
  },
  {
