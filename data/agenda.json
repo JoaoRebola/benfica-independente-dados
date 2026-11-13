@@ -133,6 +133,13 @@
   "sport": "Rugby"
  },
  {
+  "t": 1794754800000,
+  "title": "HK SK CHEB vs SL Benfica",
+  "detail": "EHF European League Women | 26/27 - round Jornada 4 (F)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Andebol"
+ },
+ {
   "t": 1794760200000,
   "title": "Maia FC vs SL Benfica",
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 8 (F)",
@@ -299,6 +306,13 @@
   "detail": "Taça de Portugal 26/27 - Fase 4 Jornada 1 (M)",
   "loc": "Estádio Nacional do Jamor",
   "sport": "Futebol"
+ },
+ {
+  "t": 1795456800000,
+  "title": "Kauno Zalgiris vs SL Benfica",
+  "detail": "UEFA Futsal Champions League | 26/27 - Oitavos de Final Jornada 1 (M)",
+  "loc": "S. Darius & S. Girenas Sport Center",
+  "sport": "Futsal"
  },
  {
   "t": 1795460400000,
@@ -506,7 +520,7 @@
  {
   "t": 1796414400000,
   "title": "SL Benfica vs Kauno Zalgiris",
-  "detail": "UEFA Futsal Champions League | 26/27 - Grupo I Jornada 4 (M)",
+  "detail": "UEFA Futsal Champions League | 26/27 - Oitavos de Final Jornada 2 (M)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Futsal"
  },
@@ -739,13 +753,6 @@
   "title": "Académico Viseu FC vs SL Benfica",
   "detail": "Liga Portugal 26/27 - Jornada 18 (M)",
   "loc": "Estádio do Fontelo",
-  "sport": "Futebol"
- },
- {
-  "t": 1800187200000,
-  "title": "Leixões SC vs SL Benfica B",
-  "detail": "Segunda Liga 26/27 - Jornada 18 (M)",
-  "loc": "Estádio do Mar",
   "sport": "Futebol"
  },
  {
