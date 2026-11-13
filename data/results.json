@@ -101,6 +101,16 @@
  },
  {
   "s": "Futebol Feminino",
+  "c": "Liga dos Campeões Feminina UEFA | 2026/27",
+  "h": "SL Benfica",
+  "a": "Áustria Viena",
+  "hg": 3,
+  "ag": 1,
+  "v": "Estádio do Sport Lisboa e Benfica",
+  "d": "quinta-feira 12 novembro"
+ },
+ {
+  "s": "Futebol Feminino",
   "c": "LIGA BPI | 26/27",
   "h": "SCU Torreense",
   "a": "SL Benfica",
@@ -188,16 +198,6 @@
   "ag": 0,
   "v": "Benfica Campus (campo 1)",
   "d": "sábado 12 setembro"
- },
- {
-  "s": "Futebol Feminino",
-  "c": "Supertaça Feminina de Futebol | 26/27",
-  "h": "SL Benfica",
-  "a": "FC Porto",
-  "hg": 5,
-  "ag": 1,
-  "v": "Estádio do Fontelo",
-  "d": "domingo 06 setembro"
  },
  {
   "s": "Basquetebol",

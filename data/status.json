@@ -1,6 +1,6 @@
 {
  "robo": {
-  "agenda": 109,
+  "agenda": 108,
   "resultados_Futebol": 10,
   "resultados_Futebol Feminino": 10,
   "resultados_Basquetebol": 10,
@@ -14,11 +14,7 @@
   "resultados_Voleibol Feminino": 10
  },
  "agente": {
-  "ativo": true,
-  "erro": 503,
-  "modelo": "gemini-3.6-flash",
-  "ok": true,
-  "videos": 2
+  "ativo": true
  },
- "atualizado": "2026-11-12T14:38:46Z"
+ "atualizado": "2026-11-13T02:13:07Z"
 }

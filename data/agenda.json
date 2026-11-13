@@ -1,19 +1,5 @@
 [
  {
-  "t": 1794501600000,
-  "title": "Portimão International Cup",
-  "detail": "| Sub 14 | Benfica x AF Atlântico",
-  "loc": "Portimão",
-  "sport": "Futebol"
- },
- {
-  "t": 1794513600000,
-  "title": "SL Benfica vs Áustria Viena",
-  "detail": "Liga dos Campeões Feminina UEFA | 2026/27 - Jornada 4 (F)",
-  "loc": "Estádio do Sport Lisboa e Benfica",
-  "sport": "Futebol Feminino"
- },
- {
   "t": 1794560400000,
   "title": "Portimão International Cup",
   "detail": "| Sub 14 | -09h00 Benfica x Lincoln Red -11h30 Benfica x Birmingham City -13h10 Benfica x Real Betis",
@@ -753,6 +739,13 @@
   "title": "Académico Viseu FC vs SL Benfica",
   "detail": "Liga Portugal 26/27 - Jornada 18 (M)",
   "loc": "Estádio do Fontelo",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1800187200000,
+  "title": "Leixões SC vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 18 (M)",
+  "loc": "Estádio do Mar",
   "sport": "Futebol"
  },
  {
