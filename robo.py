@@ -5,7 +5,6 @@ Corre sozinho no GitHub (de 30 em 30 minutos) e prepara para a app:
   data/agenda.json    - próximos jogos de todas as modalidades
   data/results.json   - últimos resultados das equipas principais
   data/videos.json    - programa de cada vídeo do canal que as regras não reconhecem
-  data/highlights.json - vídeos oficiais de resumos (todas as modalidades)
   data/summaries.json - crónica de cada jogo de futebol já terminado
   data/club.json      - ficha do clube e do estádio (TheSportsDB)
   data/history.json   - história e palmarés de todas as modalidades (Wikipédia)
@@ -616,7 +615,7 @@ def plain_summary(f):
 
 def do_summaries():
     done = {m["id"]: m for m in load("summaries.json", [])}
-    highlights = load("highlights.json", [])
+    highlights = []  # sem resumos em vídeo (decisão do utilizador)
     sched = json.loads(get(f"{ESPN}/all/teams/1929/schedule", timeout=40))
     finished = []
     for e in sched.get("events", []):
@@ -819,7 +818,7 @@ def do_history():
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_highlights, do_summaries, do_club, do_history):
+    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history):
         try:
             step()
         except Exception as e:
