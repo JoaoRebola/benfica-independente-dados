@@ -1,37 +1,138 @@
 {
  "semana": "2026-46",
- "agente": false,
+ "agente": true,
  "capitulos": [
   {
-   "titulo": "História",
-   "texto": "Ver artigos principais: Cronologia do Sport Lisboa e Benfica e História do Sport Lisboa e Benfica\nA primeira equipa do Benfica, em 1905\nO Sport Lisboa e Benfica foi fundado a 28 de fevereiro de 1904, na Farmácia Franco, em Belém, por um grupo liderado por Cosme Damião, figura central na formação do clube. Inicialmente chamado Sport Lisboa, adotou as cores vermelha e branca e o lema E pluribus unum. Em 13 de setembro de 1908, fundiu-se com o Grupo Sport Benfica, passando a denominar-se Sport Lisboa e Benfica e adotando a águia como símbolo e a roda da bicicleta no emblema, representando o ciclismo, e usando o o Campo da Feiteira para a prática futebolista."
+   "titulo": "Nascimento em Belém e Fusão Histórica",
+   "texto": "Em dezembro de 1903, desafios disputados nas Salésias motivaram a união entre os atletas da Associação do Bem e do Grupo dos Catataus. A 28 de fevereiro de 1904, nas traseiras da Farmácia Franco, foi formalizada a fundação do Sport Lisboa por ex-alunos da Casa Pia, incluindo Cosme Damião. O novo clube adotou o equipamento vermelho e branco, o emblema com a águia e a divisa latim. Pouco depois, em 1906, surgiu o Grupo Sport Benfica, uma agremiação virada para o ciclismo e atletismo com terreno na Quinta da Feiteira. Perante severas dificuldades financeiras e a perda de jogadores, o Sport Lisboa uniu-se ao Sport Clube de Benfica em setembro de 1908. A fusão deu origem ao Sport Lisboa e Benfica, mantendo a identidade visual da equipa de Belém e a infraestrutura dos benfiquistas."
   },
   {
-   "titulo": "História",
-   "texto": "Durante as décadas de 1910 e 1920, o Benfica consolidou-se como um dos principais clubes de Lisboa, vencendo diversos Campeonatos de Lisboa e inaugurando o seu primeiro estádio próprio, o Estádio das Amoreiras, em 1925. O clube expandiu-se também a outras modalidades, como basquetebol e hóquei em patins, demonstrando o ecletismo do clube."
+   "titulo": "Crescimento Regional e Primeiros Títulos",
+   "texto": "Durante a década de 1910, o clube estabeleceu a sua hegemonia no Campeonato de Lisboa, arrecadando sete troféus regionais. O percurso ficou marcado pela transição entre vários campos de jogo, fixando-se no campo de Benfica em 1917, onde se realizaram encontros noturnos pioneiros. A integração do Desportos de Benfica em 1916 dotou o clube de uma sede imponente e instalações desportivas variadas. Em 1925, foi inaugurado o Estádio das Amoreiras, a primeira casa própria com capacidade para 15 mil pessoas. O Benfica iniciou os seus êxitos em provas nacionais ao vencer as edições do Campeonato de Portugal em 1929–30 e 1930–31. Além disso, a popularidade do ciclista José Maria Nicolau espalhou a mística encarnada pelo país."
   },
   {
-   "titulo": "História",
-   "texto": "Nos anos 1930, o clube conquistou os seus primeiros títulos nacionais no Campeonato de Portugal e tornou-se o primeiro tricampeão nacional. Figuras como Vítor Silva e Gaspar Pinto marcaram este período. A década de 1940 trouxe um novo periodo de sucesso com János Biri, conquistando três campeonatos e três Taças de Portugal, além das primeiras conquistas no basquetebol."
+   "titulo": "Domínio Nacional nas Amoreiras e no Campo Grande",
+   "texto": "A afirmação como potência do futebol português consolidou-se na década de 1930 com a conquista do primeiro tricampeonato nacional entre 1935 e 1938, sob o comando do técnico húngaro Lippo Hertzka. Em 1940, o clube deixou as Amoreiras para jogar no Estádio do Campo Grande. Orientada por János Biri, a equipa dominou os anos 40 ao vencer três campeonatos e conquistar a sua primeira dobradinha em 1943. O ecletismo fortaleceu-se com os primeiros títulos nacionais no basquetebol e a fundação de diversas secções modalidades. A década encerrou com mais uma vitória na Taça de Portugal em 1948–49."
   },
   {
-   "titulo": "História",
-   "texto": "A águia à porta do Estádio da Luz.\nEm 1950 o Benfica conquista a Taça Latina, o primeiro troféu internacional ganho por um português, e em 1954 foi inaugurado o Estádio da Luz. Sob o comando de Otto Glória, o Benfica profissionalizou a sua estrutura, o que rendeu diversos títulos nacionais. A década de '60 foi a mais gloriosa na história do Benfica: sob Béla Guttmann, o clube conquistou duas Taças dos Campeões Europeus (1961 e 1962) e dominou o futebol nacional, vencendo oito campeonatos durante a década, com Eusébio, Coluna, José Águas, entre outros contribuindo para tal. O Benfica foi nomeado “melhor equipa europeia” em 1965, 1966 e 1969."
+   "titulo": "A Conquista da Luz e a Taça Latina",
+   "texto": "O início dos anos 50 marcou a internacionalização do clube com a conquista da Taça Latina em 1950, ao bater o Bordéus no Estádio Nacional após dois prolongamentos. Sob a presidência de Joaquim Ferreira Bogalho, o Benfica inaugurou em 1954 o Estádio da Luz. A chegada do treinador Otto Glória revolucionou o futebol encarnado ao introduzir métodos profissionais e exigentes de treino. A equipa conquistou os campeonatos de 1954–55 e 1956–57 com respetivas dobradinhas. O clube estreou-se nas competições europeias na época 1957–58, abrindo caminho para o período mais glorioso da sua história."
   },
   {
-   "titulo": "História",
-   "texto": "Eusébio em 1968, lendário jogador do Benfica, que vestiu a camisola do clube de 1961–1975.\nNos anos 1970, com Jimmy Hagan e depois John Mortimore, o Benfica manteve a hegemonia doméstica, conseguindo dois tricampeonatos e passando duas edições invicto. Jogadores como Nené, Toni e Humberto Coelho destacaram-se e, nas modalidades, o clube continuou a obter sucesso."
+   "titulo": "Bicampeões da Europa e a Era Eusébio",
+   "texto": "A década de 1960 representou o auge europeu do Benfica sob a liderança do treinador Béla Guttmann. Em 1961, as águias venceram o Barcelona por 3–2 em Berna e conquistaram a sua primeira Taça dos Clubes Campeões Europeus. No ano seguinte, já com Eusébio em destaque no ataque, o clube alcançou o bicampeonato europeu ao derrotar o Real Madrid por 5–3 em Amesterdão. O desempenho desportivo rendeu a Eusébio a atribuição da Bola de Ouro em 1965. No plano interno, o clube somou sete campeonatos nacionais e chegou a mais três finais da Taça dos Campeões."
   },
   {
-   "titulo": "História",
-   "texto": "A década de 1980 trouxe o regresso ao protagonismo europeu: o Benfica alcançou a final da Taça UEFA em 1983 e a final da Taça dos Campeões Europeus de 1988, sob Eriksson e Toni. No cenário doméstico, conquistou cinco campeonatos e seis Taças de Portugal. Em 1985 foi inaugurado o terceiro anel do Estádio da Luz, tornando-o no maior estádio da Europa."
+   "titulo": "Percurso Invicto e Mudança de Paradigma",
+   "texto": "Orientado pelo técnico inglês Jimmy Hagan no início da década de 1970, o Benfica manteve a supremacia nacional ao vencer três campeonatos consecutivos. Na época 1972–73, o clube fez história ao sagrar-se o primeiro campeão invicto do futebol português, registando 28 vitórias em 30 jornadas. A Revolução dos Cravos e a perda das colónias alteraram o recrutamento de atletas, forçando a venda de talentos para o estrangeiro. Apesar das dificuldades financeiras, a equipa alcançou o seu quinto tricampeonato em 1976–77. Em 1979, os sócios aprovaram a contratação de futebolistas estrangeiros, estreando o brasileiro Jorge Gomes."
   },
   {
-   "titulo": "História",
-   "texto": "Nos anos 1990, o Benfica voltou à Taça dos Campeões Europeus de 1990, mas a partir de meados da década passou por uma grave crise financeira e desportiva, ficando onze anos sem vencer o campeonato. As modalidades viveram um dos seus períodos mais vitoriosos, sobretudo no basquetebol e hóquei."
+   "titulo": "A Revolução de Eriksson e o Maior Estádio da Europa",
+   "texto": "O treinador sueco Sven-Göran Eriksson revolucionou o futebol benfiquista a partir de 1982, conquistando dois campeonatos e levando a equipa à final da Taça UEFA. Sob a presidência de Fernando Martins, o Estádio da Luz foi ampliado com o fecho do terceiro anel em 1985, atingindo a capacidade de 120 mil lugares. O clube conquistou dobradinhas marcantes e atingiu a final da Taça dos Clubes Campeões Europeus em 1988 sob o comando de Toni. O regresso de Eriksson em 1989 culminou no troféu da Supertaça e noutra final europeia no ano seguinte. O ciclo de sucessos encerrou com o campeonato de 1990–91, conquistado com apenas uma derrota."
+  },
+  {
+   "titulo": "Crise Financeira e a Seca de Títulos",
+   "texto": "Apesar da vitória no campeonato de 1993–94 com uma célebre goleada de 6–3 ao Sporting, o Benfica entrou numa profunda crise financeira e desportiva na década de 1990. A instabilidade diretiva e os investimentos avultados sem retorno provocaram a saída prematura de jogadores nucleares. Sob a liderança de Manuel Damásio e mais tarde de João Vale e Azevedo, o clube enfrentou constantes trocas de treinadores e maus resultados desportivos. O jejum no campeonato prolongou-se por onze anos, atenuado apenas pela vitória na Taça de Portugal em 1996. Em contrapartida, as secções de basquetebol e hóquei em patins mantiveram-se competitivas."
+  },
+  {
+   "titulo": "A Nova Casa e o Fim do Jejum",
+   "texto": "O início do novo milénio trouxe a reestruturação do clube sob as presidências de Manuel Vilarinho e Luís Filipe Vieira. A 25 de outubro de 2003 foi inaugurado o novo Estádio da Luz, preparado para o Euro 2004. A equipa de futebol quebrou a seca de troféus ao vencer a Taça de Portugal em 2004, num ano também marcado pela trágica morte de Miklós Fehér no relvado. Na temporada 2004–05, o técnico italiano Giovanni Trapattoni guiou o Benfica à conquista do 31.º campeonato nacional. Nas épocas seguintes, a equipa destacou-se na Liga dos Campeões e fundou a secção de futsal, que rapidamente alcançou títulos nacionais."
+  },
+  {
+   "titulo": "A Era de Jorge Jesus e a Tripla Histórica",
+   "texto": "A contratação do treinador Jorge Jesus em 2009 iniciou um período de grande rendimento ofensivo e conquistas domésticas, arrancando com o campeonato de 2009–10. Na época 2013–14, a equipa realizou uma campanha histórica ao alcançar a tripla inédita de Campeonato, Taça de Portugal e Taça da Liga, além de chegar à sua segunda final consecutiva da Liga Europa. O trabalho teve continuidade no ano seguinte com a revalidação do título nacional. Após a saída de Jesus, Rui Vitória assumiu o comando técnico e conduziu as águias à conquista do primeiro tetracampeonato da história do clube entre 2014 e 2017. Mais tarde, em 2018–19, Bruno Lage liderou uma grande recuperação na liga para vencer o 37.º campeonato."
   }
  ],
- "marcos": [],
+ "marcos": [
+  {
+   "ano": "1904",
+   "texto": "Fundação do Sport Lisboa na Farmácia Franco por ex-alunos da Casa Pia."
+  },
+  {
+   "ano": "1906",
+   "texto": "Criação do Grupo Sport Benfica e posse do terreno da Quinta da Feiteira."
+  },
+  {
+   "ano": "1908",
+   "texto": "Fusão entre o Sport Lisboa e o Sport Clube de Benfica, dando origem ao Sport Lisboa e Benfica."
+  },
+  {
+   "ano": "1910",
+   "texto": "Conquista do primeiro Campeonato de Lisboa, marcando a afirmação regional do clube."
+  },
+  {
+   "ano": "1925",
+   "texto": "Inauguração do Estádio das Amoreiras, o primeiro recinto próprio do Benfica."
+  },
+  {
+   "ano": "1930",
+   "texto": "Vitória no Campeonato de Portugal, garantindo o primeiro troféu de dimensão nacional."
+  },
+  {
+   "ano": "1938",
+   "texto": "Conquista do primeiro tricampeonato nacional sob a orientação de Lippo Hertzka."
+  },
+  {
+   "ano": "1943",
+   "texto": "Consecução da primeira dobradinha da história do clube com a vitória no Campeonato e na Taça de Portugal."
+  },
+  {
+   "ano": "1950",
+   "texto": "Triunfo na Taça Latina no Estádio Nacional frente ao Bordéus."
+  },
+  {
+   "ano": "1954",
+   "texto": "Inauguração do Estádio da Luz original com capacidade inicial para 40 mil pessoas."
+  },
+  {
+   "ano": "1961",
+   "texto": "Conquista da primeira Taça dos Clubes Campeões Europeus contra o Barcelona em Berna."
+  },
+  {
+   "ano": "1962",
+   "texto": "Bicampeonato europeu alcançado com a vitória por 5–3 sobre o Real Madrid em Amesterdão."
+  },
+  {
+   "ano": "1965",
+   "texto": "Atribuição da Bola de Ouro a Eusébio, o primeiro jogador ao serviço de um clube português a receber a distinção."
+  },
+  {
+   "ano": "1973",
+   "texto": "Conquista do campeonato nacional de forma invicta com 28 vitórias e dois empates."
+  },
+  {
+   "ano": "1979",
+   "texto": "Aprovação em Assembleia Geral da permissão para contratar futebolistas estrangeiros."
+  },
+  {
+   "ano": "1985",
+   "texto": "Conclusão do terceiro anel do Estádio da Luz, expandindo a capacidade para 120 mil espetadores."
+  },
+  {
+   "ano": "1994",
+   "texto": "Vitória marcante por 6–3 no campo do Sporting a caminho da conquista do 30.º campeonato nacional."
+  },
+  {
+   "ano": "2003",
+   "texto": "Inauguração oficial do novo Estádio da Luz com capacidade para 65 mil pessoas."
+  },
+  {
+   "ano": "2005",
+   "texto": "Conquista do 31.º campeonato nacional sob a orientação de Giovanni Trapattoni, encerrando 11 anos de jejum."
+  },
+  {
+   "ano": "2014",
+   "texto": "Conquista inédita da tripla nacional constituída por Campeonato, Taça de Portugal e Taça da Liga."
+  },
+  {
+   "ano": "2017",
+   "texto": "Consecução do primeiro tetracampeonato da história do clube no futebol profissional."
+  },
+  {
+   "ano": "2022",
+   "texto": "Vitória da equipa sub-19 na UEFA Youth League, assinalando o regresso aos títulos europeus de futebol."
+  }
+ ],
  "palmares": [
   {
    "modalidade": "Futebol",
