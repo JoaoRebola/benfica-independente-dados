@@ -1,0 +1,152 @@
+[
+ {
+  "id": "401885401",
+  "t": 1794169800000,
+  "comp": "Liga Portugal",
+  "home": "Estrela",
+  "away": "Benfica",
+  "hs": 2,
+  "as": 3,
+  "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21610.png",
+  "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+  "venue": "Estádio José Gomes",
+  "goals": [
+   {
+    "min": "26'",
+    "who": "Gianluca Prestianni",
+    "team": "Benfica",
+    "how": "Goal"
+   },
+   {
+    "min": "48'",
+    "who": "Lovro Zvonarek",
+    "team": "Estrela",
+    "how": "Goal"
+   },
+   {
+    "min": "68'",
+    "who": "Bernardo Schappo",
+    "team": "Benfica",
+    "how": "Own Goal"
+   },
+   {
+    "min": "76'",
+    "who": "Leandro Antonetti",
+    "team": "Estrela",
+    "how": "Goal - Header"
+   },
+   {
+    "min": "90'+4'",
+    "who": "Vangelis Pavlidis",
+    "team": "Benfica",
+    "how": "Goal"
+   }
+  ],
+  "title": "",
+  "text": "Estrela 2-3 Benfica. Golos: Gianluca Prestianni (Benfica) 26'; Lovro Zvonarek (Estrela) 48'; Bernardo Schappo (Benfica) 68'; Leandro Antonetti (Estrela) 76'; Vangelis Pavlidis (Benfica) 90'+4'.",
+  "agent": false,
+  "video": "LvQdYh8HRnc"
+ },
+ {
+  "id": "401915525",
+  "t": 1793908800000,
+  "comp": "Liga Europa",
+  "home": "Benfica",
+  "away": "Lech Poznan",
+  "hs": 3,
+  "as": 1,
+  "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+  "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2990.png",
+  "venue": "Estádio da Luz",
+  "goals": [
+   {
+    "min": "6'",
+    "who": "Rafa Silva",
+    "team": "Benfica",
+    "how": "Goal"
+   },
+   {
+    "min": "67'",
+    "who": "Gianluca Prestianni",
+    "team": "Benfica",
+    "how": "Goal"
+   },
+   {
+    "min": "72'",
+    "who": "Leo Bengtsson",
+    "team": "Lech Poznan",
+    "how": "Goal"
+   },
+   {
+    "min": "90'",
+    "who": "Georgiy Sudakov",
+    "team": "Benfica",
+    "how": "Goal"
+   }
+  ],
+  "title": "",
+  "text": "Benfica 3-1 Lech Poznan. Golos: Rafa Silva (Benfica) 6'; Gianluca Prestianni (Benfica) 67'; Leo Bengtsson (Lech Poznan) 72'; Georgiy Sudakov (Benfica) 90'.",
+  "agent": false,
+  "video": ""
+ },
+ {
+  "id": "401885403",
+  "t": 1793650500000,
+  "comp": "Liga Portugal",
+  "home": "Benfica",
+  "away": "Alverca",
+  "hs": 1,
+  "as": 0,
+  "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+  "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21613.png",
+  "venue": "Estádio da Luz",
+  "goals": [
+   {
+    "min": "51'",
+    "who": "Vangelis Pavlidis",
+    "team": "Benfica",
+    "how": "Penalty - Scored"
+   }
+  ],
+  "title": "",
+  "text": "Benfica 1-0 Alverca. Golos: Vangelis Pavlidis (Benfica) 51'.",
+  "agent": false,
+  "video": ""
+ },
+ {
+  "id": "401885414",
+  "t": 1793040300000,
+  "comp": "Liga Portugal",
+  "home": "Santa Clara",
+  "away": "Benfica",
+  "hs": 1,
+  "as": 2,
+  "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12215.png",
+  "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+  "venue": "Estádio de São Miguel",
+  "goals": [
+   {
+    "min": "32'",
+    "who": "Fernando",
+    "team": "Santa Clara",
+    "how": "Penalty - Scored"
+   },
+   {
+    "min": "62'",
+    "who": "Vangelis Pavlidis",
+    "team": "Benfica",
+    "how": "Goal"
+   },
+   {
+    "min": "68'",
+    "who": "Gianluca Prestianni",
+    "team": "Benfica",
+    "how": "Goal"
+   }
+  ],
+  "title": "",
+  "text": "Santa Clara 1-2 Benfica. Golos: Fernando (Santa Clara) 32'; Vangelis Pavlidis (Benfica) 62'; Gianluca Prestianni (Benfica) 68'. Expulsões: Jhon Durán 90'+6'.",
+  "agent": false,
+  "video": ""
+ }
+]

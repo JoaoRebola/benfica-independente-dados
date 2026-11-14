@@ -5,6 +5,8 @@ Corre sozinho no GitHub (de 30 em 30 minutos) e prepara para a app:
   data/agenda.json    - próximos jogos de todas as modalidades
   data/results.json   - últimos resultados das equipas principais
   data/videos.json    - programa de cada vídeo do canal que as regras não reconhecem
+  data/highlights.json - vídeos oficiais de resumos (todas as modalidades)
+  data/summaries.json - crónica de cada jogo de futebol já terminado
   data/status.json    - quando correu e quem fez o trabalho (robô ou agente)
 
 O "agente" (Gemini) só entra se existir a chave GEMINI_API_KEY nos segredos do
@@ -387,10 +389,193 @@ def do_videos():
         status["agente"]["videos"] = len(res)
 
 
+# ================================================================ separador Benfica
+# Tudo de fontes públicas e gratuitas, sem contas:
+#   highlights.json  - vídeos de resumos/golos (canal oficial do clube e canais oficiais das ligas)
+#   summaries.json   - crónica de cada jogo de futebol já terminado (dados da ESPN), escrita pelo agente
+import xml.etree.ElementTree as ET
+
+HIGHLIGHT_CHANNELS = [
+    ("UC8zrah5cNf2c3jKKeD_Z3fw", "clube"),   # Sport Lisboa e Benfica (todas as modalidades)
+    ("UCuIlu5oGIj1RzHOYmeSV5Eg", "liga"),    # VSPORTS - Liga Portugal
+    ("UCe_huFJ0d9uhFxX74C-UkAg", "taca"),    # VSPORTS - Taça da Liga
+]
+ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer"
+COMPETITIONS = {
+    "por.1": "Liga Portugal", "uefa.europa": "Liga Europa", "uefa.europa_qual": "Liga Europa (pré-eliminatória)",
+    "uefa.champions": "Liga dos Campeões", "uefa.champions_qual": "Liga dos Campeões (pré-eliminatória)",
+    "por.taca.portugal": "Taça de Portugal", "por.league_cup": "Taça da Liga", "por.super_cup": "Supertaça",
+    "club.friendly": "Particular",
+}
+
+
+HL_SPORTS = [
+    ("HOQUEIBENFICAFEM", "Hóquei em Patins Feminino"), ("HOQUEI", "Hóquei em Patins"),
+    ("BASKETBENFICAFEM", "Basquetebol Feminino"), ("BASKET", "Basquetebol"),
+    ("FUTSALBENFICAFEM", "Futsal Feminino"), ("FUTSAL", "Futsal"),
+    ("ANDEBOL", "Andebol"), ("ANDEBENFICA", "Andebol"),
+    ("VOLEIBENFICAFEM", "Voleibol Feminino"), ("VOLEI", "Voleibol"),
+    ("UWCL", "Futebol Feminino"), ("BENFICAFEM", "Futebol Feminino"), ("FEMININ", "Futebol Feminino"),
+    ("LIGA BPI", "Futebol Feminino"),
+]
+
+
+def hl_sport(title):
+    t = up(title).replace(" ", "")
+    for word, sport in HL_SPORTS:
+        if word.replace(" ", "") in t:
+            return sport
+    return "Futebol"
+
+
+def do_highlights():
+    known = {h["id"]: h for h in load("highlights.json", [])}
+    ns = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015",
+          "media": "http://search.yahoo.com/mrss/"}
+    for channel, kind in HIGHLIGHT_CHANNELS:
+        try:
+            root = ET.fromstring(get("https://www.youtube.com/feeds/videos.xml?channel_id=" + channel, timeout=30))
+        except Exception as e:
+            log("resumos", kind, "falhou:", type(e).__name__)
+            continue
+        for e in root.findall("a:entry", ns):
+            vid = e.findtext("yt:videoId", namespaces=ns)
+            title = (e.findtext("a:title", namespaces=ns) or "").strip()
+            U = up(title)
+            if kind == "clube":
+                if not (U.startswith("HIGHLIGHTS") or U.startswith("RESUMO")):
+                    continue
+            elif not (U.startswith("RESUMO") and "BENFICA" in U):
+                continue
+            try:
+                t = int(datetime.fromisoformat(e.findtext("a:published", namespaces=ns)).timestamp() * 1000)
+            except Exception:
+                continue
+            if vid and vid not in known:
+                known[vid] = {"id": vid, "title": title, "t": t, "sport": hl_sport(title), "src": kind}
+    out = sorted(known.values(), key=lambda h: -h["t"])[:120]
+    save("highlights.json", out)
+    log("resumos em vídeo:", len(out))
+
+
+def _team_words(name):
+    return [w for w in re.findall(r"[A-Z]{3,}", up(name)) if w not in ("BENFICA", "SPORT", "LISBOA", "CLUBE", "FUTEBOL")]
+
+
+def match_video(home, away, t, highlights):
+    """O vídeo de resumo de um jogo: canal oficial, com o adversário no título, publicado até 3 dias depois."""
+    other = away if "BENFICA" in up(home) else home
+    words = _team_words(other)
+    best = None
+    for h in highlights:
+        if h["sport"] != "Futebol" or not (t - 3 * 3600_000 <= h["t"] <= t + 3 * 86400_000):
+            continue
+        if words and any(w[:5] in up(h["title"]) for w in words):
+            if best is None or (h["src"] == "clube") > (best["src"] == "clube"):
+                best = h
+    return best["id"] if best else ""
+
+
+def event_facts(event_id, league):
+    s = json.loads(get(f"{ESPN}/{league}/summary?event={event_id}", timeout=40))
+    comp = s["header"]["competitions"][0]
+    teams = {c["homeAway"]: c for c in comp["competitors"]}
+    home, away = teams["home"], teams["away"]
+    facts = {
+        "home": home["team"]["displayName"], "away": away["team"]["displayName"],
+        "hs": int(home.get("score") or 0), "as": int(away.get("score") or 0),
+        "homeLogo": (home["team"].get("logos") or [{}])[0].get("href", ""),
+        "awayLogo": (away["team"].get("logos") or [{}])[0].get("href", ""),
+        "venue": (s.get("gameInfo", {}).get("venue", {}) or {}).get("fullName", ""),
+        "goals": [], "cards": [], "stats": {},
+    }
+    for k in s.get("keyEvents", []):
+        typ = (k.get("type", {}) or {}).get("text", "")
+        minute = (k.get("clock", {}) or {}).get("displayValue", "")
+        who = ", ".join(p.get("athlete", {}).get("displayName", "") for p in k.get("participants", [])[:1])
+        team = (k.get("team", {}) or {}).get("displayName", "")
+        if k.get("scoringPlay"):
+            facts["goals"].append({"min": minute, "who": who, "team": team, "how": typ})
+        elif "Red" in typ:
+            facts["cards"].append({"min": minute, "who": who, "team": team})
+    for t in s.get("boxscore", {}).get("teams", []):
+        name = t.get("team", {}).get("displayName", "")
+        facts["stats"][name] = {st.get("label") or st.get("name"): st.get("displayValue") for st in t.get("statistics", [])}
+    return facts
+
+
+def plain_summary(f):
+    """Crónica simples quando o agente não está disponível."""
+    txt = f"{f['home']} {f['hs']}-{f['as']} {f['away']}."
+    if f["goals"]:
+        txt += " Golos: " + "; ".join(f"{g['who']} ({g['team']}) {g['min']}" for g in f["goals"]) + "."
+    if f["cards"]:
+        txt += " Expulsões: " + "; ".join(f"{c['who']} {c['min']}" for c in f["cards"]) + "."
+    return txt
+
+
+def do_summaries():
+    done = {m["id"]: m for m in load("summaries.json", [])}
+    highlights = load("highlights.json", [])
+    sched = json.loads(get(f"{ESPN}/all/teams/1929/schedule", timeout=40))
+    finished = []
+    for e in sched.get("events", []):
+        st = e["competitions"][0].get("status", {}).get("type", {})
+        if not st.get("completed"):
+            continue
+        league = (e.get("league", {}) or {}).get("slug") or ""
+        t = int(datetime.fromisoformat(e["date"].replace("Z", "+00:00")).timestamp() * 1000)
+        finished.append((t, e["id"], league))
+    finished.sort(reverse=True)
+    written = 0
+    for t, eid, league in finished[:12]:
+        old = done.get(eid)
+        if old and old.get("video") and old.get("agent"):
+            continue
+        if old and not old.get("video"):
+            v = match_video(old["home"], old["away"], t, highlights)
+            if v:
+                old["video"] = v
+            if old.get("agent") or written >= 4:
+                continue
+        if written >= 4:
+            break  # aos poucos
+        try:
+            f = event_facts(eid, league or "por.1")
+        except Exception as ex:
+            log("crónica", eid, "falhou:", type(ex).__name__)
+            continue
+        comp = COMPETITIONS.get(league, "")
+        text, agent = "", False
+        if GEMINI_KEY:
+            res = gemini(
+                "Escreve em português de Portugal a crónica curta (4 a 6 frases, tom de jornal desportivo, do ponto de "
+                "vista de quem segue o Benfica mas sem exageros) deste jogo, usando APENAS estes dados. Não inventes "
+                "jogadas, nomes nem números que não estejam aqui. Devolve JSON {\"titulo\": ..., \"texto\": ...}.\n\n"
+                + json.dumps({"competicao": comp, **f}, ensure_ascii=False)
+            )
+            if isinstance(res, dict) and res.get("texto"):
+                text, agent = str(res["texto"]), True
+                title = str(res.get("titulo", ""))[:120]
+        if not text:
+            text, title = plain_summary(f), ""
+        done[eid] = {
+            "id": eid, "t": t, "comp": comp, "home": f["home"], "away": f["away"], "hs": f["hs"], "as": f["as"],
+            "homeLogo": f["homeLogo"], "awayLogo": f["awayLogo"], "venue": f["venue"],
+            "goals": f["goals"], "title": title, "text": text, "agent": agent,
+            "video": match_video(f["home"], f["away"], t, highlights),
+        }
+        written += 1
+    out = sorted(done.values(), key=lambda m: -m["t"])[:40]
+    save("summaries.json", out)
+    status["agente" if any(m.get("agent") for m in out) else "robo"]["cronicas"] = len(out)
+    log("crónicas:", len(out), "novas:", written)
+
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos):
+    for step in (do_agenda, do_results, do_videos, do_highlights, do_summaries):
         try:
             step()
         except Exception as e:
