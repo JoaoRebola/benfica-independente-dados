@@ -47,13 +47,15 @@
     "min": "26'",
     "k": "golo",
     "who": "Gianluca Prestianni",
-    "side": "a"
+    "side": "a",
+    "ast": "Claudio Echeverri"
    },
    {
     "min": "48'",
     "k": "golo",
     "who": "Lovro Zvonarek",
-    "side": "h"
+    "side": "h",
+    "ast": "Rafa Soares"
    },
    {
     "min": "51'",
@@ -99,7 +101,8 @@
     "min": "76'",
     "k": "golo",
     "who": "Leandro Antonetti",
-    "side": "h"
+    "side": "h",
+    "ast": "Joan Jordán"
    },
    {
     "min": "77'",
@@ -153,7 +156,8 @@
     "min": "90'+4'",
     "k": "golo",
     "who": "Vangelis Pavlidis",
-    "side": "a"
+    "side": "a",
+    "ast": "Andreas Schjelderup"
    }
   ],
   "stats": [
@@ -600,6 +604,7 @@
   "title": "Benfica vence Estrela por 3-2 na Reboleira com golo decisivo nos descontos",
   "text": "No Estádio José Gomes, o Benfica garantiu uma vitória com um triunfo por 3-2 diante do Estrela, numa partida a contar para a Liga Portugal. As águias adiantaram-se no marcador aos 26 minutos por Gianluca Prestianni, mas os da casa empataram aos 48 minutos por intermédio de Lovro Zvonarek. Aos 68 minutos, um autogolo de Bernardo Schappo voltou a colocar a equipa encarnada em vantagem, contudo Leandro Antonetti fez o 2-2 de cabeça aos 76 minutos. Num jogo onde o Benfica dominou a posse de bola (62.3%) e somou 15 remates contra os 7 do adversário, a reviravolta final acabou por ser carimbada por Vangelis Pavlidis, que marcou o golo da vitória aos 90'+4. O encontro registou ainda cartões amarelos para Lovro Zvonarek e Alisson Souza no lado do Estrela.",
   "agent": true,
+  "v": 2,
   "video": ""
  },
  {
@@ -696,7 +701,8 @@
     "min": "67'",
     "k": "golo",
     "who": "Gianluca Prestianni",
-    "side": "h"
+    "side": "h",
+    "ast": "Georgiy Sudakov"
    },
    {
     "min": "69'",
@@ -750,7 +756,8 @@
     "min": "90'",
     "k": "golo",
     "who": "Georgiy Sudakov",
-    "side": "h"
+    "side": "h",
+    "ast": "Enzo Barrenechea"
    }
   ],
   "stats": [
@@ -1197,7 +1204,8 @@
   "title": "Benfica vence Lech Poznan por 3-1 no Estádio da Luz",
   "text": "O Benfica recebeu e venceu o Lech Poznan por 3-1 em jogo a contar para a Liga Europa, disputado no Estádio da Luz. A equipa encarnada adiantou-se cedo no marcador por intermédio de Rafa Silva, aos 6 minutos. Na segunda parte, após ser lançado aos 62 minutos, Gianluca Prestianni ampliou a vantagem para os visitados aos 67'. A resposta da formação polaca surgiu aos 72 minutos por Leo Bengtsson, que também tinha entrado no decorrer da etapa complementar. Já aos 90 minutos, Georgiy Sudakov estabeleceu o 3-1 final para o Benfica, numa partida em que os encarnados somaram 24 remates e 56.5% de posse de bola.",
   "agent": true,
-  "video": ""
+  "v": 2,
+  "video": "8MAksbd6gkE"
  },
  {
   "id": "401885403",
@@ -1773,6 +1781,7 @@
   "title": "Benfica vence Alverca pela margem mínima na Liga Portugal",
   "text": "O Benfica garantiu uma vitória por 1-0 frente ao Alverca no Estádio da Luz, num encontro a contar para a Liga Portugal. A equipa encarnada dominou a posse de bola com 65.2% e registou 13 remates no total, tendo o único golo da partida sido apontado por Vangelis Pavlidis, aos 51 minutos, através da marca de grande penalidade. A partida ficou também marcada pela disciplina no relvado, com Clément Lenglet a ver o cartão amarelo do lado das águias, enquanto Yahya Bojang, Chiquinho e Ian Luccas foram advertidos na formação visitante. As mexidas no onze começaram logo ao intervalo com a entrada de Claudio Echeverri para o lugar de Andreas Schjelderup, seguindo-se as entradas de Rafa Silva, Manu Silva, Jhon Durán e Jakub Kaminski ao longo da segunda metade. A nível estatístico, ambas as equipas somaram quatro remates à baliza, com o guarda-redes encarnado a assinar quatro defesas perante a réplica do Alverca. Com este resultado, a formação orientada no esquema 4-2-3-1 segurou os três pontos em casa.",
   "agent": true,
+  "v": 2,
   "video": ""
  },
  {
@@ -1856,7 +1865,8 @@
     "min": "62'",
     "k": "golo",
     "who": "Vangelis Pavlidis",
-    "side": "a"
+    "side": "a",
+    "ast": "Gianluca Prestianni"
    },
    {
     "min": "67'",
@@ -2402,6 +2412,7 @@
   "title": "Benfica reage nos Açores e vence Santa Clara por 2-1",
   "text": "O Benfica deslocou-se ao Estádio de São Miguel e somou uma vitória por 2-1 perante o Santa Clara, em jogo a contar para a Liga Portugal. A equipa da casa adiantou-se no marcador aos 32 minutos, através de um golo de grande penalidade marcado por Fernando. Na segunda parte, o Benfica deu a volta ao resultado com golos de Vangelis Pavlidis, aos 62 minutos, e de Gianluca Prestianni, aos 68 minutos. Os encarnados dominaram a posse de bola com 61.1% contra 38.9% dos açorianos e efetuaram 16 remates ao longo do encontro. A partida ficou ainda marcada pela expulsão de Jhon Durán nos momentos finais, aos 90'+6', após ver o cartão vermelho direto.",
   "agent": true,
+  "v": 2,
   "video": ""
  },
  {
@@ -2458,7 +2469,8 @@
     "min": "42'",
     "k": "golo",
     "who": "Andronikos Kakoulis",
-    "side": "h"
+    "side": "h",
+    "ast": "Jaden Montnor"
    },
    {
     "min": "49'",
@@ -2558,7 +2570,8 @@
     "min": "85'",
     "k": "golo",
     "who": "Gianluca Prestianni",
-    "side": "a"
+    "side": "a",
+    "ast": "Dodi Lukébakio"
    },
    {
     "min": "88'",
@@ -3023,7 +3036,8 @@
   "title": "",
   "text": "Omonia Nicosia 1-4 Benfica. Golos: Loïc Négo (Benfica) 14'; Andronikos Kakoulis (Omonia Nicosia) 42'; Vangelis Pavlidis (Benfica) 49'; Fredrik Aursnes (Benfica) 76'; Gianluca Prestianni (Benfica) 85'.",
   "agent": false,
-  "video": ""
+  "v": 2,
+  "video": "T6xCP_nkY0M"
  },
  {
   "id": "401915562",
@@ -3080,13 +3094,15 @@
     "min": "23'",
     "k": "golo",
     "who": "Alexander Bah",
-    "side": "h"
+    "side": "h",
+    "ast": "Gianluca Prestianni"
    },
    {
     "min": "36'",
     "k": "golo",
     "who": "Jhon Durán",
-    "side": "h"
+    "side": "h",
+    "ast": "Gianluca Prestianni"
    },
    {
     "min": "44'",
@@ -3126,7 +3142,8 @@
     "min": "63'",
     "k": "golo",
     "who": "Camilo Durán",
-    "side": "a"
+    "side": "a",
+    "ast": "Haissem Hassan"
    },
    {
     "min": "64'",
@@ -3186,7 +3203,8 @@
     "min": "89'",
     "k": "golo",
     "who": "Vangelis Pavlidis",
-    "side": "h"
+    "side": "h",
+    "ast": "Tomás Araújo"
    }
   ],
   "stats": [
@@ -3641,7 +3659,8 @@
   "title": "",
   "text": "Benfica 4-1 Celtic. Golos: Jhon Durán (Benfica) 5'; Alexander Bah (Benfica) 23'; Jhon Durán (Benfica) 36'; Camilo Durán (Celtic) 63'; Vangelis Pavlidis (Benfica) 89'.",
   "agent": false,
-  "video": ""
+  "v": 2,
+  "video": "WbDKkxcORPI"
  },
  {
   "id": "401885421",
@@ -3679,7 +3698,8 @@
     "min": "24'",
     "k": "golo",
     "who": "Samuel Dahl",
-    "side": "h"
+    "side": "h",
+    "ast": "Vangelis Pavlidis"
    },
    {
     "min": "33'",
@@ -3777,7 +3797,8 @@
     "min": "75'",
     "k": "golo",
     "who": "Georgiy Sudakov",
-    "side": "h"
+    "side": "h",
+    "ast": "Claudio Echeverri"
    },
    {
     "min": "81'",
@@ -4246,6 +4267,7 @@
   "title": "",
   "text": "Benfica 2-0 Vitória de Guimaraes. Golos: Samuel Dahl (Benfica) 24'; Georgiy Sudakov (Benfica) 75'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -4302,7 +4324,8 @@
     "min": "31'",
     "k": "golo",
     "who": "Gabri Veiga",
-    "side": "h"
+    "side": "h",
+    "ast": "Pepê"
    },
    {
     "min": "34'",
@@ -4334,19 +4357,22 @@
     "min": "51'",
     "k": "golo",
     "who": "Alexander Bah",
-    "side": "a"
+    "side": "a",
+    "ast": "Gianluca Prestianni"
    },
    {
     "min": "54'",
     "k": "golo",
     "who": "Victor Froholdt",
-    "side": "h"
+    "side": "h",
+    "ast": "André Silva"
    },
    {
     "min": "60'",
     "k": "golo",
     "who": "Hwang In-Beom",
-    "side": "h"
+    "side": "h",
+    "ast": "André Silva"
    },
    {
     "min": "69'",
@@ -4881,6 +4907,7 @@
   "title": "",
   "text": "FC Porto 3-1 Benfica. Golos: Gabri Veiga (FC Porto) 31'; Alexander Bah (Benfica) 51'; Victor Froholdt (FC Porto) 54'; Hwang In-Beom (FC Porto) 60'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -4919,7 +4946,8 @@
     "min": "16'",
     "k": "golo",
     "who": "Dodi Lukébakio",
-    "side": "a"
+    "side": "a",
+    "ast": "Jakub Kaminski"
    },
    {
     "min": "26'",
@@ -4951,7 +4979,8 @@
     "min": "53'",
     "k": "golo",
     "who": "Jakub Kaminski",
-    "side": "a"
+    "side": "a",
+    "ast": "Souffian El Karouani"
    },
    {
     "min": "57'",
@@ -5480,6 +5509,7 @@
   "title": "",
   "text": "AC Milan 0-2 Benfica. Golos: Dodi Lukébakio (Benfica) 16'; Jakub Kaminski (Benfica) 53'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -5524,7 +5554,8 @@
     "min": "7'",
     "k": "golo",
     "who": "Hector Hernández",
-    "side": "a"
+    "side": "a",
+    "ast": "Gil Martins"
    },
    {
     "min": "12'",
@@ -5637,7 +5668,8 @@
     "min": "90'+3'",
     "k": "golo",
     "who": "Gianluca Prestianni",
-    "side": "h"
+    "side": "h",
+    "ast": "Claudio Echeverri"
    },
    {
     "min": "90'+5'",
@@ -6098,6 +6130,7 @@
   "title": "",
   "text": "Benfica 3-1 Gil Vicente. Golos: Hector Hernández (Gil Vicente) 7'; Vangelis Pavlidis (Benfica) 29'; Vangelis Pavlidis (Benfica) 87'; Gianluca Prestianni (Benfica) 90'+3'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -6167,7 +6200,8 @@
     "min": "55'",
     "k": "golo",
     "who": "Andreas Schjelderup",
-    "side": "a"
+    "side": "a",
+    "ast": "Gianluca Prestianni"
    },
    {
     "min": "56'",
@@ -6187,7 +6221,8 @@
     "min": "59'",
     "k": "golo",
     "who": "Gianluca Prestianni",
-    "side": "a"
+    "side": "a",
+    "ast": "Andreas Schjelderup"
    },
    {
     "min": "66'",
@@ -6228,7 +6263,8 @@
     "min": "72'",
     "k": "golo",
     "who": "Fredrik Aursnes",
-    "side": "a"
+    "side": "a",
+    "ast": "Andreas Schjelderup"
    },
    {
     "min": "75'",
@@ -6714,6 +6750,7 @@
   "title": "",
   "text": "Moreirense 0-4 Benfica. Golos: Vangelis Pavlidis (Benfica) 45'+4'; Andreas Schjelderup (Benfica) 55'; Gianluca Prestianni (Benfica) 59'; Fredrik Aursnes (Benfica) 72'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -6823,7 +6860,8 @@
     "min": "71'",
     "k": "golo",
     "who": "Leandro Barreiro",
-    "side": "a"
+    "side": "a",
+    "ast": "Vangelis Pavlidis"
    },
    {
     "min": "78'",
@@ -7303,6 +7341,7 @@
   "title": "",
   "text": "Maritimo 0-3 Benfica. Golos: Leandro Barreiro (Benfica) 7'; Leandro Barreiro (Benfica) 71'; Gianluca Prestianni (Benfica) 82'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -7361,7 +7400,8 @@
     "min": "51'",
     "k": "golo",
     "who": "Clément Lenglet",
-    "side": "h"
+    "side": "h",
+    "ast": "Tomás Araújo"
    },
    {
     "min": "63'",
@@ -7422,7 +7462,8 @@
     "min": "82'",
     "k": "golo",
     "who": "Yanis Begraoui",
-    "side": "a"
+    "side": "a",
+    "ast": "Fernando Medrano"
    },
    {
     "min": "82'",
@@ -7876,6 +7917,7 @@
   "title": "",
   "text": "Benfica 2-1 Estoril. Golos: Vangelis Pavlidis (Benfica) 40'; Clément Lenglet (Benfica) 51'; Yanis Begraoui (Estoril) 82'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -7920,7 +7962,8 @@
     "min": "19'",
     "k": "golo",
     "who": "Gianluca Prestianni",
-    "side": "a"
+    "side": "a",
+    "ast": "Alexander Bah"
    },
    {
     "min": "25'",
@@ -7957,7 +8000,8 @@
     "min": "61'",
     "k": "golo",
     "who": "Gianluca Prestianni",
-    "side": "a"
+    "side": "a",
+    "ast": "Clément Lenglet"
    },
    {
     "min": "62'",
@@ -8475,6 +8519,7 @@
   "title": "",
   "text": "AGF 1-3 Benfica. Golos: Gianluca Prestianni (Benfica) 19'; Rafa Silva (Benfica) 55'; Rasmus Carstensen (AGF) 60'; Gianluca Prestianni (Benfica) 61'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -8543,7 +8588,8 @@
     "min": "36'",
     "k": "golo",
     "who": "Sebastian Jorgensen",
-    "side": "a"
+    "side": "a",
+    "ast": "Jacob Andersen"
    },
    {
     "min": "45'+2'",
@@ -9081,6 +9127,7 @@
   "title": "",
   "text": "Benfica 3-1 AGF. Golos: Rafa Silva (Benfica) 2'; Leandro Barreiro (Benfica) 31'; Sebastian Jorgensen (AGF) 36'; Vangelis Pavlidis (Benfica) 45'+2'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -9149,7 +9196,8 @@
     "min": "14'",
     "k": "golo",
     "who": "Rafa Silva",
-    "side": "a"
+    "side": "a",
+    "ast": "Vangelis Pavlidis"
    },
    {
     "min": "47'",
@@ -9167,7 +9215,8 @@
     "min": "54'",
     "k": "golo",
     "who": "Vangelis Pavlidis",
-    "side": "a"
+    "side": "a",
+    "ast": "Leandro Barreiro"
    },
    {
     "min": "58'",
@@ -9214,7 +9263,8 @@
     "min": "61'",
     "k": "golo",
     "who": "Jhon Durán",
-    "side": "a"
+    "side": "a",
+    "ast": "Alexander Bah"
    },
    {
     "min": "62'",
@@ -9722,6 +9772,7 @@
   "title": "",
   "text": "Casa Pia 0-7 Benfica. Golos: Gianluca Prestianni (Benfica) 3'; Rafa Silva (Benfica) 14'; Vangelis Pavlidis (Benfica) 47'; Vangelis Pavlidis (Benfica) 49'; Vangelis Pavlidis (Benfica) 54'; Lawrence Ofori (Benfica) 58'; Jhon Durán (Benfica) 61'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -9815,7 +9866,8 @@
     "min": "78'",
     "k": "golo",
     "who": "Dodi Lukébakio",
-    "side": "a"
+    "side": "a",
+    "ast": "José Neto"
    },
    {
     "min": "79'",
@@ -10259,6 +10311,7 @@
   "title": "",
   "text": "Heart of Midlothian 1-1 Benfica. Golos: Tómas Magnússon (Heart of Midlothian) 77'; Dodi Lukébakio (Benfica) 78'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -10303,7 +10356,8 @@
     "min": "10'",
     "k": "golo",
     "who": "Vangelis Pavlidis",
-    "side": "h"
+    "side": "h",
+    "ast": "Gianluca Prestianni"
    },
    {
     "min": "15'",
@@ -10333,13 +10387,15 @@
     "min": "55'",
     "k": "golo",
     "who": "Rúben Pereira",
-    "side": "a"
+    "side": "a",
+    "ast": "Cihan Kahraman"
    },
    {
     "min": "58'",
     "k": "golo",
     "who": "Gianluca Prestianni",
-    "side": "h"
+    "side": "h",
+    "ast": "Enzo Barrenechea"
    },
    {
     "min": "64'",
@@ -10359,7 +10415,8 @@
     "min": "67'",
     "k": "golo",
     "who": "André Clóvis",
-    "side": "a"
+    "side": "a",
+    "ast": "Robinho"
    },
    {
     "min": "73'",
@@ -10882,6 +10939,7 @@
   "title": "",
   "text": "Benfica 2-2 Académico de Viseu. Golos: Vangelis Pavlidis (Benfica) 10'; Rúben Pereira (Académico de Viseu) 55'; Gianluca Prestianni (Benfica) 58'; André Clóvis (Académico de Viseu) 67'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -10944,13 +11002,15 @@
     "min": "3'",
     "k": "golo",
     "who": "Rafa Silva",
-    "side": "h"
+    "side": "h",
+    "ast": "Leandro Barreiro"
    },
    {
     "min": "23'",
     "k": "golo",
     "who": "Tomás Araújo",
-    "side": "h"
+    "side": "h",
+    "ast": "Georgiy Sudakov"
    },
    {
     "min": "33'",
@@ -11029,7 +11089,8 @@
     "min": "72'",
     "k": "golo",
     "who": "Tom Renaud",
-    "side": "a"
+    "side": "a",
+    "ast": "Severin Sabri Guendouz"
    },
    {
     "min": "73'",
@@ -11075,7 +11136,8 @@
     "min": "87'",
     "k": "golo",
     "who": "Jhon Durán",
-    "side": "h"
+    "side": "h",
+    "ast": "Andreas Schjelderup"
    },
    {
     "min": "89'",
@@ -11543,6 +11605,7 @@
   "title": "",
   "text": "Benfica 6-1 Heart of Midlothian. Golos: Rafa Silva (Benfica) 3'; Tomás Araújo (Benfica) 23'; Vangelis Pavlidis (Benfica) 42'; Gianluca Prestianni (Benfica) 59'; Tom Renaud (Heart of Midlothian) 72'; Jhon Durán (Benfica) 87'; Andreas Schjelderup (Benfica) 90'+4'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -11593,7 +11656,8 @@
     "min": "11'",
     "k": "golo",
     "who": "Vangelis Pavlidis",
-    "side": "h"
+    "side": "h",
+    "ast": "Rafa Silva"
    },
    {
     "min": "21'",
@@ -11618,7 +11682,8 @@
     "min": "55'",
     "k": "golo",
     "who": "Vangelis Pavlidis",
-    "side": "h"
+    "side": "h",
+    "ast": "Jakub Kaminski"
    },
    {
     "min": "57'",
@@ -11644,7 +11709,8 @@
     "min": "65'",
     "k": "golo",
     "who": "Vangelis Pavlidis",
-    "side": "h"
+    "side": "h",
+    "ast": "Alexander Bah"
    },
    {
     "min": "66'",
@@ -11706,7 +11772,8 @@
     "min": "82'",
     "k": "golo",
     "who": "Clément Lenglet",
-    "side": "h"
+    "side": "h",
+    "ast": "Dodi Lukébakio"
    }
   ],
   "stats": [
@@ -12145,6 +12212,7 @@
   "title": "",
   "text": "Benfica 5-0 St. Gallen. Golos: Vangelis Pavlidis (Benfica) 11'; Vangelis Pavlidis (Benfica) 55'; Vangelis Pavlidis (Benfica) 65'; Vangelis Pavlidis (Benfica) 74'; Clément Lenglet (Benfica) 82'.",
   "agent": false,
+  "v": 2,
   "video": ""
  },
  {
@@ -12189,13 +12257,15 @@
     "min": "37'",
     "k": "golo",
     "who": "Aliou Baldé",
-    "side": "h"
+    "side": "h",
+    "ast": "Lukas Görtler"
    },
    {
     "min": "44'",
     "k": "golo",
     "who": "Rafa Silva",
-    "side": "a"
+    "side": "a",
+    "ast": "Vangelis Pavlidis"
    },
    {
     "min": "62'",
@@ -12255,7 +12325,8 @@
     "min": "80'",
     "k": "golo",
     "who": "Tom Gaal",
-    "side": "h"
+    "side": "h",
+    "ast": "Lukas Daschner"
    },
    {
     "min": "84'",
@@ -12706,6 +12777,7 @@
   "title": "",
   "text": "St. Gallen 2-1 Benfica. Golos: Aliou Baldé (St. Gallen) 37'; Rafa Silva (Benfica) 44'; Tom Gaal (St. Gallen) 80'.",
   "agent": false,
+  "v": 2,
   "video": ""
  }
 ]

@@ -8,6 +8,7 @@ Corre sozinho no GitHub (de 30 em 30 minutos) e prepara para a app:
   data/highlights.json - vídeos oficiais de resumos (todas as modalidades)
   data/summaries.json - crónica de cada jogo de futebol já terminado
   data/club.json      - ficha do clube e do estádio (TheSportsDB)
+  data/history.json   - história e palmarés de todas as modalidades (Wikipédia)
   data/status.json    - quando correu e quem fez o trabalho (robô ou agente)
 
 O "agente" (Gemini) só entra se existir a chave GEMINI_API_KEY nos segredos do
@@ -397,9 +398,12 @@ def do_videos():
 import xml.etree.ElementTree as ET
 
 HIGHLIGHT_CHANNELS = [
+    # (canal, nome, o que se aceita). Só canais oficiais cujos vídeos tocam fora do YouTube (testado).
+    # Os resumos do futebol masculino da Liga e das Taças estão bloqueados pelos donos dos direitos.
     ("UC8zrah5cNf2c3jKKeD_Z3fw", "clube"),   # Sport Lisboa e Benfica (todas as modalidades)
-    # Os resumos do futebol masculino (Liga, Taças, UEFA) estão bloqueados fora do YouTube
-    # pelos donos dos direitos, por isso ficam de fora: só se guardam vídeos que tocam na app.
+    ("UC1pS02BkdhdCAlzKjcZTksQ", "dazn"),    # DAZN Portugal (Liga Europa)
+    ("UCsIoK3XP-cVcpoCC_SdjZdg", "fpf"),     # Federação Portuguesa de Futebol (feminino, futsal, formação)
+    ("UC5F7T3y7PF_1A3JvHfgm5rQ", "ehf"),     # EHF (andebol europeu)
 ]
 ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer"
 COMPETITIONS = {
@@ -413,50 +417,109 @@ COMPETITIONS = {
 HL_SPORTS = [
     ("HOQUEIBENFICAFEM", "Hóquei em Patins Feminino"), ("HOQUEI", "Hóquei em Patins"),
     ("BASKETBENFICAFEM", "Basquetebol Feminino"), ("BASKET", "Basquetebol"),
-    ("FUTSALBENFICAFEM", "Futsal Feminino"), ("FUTSAL", "Futsal"),
-    ("ANDEBOL", "Andebol"), ("ANDEBENFICA", "Andebol"),
+    ("LIGAFEMININAPLACARD", "Futsal Feminino"), ("LIGANEXTGEN", "Futebol Formação"), ("LIGAREVELACAO", "Futebol Formação"),
+    ("FUTSALBENFICAFEM", "Futsal Feminino"), ("FUTSALFEM", "Futsal Feminino"), ("FUTSAL", "Futsal"),
+    ("LIGAPLACARD", "Futsal"),
+    ("ANDEBOLBENFICAFEM", "Andebol Feminino"), ("ANDEBOL", "Andebol"), ("ANDEBENFICA", "Andebol"),
     ("VOLEIBENFICAFEM", "Voleibol Feminino"), ("VOLEI", "Voleibol"),
     ("UWCL", "Futebol Feminino"), ("BENFICAFEM", "Futebol Feminino"), ("FEMININ", "Futebol Feminino"),
-    ("LIGA BPI", "Futebol Feminino"),
+    ("LIGABPI", "Futebol Feminino"), ("TACAREVELACAO", "Futebol Formação"), ("SUB-23", "Futebol Formação"),
+    ("SUB-19", "Futebol Formação"), ("JUNIORES", "Futebol Formação"), ("YOUTHLEAGUE", "Futebol Formação"),
 ]
 
 
-def hl_sport(title):
+def hl_sport(title, kind="clube"):
     t = up(title).replace(" ", "")
+    if kind == "ehf":
+        return "Andebol Feminino" if "WOMEN" in t else "Andebol"
     for word, sport in HL_SPORTS:
-        if word.replace(" ", "") in t:
+        if word in t:
             return sport
     return "Futebol"
 
 
+def hl_accept(kind, title):
+    U = up(title)
+    if kind == "clube":
+        # Futebol masculino do canal do clube: bloqueado fora do YouTube.
+        return (U.startswith("HIGHLIGHTS") or U.startswith("RESUMO")) and hl_sport(title) != "Futebol"
+    if "BENFICA" not in U:
+        return False
+    if kind == "ehf":
+        return "HIGHLIGHTS" in U
+    return "RESUMO" in U
+
+
+REL = [("SEGUNDO", 1), ("MINUTO", 60), ("HORA", 3600), (" H", 3600), ("DIA", 86400), ("SEM", 7 * 86400),
+       ("MES", 30 * 86400), ("ANO", 365 * 86400)]
+
+
+def rel_time(text):
+    """'há 3 sem.' -> milissegundos aproximados."""
+    U = up(text or "")
+    n = re.search(r"(\d+)", U)
+    if not n:
+        return None
+    for word, secs in REL:
+        if word in U:
+            return int((time.time() - int(n.group(1)) * secs) * 1000)
+    return None
+
+
+def channel_search(channel, query="Benfica"):
+    """Vídeos de um canal que falam do Benfica (inclui os mais antigos que já não estão no feed)."""
+    page = get(f"https://www.youtube.com/channel/{channel}/search?query={query}",
+               headers={"Cookie": "CONSENT=YES+1; SOCS=CAI"}, timeout=30)
+    m = re.search(r"var ytInitialData = (\{.*?\});</script>", page)
+    out = []
+    if not m:
+        return out
+
+    def walk(o):
+        if isinstance(o, dict):
+            v = o.get("videoRenderer")
+            if v:
+                title = "".join(r.get("text", "") for r in v.get("title", {}).get("runs", []))
+                t = rel_time(v.get("publishedTimeText", {}).get("simpleText"))
+                if v.get("videoId") and title and t:
+                    out.append((v["videoId"], title, t))
+            for x in o.values():
+                walk(x)
+        elif isinstance(o, list):
+            for x in o:
+                walk(x)
+    walk(json.loads(m.group(1)))
+    return out
+
+
 def do_highlights():
     known = {h["id"]: h for h in load("highlights.json", [])}
-    ns = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015",
-          "media": "http://search.yahoo.com/mrss/"}
+    ns = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015"}
     for channel, kind in HIGHLIGHT_CHANNELS:
+        found = []
         try:
             root = ET.fromstring(get("https://www.youtube.com/feeds/videos.xml?channel_id=" + channel, timeout=30))
-        except Exception as e:
-            log("resumos", kind, "falhou:", type(e).__name__)
-            continue
-        for e in root.findall("a:entry", ns):
-            vid = e.findtext("yt:videoId", namespaces=ns)
-            title = (e.findtext("a:title", namespaces=ns) or "").strip()
-            U = up(title)
-            if kind == "clube":
-                if not (U.startswith("HIGHLIGHTS") or U.startswith("RESUMO")):
+            for e in root.findall("a:entry", ns):
+                try:
+                    t = int(datetime.fromisoformat(e.findtext("a:published", namespaces=ns)).timestamp() * 1000)
+                except Exception:
                     continue
-            elif not (U.startswith("RESUMO") and "BENFICA" in U):
+                found.append((e.findtext("yt:videoId", namespaces=ns), (e.findtext("a:title", namespaces=ns) or "").strip(), t))
+        except Exception as ex:
+            log("resumos", kind, "feed falhou:", type(ex).__name__)
+        try:
+            found += channel_search(channel)
+        except Exception as ex:
+            log("resumos", kind, "pesquisa falhou:", type(ex).__name__)
+        year_ago = (time.time() - 300 * 86400) * 1000
+        for vid, title, t in found:
+            if not vid or vid in known or t < year_ago or not hl_accept(kind, title):
                 continue
-            try:
-                t = int(datetime.fromisoformat(e.findtext("a:published", namespaces=ns)).timestamp() * 1000)
-            except Exception:
-                continue
-            if hl_sport(title) == "Futebol":
-                continue
-            if vid and vid not in known:
-                known[vid] = {"id": vid, "title": title, "t": t, "sport": hl_sport(title), "src": kind}
-    out = sorted((h for h in known.values() if h["sport"] != "Futebol"), key=lambda h: -h["t"])[:120]
+            known[vid] = {"id": vid, "title": title, "t": t, "sport": hl_sport(title, kind), "src": kind}
+    # Retira o que entretanto ficou proibido (futebol masculino do canal do clube).
+    for h in known.values():
+        h["sport"] = hl_sport(h["title"], h.get("src", "clube"))
+    out = sorted((h for h in known.values() if hl_accept(h.get("src", "clube"), h["title"])), key=lambda h: -h["t"])[:200]
     save("highlights.json", out)
     log("resumos em vídeo:", len(out))
 
@@ -517,6 +580,8 @@ def event_facts(event_id, league):
         ev = {"min": minute, "k": kind, "who": people[0] if people else "", "side": side}
         if kind == "troca" and len(people) > 1:
             ev["out"] = people[1]
+        if kind == "golo" and len(people) > 1 and people[1]:
+            ev["ast"] = people[1]
         if "Penalty" in typ:
             ev["pen"] = True
         facts["events"].append(ev)
@@ -567,7 +632,7 @@ def do_summaries():
         old = done.get(eid)
         if old:
             old["video"] = match_video(old["home"], old["away"], t, highlights)
-        need_facts = not old or "stats" not in old
+        need_facts = not old or old.get("v") != 2
         need_text = GEMINI_KEY and (not old or not old.get("agent")) and written < 4 and finished.index((t, eid, league)) < 15
         if not need_facts and not need_text:
             continue
@@ -599,7 +664,7 @@ def do_summaries():
             "id": eid, "t": t, "comp": comp, "home": f["home"], "away": f["away"], "hs": f["hs"], "as": f["as"],
             "homeLogo": f["homeLogo"], "awayLogo": f["awayLogo"], "venue": f["venue"],
             "goals": f["goals"], "events": f["events"], "stats": f["stats"], "lineups": f["lineups"],
-            "title": title, "text": text, "agent": agent,
+            "title": title, "text": text, "agent": agent, "v": 2,
             "video": match_video(f["home"], f["away"], t, highlights),
         }
     out = sorted(done.values(), key=lambda m: -m["t"])[:40]
@@ -646,10 +711,115 @@ def do_club():
     log("clube: ok")
 
 
+# ---------------------------------------------------------------- história e palmarés (Wikipédia, CC BY-SA)
+WIKI = "https://pt.wikipedia.org/w/api.php?"
+WIKI_AGENT = {"User-Agent": "BenficaIndependenteRobo/1.0 (https://github.com/JoaoRebola/benfica-independente-dados)"}
+
+
+def wiki_html(title):
+    import urllib.parse
+    url = WIKI + urllib.parse.urlencode({"action": "parse", "page": title, "prop": "text", "redirects": 1,
+                                         "format": "json", "formatversion": 2})
+    req = urllib.request.Request(url, headers=WIKI_AGENT)
+    with urllib.request.urlopen(req, timeout=60) as r:
+        h = json.loads(r.read().decode())["parse"]["text"]
+    h = re.sub(r"<(style|script)[^>]*>.*?</\1>", "", h, flags=re.S)
+    return re.sub(r"<sup[^>]*>.*?</sup>", "", h, flags=re.S)
+
+
+def cell_text(c):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", c))).strip()
+
+
+def wiki_text(h):
+    h = re.sub(r"<table.*?</table>", "", h, flags=re.S)
+    h = re.sub(r"</p>|</li>|</h\d>|<br\s*/?>", "\n", h)
+    t = html.unescape(re.sub(r"<[^>]+>", "", h))
+    t = re.sub(r"\[editar[^\]]*\]", "", t)
+    return re.sub(r"[ \t]+", " ", re.sub(r"\n\s*\n+", "\n\n", t)).strip()
+
+
+SPORT_HEADS = {"FUTEBOL": "Futebol", "BASQUETEBOL": "Basquetebol", "HOQUEI EM PATINS": "Hóquei em Patins",
+               "FUTSAL": "Futsal", "ANDEBOL": "Andebol", "VOLEIBOL": "Voleibol", "ATLETISMO": "Atletismo",
+               "RAGUEBI": "Râguebi", "RUGBY": "Râguebi", "POLO AQUATICO": "Polo Aquático", "NATACAO": "Natação",
+               "TENIS DE MESA": "Ténis de Mesa", "BILHAR": "Bilhar", "CICLISMO": "Ciclismo", "JUDO": "Judo"}
+
+
+def parse_honours(h):
+    """Lê as tabelas do palmarés: modalidade > masculino/feminino > âmbito > (competição, n.º, épocas)."""
+    sport, gender, scope = "", "Masculino", ""
+    out = {}
+    for m in re.finditer(r"<h([2-4])[^>]*>(.*?)</h\1>|<tr[^>]*>(.*?)</tr>|<(?:p|b|th)[^>]*>\s*(Competições[^<]*)<", h, re.S):
+        if m.group(2) is not None:
+            head = cell_text(m.group(2))
+            U = up(head)
+            if U in SPORT_HEADS:
+                sport, gender, scope = SPORT_HEADS[U], "Masculino", ""
+            elif "FEMININ" in U:
+                gender = "Feminino"
+            elif "MASCULIN" in U:
+                gender = "Masculino"
+            elif "COMPETICOES" in U or "INTERNACION" in U or "NACION" in U or "REGION" in U:
+                scope = head
+            continue
+        if m.group(4) is not None:
+            scope = cell_text(m.group(4))
+            continue
+        cells = [cell_text(c) for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", m.group(3), re.S)]
+        cells = [c for c in cells if c != ""]
+        if len(cells) == 1 and "COMPETICOES" in up(cells[0]):
+            scope = cells[0]
+            continue
+        if len(cells) >= 2 and cells[1].isdigit() and sport and up(cells[0]) not in ("COMPETICAO", "TOTAL"):
+            key = sport + ("" if gender == "Masculino" else " Feminino")
+            out.setdefault(key, []).append({
+                "nome": cells[0], "n": int(cells[1]), "epocas": cells[2] if len(cells) > 2 else "",
+                "ambito": "Internacional" if "INTERNACION" in up(scope) else ("Regional" if "REGION" in up(scope) else "Nacional"),
+            })
+    return [{"modalidade": k, "titulos": v, "total": sum(t["n"] for t in v)} for k, v in out.items()]
+
+
+def do_history():
+    """História e palmarés de todas as modalidades, a partir da Wikipédia (uma vez por semana)."""
+    old = load("history.json", {})
+    week = datetime.now(LISBON).strftime("%G-%V")
+    if old.get("semana") == week and old.get("palmares") and (old.get("agente") or not GEMINI_KEY):
+        return
+    honours = parse_honours(wiki_html("Palmarés do Sport Lisboa e Benfica")) or old.get("palmares", [])
+    main = wiki_text(wiki_html("Sport Lisboa e Benfica"))
+    long_text = wiki_text(wiki_html("História do Sport Lisboa e Benfica"))
+    chapters, milestones, agent = old.get("capitulos", []), old.get("marcos", []), bool(old.get("agente"))
+    if GEMINI_KEY and not (agent and old.get("semana")):
+        res = gemini(
+            "Com base APENAS no texto abaixo (Wikipédia), escreve em português de Portugal a história do Sport Lisboa "
+            "e Benfica para uma app de adeptos: 8 a 12 capítulos por ordem cronológica, cada um com título curto e "
+            "texto de 4 a 7 frases, escrito por palavras tuas (não copies frases), sem inventar nada. Junta também "
+            "uma lista de 15 a 25 marcos (ano e uma frase). Devolve JSON {\"capitulos\": [{\"titulo\":...,\"texto\":...}], "
+            "\"marcos\": [{\"ano\":...,\"texto\":...}]}.\n\n" + (long_text or main)[:120000],
+            timeout=180,
+        )
+        if isinstance(res, dict) and res.get("capitulos"):
+            chapters = [{"titulo": str(c.get("titulo", ""))[:80], "texto": str(c.get("texto", ""))}
+                        for c in res["capitulos"] if c.get("texto")]
+            milestones = [{"ano": str(x.get("ano", ""))[:12], "texto": str(x.get("texto", ""))[:300]}
+                          for x in res.get("marcos", []) if x.get("texto")]
+            agent = True
+    if not chapters:
+        # Sem agente: a secção "História" do artigo principal, tal como está.
+        i = main.find("História")
+        part = main[i:i + 6000] if i >= 0 else main[:6000]
+        chapters = [{"titulo": "História", "texto": p.strip()} for p in part.split("\n\n")[1:8] if len(p.strip()) > 120]
+    save("history.json", {
+        "semana": week, "agente": agent, "capitulos": chapters, "marcos": milestones, "palmares": honours,
+        "fonte": "Wikipédia (pt.wikipedia.org), texto disponível sob a licença CC BY-SA 4.0",
+    })
+    log("história:", len(chapters), "capítulos; palmarés:", len(honours), "modalidades")
+
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_highlights, do_summaries, do_club):
+    for step in (do_agenda, do_results, do_videos, do_highlights, do_summaries, do_club, do_history):
         try:
             step()
         except Exception as e:

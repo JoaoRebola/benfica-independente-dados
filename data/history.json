@@ -1,0 +1,620 @@
+{
+ "semana": "2026-46",
+ "agente": false,
+ "capitulos": [
+  {
+   "titulo": "História",
+   "texto": "Ver artigos principais: Cronologia do Sport Lisboa e Benfica e História do Sport Lisboa e Benfica\nA primeira equipa do Benfica, em 1905\nO Sport Lisboa e Benfica foi fundado a 28 de fevereiro de 1904, na Farmácia Franco, em Belém, por um grupo liderado por Cosme Damião, figura central na formação do clube. Inicialmente chamado Sport Lisboa, adotou as cores vermelha e branca e o lema E pluribus unum. Em 13 de setembro de 1908, fundiu-se com o Grupo Sport Benfica, passando a denominar-se Sport Lisboa e Benfica e adotando a águia como símbolo e a roda da bicicleta no emblema, representando o ciclismo, e usando o o Campo da Feiteira para a prática futebolista."
+  },
+  {
+   "titulo": "História",
+   "texto": "Durante as décadas de 1910 e 1920, o Benfica consolidou-se como um dos principais clubes de Lisboa, vencendo diversos Campeonatos de Lisboa e inaugurando o seu primeiro estádio próprio, o Estádio das Amoreiras, em 1925. O clube expandiu-se também a outras modalidades, como basquetebol e hóquei em patins, demonstrando o ecletismo do clube."
+  },
+  {
+   "titulo": "História",
+   "texto": "Nos anos 1930, o clube conquistou os seus primeiros títulos nacionais no Campeonato de Portugal e tornou-se o primeiro tricampeão nacional. Figuras como Vítor Silva e Gaspar Pinto marcaram este período. A década de 1940 trouxe um novo periodo de sucesso com János Biri, conquistando três campeonatos e três Taças de Portugal, além das primeiras conquistas no basquetebol."
+  },
+  {
+   "titulo": "História",
+   "texto": "A águia à porta do Estádio da Luz.\nEm 1950 o Benfica conquista a Taça Latina, o primeiro troféu internacional ganho por um português, e em 1954 foi inaugurado o Estádio da Luz. Sob o comando de Otto Glória, o Benfica profissionalizou a sua estrutura, o que rendeu diversos títulos nacionais. A década de '60 foi a mais gloriosa na história do Benfica: sob Béla Guttmann, o clube conquistou duas Taças dos Campeões Europeus (1961 e 1962) e dominou o futebol nacional, vencendo oito campeonatos durante a década, com Eusébio, Coluna, José Águas, entre outros contribuindo para tal. O Benfica foi nomeado “melhor equipa europeia” em 1965, 1966 e 1969."
+  },
+  {
+   "titulo": "História",
+   "texto": "Eusébio em 1968, lendário jogador do Benfica, que vestiu a camisola do clube de 1961–1975.\nNos anos 1970, com Jimmy Hagan e depois John Mortimore, o Benfica manteve a hegemonia doméstica, conseguindo dois tricampeonatos e passando duas edições invicto. Jogadores como Nené, Toni e Humberto Coelho destacaram-se e, nas modalidades, o clube continuou a obter sucesso."
+  },
+  {
+   "titulo": "História",
+   "texto": "A década de 1980 trouxe o regresso ao protagonismo europeu: o Benfica alcançou a final da Taça UEFA em 1983 e a final da Taça dos Campeões Europeus de 1988, sob Eriksson e Toni. No cenário doméstico, conquistou cinco campeonatos e seis Taças de Portugal. Em 1985 foi inaugurado o terceiro anel do Estádio da Luz, tornando-o no maior estádio da Europa."
+  },
+  {
+   "titulo": "História",
+   "texto": "Nos anos 1990, o Benfica voltou à Taça dos Campeões Europeus de 1990, mas a partir de meados da década passou por uma grave crise financeira e desportiva, ficando onze anos sem vencer o campeonato. As modalidades viveram um dos seus períodos mais vitoriosos, sobretudo no basquetebol e hóquei."
+  }
+ ],
+ "marcos": [],
+ "palmares": [
+  {
+   "modalidade": "Futebol",
+   "titulos": [
+    {
+     "nome": "Liga dos Campeões da UEFA",
+     "n": 2,
+     "epocas": "1960–61 e 1961–62",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Taça Latina",
+     "n": 1,
+     "epocas": "1950",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Primeira Liga",
+     "n": 38,
+     "epocas": "1935–36 , 1936–37 , 1937–38 , 1941–42 , 1942–43 , 1944–45 , 1949–50 , 1954–55 , 1956–57 , 1959–60 , 1960–61 , 1962–63 , 1963–64 , 1964–65 , 1966–67 , 1967–68 , 1968–69 , 1970–71 , 1971–72 , 1972–73 , 1974–75 , 1975–76 , 1976–77 , 1980–81 , 1982–83 , 1983–84 , 1986–87 , 1988–89 , 1990–91 , 1993–94 , 2004–05 , 2009–10 , 2013–14 , 2014–15 , 2015–16 , 2016–17 , 2018–19 e 2022–23",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 26,
+     "epocas": "1939–40 , 1942–43 , 1943–44 , 1948–49 , 1950–51 , 1951–52 , 1952–53 , 1954–55 , 1956–57 1958–59 , 1961–62 , 1963–64 , 1968–69 , 1969–70 , 1971–72 , 1979–80 , 1980–81 , 1982–83 , 1984–85 , 1985–86 , 1986–87 , 1992–93 , 1995–96 , 2003–04 , 2013–14 e 2016–17",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça da Liga",
+     "n": 8,
+     "epocas": "2008–09 , 2009–10 , 2010–11 , 2011–12 , 2013–14 , 2014–15 e 2015–16 e 2024–25",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça Cândido de Oliveira",
+     "n": 10,
+     "epocas": "1980 , 1985 , 1989 , 2005 , 2014 , 2016 , 2017 , 2019 , 2023 e 2025",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Campeonato de Portugal",
+     "n": 3,
+     "epocas": "1929–30 , 1930–31 e 1934–35",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça Ribeiro dos Reis",
+     "n": 3,
+     "epocas": "1963–64 , 1965–66 e 1970–71",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Campeonato de Lisboa",
+     "n": 10,
+     "epocas": "1909–10, 1911–12 , 1912–13 , 1913–14 , 1915–16 , 1916–17 , 1917–18, 1919–20, 1932–33 e 1939–40",
+     "ambito": "Regional"
+    },
+    {
+     "nome": "Taça de Honra de Lisboa",
+     "n": 18,
+     "epocas": "1919–20 , 1921–22 , 1962–63 , 1964–65 , 1966–67 , 1967–68 , 1968–69 , 1971–72 , 1972–73 , 1973–74 , 1974–75 , 1977–78 , 1978–79 , 1979–80 , 1981–82 , 1983–84 , 1985–86 e 1987–88",
+     "ambito": "Regional"
+    },
+    {
+     "nome": "Conquistas Oficiais",
+     "n": 119,
+     "epocas": "3 Internacionais, 88 Nacionais e 28 Regionais",
+     "ambito": "Regional"
+    },
+    {
+     "nome": "Taça Ibérica",
+     "n": 1,
+     "epocas": "1983",
+     "ambito": "Regional"
+    }
+   ],
+   "total": 239
+  },
+  {
+   "modalidade": "Futebol Feminino",
+   "titulos": [
+    {
+     "nome": "Campeonato Nacional",
+     "n": 6,
+     "epocas": "2020–21, 2021–22, 2022–23, 2023–24, 2024–25, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 3,
+     "epocas": "2018–19, 2023–24, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça da Liga",
+     "n": 5,
+     "epocas": "2019–20, 2020–21, 2022–23, 2023–24, 2024–25",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça",
+     "n": 4,
+     "epocas": "2019, 2022, 2023, 2026",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Conquistas Oficiais",
+     "n": 18,
+     "epocas": "18 Nacionais",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 36
+  },
+  {
+   "modalidade": "Hóquei em Patins",
+   "titulos": [
+    {
+     "nome": "Taça Intercontinental",
+     "n": 2,
+     "epocas": "2013, 2017",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Liga dos Campeões",
+     "n": 2,
+     "epocas": "2012–13, 2015–16",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Taça WSE",
+     "n": 2,
+     "epocas": "1990–91, 2010–11",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Taça Continental",
+     "n": 3,
+     "epocas": "2011, 2013, 2016",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Taça das Nações",
+     "n": 1,
+     "epocas": "1962",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Torneio Cidade de Vigo",
+     "n": 1,
+     "epocas": "2008",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Campeonato Português",
+     "n": 25,
+     "epocas": "1950–51, 1951–52, 1955–56, 1956–57, 1959–60, 1960–61, 1965–66, 1966–67, 1967–68, 1969–70, 1971–72, 1973–74, 1978–79, 1979–80, 1980–81, 1991–92, 1993–94, 1994–95, 1996–97, 1997–98, 2011–12, 2014–15, 2015–16, 2022–23, , 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Campeonato Metropolitano",
+     "n": 6,
+     "epocas": "1966, 1967, 1969, 1971, 1972, 1973",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 15,
+     "epocas": "1963, 1977–78, 1978–79, 1979–80, 1980–81, 1981–82, 1990–91, 1993–94, 1994–95, 1999–00, 2000–01, 2001–02, 2009–10, 2013–14, 2014–2015",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça 1947",
+     "n": 1,
+     "epocas": "2020",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Elite Cup",
+     "n": 3,
+     "epocas": "2023, 2024, 2025",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça António Livramento",
+     "n": 9,
+     "epocas": "1992, 1994, 1997, 2001, 2002, 2010, 2012, 2022, 2023",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 70
+  },
+  {
+   "modalidade": "Hóquei em Patins Feminino",
+   "titulos": [
+    {
+     "nome": "Liga dos Campeões",
+     "n": 1,
+     "epocas": "2014–15",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Campeonato Português",
+     "n": 13,
+     "epocas": "2012–13, 2013–14, 2014–15, 2015–16, 2016–17, 2017–18, 2018–19, 2020–21, 2021–22, 2022–23, 2023–24, 2024–25, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 12,
+     "epocas": "2013–14, 2014–15, 2015–16, 2016–17, 2017–18, 2018–19, 2020–21, 2021–22, 2022–23, 2023–24, 2024–25, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Elite Cup",
+     "n": 4,
+     "epocas": "2022, 2023, 2024, 2025",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça",
+     "n": 12,
+     "epocas": "2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 42
+  },
+  {
+   "modalidade": "Basquetebol",
+   "titulos": [
+    {
+     "nome": "Supertaça Luso-Angolana",
+     "n": 1,
+     "epocas": "2009–10",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Liga Portuguesa",
+     "n": 31,
+     "epocas": "1939–40, 1945–46, 1946–47, 1960–61, 1961–62, 1962–63, 1963–64, 1964–65, 1969–70, 1974–75, 1984–85, 1985–86, 1986–87, 1988–89, 1989–90, 1990–91, 1991–92, 1992–93, 1993–94, 1994–95, 2008–09, 2009–10, 2011–12, 2012–13, 2013–14, 2014–15, 2016–17, 2021–22, 2022–23, 2023–24, 2024–25",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Campeonato Metropolitano",
+     "n": 7,
+     "epocas": "1962–63, 1963–64, 1964–65, 1965–66, 1969–70, 1972–73, 1973–74",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 23,
+     "epocas": "1945–46, 1946–47, 1960–61, 1963–64, 1964–65, 1965–66, 1967–68, 1968–69, 1969–70, 1971–72, 1972–73, 1973–74, 1980–81, 1991–92, 1992–93, 1993–94, 1994–95, 1995–96, 2013–14, 2014–15, 2015–16, 2016–2017, 2022–23",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça Hugo dos Santos",
+     "n": 13,
+     "epocas": "1989–90, 1990–91, 1992–93, 1993–94, 1994–95, 1995–96, 2010–11, 2012–13, 2013–14, 2014–15, 2016–17, 2017–18, 2023–24",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Troféu António Pratas",
+     "n": 4,
+     "epocas": "2011, 2012, 2014, 2015",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça",
+     "n": 16,
+     "epocas": "1984, 1988, 1990, 1993, 1994, 1995, 1997, 2008, 2009, 2012, 2013, 2014, 2015, 2017, 2023, 2025",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 95
+  },
+  {
+   "modalidade": "Basquetebol Feminino",
+   "titulos": [
+    {
+     "nome": "Liga Portuguesa",
+     "n": 5,
+     "epocas": "2020–21, 2021–22, 2023–24, 2024–25, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 4,
+     "epocas": "2020–21, 2021–22, 2023–24, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça Vítor Hugo",
+     "n": 4,
+     "epocas": "2019–20, 2022–23, 2023–24, 2024–25",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça Federação",
+     "n": 3,
+     "epocas": "2021–22, 2022–23, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça Portuguesa",
+     "n": 3,
+     "epocas": "2021, 2022, 2023, 2026",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 19
+  },
+  {
+   "modalidade": "Andebol",
+   "titulos": [
+    {
+     "nome": "Liga Europeia da EHF",
+     "n": 1,
+     "epocas": "2021–22",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Campeonato Nacional",
+     "n": 7,
+     "epocas": "1961–62, 1974–75, 1981–82, 1982–83, 1988–89, 1989–90, 2007–08",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 6,
+     "epocas": "1984–85, 1985–86, 1986–87, 2010–11, 2015–16, 2017–18",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça da Liga",
+     "n": 2,
+     "epocas": "2005–06, 2008–09",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça Federação",
+     "n": 1,
+     "epocas": "1995–96",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça Presidente da República",
+     "n": 1,
+     "epocas": "2007–08",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Campeonato Nacional de Onze",
+     "n": 1,
+     "epocas": "1961–62",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça Nacional",
+     "n": 7,
+     "epocas": "1989, 1993, 2010, 2012, 2016, 2018, 2022",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 26
+  },
+  {
+   "modalidade": "Andebol Feminino",
+   "titulos": [
+    {
+     "nome": "Campeonato Nacional",
+     "n": 12,
+     "epocas": "1983–84, 1985–86, 1986–87, 1988–89, 1989–90, 1991–92, 1992–93, 2021–22, 2022–23, 2023–24, 2024–25, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 10,
+     "epocas": "1984–85, 1985–86, 1986–87, 1987–88, 1988–89, 1991–92, 2021–22, 2022–23, 2024–25, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça Nacional",
+     "n": 6,
+     "epocas": "1990, 1992, 2022, 2023, 2025, 2026",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 28
+  },
+  {
+   "modalidade": "Futsal",
+   "titulos": [
+    {
+     "nome": "Liga dos Campeões de Futsal da UEFA",
+     "n": 1,
+     "epocas": "2009–10",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Campeonato Português",
+     "n": 10,
+     "epocas": "2002–03, 2004–05, 2006–07, 2007–08, 2008–09, 2011–12, 2014–15, 2018–19, 2024–25, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 9,
+     "epocas": "2002–03, 2004–05, 2006–07, 2008–09, 2011–12, 2014–15, 2016–17, 2022–23, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça da Liga",
+     "n": 5,
+     "epocas": "2017–18, 2018–19, 2019–20, 2022–23, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça",
+     "n": 9,
+     "epocas": "2003, 2006, 2007, 2009, 2011, 2012, 2016, 2023",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 34
+  },
+  {
+   "modalidade": "Futsal Feminino",
+   "titulos": [
+    {
+     "nome": "Taça Ibérica",
+     "n": 1,
+     "epocas": "2006–07",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Campeonato Português",
+     "n": 8,
+     "epocas": "2016–17, 2017–18, 2018–19, 2020–21, 2021–22, 2023–24, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça Nacional",
+     "n": 5,
+     "epocas": "2004–05, 2005–06, 2006–07, 2007–08, 2009–10",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 10,
+     "epocas": "2013–14, 2015–16, 2016–17, 2017–18, 2018–19, 2019–20, 2022–23, 2023–24, 2024–25, 2025–26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça da Liga",
+     "n": 3,
+     "epocas": "2020–21, 2022–23, 2024–25",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça",
+     "n": 9,
+     "epocas": "2014, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 36
+  },
+  {
+   "modalidade": "Voleibol",
+   "titulos": [
+    {
+     "nome": "Campeonato Nacional",
+     "n": 12,
+     "epocas": "1980–81, 1990–91, 2004–05, 2012–13, 2013–14, 2014–15, 2016–2017, 2018–2019, 2020–2021, 2021–22, 2022–23, 2023–24",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 21,
+     "epocas": "1965–66, 1973–74, 1974–75, 1975–76, 1977–78, 1978–79, 1979–80, 1989–90, 1991–92, 2004–05, 2005–06, 2006–07, 2010–11, 2011–12, 2014–2015, 2015–16, 2017–18, 2018–19, 2021–22, 2022–23, 2024–25",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça de Portugal",
+     "n": 12,
+     "epocas": "1989, 2011, 2012, 2013, 2014, 2015, 2016, 2018, 2019, 2020, 2021, 2023",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 45
+  },
+  {
+   "modalidade": "Voleibol Feminino",
+   "titulos": [
+    {
+     "nome": "Campeonato Nacional",
+     "n": 10,
+     "epocas": "1966–67, 1967–68, 1968–69, 1969–70, 1970–71, 1971–72, 1972–73, 1973–74, 1974–75, 2024–25",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 3,
+     "epocas": "1972–73, 1973–74, 2023–24",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça de Portugal",
+     "n": 2,
+     "epocas": "2024, 2025",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 15
+  },
+  {
+   "modalidade": "Râguebi",
+   "titulos": [
+    {
+     "nome": "Taça Ibérica",
+     "n": 4,
+     "epocas": "1971, 1987, 1989, 2002",
+     "ambito": "Internacional"
+    },
+    {
+     "nome": "Campeonato Nacional",
+     "n": 10,
+     "epocas": "1959–60, 1960–61, 1961–62, 1969–70, 1975–76, 1985–86, 1987–88, 1990–91, 2000–01, 2025-26",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal",
+     "n": 9,
+     "epocas": "1960–61, 1964–65, 1965–66, 1969–70, 1971–72, 1974–75, 1982–83, 1983–84, 1984–85",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 23
+  },
+  {
+   "modalidade": "Râguebi Feminino",
+   "titulos": [
+    {
+     "nome": "Campeonato Nacional (XV)",
+     "n": 6,
+     "epocas": "2006–07, 2007–08, 2008–09, 2010–11, 2012–13, 2023–24",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Campeonato Nacional (7s)",
+     "n": 4,
+     "epocas": "2012–13, 2013–14, 2014–15, 2015–16",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal (XV)",
+     "n": 6,
+     "epocas": "2004–05, 2007–08, 2008–09, 2009–10, 2010–11, 2011–12",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Taça de Portugal (7s)",
+     "n": 2,
+     "epocas": "2013–14, 2015–16",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça (XV)",
+     "n": 8,
+     "epocas": "2007, 2008, 2009, 2010, 2011, 2012, 2023, 2024",
+     "ambito": "Nacional"
+    },
+    {
+     "nome": "Supertaça (7s)",
+     "n": 3,
+     "epocas": "2017, 2018",
+     "ambito": "Nacional"
+    }
+   ],
+   "total": 29
+  }
+ ],
+ "fonte": "Wikipédia (pt.wikipedia.org), texto disponível sob a licença CC BY-SA 4.0"
+}
