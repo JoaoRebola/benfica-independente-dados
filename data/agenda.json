@@ -1,26 +1,5 @@
 [
  {
-  "t": 1794560400000,
-  "title": "Portimão International Cup",
-  "detail": "| Sub 14 | -09h00 Benfica x Lincoln Red -11h30 Benfica x Birmingham City -13h10 Benfica x Real Betis",
-  "loc": "Portimão",
-  "sport": "Futebol"
- },
- {
-  "t": 1794583800000,
-  "title": "Algarve International Meeting",
-  "detail": "| dia 1 |",
-  "loc": "Complexo de Piscinas Municipais de Albufeira",
-  "sport": "Natação"
- },
- {
-  "t": 1794596640000,
-  "title": "Inauguração da Casa Benfica Cantanhede",
-  "detail": "Presença do presidente do SL Benfica, Rui Costa",
-  "loc": "Rua Dr Sá Carneiro - Cantanhede",
-  "sport": "Casas Benfica"
- },
- {
   "t": 1794646800000,
   "title": "Algarve International Meeting",
   "detail": "| dia 2 |",
