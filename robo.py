@@ -7,6 +7,7 @@ Corre sozinho no GitHub (de 30 em 30 minutos) e prepara para a app:
   data/videos.json    - programa de cada vídeo do canal que as regras não reconhecem
   data/highlights.json - vídeos oficiais de resumos (todas as modalidades)
   data/summaries.json - crónica de cada jogo de futebol já terminado
+  data/club.json      - ficha do clube e do estádio (TheSportsDB)
   data/status.json    - quando correu e quem fez o trabalho (robô ou agente)
 
 O "agente" (Gemini) só entra se existir a chave GEMINI_API_KEY nos segredos do
@@ -397,8 +398,8 @@ import xml.etree.ElementTree as ET
 
 HIGHLIGHT_CHANNELS = [
     ("UC8zrah5cNf2c3jKKeD_Z3fw", "clube"),   # Sport Lisboa e Benfica (todas as modalidades)
-    ("UCuIlu5oGIj1RzHOYmeSV5Eg", "liga"),    # VSPORTS - Liga Portugal
-    ("UCe_huFJ0d9uhFxX74C-UkAg", "taca"),    # VSPORTS - Taça da Liga
+    # Os resumos do futebol masculino (Liga, Taças, UEFA) estão bloqueados fora do YouTube
+    # pelos donos dos direitos, por isso ficam de fora: só se guardam vídeos que tocam na app.
 ]
 ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer"
 COMPETITIONS = {
@@ -451,9 +452,11 @@ def do_highlights():
                 t = int(datetime.fromisoformat(e.findtext("a:published", namespaces=ns)).timestamp() * 1000)
             except Exception:
                 continue
+            if hl_sport(title) == "Futebol":
+                continue
             if vid and vid not in known:
                 known[vid] = {"id": vid, "title": title, "t": t, "sport": hl_sport(title), "src": kind}
-    out = sorted(known.values(), key=lambda h: -h["t"])[:120]
+    out = sorted((h for h in known.values() if h["sport"] != "Futebol"), key=lambda h: -h["t"])[:120]
     save("highlights.json", out)
     log("resumos em vídeo:", len(out))
 
@@ -476,6 +479,16 @@ def match_video(home, away, t, highlights):
     return best["id"] if best else ""
 
 
+STAT_NAMES = [
+    ("Possession", "Posse de bola (%)"), ("SHOTS", "Remates"), ("ON GOAL", "Remates à baliza"),
+    ("Corner Kicks", "Cantos"), ("Fouls", "Faltas"), ("Offsides", "Foras de jogo"), ("Saves", "Defesas"),
+    ("Yellow Cards", "Cartões amarelos"), ("Red Cards", "Cartões vermelhos"), ("Passes", "Passes"),
+    ("Accurate Passes", "Passes certos"), ("Tackles", "Desarmes"), ("Interceptions", "Interceções"),
+]
+EVENT_TYPES = {"Goal": "golo", "Own Goal": "autogolo", "Penalty - Scored": "golo", "Yellow Card": "amarelo",
+               "Red Card": "vermelho", "Substitution": "troca"}
+
+
 def event_facts(event_id, league):
     s = json.loads(get(f"{ESPN}/{league}/summary?event={event_id}", timeout=40))
     comp = s["header"]["competitions"][0]
@@ -487,20 +500,44 @@ def event_facts(event_id, league):
         "homeLogo": (home["team"].get("logos") or [{}])[0].get("href", ""),
         "awayLogo": (away["team"].get("logos") or [{}])[0].get("href", ""),
         "venue": (s.get("gameInfo", {}).get("venue", {}) or {}).get("fullName", ""),
-        "goals": [], "cards": [], "stats": {},
+        "goals": [], "events": [], "stats": [], "lineups": [],
     }
+    home_name = facts["home"]
     for k in s.get("keyEvents", []):
         typ = (k.get("type", {}) or {}).get("text", "")
         minute = (k.get("clock", {}) or {}).get("displayValue", "")
-        who = ", ".join(p.get("athlete", {}).get("displayName", "") for p in k.get("participants", [])[:1])
+        people = [p.get("athlete", {}).get("displayName", "") for p in k.get("participants", [])]
         team = (k.get("team", {}) or {}).get("displayName", "")
-        if k.get("scoringPlay"):
-            facts["goals"].append({"min": minute, "who": who, "team": team, "how": typ})
-        elif "Red" in typ:
-            facts["cards"].append({"min": minute, "who": who, "team": team})
-    for t in s.get("boxscore", {}).get("teams", []):
-        name = t.get("team", {}).get("displayName", "")
-        facts["stats"][name] = {st.get("label") or st.get("name"): st.get("displayValue") for st in t.get("statistics", [])}
+        kind = "golo" if k.get("scoringPlay") and "Own" not in typ else EVENT_TYPES.get(typ.split(" - ")[0], "")
+        if "Own" in typ:
+            kind = "autogolo"
+        if not kind:
+            continue
+        side = "h" if team == home_name else "a"
+        ev = {"min": minute, "k": kind, "who": people[0] if people else "", "side": side}
+        if kind == "troca" and len(people) > 1:
+            ev["out"] = people[1]
+        if "Penalty" in typ:
+            ev["pen"] = True
+        facts["events"].append(ev)
+        if kind in ("golo", "autogolo"):
+            facts["goals"].append({"min": minute, "who": ev["who"], "team": team, "how": typ})
+    box = {t.get("team", {}).get("displayName", ""): {st.get("label"): st.get("displayValue") for st in t.get("statistics", [])}
+           for t in s.get("boxscore", {}).get("teams", [])}
+    hb, ab = box.get(facts["home"], {}), box.get(facts["away"], {})
+    for key, label in STAT_NAMES:
+        if key in hb or key in ab:
+            facts["stats"].append({"n": label, "h": hb.get(key, "0"), "a": ab.get(key, "0")})
+    for r in s.get("rosters", []):
+        side = "h" if r.get("homeAway") == "home" or r.get("team", {}).get("displayName") == home_name else "a"
+        players = []
+        for p in r.get("roster", []):
+            players.append({
+                "n": p.get("athlete", {}).get("displayName", ""), "no": p.get("jersey", ""),
+                "pos": (p.get("position") or {}).get("abbreviation", ""), "s": bool(p.get("starter")),
+                "in": bool(p.get("subbedIn")), "out": bool(p.get("subbedOut")),
+            })
+        facts["lineups"].append({"side": side, "formation": r.get("formation", ""), "players": players})
     return facts
 
 
@@ -509,8 +546,6 @@ def plain_summary(f):
     txt = f"{f['home']} {f['hs']}-{f['as']} {f['away']}."
     if f["goals"]:
         txt += " Golos: " + "; ".join(f"{g['who']} ({g['team']}) {g['min']}" for g in f["goals"]) + "."
-    if f["cards"]:
-        txt += " Expulsões: " + "; ".join(f"{c['who']} {c['min']}" for c in f["cards"]) + "."
     return txt
 
 
@@ -527,55 +562,94 @@ def do_summaries():
         t = int(datetime.fromisoformat(e["date"].replace("Z", "+00:00")).timestamp() * 1000)
         finished.append((t, e["id"], league))
     finished.sort(reverse=True)
-    written = 0
-    for t, eid, league in finished[:12]:
+    fetched = written = 0
+    for t, eid, league in finished[:40]:
         old = done.get(eid)
-        if old and old.get("video") and old.get("agent"):
+        if old:
+            old["video"] = match_video(old["home"], old["away"], t, highlights)
+        need_facts = not old or "stats" not in old
+        need_text = GEMINI_KEY and (not old or not old.get("agent")) and written < 4 and finished.index((t, eid, league)) < 15
+        if not need_facts and not need_text:
             continue
-        if old and not old.get("video"):
-            v = match_video(old["home"], old["away"], t, highlights)
-            if v:
-                old["video"] = v
-            if old.get("agent") or written >= 4:
-                continue
-        if written >= 4:
-            break  # aos poucos
+        if need_facts and fetched >= 12:
+            continue
         try:
             f = event_facts(eid, league or "por.1")
+            fetched += 1
         except Exception as ex:
             log("crónica", eid, "falhou:", type(ex).__name__)
             continue
         comp = COMPETITIONS.get(league, "")
-        text, agent = "", False
-        if GEMINI_KEY:
+        text, title, agent = (old or {}).get("text", ""), (old or {}).get("title", ""), bool((old or {}).get("agent"))
+        if need_text:
             res = gemini(
-                "Escreve em português de Portugal a crónica curta (4 a 6 frases, tom de jornal desportivo, do ponto de "
-                "vista de quem segue o Benfica mas sem exageros) deste jogo, usando APENAS estes dados. Não inventes "
-                "jogadas, nomes nem números que não estejam aqui. Devolve JSON {\"titulo\": ..., \"texto\": ...}.\n\n"
-                + json.dumps({"competicao": comp, **f}, ensure_ascii=False)
+                "Escreve em português de Portugal a crónica (5 a 8 frases, tom de jornal desportivo, do ponto de vista de "
+                "quem segue o Benfica mas sem exageros) deste jogo, usando APENAS estes dados: resultado, golos, "
+                "cartões, substituições, estatísticas e onzes. Não inventes jogadas, nomes nem números que não estejam "
+                "aqui. Devolve JSON {\"titulo\": ..., \"texto\": ...}.\n\n"
+                + json.dumps({"competicao": comp, **{k: v for k, v in f.items() if k not in ("homeLogo", "awayLogo")}},
+                             ensure_ascii=False)
             )
             if isinstance(res, dict) and res.get("texto"):
-                text, agent = str(res["texto"]), True
-                title = str(res.get("titulo", ""))[:120]
+                text, title, agent = str(res["texto"]), str(res.get("titulo", ""))[:120], True
+                written += 1
         if not text:
-            text, title = plain_summary(f), ""
+            text = plain_summary(f)
         done[eid] = {
             "id": eid, "t": t, "comp": comp, "home": f["home"], "away": f["away"], "hs": f["hs"], "as": f["as"],
             "homeLogo": f["homeLogo"], "awayLogo": f["awayLogo"], "venue": f["venue"],
-            "goals": f["goals"], "title": title, "text": text, "agent": agent,
+            "goals": f["goals"], "events": f["events"], "stats": f["stats"], "lineups": f["lineups"],
+            "title": title, "text": text, "agent": agent,
             "video": match_video(f["home"], f["away"], t, highlights),
         }
-        written += 1
     out = sorted(done.values(), key=lambda m: -m["t"])[:40]
     save("summaries.json", out)
     status["agente" if any(m.get("agent") for m in out) else "robo"]["cronicas"] = len(out)
-    log("crónicas:", len(out), "novas:", written)
+    log("crónicas:", len(out), "dados novos:", fetched, "textos novos:", written)
+
+
+# ---------------------------------------------------------------- clube e estádio
+SPORTSDB = "https://www.thesportsdb.com/api/v1/json/123"
+
+
+def do_club():
+    """Ficha do clube e do estádio (TheSportsDB, chave pública), uma vez por dia."""
+    old = load("club.json", {})
+    if old.get("dia") == datetime.now(LISBON).strftime("%Y-%m-%d"):
+        return
+    team = json.loads(get(SPORTSDB + "/lookupteam.php?id=134108", timeout=30))["teams"][0]
+    venue = (json.loads(get(SPORTSDB + "/lookupvenue.php?id=" + (team.get("idVenue") or "17485"), timeout=30))
+             .get("venues") or [{}])[0]
+    club_text = (team.get("strDescriptionPT") or "").strip()
+    stadium_text = (venue.get("strDescriptionPT") or "").strip() or old.get("estadioTexto", "")
+    if not stadium_text and venue.get("strDescriptionEN") and GEMINI_KEY:
+        res = gemini("Traduz para português de Portugal, sem acrescentar nada. Devolve JSON {\"texto\": ...}.\n\n"
+                     + venue["strDescriptionEN"])
+        if isinstance(res, dict) and res.get("texto"):
+            stadium_text = str(res["texto"])
+    club = {
+        "dia": datetime.now(LISBON).strftime("%Y-%m-%d"),
+        "nome": "Sport Lisboa e Benfica", "fundacao": team.get("intFormedYear") or "1904",
+        "alcunhas": "Águias, Encarnados, Glorioso",
+        "texto": club_text or (team.get("strDescriptionEN") or ""),
+        "competicoes": [team.get("strLeague" + s) for s in ("", "2", "3", "4", "5", "6", "7") if team.get("strLeague" + s)],
+        "estadio": venue.get("strVenue") or team.get("strStadium") or "Estádio da Luz",
+        "estadioOficial": venue.get("strVenueAlternate", ""),
+        "capacidade": venue.get("intCapacity", ""), "inauguracao": venue.get("intFormedYear", ""),
+        "local": venue.get("strLocation", ""), "mapa": venue.get("strMap", ""),
+        "estadioFoto": venue.get("strThumb", ""), "estadioTexto": stadium_text or (venue.get("strDescriptionEN") or ""),
+        "site": team.get("strWebsite", ""), "facebook": team.get("strFacebook", ""),
+        "instagram": team.get("strInstagram", ""), "twitter": team.get("strTwitter", ""),
+        "youtube": team.get("strYoutube", ""),
+    }
+    save("club.json", club)
+    log("clube: ok")
 
 
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_highlights, do_summaries):
+    for step in (do_agenda, do_results, do_videos, do_highlights, do_summaries, do_club):
         try:
             step()
         except Exception as e:
