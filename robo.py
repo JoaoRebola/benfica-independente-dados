@@ -630,9 +630,10 @@ def do_summaries():
     for t, eid, league in finished[:40]:
         old = done.get(eid)
         if old:
-            old["video"] = match_video(old["home"], old["away"], t, highlights)
+            old["video"] = ""
+            old["title"], old["text"], old["agent"] = "", "", False
         need_facts = not old or old.get("v") != 2
-        need_text = GEMINI_KEY and (not old or not old.get("agent")) and written < 4 and finished.index((t, eid, league)) < 15
+        need_text = False  # sem crónicas escritas pelo agente (decisão do utilizador): só os factos do jogo
         if not need_facts and not need_text:
             continue
         if need_facts and fetched >= 12:
@@ -663,7 +664,7 @@ def do_summaries():
             "id": eid, "t": t, "comp": comp, "home": f["home"], "away": f["away"], "hs": f["hs"], "as": f["as"],
             "homeLogo": f["homeLogo"], "awayLogo": f["awayLogo"], "venue": f["venue"],
             "goals": f["goals"], "events": f["events"], "stats": f["stats"], "lineups": f["lineups"],
-            "title": title, "text": text, "agent": agent, "v": 2,
+            "title": "", "text": "", "agent": False, "v": 2,
             "video": match_video(f["home"], f["away"], t, highlights),
         }
     out = sorted(done.values(), key=lambda m: -m["t"])[:40]
