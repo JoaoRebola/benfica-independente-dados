@@ -201,6 +201,16 @@
  },
  {
   "s": "Basquetebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "CAB Madeira",
+  "hg": 69,
+  "ag": 62,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 14 novembro"
+ },
+ {
+  "s": "Basquetebol",
   "c": "Fiba Europe Cup | 26/27",
   "h": "SL Benfica",
   "a": "Bakken Bears",
@@ -288,16 +298,6 @@
   "ag": 91,
   "v": "Pavilhão Fidelidade",
   "d": "quarta-feira 14 outubro"
- },
- {
-  "s": "Basquetebol",
-  "c": "Campeonato Nacional Masculino | 26/27",
-  "h": "FC Porto",
-  "a": "SL Benfica",
-  "hg": 93,
-  "ag": 86,
-  "v": "Dragão Arena",
-  "d": "domingo 11 outubro"
  },
  {
   "s": "Basquetebol Feminino",
@@ -401,6 +401,16 @@
  },
  {
   "s": "Futsal",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "Rio Ave",
+  "hg": 1,
+  "ag": 1,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 14 novembro"
+ },
+ {
+  "s": "Futsal",
   "c": "UEFA Futsal Champions League | 26/27",
   "h": "Tigers Roermond",
   "a": "SL Benfica",
@@ -488,16 +498,6 @@
   "ag": 3,
   "v": "Pavilhão Municipal de Vila do Conde",
   "d": "sábado 05 setembro"
- },
- {
-  "s": "Futsal",
-  "c": "International Masters Futsal | 2026",
-  "h": "SL Benfica",
-  "a": "Palma Futsal",
-  "hg": 2,
-  "ag": 3,
-  "v": "Portimão Arena",
-  "d": "domingo 30 agosto"
  },
  {
   "s": "Futsal Feminino",
@@ -802,6 +802,16 @@
  {
   "s": "Andebol",
   "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "AA Águas Santas",
+  "a": "SL Benfica",
+  "hg": 27,
+  "ag": 26,
+  "v": "Pavilhão Municipal de Águas Santas - Formigueiro",
+  "d": "sábado 14 novembro"
+ },
+ {
+  "s": "Andebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
   "h": "Vitória SC",
   "a": "SL Benfica",
   "hg": 25,
@@ -890,14 +900,14 @@
   "d": "sábado 26 setembro"
  },
  {
-  "s": "Andebol",
+  "s": "Voleibol",
   "c": "Campeonato Nacional Masculino | 26/27",
   "h": "SL Benfica",
-  "a": "AA Avanca",
-  "hg": 38,
-  "ag": 20,
+  "a": "Ala de Nun'Alvares",
+  "hg": 3,
+  "ag": 0,
   "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "d": "quarta-feira 23 setembro"
+  "d": "sábado 14 novembro"
  },
  {
   "s": "Voleibol",
@@ -990,14 +1000,14 @@
   "d": "sexta-feira 02 outubro"
  },
  {
-  "s": "Voleibol",
-  "c": "Campeonato Nacional Masculino | 25/26",
-  "h": "Sporting CP",
-  "a": "SL Benfica",
+  "s": "Voleibol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "AA São Mamede",
   "hg": 3,
-  "ag": 0,
-  "v": "Pavilhão João Rocha",
-  "d": "quarta-feira 06 maio"
+  "ag": 1,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sábado 14 novembro"
  },
  {
   "s": "Voleibol Feminino",
@@ -1086,16 +1096,6 @@
   "a": "Sporting CP",
   "hg": 3,
   "ag": 1,
-  "v": "Pavilhão Multiusos de Lamego",
-  "d": "sábado 26 setembro"
- },
- {
-  "s": "Voleibol Feminino",
-  "c": "Torneio Internacional de Voleibol | 19/20",
-  "h": "Sporting CP",
-  "a": "SL Benfica",
-  "hg": 0,
-  "ag": 0,
   "v": "Pavilhão Multiusos de Lamego",
   "d": "sábado 26 setembro"
  }

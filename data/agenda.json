@@ -7,53 +7,11 @@
   "sport": "Natação"
  },
  {
-  "t": 1794654000000,
-  "title": "SL Benfica vs Rio Ave",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 18 (M)",
-  "loc": "Pavilhão Fidelidade",
-  "sport": "Futsal"
- },
- {
   "t": 1794659400000,
   "title": "AD Sanjoanense vs SL Benfica",
   "detail": "WSE Continental Cup Women | 2026 - Semi Final (F)",
   "loc": "Pavelló Joan Ortoll",
   "sport": "Hóquei em Patins"
- },
- {
-  "t": 1794666600000,
-  "title": "SL Benfica vs AA São Mamede",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 6 (F)",
-  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "sport": "Voleibol"
- },
- {
-  "t": 1794668400000,
-  "title": "SL Benfica vs Amora FC",
-  "detail": "Campeonato Nacional de Sub 17 | 26/27 - Jornada 13 (M)",
-  "loc": "Benfica Campus (campo 7)",
-  "sport": "Futebol"
- },
- {
-  "t": 1794668400000,
-  "title": "AA Águas Santas vs SL Benfica",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 12 (M)",
-  "loc": "Pavilhão Municipal de Águas Santas - Formigueiro",
-  "sport": "Andebol"
- },
- {
-  "t": 1794672000000,
-  "title": "SL Benfica vs CAB Madeira",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 7 (M)",
-  "loc": "Pavilhão Fidelidade",
-  "sport": "Basquetebol"
- },
- {
-  "t": 1794679200000,
-  "title": "SL Benfica vs Ala de Nun'Alvares",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 5 (M)",
-  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "sport": "Voleibol"
  },
  {
   "t": 1794686400000,
@@ -732,6 +690,48 @@
   "title": "Sporting CP vs SL Benfica",
   "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 17 (M)",
   "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1799582400000,
+  "title": "FC Arouca vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Municipal de Arouca",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1799582400000,
+  "title": "Porto B vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Dr. Jorge Sampaio",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1800111600000,
+  "title": "SL Benfica vs Casa Pia AC",
+  "detail": "Campeonato Sub-19 26/27 - Jornada 18 (M)",
+  "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1800187200000,
+  "title": "Académico Viseu FC vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 18 (M)",
+  "loc": "Estádio do Fontelo",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1800187200000,
+  "title": "Leixões SC vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 18 (M)",
+  "loc": "Estádio do Mar",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1800553500000,
+  "title": "NEC Nijmegen vs SL Benfica",
+  "detail": "Liga Europa UEFA 26/27 - Jornada 7 (M)",
+  "loc": "Estádio de Goffert",
   "sport": "Futebol"
  },
  {

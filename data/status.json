@@ -14,7 +14,11 @@
   "resultados_Voleibol Feminino": 10
  },
  "agente": {
-  "ativo": true
+  "ativo": true,
+  "erro": 503,
+  "modelo": "gemini-3.6-flash",
+  "ok": true,
+  "cronicas": 21
  },
- "atualizado": "2026-11-14T02:46:49Z"
+ "atualizado": "2026-11-14T20:20:40Z"
 }
