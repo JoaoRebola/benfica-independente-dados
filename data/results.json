@@ -1002,6 +1002,16 @@
  {
   "s": "Voleibol Feminino",
   "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Sporting CP",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 3,
+  "v": "Pavilhão João Rocha",
+  "d": "domingo 15 novembro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
   "h": "SL Benfica",
   "a": "AA São Mamede",
   "hg": 3,
@@ -1088,15 +1098,5 @@
   "ag": 0,
   "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
   "d": "domingo 04 outubro"
- },
- {
-  "s": "Voleibol Feminino",
-  "c": "Torneio das Vindimas 2026",
-  "h": "SL Benfica",
-  "a": "Sporting CP",
-  "hg": 3,
-  "ag": 1,
-  "v": "Pavilhão Multiusos de Lamego",
-  "d": "sábado 26 setembro"
  }
 ]

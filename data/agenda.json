@@ -21,13 +21,6 @@
   "sport": "Judo"
  },
  {
-  "t": 1794767400000,
-  "title": "Sporting CP vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 7 (F)",
-  "loc": "Pavilhão João Rocha",
-  "sport": "Voleibol"
- },
- {
   "t": 1794862800000,
   "title": "CB Amadora-B vs SL Benfica-A",
   "detail": "Campeonato Regional Sul de Carambola | 26/27 - Jornada 4 (M)",
@@ -732,6 +725,13 @@
   "title": "SCU Torreense vs SL Benfica B",
   "detail": "Segunda Liga 26/27 - Jornada 22 (M)",
   "loc": "Estádio Manuel Marques",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1803211200000,
+  "title": "Gil Vicente FC vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 23 (M)",
+  "loc": "Estádio Cidade de Barcelos",
   "sport": "Futebol"
  },
  {
