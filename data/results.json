@@ -101,6 +101,16 @@
  },
  {
   "s": "Futebol Feminino",
+  "c": "Taça de Portugal Feminina | 26/27",
+  "h": "GD Aldeia Nova",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 5,
+  "v": "Complexo Desp. GD Aldeia Nova",
+  "d": "domingo 15 novembro"
+ },
+ {
+  "s": "Futebol Feminino",
   "c": "Liga dos Campeões Feminina UEFA | 2026/27",
   "h": "SL Benfica",
   "a": "Áustria Viena",
@@ -188,16 +198,6 @@
   "ag": 2,
   "v": "Estádio dos Arcos",
   "d": "sexta-feira 18 setembro"
- },
- {
-  "s": "Futebol Feminino",
-  "c": "LIGA BPI | 26/27",
-  "h": "SL Benfica",
-  "a": "Racing Power FC",
-  "hg": 3,
-  "ag": 0,
-  "v": "Benfica Campus (campo 1)",
-  "d": "sábado 12 setembro"
  },
  {
   "s": "Basquetebol",
@@ -502,6 +502,16 @@
  {
   "s": "Futsal Feminino",
   "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Maia FC",
+  "a": "SL Benfica",
+  "hg": 2,
+  "ag": 6,
+  "v": "Pavilhão Municipal da Maia",
+  "d": "domingo 15 novembro"
+ },
+ {
+  "s": "Futsal Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
   "h": "SL Benfica",
   "a": "Atlético CP",
   "hg": 5,
@@ -588,16 +598,6 @@
   "ag": 0,
   "v": "Pavillón Piño Vilachá",
   "d": "domingo 30 agosto"
- },
- {
-  "s": "Futsal Feminino",
-  "c": "Copa Ibérica Futsal Feminino | 2026",
-  "h": "SL Benfica",
-  "a": "Futsi Atlético Navalcarnero",
-  "hg": 0,
-  "ag": 0,
-  "v": "Pavillón Piño Vilachá",
-  "d": "sábado 29 agosto"
  },
  {
   "s": "Hóquei em Patins",

@@ -1,6 +1,6 @@
 {
  "robo": {
-  "agenda": 105,
+  "agenda": 106,
   "resultados_Futebol": 10,
   "resultados_Futebol Feminino": 10,
   "resultados_Basquetebol": 10,
@@ -17,5 +17,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-15T14:26:38Z"
+ "atualizado": "2026-11-15T19:53:25Z"
 }

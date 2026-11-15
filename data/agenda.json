@@ -21,41 +21,6 @@
   "sport": "Judo"
  },
  {
-  "t": 1794754800000,
-  "title": "GD Aldeia Nova vs SL Benfica",
-  "detail": "Taça de Portugal Feminina | 26/27 - Jornada 3 (F)",
-  "loc": "Complexo Desp. GD Aldeia Nova",
-  "sport": "Futebol Feminino"
- },
- {
-  "t": 1794754800000,
-  "title": "TOMBAI vs SL Benfica",
-  "detail": "Campeonato Nacional de Divisão de Honra Feminino 26/27 - Jornada 5 (F)",
-  "loc": "Campo da Bairrada",
-  "sport": "Rugby"
- },
- {
-  "t": 1794754800000,
-  "title": "HK SK CHEB vs SL Benfica",
-  "detail": "EHF European League Women | 26/27 - round Jornada 4 (F)",
-  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "sport": "Andebol"
- },
- {
-  "t": 1794760200000,
-  "title": "Maia FC vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 8 (F)",
-  "loc": "Pavilhão Municipal da Maia",
-  "sport": "Futsal"
- },
- {
-  "t": 1794762000000,
-  "title": "SL Benfica vs AEF Faro",
-  "detail": "Campeonato Nacional Sub-17 II Divisão | 26/27 - Jornada 8 (M)",
-  "loc": "Campo Complexo Desportivo Penha",
-  "sport": "Futebol"
- },
- {
   "t": 1794767400000,
   "title": "Sporting CP vs SL Benfica",
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 7 (F)",
@@ -725,6 +690,48 @@
   "title": "SL Benfica vs AZ Alkmaar",
   "detail": "Liga Europa UEFA 26/27 - Jornada 8 (M)",
   "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1801396800000,
+  "title": "SL Benfica vs Moreirense FC",
+  "detail": "Liga Portugal 26/27 - Jornada 20 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1801396800000,
+  "title": "Portimonense vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 20 (M)",
+  "loc": "Estádio Municipal de Portimão",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1802001600000,
+  "title": "Estoril Praia vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 21 (M)",
+  "loc": "Estádio António Coimbra da Mota",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1802001600000,
+  "title": "SL Benfica B vs Amarante FC",
+  "detail": "Segunda Liga 26/27 - Jornada 21 (M)",
+  "loc": "Benfica Campus",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1802606400000,
+  "title": "SL Benfica vs CS Marítimo",
+  "detail": "Liga Portugal 26/27 - Jornada 22 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1802606400000,
+  "title": "SCU Torreense vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 22 (M)",
+  "loc": "Estádio Manuel Marques",
   "sport": "Futebol"
  },
  {
