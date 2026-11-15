@@ -1,26 +1,5 @@
 [
  {
-  "t": 1794646800000,
-  "title": "Algarve International Meeting",
-  "detail": "| dia 2 |",
-  "loc": "Complexo de Piscinas Municipais de Albufeira",
-  "sport": "Natação"
- },
- {
-  "t": 1794659400000,
-  "title": "AD Sanjoanense vs SL Benfica",
-  "detail": "WSE Continental Cup Women | 2026 - Semi Final (F)",
-  "loc": "Pavelló Joan Ortoll",
-  "sport": "Hóquei em Patins"
- },
- {
-  "t": 1794686400000,
-  "title": "SL Benfica vs Riba d'Ave HC",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 2 (M)",
-  "loc": "Pavilhão Fidelidade",
-  "sport": "Hóquei em Patins"
- },
- {
   "t": 1794731400000,
   "title": "Zagreb Grand Prix",
   "detail": "Atleta em competição: Rochele Nunes +78Kg",
@@ -732,6 +711,20 @@
   "title": "NEC Nijmegen vs SL Benfica",
   "detail": "Liga Europa UEFA 26/27 - Jornada 7 (M)",
   "loc": "Estádio de Goffert",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1800792000000,
+  "title": "SL Benfica vs Casa Pia AC",
+  "detail": "Liga Portugal 26/27 - Jornada 19 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1800792000000,
+  "title": "SL Benfica B vs União de Leiria",
+  "detail": "Segunda Liga 26/27 - Jornada 19 (M)",
+  "loc": "Benfica Campus",
   "sport": "Futebol"
  },
  {

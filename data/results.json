@@ -602,6 +602,16 @@
  {
   "s": "Hóquei em Patins",
   "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "Riba d'Ave HC",
+  "hg": 4,
+  "ag": 0,
+  "v": "Pavilhão Fidelidade",
+  "d": "sábado 14 novembro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Campeonato Nacional Masculino | 26/27",
   "h": "FC Porto",
   "a": "SL Benfica",
   "hg": 3,
@@ -688,16 +698,6 @@
   "ag": 7,
   "v": "Pavilhão da Parede",
   "d": "terça-feira 22 setembro"
- },
- {
-  "s": "Hóquei em Patins",
-  "c": "Taça Jesus Correia | 26/27",
-  "h": "APAC Tojal",
-  "a": "SL Benfica",
-  "hg": 0,
-  "ag": 2,
-  "v": "Polidesportivo de S. Julião do Tojal",
-  "d": "sábado 19 setembro"
  },
  {
   "s": "Hóquei em Patins Feminino",

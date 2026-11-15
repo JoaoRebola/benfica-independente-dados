@@ -1,6 +1,6 @@
 {
  "robo": {
-  "agenda": 106,
+  "agenda": 105,
   "resultados_Futebol": 10,
   "resultados_Futebol Feminino": 10,
   "resultados_Basquetebol": 10,
@@ -11,14 +11,11 @@
   "resultados_Hóquei em Patins Feminino": 10,
   "resultados_Andebol": 10,
   "resultados_Voleibol": 10,
-  "resultados_Voleibol Feminino": 10
- },
- "agente": {
-  "ativo": true,
-  "erro": 503,
-  "modelo": "gemini-3.6-flash",
-  "ok": true,
+  "resultados_Voleibol Feminino": 10,
   "cronicas": 21
  },
- "atualizado": "2026-11-14T20:53:14Z"
+ "agente": {
+  "ativo": true
+ },
+ "atualizado": "2026-11-15T00:28:52Z"
 }
