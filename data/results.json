@@ -702,10 +702,20 @@
  {
   "s": "Hóquei em Patins Feminino",
   "c": "WSE Continental Cup Women | 2026",
+  "h": "CP Esneca Fraga",
+  "a": "SL Benfica",
+  "hg": 7,
+  "ag": 1,
+  "v": "Pavelló Joan Ortoll",
+  "d": "domingo 15 novembro"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "WSE Continental Cup Women | 2026",
   "h": "AD Sanjoanense",
   "a": "SL Benfica",
-  "hg": 0,
-  "ag": 0,
+  "hg": 2,
+  "ag": 4,
   "v": "Pavelló Joan Ortoll",
   "d": "sábado 14 novembro"
  },
@@ -788,16 +798,6 @@
   "ag": 0,
   "v": "Pavilhão Fidelidade",
   "d": "domingo 24 maio"
- },
- {
-  "s": "Hóquei em Patins Feminino",
-  "c": "Campeonato Nacional Feminino | 25/26",
-  "h": "Escola Livre",
-  "a": "SL Benfica",
-  "hg": 1,
-  "ag": 3,
-  "v": "Pavilhão Escola Livre de Azemeis",
-  "d": "domingo 17 maio"
  },
  {
   "s": "Andebol",

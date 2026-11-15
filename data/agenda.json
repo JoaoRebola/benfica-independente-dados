@@ -21,13 +21,6 @@
   "sport": "Judo"
  },
  {
-  "t": 1794740400000,
-  "title": "SL Benfica vs Vitória SC",
-  "detail": "Campeonato Nacional de Iniciados Sub 15 | 26/27 - Jornada 11 (M)",
-  "loc": "Benfica Campus (campo 1)",
-  "sport": "Futebol"
- },
- {
   "t": 1794754800000,
   "title": "GD Aldeia Nova vs SL Benfica",
   "detail": "Taça de Portugal Feminina | 26/27 - Jornada 3 (F)",
@@ -725,6 +718,13 @@
   "title": "SL Benfica B vs União de Leiria",
   "detail": "Segunda Liga 26/27 - Jornada 19 (M)",
   "loc": "Benfica Campus",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1801166400000,
+  "title": "SL Benfica vs AZ Alkmaar",
+  "detail": "Liga Europa UEFA 26/27 - Jornada 8 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
   "sport": "Futebol"
  },
  {
