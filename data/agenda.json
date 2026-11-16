@@ -49,6 +49,13 @@
   "sport": "Andebol"
  },
  {
+  "t": 1795035600000,
+  "title": "SL Benfica vs Efbo",
+  "detail": "Campeonato Nacional Sub 15 II Divisão | 26/27 - Jornada 8 (M)",
+  "loc": "Benfica Campus (campo 7)",
+  "sport": "Futebol"
+ },
+ {
   "t": 1795118400000,
   "title": "SL Benfica vs AS Roma",
   "detail": "Liga dos Campeões Feminina UEFA | 2026/27 - Jornada 5 (F)",
@@ -56,11 +63,18 @@
   "sport": "Futebol Feminino"
  },
  {
-  "t": 1795197600000,
+  "t": 1795183200000,
   "title": "Estoril Praia vs SL Benfica",
   "detail": "Liga Next Gen | 26/27 - Jornada 12 (M)",
   "loc": "Estádio António Coimbra da Mota",
   "sport": "Futebol"
+ },
+ {
+  "t": 1795206600000,
+  "title": "CR São Miguel vs SL Benfica",
+  "detail": "Campeonato Nacional de Rugby Feminino | 26/27 - Jornada 6 (F)",
+  "loc": "Bulldogs Rugby Field",
+  "sport": "Rugby"
  },
  {
   "t": 1795208400000,
@@ -68,6 +82,13 @@
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 2 (F)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1795258800000,
+  "title": "Sporting CP vs SL Benfica",
+  "detail": "Campeonato Nacional de Iniciados Sub 15 | 26/27 - Jornada 12 (M)",
+  "loc": "Estádio CGD Aurélio Pereira",
+  "sport": "Futebol"
  },
  {
   "t": 1795273200000,
@@ -113,10 +134,31 @@
  },
  {
   "t": 1795345200000,
+  "title": "SL Benfica vs Vasco da Gama",
+  "detail": "Campeonato Nacional Sub-17 II Divisão | 26/27 - Jornada 9 (M)",
+  "loc": "Benfica Campus (campo 7)",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795345200000,
   "title": "CD Nacional vs SL Benfica",
   "detail": "Campeonato Nacional de Sub 17 | 26/27 - Jornada 12 (M)",
   "loc": "Cristiano Ronaldo Campus Futebol",
   "sport": "Futebol"
+ },
+ {
+  "t": 1795345200000,
+  "title": "AF Atlântico vs SL Benfica",
+  "detail": "Campeonato Nacional Sub 15 II Divisão | 26/27 - Jornada 9 (M)",
+  "loc": "Colégio Atlântico Academia De Futebol",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795357800000,
+  "title": "SL Benfica vs CA Pacense",
+  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 4 (F)",
+  "loc": "Piscina Algés e Dafundo",
+  "sport": "Polo Aquático"
  },
  {
   "t": 1795359600000,
@@ -357,7 +399,7 @@
   "sport": "Futebol"
  },
  {
-  "t": 1796245200000,
+  "t": 1796247000000,
   "title": "Juventude Pacense vs SL Benfica",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 5 (M)",
   "loc": "Pavilhão Municipal de Paços de Ferreira",
@@ -676,48 +718,6 @@
   "title": "SL Benfica vs Moreirense FC",
   "detail": "Liga Portugal 26/27 - Jornada 20 (M)",
   "loc": "Estádio do Sport Lisboa e Benfica",
-  "sport": "Futebol"
- },
- {
-  "t": 1801396800000,
-  "title": "Portimonense vs SL Benfica B",
-  "detail": "Segunda Liga 26/27 - Jornada 20 (M)",
-  "loc": "Estádio Municipal de Portimão",
-  "sport": "Futebol"
- },
- {
-  "t": 1802001600000,
-  "title": "Estoril Praia vs SL Benfica",
-  "detail": "Liga Portugal 26/27 - Jornada 21 (M)",
-  "loc": "Estádio António Coimbra da Mota",
-  "sport": "Futebol"
- },
- {
-  "t": 1802001600000,
-  "title": "SL Benfica B vs Amarante FC",
-  "detail": "Segunda Liga 26/27 - Jornada 21 (M)",
-  "loc": "Benfica Campus",
-  "sport": "Futebol"
- },
- {
-  "t": 1802606400000,
-  "title": "SL Benfica vs CS Marítimo",
-  "detail": "Liga Portugal 26/27 - Jornada 22 (M)",
-  "loc": "Estádio do Sport Lisboa e Benfica",
-  "sport": "Futebol"
- },
- {
-  "t": 1802606400000,
-  "title": "SCU Torreense vs SL Benfica B",
-  "detail": "Segunda Liga 26/27 - Jornada 22 (M)",
-  "loc": "Estádio Manuel Marques",
-  "sport": "Futebol"
- },
- {
-  "t": 1803211200000,
-  "title": "Gil Vicente FC vs SL Benfica",
-  "detail": "Liga Portugal 26/27 - Jornada 23 (M)",
-  "loc": "Estádio Cidade de Barcelos",
   "sport": "Futebol"
  },
  {
