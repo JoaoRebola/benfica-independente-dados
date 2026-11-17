@@ -8,6 +8,7 @@ Corre sozinho no GitHub (de 30 em 30 minutos) e prepara para a app:
   data/summaries.json - crónica de cada jogo de futebol já terminado
   data/club.json      - ficha do clube e do estádio (TheSportsDB)
   data/history.json   - história e palmarés de todas as modalidades (Wikipédia)
+  data/podcast_videos.json - episódio do podcast -> vídeo do YouTube (API oficial)
   data/status.json    - quando correu e quem fez o trabalho (robô ou agente)
 
 O "agente" (Gemini) só entra se existir a chave GEMINI_API_KEY nos segredos do
@@ -816,10 +817,114 @@ def do_history():
     log("história:", len(chapters), "capítulos; palmarés:", len(honours), "modalidades")
 
 
+# ================================================================ podcasts -> vídeos
+# Liga cada episódio do podcast ao vídeo do YouTube correspondente, com a lista
+# COMPLETA do canal (API oficial do YouTube, chave gratuita no segredo
+# YOUTUBE_API_KEY). A app usa isto para "ouvir em podcast" tocando o vídeo com a
+# imagem escondida (conta como visualização). Sem chave, não faz nada.
+YOUTUBE_KEY = os.environ.get("YOUTUBE_API_KEY", "").strip()
+PODCAST_FEED = "https://anchor.fm/s/12b150a0/podcast/rss"
+_LINK_STOP = set("o a os as de do da dos das e em no na nos nas com por para um uma ao vs x the of and ep episodio parte live direto sl s".split())
+
+
+def _tokens(text):
+    plain = unicodedata.normalize("NFD", text.lower())
+    plain = "".join(c for c in plain if unicodedata.category(c) != "Mn")
+    return {t for t in re.findall(r"[a-z0-9]+", plain) if len(t) > 1 and t not in _LINK_STOP}
+
+
+def _yt_api(path, **params):
+    params["key"] = YOUTUBE_KEY
+    q = "&".join(f"{k}={urllib.request.quote(str(v))}" for k, v in params.items())
+    return json.loads(get(f"https://www.googleapis.com/youtube/v3/{path}?{q}", timeout=30))
+
+
+def _channel_videos():
+    """Todos os vídeos do canal: {id: (título, data em segundos)}."""
+    uploads = "UU" + CHANNEL[2:]
+    vids, token = {}, ""
+    for _ in range(80):  # até 4000 vídeos
+        params = {"part": "snippet,contentDetails", "playlistId": uploads, "maxResults": 50}
+        if token:
+            params["pageToken"] = token
+        page = _yt_api("playlistItems", **params)
+        for it in page.get("items", []):
+            vid = it.get("contentDetails", {}).get("videoId")
+            title = it.get("snippet", {}).get("title", "")
+            when = it.get("contentDetails", {}).get("videoPublishedAt") or it.get("snippet", {}).get("publishedAt", "")
+            if vid and when:
+                vids[vid] = (title, datetime.fromisoformat(when.replace("Z", "+00:00")).timestamp())
+        token = page.get("nextPageToken")
+        if not token:
+            break
+    return vids
+
+
+def _episodes():
+    from email.utils import parsedate_to_datetime
+    root = ET.fromstring(get(PODCAST_FEED, timeout=60))
+    eps = []
+    for item in root.iter("item"):
+        guid = (item.findtext("guid") or "").strip()
+        title = (item.findtext("title") or "").strip()
+        desc = item.findtext("description") or ""
+        try:
+            when = parsedate_to_datetime(item.findtext("pubDate")).timestamp()
+        except Exception:
+            continue
+        if guid and title:
+            eps.append((guid, title, when, desc))
+    return eps
+
+
+def do_podcast_links():
+    if not YOUTUBE_KEY:
+        return
+    vids = _channel_videos()
+    eps = _episodes()
+    day = 86400
+    used, links = set(), {}
+    # 1) O episódio que tem o link do vídeo na descrição.
+    for guid, title, when, desc in eps:
+        for vid in re.findall(r"(?:youtu\.be/|v=)([\w-]{11})", desc):
+            if vid in vids:
+                links[guid] = vid
+                used.add(vid)
+                break
+    # 2) Títulos parecidos, mesmos números e o episódio a sair perto do vídeo.
+    vt = {v: (_tokens(t), d) for v, (t, d) in vids.items()}
+    for guid, title, when, desc in eps:
+        if guid in links:
+            continue
+        et = _tokens(title)
+        if not et:
+            continue
+        best, score = None, 0.0
+        for v, (tok, d) in vt.items():
+            if v in used or not tok:
+                continue
+            days = (when - d) / day
+            if days < -2 or days > 14:
+                continue
+            nums = {t for t in tok if any(c.isdigit() for c in t)}
+            if not nums <= et:
+                continue
+            s = len(tok & et) / len(tok | et)
+            if s > score:
+                best, score = v, s
+        if best and score >= 0.6:
+            links[guid] = best
+            used.add(best)
+    if links:
+        save("podcast_videos.json", links)
+    status["robo"]["podcasts_com_video"] = len(links)
+    status["robo"]["podcasts_total"] = len(eps)
+
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history):
+    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links):
         try:
             step()
         except Exception as e:
