@@ -1,19 +1,5 @@
 [
  {
-  "t": 1794841200000,
-  "title": "Sessão de Autógrafos",
-  "detail": "Quatro jogadoras vão estar na loja Espaço Casa , em Sintra, para uma sessão de autógrafos",
-  "loc": "Espaço Casa - Sintra",
-  "sport": "Futebol feminino"
- },
- {
-  "t": 1794862800000,
-  "title": "CB Amadora-B vs SL Benfica-A",
-  "detail": "Campeonato Regional Sul de Carambola | 26/27 - Jornada 4 (M)",
-  "loc": "Sala de Bilhar CBA",
-  "sport": "Bilhar"
- },
- {
   "t": 1794924000000,
   "title": "Yukatel Denizli Basket vs SL Benfica",
   "detail": "Fiba Europe Cup | 26/27 - Grupo G Jornada 7 (M)",
@@ -68,13 +54,6 @@
   "detail": "Liga Next Gen | 26/27 - Jornada 12 (M)",
   "loc": "Estádio António Coimbra da Mota",
   "sport": "Futebol"
- },
- {
-  "t": 1795206600000,
-  "title": "CR São Miguel vs SL Benfica",
-  "detail": "Campeonato Nacional de Rugby Feminino | 26/27 - Jornada 6 (F)",
-  "loc": "Bulldogs Rugby Field",
-  "sport": "Rugby"
  },
  {
   "t": 1795208400000,
@@ -322,13 +301,6 @@
   "sport": "Basquetebol"
  },
  {
-  "t": 1795962600000,
-  "title": "SL Benfica vs Lousada Século XXI",
-  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 3 (F)",
-  "loc": "Piscina Algés e Dafundo",
-  "sport": "Polo Aquático"
- },
- {
   "t": 1795966200000,
   "title": "FC Penafiel vs SL Benfica B",
   "detail": "Segunda Liga 26/27 - Jornada 12 (M)",
@@ -404,6 +376,13 @@
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 5 (M)",
   "loc": "Pavilhão Municipal de Paços de Ferreira",
   "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1796328000000,
+  "title": "CR São Miguel vs SL Benfica",
+  "detail": "Campeonato Nacional de Rugby Feminino | 26/27 - Jornada 6 (F)",
+  "loc": "Bulldogs Rugby Field",
+  "sport": "Rugby"
  },
  {
   "t": 1796414400000,
@@ -651,6 +630,13 @@
   "sport": "Futebol"
  },
  {
+  "t": 1799510400000,
+  "title": "Sporting CP vs SL Benfica",
+  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 6 (F)",
+  "loc": "Alvalade",
+  "sport": "Polo Aquático"
+ },
+ {
   "t": 1799582400000,
   "title": "FC Arouca vs SL Benfica",
   "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
@@ -714,11 +700,11 @@
   "sport": "Futebol"
  },
  {
-  "t": 1801396800000,
-  "title": "SL Benfica vs Moreirense FC",
-  "detail": "Liga Portugal 26/27 - Jornada 20 (M)",
-  "loc": "Estádio do Sport Lisboa e Benfica",
-  "sport": "Futebol"
+  "t": 1801332000000,
+  "title": "C. Fluvial Portuense vs SL Benfica",
+  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 5 (F)",
+  "loc": "Piscina do Clube Fluvial Portuense",
+  "sport": "Polo Aquático"
  },
  {
   "t": 1815804000000,
