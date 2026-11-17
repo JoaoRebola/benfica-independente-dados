@@ -201,6 +201,16 @@
  },
  {
   "s": "Basquetebol",
+  "c": "Fiba Europe Cup | 26/27",
+  "h": "Yukatel Denizli Basket",
+  "a": "SL Benfica",
+  "hg": 78,
+  "ag": 70,
+  "v": "Pamukkale Üniversitesi Spor Salonu",
+  "d": "terça-feira 17 novembro"
+ },
+ {
+  "s": "Basquetebol",
   "c": "Campeonato Nacional Masculino | 26/27",
   "h": "SL Benfica",
   "a": "CAB Madeira",
@@ -288,16 +298,6 @@
   "ag": 67,
   "v": "Pavilhão Fidelidade",
   "d": "sábado 17 outubro"
- },
- {
-  "s": "Basquetebol",
-  "c": "Fiba Europe Cup | 26/27",
-  "h": "SL Benfica",
-  "a": "Yukatel Denizli Basket",
-  "hg": 96,
-  "ag": 91,
-  "v": "Pavilhão Fidelidade",
-  "d": "quarta-feira 14 outubro"
  },
  {
   "s": "Basquetebol Feminino",
@@ -801,6 +801,16 @@
  },
  {
   "s": "Andebol",
+  "c": "EHF European League | 26/27",
+  "h": "SL Benfica",
+  "a": "HCB Karvina",
+  "hg": 30,
+  "ag": 23,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "terça-feira 17 novembro"
+ },
+ {
+  "s": "Andebol",
   "c": "Campeonato Nacional Masculino | 26/27",
   "h": "AA Águas Santas",
   "a": "SL Benfica",
@@ -888,16 +898,6 @@
   "ag": 31,
   "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
   "d": "terça-feira 29 setembro"
- },
- {
-  "s": "Andebol",
-  "c": "Campeonato Nacional Masculino | 26/27",
-  "h": "ABC de Braga",
-  "a": "SL Benfica",
-  "hg": 34,
-  "ag": 39,
-  "v": "Pavilhão Flávio Sá Leite",
-  "d": "sábado 26 setembro"
  },
  {
   "s": "Voleibol",
