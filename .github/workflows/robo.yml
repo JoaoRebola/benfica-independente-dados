@@ -34,5 +34,7 @@ jobs:
             echo "Sem novidades."
           else
             git commit -m "Atualização automática"
+            # A plataforma de gestão também grava aqui: junta-se ao que ela gravou entretanto.
+            git pull --rebase -X theirs || (git rebase --abort; git pull --rebase)
             git push
           fi
