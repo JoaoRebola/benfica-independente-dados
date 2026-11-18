@@ -921,10 +921,28 @@ def do_podcast_links():
     status["robo"]["podcasts_total"] = len(eps)
 
 
+# ================================================================ chat (Supabase)
+# Confirma que o chat e o formulário de contacto da app estão a funcionar (uma
+# consulta normal à função pública bi_ping). Também mantém o projeto ativo no
+# plano grátis do Supabase, que pausa projetos sem uso. A chave é a pública.
+SUPABASE_URL = "https://rpqqucqxgjkisoimstfh.supabase.co"
+SUPABASE_PUBLICA = "sb_publishable_InvgB931-Wc8vFs65WWXxw_KVpMLGhH"
+
+
+def do_chat_check():
+    req = urllib.request.Request(
+        SUPABASE_URL + "/rest/v1/rpc/bi_ping", data=b"{}", method="POST",
+        headers={"apikey": SUPABASE_PUBLICA, "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        info = json.loads(r.read().decode("utf-8"))
+    status["robo"]["chat"] = {"ok": bool(info.get("ok")), "conversas": info.get("conversas", 0)}
+    log("chat:", status["robo"]["chat"])
+
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links):
+    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links, do_chat_check):
         try:
             step()
         except Exception as e:
