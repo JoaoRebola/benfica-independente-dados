@@ -403,6 +403,16 @@
   "s": "Futsal",
   "c": "Campeonato Nacional Masculino | 26/27",
   "h": "SL Benfica",
+  "a": "FC Famalicão",
+  "hg": 6,
+  "ag": 1,
+  "v": "Pavilhão Fidelidade",
+  "d": "quarta-feira 18 novembro"
+ },
+ {
+  "s": "Futsal",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
   "a": "Rio Ave",
   "hg": 1,
   "ag": 1,
@@ -488,16 +498,6 @@
   "ag": 1,
   "v": "Pavilhão Fidelidade",
   "d": "sábado 12 setembro"
- },
- {
-  "s": "Futsal",
-  "c": "Supertaça Masculina| 26/27",
-  "h": "SL Benfica",
-  "a": "Sporting CP",
-  "hg": 2,
-  "ag": 3,
-  "v": "Pavilhão Municipal de Vila do Conde",
-  "d": "sábado 05 setembro"
  },
  {
   "s": "Futsal Feminino",

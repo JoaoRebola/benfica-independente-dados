@@ -1,33 +1,5 @@
 [
  {
-  "t": 1795011300000,
-  "title": "UWCL | Conferência de Imprensa do Benfica",
-  "detail": "O treinador, Ivan Baptista e uma jogadora , em antevisão ao jogo com o AS Roma, referente à 5.ª jornada, fase de liga, da Liga dos Campeões Feminina",
-  "loc": "Estádio do SL Benfica",
-  "sport": "Futebol feminino"
- },
- {
-  "t": 1795032900000,
-  "title": "SL Benfica vs FC Famalicão",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
-  "loc": "Pavilhão Fidelidade",
-  "sport": "Futsal"
- },
- {
-  "t": 1795033800000,
-  "title": "CD Feirense vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 10 (F)",
-  "loc": "Pavilhão Mun. São João de Ver",
-  "sport": "Andebol"
- },
- {
-  "t": 1795035600000,
-  "title": "SL Benfica vs Efbo",
-  "detail": "Campeonato Nacional Sub 15 II Divisão | 26/27 - Jornada 8 (M)",
-  "loc": "Benfica Campus (campo 7)",
-  "sport": "Futebol"
- },
- {
   "t": 1795118400000,
   "title": "SL Benfica vs AS Roma",
   "detail": "Liga dos Campeões Feminina UEFA | 2026/27 - Jornada 5 (F)",
@@ -476,6 +448,13 @@
   "sport": "Voleibol"
  },
  {
+  "t": 1796754600000,
+  "title": "BC Prievidza vs SL Benfica",
+  "detail": "Fiba Europe Cup | 26/27 - Jornada 8 (M)",
+  "loc": "Sportová hala Prievidza",
+  "sport": "Basquetebol"
+ },
+ {
   "t": 1796828400000,
   "title": "SL Benfica vs GNK Dinamo",
   "detail": "UEFA Liga Jovem 26/27 - round (M)",
@@ -523,6 +502,13 @@
   "detail": "Taça de Portugal Feminina | 26/27 - Fase 3 Jornada (F)",
   "loc": "Pavilhão Escola Eb 2/3 Parchal",
   "sport": "Futsal"
+ },
+ {
+  "t": 1797094800000,
+  "title": "SL Benfica vs Vitória SC",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 10 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
  },
  {
   "t": 1797102000000,
@@ -582,6 +568,13 @@
  },
  {
   "t": 1797451200000,
+  "title": "SL Benfica vs Lions de Geneve",
+  "detail": "Fiba Europe Cup | 26/27 - Jornada 9 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1797451200000,
   "title": "HB Køge vs SL Benfica",
   "detail": "Liga dos Campeões Feminina UEFA | 2026/27 - Jornada 6 (F)",
   "loc": "Koge Stadium",
@@ -607,6 +600,13 @@
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 16 (M)",
   "loc": "Pavilhão Comendador Adelino Dias Costa",
   "sport": "Andebol"
+ },
+ {
+  "t": 1797692400000,
+  "title": "SL Benfica vs CD Póvoa",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 11 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
  },
  {
   "t": 1797699600000,
@@ -679,6 +679,13 @@
   "sport": "Voleibol"
  },
  {
+  "t": 1798038000000,
+  "title": "LANDAU Lions vs SL Benfica",
+  "detail": "Fiba Europe Cup | 26/27 - Jornada 10 (M)",
+  "loc": "Baku Sports Hall",
+  "sport": "Basquetebol"
+ },
+ {
   "t": 1798372800000,
   "title": "SL Benfica vs Sporting CP",
   "detail": "Liga Portugal 26/27 - Jornada 16 (M)",
@@ -691,20 +698,6 @@
   "detail": "Segunda Liga 26/27 - Jornada 16 (M)",
   "loc": "Benfica Campus",
   "sport": "Futebol"
- },
- {
-  "t": 1798988400000,
-  "title": "SC Braga vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 14 (F)",
-  "loc": "AMCO Arena",
-  "sport": "Voleibol"
- },
- {
-  "t": 1798988400000,
-  "title": "SL Benfica vs Vitória SC",
-  "detail": "LIGA BPI | 26/27 - Jornada 3 (F)",
-  "loc": "Benfica Campus (campo 1)",
-  "sport": "Futebol Feminino"
  },
  {
   "t": 1815804000000,
