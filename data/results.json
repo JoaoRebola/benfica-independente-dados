@@ -701,6 +701,16 @@
  },
  {
   "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "CRIAR-T",
+  "hg": 20,
+  "ag": 0,
+  "v": "Pavilhão Fidelidade",
+  "d": "sexta-feira 20 novembro"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
   "c": "WSE Continental Cup Women | 2026",
   "h": "CP Esneca Fraga",
   "a": "SL Benfica",
@@ -788,16 +798,6 @@
   "ag": 2,
   "v": "Pavilhão Fidelidade",
   "d": "sábado 30 maio"
- },
- {
-  "s": "Hóquei em Patins Feminino",
-  "c": "Campeonato Nacional Feminino | 25/26",
-  "h": "SL Benfica",
-  "a": "AA Coimbra",
-  "hg": 12,
-  "ag": 0,
-  "v": "Pavilhão Fidelidade",
-  "d": "domingo 24 maio"
  },
  {
   "s": "Andebol",
