@@ -1,12 +1,5 @@
 [
  {
-  "t": 1795118400000,
-  "title": "SL Benfica vs AS Roma",
-  "detail": "Liga dos Campeões Feminina UEFA | 2026/27 - Jornada 5 (F)",
-  "loc": "Estádio do Sport Lisboa e Benfica",
-  "sport": "Futebol Feminino"
- },
- {
   "t": 1795208400000,
   "title": "SL Benfica vs CRIAR-T",
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 2 (F)",
@@ -350,13 +343,6 @@
   "sport": "Ténis de Mesa"
  },
  {
-  "t": 1796482800000,
-  "title": "SL Benfica vs Sporting CP",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Grupo I Jornada 15 (M)",
-  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "sport": "Andebol"
- },
- {
   "t": 1796484600000,
   "title": "CD Nacional vs SL Benfica",
   "detail": "Liga Portugal 26/27 - Jornada 13 (M)",
@@ -427,6 +413,13 @@
   "sport": "Hóquei em Patins"
  },
  {
+  "t": 1796590800000,
+  "title": "SL Benfica vs Sporting CP",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Grupo I Jornada 15 (M)",
+  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "sport": "Andebol"
+ },
+ {
   "t": 1796742000000,
   "title": "GC Santo Tirso vs SL Benfica",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 18 (M)",
@@ -439,6 +432,13 @@
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 11 (F)",
   "loc": "Pavilhão Municipal Fiães",
   "sport": "Voleibol"
+ },
+ {
+  "t": 1796751900000,
+  "title": "SC Coimbrões vs SL Benfica",
+  "detail": "Campeonato Nacional Liga Feminina | 26/27 - Jornada 9 (F)",
+  "loc": "Pavilhão Municipal de Coimbrões",
+  "sport": "Basquetebol"
  },
  {
   "t": 1796754600000,
@@ -504,6 +504,13 @@
   "sport": "Basquetebol"
  },
  {
+  "t": 1797098400000,
+  "title": "GDRAR vs SL Benfica",
+  "detail": "Campeonato Nacional Liga Feminina | 26/27 - Jornada 11 (F)",
+  "loc": "Pavilhão Dom Bosco",
+  "sport": "Basquetebol"
+ },
+ {
   "t": 1797102000000,
   "title": "SL Benfica vs ABC de Braga",
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 12 (F)",
@@ -523,6 +530,13 @@
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 11 (F)",
   "loc": "Pavilhão Desportivo do Externato de Penafirme",
   "sport": "Futsal"
+ },
+ {
+  "t": 1797175800000,
+  "title": "SL Benfica vs CR Setúbal",
+  "detail": "Super XV | 26/27 - Jornada 7 (M)",
+  "loc": "Pavilhão Universitário de Lisboa",
+  "sport": "Rugby"
  },
  {
   "t": 1797181200000,
@@ -658,6 +672,13 @@
   "sport": "Voleibol"
  },
  {
+  "t": 1797786000000,
+  "title": "SL Benfica vs Sporting CP",
+  "detail": "Campeonato Nacional Liga Feminina | 26/27 - Jornada 12 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
+ },
+ {
   "t": 1797789600000,
   "title": "SL Benfica vs Valadares Gaia",
   "detail": "LIGA BPI | 26/27 - Jornada 8 (F)",
@@ -670,27 +691,6 @@
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 12 (M)",
   "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
   "sport": "Voleibol"
- },
- {
-  "t": 1798038000000,
-  "title": "LANDAU Lions vs SL Benfica",
-  "detail": "Fiba Europe Cup | 26/27 - Jornada 10 (M)",
-  "loc": "Baku Sports Hall",
-  "sport": "Basquetebol"
- },
- {
-  "t": 1798372800000,
-  "title": "SL Benfica vs Sporting CP",
-  "detail": "Liga Portugal 26/27 - Jornada 16 (M)",
-  "loc": "Estádio do Sport Lisboa e Benfica",
-  "sport": "Futebol"
- },
- {
-  "t": 1798372800000,
-  "title": "SL Benfica B vs Sporting CP B",
-  "detail": "Segunda Liga 26/27 - Jornada 16 (M)",
-  "loc": "Benfica Campus",
-  "sport": "Futebol"
  },
  {
   "t": 1815804000000,

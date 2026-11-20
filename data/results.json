@@ -101,6 +101,16 @@
  },
  {
   "s": "Futebol Feminino",
+  "c": "Liga dos Campeões Feminina UEFA | 2026/27",
+  "h": "SL Benfica",
+  "a": "AS Roma",
+  "hg": 2,
+  "ag": 3,
+  "v": "Estádio do Sport Lisboa e Benfica",
+  "d": "quinta-feira 19 novembro"
+ },
+ {
+  "s": "Futebol Feminino",
   "c": "Taça de Portugal Feminina | 26/27",
   "h": "GD Aldeia Nova",
   "a": "SL Benfica",
@@ -188,16 +198,6 @@
   "ag": 2,
   "v": "Estádio Allianz",
   "d": "terça-feira 22 setembro"
- },
- {
-  "s": "Futebol Feminino",
-  "c": "LIGA BPI | 26/27",
-  "h": "Rio Ave FC",
-  "a": "SL Benfica",
-  "hg": 0,
-  "ag": 2,
-  "v": "Estádio dos Arcos",
-  "d": "sexta-feira 18 setembro"
  },
  {
   "s": "Basquetebol",
