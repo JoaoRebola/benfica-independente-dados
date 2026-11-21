@@ -12,6 +12,7 @@
   "resultados_Andebol": 10,
   "resultados_Voleibol": 10,
   "resultados_Voleibol Feminino": 10,
+  "live": "live",
   "cronicas": 21,
   "podcasts_com_video": 764,
   "podcasts_total": 971,
@@ -25,5 +26,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-21T18:21:31Z"
+ "atualizado": "2026-11-21T21:41:17Z"
 }

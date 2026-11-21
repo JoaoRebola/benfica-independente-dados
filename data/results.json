@@ -801,6 +801,16 @@
  },
  {
   "s": "Andebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "Póvoa AC",
+  "hg": 31,
+  "ag": 26,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sábado 21 novembro"
+ },
+ {
+  "s": "Andebol",
   "c": "EHF European League | 26/27",
   "h": "SL Benfica",
   "a": "HCB Karvina",
@@ -890,14 +900,14 @@
   "d": "sábado 03 outubro"
  },
  {
-  "s": "Andebol",
-  "c": "EHF European League | 26/27",
-  "h": "SL Benfica",
-  "a": "BM Torrelavega",
-  "hg": 24,
-  "ag": 31,
-  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "d": "terça-feira 29 setembro"
+  "s": "Voleibol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "VC Viana",
+  "a": "SL Benfica",
+  "hg": 2,
+  "ag": 3,
+  "v": "Pavilhão Municipal de Santa Maria Maior",
+  "d": "sábado 21 novembro"
  },
  {
   "s": "Voleibol",
@@ -988,16 +998,6 @@
   "ag": 0,
   "v": "Pavilhão Moisés Ruiz",
   "d": "terça-feira 06 outubro"
- },
- {
-  "s": "Voleibol",
-  "c": "Jogo de Apresentação | 26/27",
-  "h": "SL Benfica",
-  "a": "Leixões SC",
-  "hg": 3,
-  "ag": 1,
-  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "d": "sexta-feira 02 outubro"
  },
  {
   "s": "Voleibol Feminino",
