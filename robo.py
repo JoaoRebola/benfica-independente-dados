@@ -839,7 +839,13 @@ def _yt_api(path, **params):
     return json.loads(get(f"https://www.googleapis.com/youtube/v3/{path}?{q}", timeout=30))
 
 
+_CANAL_VIDEOS = None
+
+
 def _channel_videos():
+    global _CANAL_VIDEOS
+    if _CANAL_VIDEOS is not None:
+        return _CANAL_VIDEOS
     """Todos os vídeos do canal: {id: (título, data em segundos)}."""
     uploads = "UU" + CHANNEL[2:]
     vids, token = {}, ""
@@ -857,6 +863,7 @@ def _channel_videos():
         token = page.get("nextPageToken")
         if not token:
             break
+    _CANAL_VIDEOS = vids
     return vids
 
 
@@ -1173,10 +1180,69 @@ def do_jogos_reais():
     log("jogos reais: %d" % len(final))
 
 
+def _ms_iso(texto):
+    """ISO 8601 do YouTube -> milissegundos (0 se não houver)."""
+    if not texto:
+        return 0
+    try:
+        return int(datetime.fromisoformat(str(texto).replace("Z", "+00:00")).timestamp() * 1000)
+    except Exception:
+        return 0
+
+
+def do_live():
+    """Estado do direto para a app: 'live', 'upcoming' ou 'none'.
+
+    Vê os vídeos recentes do canal (API oficial) e a página dos diretos.
+    A app lê data/live.json e avisa quando o direto começa de verdade.
+    """
+    if not YOUTUBE_KEY:
+        return
+    ids = list(channel_titles().keys())          # inclui diretos marcados
+    try:
+        for vid in list(_channel_videos().keys())[:30]:
+            if vid not in ids:
+                ids.append(vid)
+    except Exception as e:
+        log("live: lista de videos falhou:", e)
+    ids = ids[:50]
+    if not ids:
+        return
+    dados = _yt_api("videos", part="snippet,liveStreamingDetails", id=",".join(ids), maxResults=50)
+    vivo, marcado = None, None
+    for it in dados.get("items", []):
+        lsd = it.get("liveStreamingDetails") or {}
+        sn = it.get("snippet") or {}
+        estado = sn.get("liveBroadcastContent")
+        info = {
+            "id": it.get("id", ""),
+            "titulo": sn.get("title", ""),
+            "agendado": _ms_iso(lsd.get("scheduledStartTime")),
+            "inicio": _ms_iso(lsd.get("actualStartTime")),
+        }
+        if estado == "live":
+            vivo = info
+        elif estado == "upcoming":
+            if marcado is None or (info["agendado"] and info["agendado"] < (marcado["agendado"] or 10 ** 15)):
+                marcado = info
+    escolhido = vivo or marcado or {}
+    estado = "live" if vivo else ("upcoming" if marcado else "none")
+    save("live.json", {
+        "estado": estado,
+        "id": escolhido.get("id", ""),
+        "titulo": escolhido.get("titulo", ""),
+        "agendado": int(escolhido.get("agendado") or 0),
+        "inicio": int(escolhido.get("inicio") or 0),
+        "atualizado": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    })
+    status["robo"]["live"] = estado
+    log("live: %s %s" % (estado, escolhido.get("titulo", "")))
+
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_quiz, do_jogos_reais, do_chat_check):
+    for step in (do_agenda, do_results, do_videos, do_live, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_quiz, do_jogos_reais, do_chat_check):
         try:
             step()
         except Exception as e:
