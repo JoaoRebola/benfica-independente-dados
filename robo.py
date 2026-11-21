@@ -939,10 +939,111 @@ def do_chat_check():
     log("chat:", status["robo"]["chat"])
 
 
+# ---------------------------------------------------------------- Comunidade BI (posts)
+# Posts da comunidade do canal do YouTube que NÃO são vídeos nem avisos de diretos/episódios
+# (esses já chegam pelas notificações da app). O mesmo texto noutra rede aparece só uma vez.
+AVISO_DIRETO = re.compile(
+    r"\bem direto\b|\bdireto\b|\bdirecto\b|\blive\b|estaremos|entramos|vamos estar|watchalong|rescaldo|antevis|"
+    r"\bep\.?\s*\d|epis[oó]dio|podcast|noite de megafone|youtu\.?be|\bjá dispon[ií]vel\b|\bnovo v[ií]deo\b",
+    re.IGNORECASE)
+
+
+def _posts_youtube():
+    page = get(f"https://www.youtube.com/channel/{CHANNEL}/posts", timeout=60)
+    m = re.search(r"var ytInitialData = (\{.*?\});</script>", page)
+    if not m:
+        raise ValueError("sem ytInitialData")
+    found = []
+
+    def walk(o):
+        if isinstance(o, dict):
+            if "backstagePostRenderer" in o:
+                found.append(o["backstagePostRenderer"])
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    walk(json.loads(m.group(1)))
+    posts = []
+    for p in found:
+        texto = "".join(r.get("text", "") for r in p.get("contentText", {}).get("runs", [])).strip()
+        att = p.get("backstageAttachment", {}) or {}
+        imgs = att.get("backstageImageRenderer", {}).get("image", {}).get("thumbnails") or []
+        if not imgs:
+            multi = att.get("postMultiImageRenderer", {}).get("images") or []
+            if multi:
+                imgs = multi[0].get("backstageImageRenderer", {}).get("image", {}).get("thumbnails") or []
+        video = "videoRenderer" in att or "pollRenderer" in att
+        img = max(imgs, key=lambda t: t.get("width", 0)).get("url", "") if imgs else ""
+        if img.startswith("//"):
+            img = "https:" + img
+        quando = rel_time((p.get("publishedTimeText", {}).get("runs") or [{}])[0].get("text", ""))
+        posts.append({"id": "yt:" + p["postId"], "rede": "youtube", "texto": texto, "imagem": img,
+                      "url": "https://www.youtube.com/post/" + p["postId"], "quando": quando or 0, "video": video})
+    return posts
+
+
+def _chave_texto(t):
+    t = unicodedata.normalize("NFD", t.lower())
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn")
+    return " ".join(re.findall(r"[a-z0-9]{3,}", t))[:160]
+
+
+def do_comunidade():
+    antigos = {p["id"]: p for p in load("redes.json", [])}
+    decisoes = load("redes_agente.json", {})          # id -> True (mostra) / False (é aviso de vídeo/direto)
+    novos = _posts_youtube()
+    log("comunidade: %d posts lidos" % len(novos))
+    candidatos = []
+    for p in novos:
+        if not p["imagem"].startswith("https://") or p.pop("video"):
+            decisoes[p["id"]] = False
+            continue
+        if p["id"] in antigos:                         # mantém a data da primeira vez que foi visto
+            p["quando"] = antigos[p["id"]].get("quando") or p["quando"]
+        if AVISO_DIRETO.search(p["texto"]):
+            decisoes[p["id"]] = False
+        candidatos.append(p)
+    # O agente decide os que as regras deixaram passar (só uma vez por post).
+    duvida = [p for p in candidatos if p["id"] not in decisoes]
+    if duvida and GEMINI_KEY:
+        r = gemini(
+            "És o agente da app do Benfica Independente (canal de YouTube de adeptos do Benfica). "
+            "Para cada post da comunidade abaixo responde se deve aparecer na secção 'Comunidade BI'. "
+            "Fica FORA (false) se for um aviso/anúncio de um vídeo, de um direto, de um episódio de podcast ou programa "
+            "(ex.: 'hoje às 22h estamos em direto', 'novo episódio', rescaldo, antevisão, watchalong). "
+            "Fica DENTRO (true) tudo o resto: efemérides, fotos, opiniões, perguntas aos adeptos, curiosidades, homenagens. "
+            'Responde só JSON: {"<id>": true|false, ...}\n\n'
+            + json.dumps([{"id": p["id"], "texto": p["texto"][:600]} for p in duvida], ensure_ascii=False))
+        if isinstance(r, dict):
+            for p in duvida:
+                if isinstance(r.get(p["id"]), bool):
+                    decisoes[p["id"]] = r[p["id"]]
+    # Sem agente (ou sem resposta): passa o que as regras deixaram passar.
+    mostrar = [p for p in candidatos if decisoes.get(p["id"], True)]
+    # Também guarda os que já tinham sido mostrados e saíram da página do canal (até 20 no total).
+    ids = {p["id"] for p in mostrar}
+    mostrar += [p for p in antigos.values() if p["id"] not in ids and decisoes.get(p["id"], True)]
+    # O mesmo post em redes diferentes (mesmo texto): fica só o primeiro.
+    vistos, final = set(), []
+    for p in sorted(mostrar, key=lambda x: x.get("quando") or 0, reverse=True):
+        k = _chave_texto(p["texto"]) or p["imagem"]
+        if k in vistos:
+            continue
+        vistos.add(k)
+        final.append({c: p[c] for c in ("id", "rede", "texto", "imagem", "url", "quando")})
+    final = final[:20]
+    save("redes.json", final)
+    save("redes_agente.json", {k: v for k, v in decisoes.items() if k in {p["id"] for p in novos} or k in ids})
+    status["robo"]["comunidade"] = len(final)
+    log("comunidade: %d posts na app" % len(final))
+
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links, do_chat_check):
+    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_chat_check):
         try:
             step()
         except Exception as e:
