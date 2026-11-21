@@ -7,13 +7,6 @@
   "sport": "Futebol"
  },
  {
-  "t": 1795294800000,
-  "title": "SL Benfica vs Vitória SC",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 8 (F)",
-  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "sport": "Voleibol"
- },
- {
   "t": 1795296600000,
   "title": "CP Esgueira vs SL Benfica",
   "detail": "Campeonato Nacional Liga Feminina | 26/27 - Grupo G Jornada 7 (F)",
@@ -705,6 +698,13 @@
   "detail": "LIGA BPI | 26/27 - Jornada 3 (F)",
   "loc": "Benfica Campus (campo 1)",
   "sport": "Futebol Feminino"
+ },
+ {
+  "t": 1798988400000,
+  "title": "AA São Mamede vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 13 (M)",
+  "loc": "Pavilhão Eduardo Soares",
+  "sport": "Voleibol"
  },
  {
   "t": 1815804000000,

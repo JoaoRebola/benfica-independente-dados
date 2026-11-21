@@ -1002,6 +1002,16 @@
  {
   "s": "Voleibol Feminino",
   "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "Vitória SC",
+  "hg": 3,
+  "ag": 0,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sábado 21 novembro"
+ },
+ {
+  "s": "Voleibol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
   "h": "Sporting CP",
   "a": "SL Benfica",
   "hg": 0,
@@ -1088,15 +1098,5 @@
   "ag": 3,
   "v": "(menos uma hora nos Açores) Complexo Desportivo das Laranjeiras",
   "d": "domingo 11 outubro"
- },
- {
-  "s": "Voleibol Feminino",
-  "c": "Jogo de Apresentação | 26/27",
-  "h": "SL Benfica",
-  "a": "PV Colégio Efanor",
-  "hg": 3,
-  "ag": 0,
-  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "d": "domingo 04 outubro"
  }
 ]
