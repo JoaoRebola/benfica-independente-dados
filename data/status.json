@@ -13,10 +13,9 @@
   "resultados_Voleibol": 10,
   "resultados_Voleibol Feminino": 10,
   "cronicas": 21,
-  "podcasts_com_video": 764,
+  "podcasts_com_video": 738,
   "podcasts_total": 971,
   "comunidade": 3,
-  "quiz": 1,
   "jogos_reais": 0,
   "chat": {
    "ok": true,
@@ -24,10 +23,7 @@
   }
  },
  "agente": {
-  "ativo": true,
-  "erro": "TimeoutError",
-  "modelo": "gemini-3.6-flash",
-  "ok": true
+  "ativo": true
  },
- "atualizado": "2026-11-21T03:43:29Z"
+ "atualizado": "2026-11-21T11:53:19Z"
 }
