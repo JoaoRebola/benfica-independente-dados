@@ -1,6 +1,6 @@
 {
  "robo": {
-  "agenda": 101,
+  "agenda": 102,
   "resultados_Futebol": 10,
   "resultados_Futebol Feminino": 10,
   "resultados_Basquetebol": 10,
@@ -15,13 +15,19 @@
   "cronicas": 21,
   "podcasts_com_video": 764,
   "podcasts_total": 971,
+  "comunidade": 3,
+  "quiz": 1,
+  "jogos_reais": 0,
   "chat": {
    "ok": true,
-   "conversas": 1
+   "conversas": 0
   }
  },
  "agente": {
-  "ativo": true
+  "ativo": true,
+  "erro": "TimeoutError",
+  "modelo": "gemini-3.6-flash",
+  "ok": true
  },
- "atualizado": "2026-11-20T22:52:19Z"
+ "atualizado": "2026-11-21T03:43:29Z"
 }
