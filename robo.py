@@ -1096,10 +1096,87 @@ def do_quiz():
     log("quiz: nova pergunta (%d no banco)" % len(banco))
 
 
+# ---------------------------------------------------------------- Resultado e onze reais dos jogos
+# O Supabase lê este ficheiro sozinho para contar quem acertou nos prognósticos e no "Quem vai jogar?".
+# Os nomes do onze são convertidos para os nomes do plantel (os mesmos que os adeptos escolhem na app).
+ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer"
+BENFICA_ID = "1929"
+
+
+def _plano(t):
+    t = unicodedata.normalize("NFD", t.lower())
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn")
+    return [x for x in re.split(r"[^a-z0-9]+", t) if len(x) >= 3]
+
+
+def _nome_plantel(nome, plantel):
+    """Nome ESPN (ex.: 'Vangelis Pavlidis') -> nome do plantel ('Pavlidis'). Só se houver um único."""
+    t = _plano(nome)
+    if not t:
+        return nome
+    por_apelido = [p for p in plantel if t[-1] in _plano(p)]
+    if len(por_apelido) == 1:
+        return por_apelido[0]
+    por_nome = [p for p in plantel if _plano(p) and all(x in t for x in _plano(p))]
+    if len(por_nome) == 1:
+        return por_nome[0]
+    return nome
+
+
+def do_jogos_reais():
+    plantel = []
+    try:
+        for j in json.loads(get("https://benficaindependente.github.io/jogadores.json", timeout=60)):
+            if j.get("equipa") == "Equipa principal":
+                plantel.append(j["nome"])
+    except Exception as e:
+        log("jogos reais: sem plantel (%s)" % e)
+    agora = datetime.now(timezone.utc)
+    ids = {}
+    for url in (f"{ESPN}/all/teams/{BENFICA_ID}/schedule?fixture=true", f"{ESPN}/por.1/teams/{BENFICA_ID}/schedule"):
+        try:
+            for e in json.loads(get(url, timeout=60)).get("events", []):
+                quando = datetime.strptime(e["date"].replace("Z", "")[:16], "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
+                if 0 < (agora - quando).total_seconds() < 6 * 86400:
+                    ids[e["id"]] = quando
+        except Exception as e:
+            log("jogos reais: agenda falhou (%s)" % e)
+    antigos = {x["jogo"]: x for x in load("jogos_reais.json", [])}
+    lista = []
+    for eid in ids:
+        try:
+            d = json.loads(get(f"{ESPN}/all/summary?event={eid}", timeout=60))
+            comp = d["header"]["competitions"][0]
+            if comp["status"]["type"]["state"] != "post":
+                continue
+            eq = {c["team"]["id"]: c for c in comp["competitors"]}
+            if BENFICA_ID not in eq or len(eq) != 2:
+                continue
+            rival = next(i for i in eq if i != BENFICA_ID)
+            casa = next(c for c in comp["competitors"] if c.get("homeAway") == "home")
+            fora = next(c for c in comp["competitors"] if c.get("homeAway") == "away")
+            onze = []
+            for r in d.get("rosters", []):
+                if r.get("team", {}).get("id") == BENFICA_ID:
+                    onze = [_nome_plantel(p["athlete"]["displayName"], plantel) for p in r.get("roster", []) if p.get("starter")]
+            if len(onze) != 11:
+                continue
+            lista.append({"jogo": eid, "titulo": "%s - %s" % (casa["team"]["displayName"], fora["team"]["displayName"]),
+                          "golos_b": int(eq[BENFICA_ID]["score"]), "golos_r": int(eq[rival]["score"]), "onze": onze})
+        except Exception as e:
+            log("jogos reais: %s falhou (%s)" % (eid, e))
+    for x in lista:
+        antigos[x["jogo"]] = x
+    final = sorted(antigos.values(), key=lambda x: x["jogo"])[-10:]
+    save("jogos_reais.json", final)
+    status["robo"]["jogos_reais"] = len(final)
+    log("jogos reais: %d" % len(final))
+
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_quiz, do_chat_check):
+    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_quiz, do_jogos_reais, do_chat_check):
         try:
             step()
         except Exception as e:
