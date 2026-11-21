@@ -1,23 +1,9 @@
 [
  {
-  "t": 1795258800000,
-  "title": "Sporting CP vs SL Benfica",
-  "detail": "Campeonato Nacional de Iniciados Sub 15 | 26/27 - Jornada 12 (M)",
-  "loc": "Estádio CGD Aurélio Pereira",
-  "sport": "Futebol"
- },
- {
   "t": 1795267800000,
   "title": "Conferência de Imprensa",
   "detail": "Marco Silva faz a antevisão do jogo frente ao Torreense, referente à 4ª eliminatória da Taça de Portugal",
   "loc": "Adidas Benfica Campus | BTV",
-  "sport": "Futebol"
- },
- {
-  "t": 1795273200000,
-  "title": "SCU Torreense vs SL Benfica",
-  "detail": "Campeonato Sub-19 26/27 - Jornada 12 (M)",
-  "loc": "Academia Torreense",
   "sport": "Futebol"
  },
  {
@@ -705,6 +691,20 @@
   "detail": "Liga Portugal 26/27 - Jornada 16 (M)",
   "loc": "Estádio do Sport Lisboa e Benfica",
   "sport": "Futebol"
+ },
+ {
+  "t": 1798372800000,
+  "title": "SL Benfica B vs Sporting CP B",
+  "detail": "Segunda Liga 26/27 - Jornada 16 (M)",
+  "loc": "Benfica Campus",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1798572600000,
+  "title": "Sporting CP vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 12 (M)",
+  "loc": "Pavilhão João Rocha",
+  "sport": "Basquetebol"
  },
  {
   "t": 1815804000000,
