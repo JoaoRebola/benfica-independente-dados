@@ -1040,10 +1040,66 @@ def do_comunidade():
     log("comunidade: %d posts na app" % len(final))
 
 
+# ---------------------------------------------------------------- Quiz do BI
+# Duas perguntas por semana (terça e sexta) sobre a história gloriosa do Benfica e os seus grandes
+# jogadores. O agente escreve como um benfiquista fanático e conhecedor; não precisa de aprovação.
+def do_quiz():
+    import random
+    from zoneinfo import ZoneInfo
+    banco = load("quiz.json", [])
+    agora = datetime.now(timezone.utc)
+    lisboa = agora.astimezone(ZoneInfo("Europe/Lisbon"))
+    ultimo = max((q.get("quando", 0) for q in banco), default=0)
+    dias = (agora.timestamp() * 1000 - ultimo) / 86400000
+    # Primeira vez: logo uma pergunta. Depois: terça e sexta a partir das 10h (ou se passaram 5 dias).
+    devida = (not banco) or (dias >= 3 and lisboa.weekday() in (1, 4) and lisboa.hour >= 10) or dias >= 5
+    if not devida:
+        log("quiz: ainda não é altura da próxima pergunta")
+        return
+    if not GEMINI_KEY:
+        log("quiz: sem agente")
+        return
+    recentes = [q["pergunta"] for q in banco[-60:]]
+    r = gemini(
+        "És um benfiquista fanático e enorme conhecedor da história do Sport Lisboa e Benfica, e escreves o quiz do "
+        "Benfica Independente (canal de adeptos). Cria UMA pergunta de escolha múltipla sobre a história gloriosa do "
+        "Benfica e dos seus grandes jogadores e treinadores (Eusébio, Águias de Ouro, Taça dos Campeões Europeus de 1961 e 1962, "
+        "Béla Guttmann, Coluna, José Águas, Humberto Coelho, Chalana, Rui Costa, Nuno Gomes, Oliveira, Cardozo, Jonas, etc.; "
+        "títulos, finais, golos míticos, recordes, estádios, curiosidades). "
+        "REGRAS: só factos de que tens certeza absoluta e que são fáceis de confirmar; se tiveres dúvidas, escolhe outro facto. "
+        "Português de Portugal, tom de adepto apaixonado mas rigoroso. Nunca fales de Sporting nem de FC Porto. "
+        "A pergunta deve ser curta e clara; as 4 opções plausíveis e curtas, só uma certa. "
+        "A explicação conta em 3 a 5 frases a história ou o momento por trás da resposta, com emoção e com factos exatos (datas, números). "
+        "Muda de tema em relação às perguntas recentes e não repitas nenhuma. "
+        'Responde só JSON: {"pergunta": "...", "opcoes": ["...", "...", "...", "..."], "certa": 0, "explicacao": "..."} '
+        "(certa é o índice 0 a 3 da opção certa).\n\nPerguntas recentes (não repetir):\n" + json.dumps(recentes, ensure_ascii=False))
+    if not isinstance(r, dict):
+        log("quiz: o agente não respondeu")
+        return
+    op = r.get("opcoes")
+    if (not isinstance(op, list) or len(op) != 4 or not isinstance(r.get("certa"), int) or not 0 <= r["certa"] <= 3
+            or not str(r.get("pergunta", "")).strip() or len(str(r.get("explicacao", "")).strip()) < 40
+            or len({str(o).strip().lower() for o in op}) != 4):
+        log("quiz: resposta do agente inválida")
+        return
+    if str(r["pergunta"]).strip() in recentes:
+        log("quiz: pergunta repetida")
+        return
+    ops = [str(o).strip() for o in op]
+    certa_txt = ops[r["certa"]]
+    random.shuffle(ops)                       # a certa não fica sempre na mesma posição
+    banco.append({"id": "q" + agora.strftime("%Y%m%d%H%M"), "quando": int(agora.timestamp() * 1000),
+                  "pergunta": str(r["pergunta"]).strip(), "opcoes": ops, "certa": ops.index(certa_txt),
+                  "explicacao": str(r["explicacao"]).strip()})
+    save("quiz.json", banco[-80:])
+    status["robo"]["quiz"] = len(banco)
+    log("quiz: nova pergunta (%d no banco)" % len(banco))
+
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_chat_check):
+    for step in (do_agenda, do_results, do_videos, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_quiz, do_chat_check):
         try:
             step()
         except Exception as e:
