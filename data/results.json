@@ -201,6 +201,16 @@
  },
  {
   "s": "Basquetebol",
+  "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "SL Benfica",
+  "a": "Ovarense",
+  "hg": 88,
+  "ag": 85,
+  "v": "Pavilhão Fidelidade",
+  "d": "domingo 22 novembro"
+ },
+ {
+  "s": "Basquetebol",
   "c": "Fiba Europe Cup | 26/27",
   "h": "Yukatel Denizli Basket",
   "a": "SL Benfica",
@@ -288,16 +298,6 @@
   "ag": 83,
   "v": "Pavilhão Fidelidade",
   "d": "quarta-feira 21 outubro"
- },
- {
-  "s": "Basquetebol",
-  "c": "Campeonato Nacional Masculino | 26/27",
-  "h": "SL Benfica",
-  "a": "UD Oliveirense",
-  "hg": 92,
-  "ag": 67,
-  "v": "Pavilhão Fidelidade",
-  "d": "sábado 17 outubro"
  },
  {
   "s": "Basquetebol Feminino",
@@ -702,6 +702,16 @@
  {
   "s": "Hóquei em Patins Feminino",
   "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Biblioteca IR",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 5,
+  "v": "Pavilhão Amável dos Santos Pereira",
+  "d": "domingo 22 novembro"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
   "h": "SL Benfica",
   "a": "CRIAR-T",
   "hg": 20,
@@ -788,16 +798,6 @@
   "ag": 7,
   "v": "Pavilhão da Associação Desportiva Sanjoanense",
   "d": "quarta-feira 10 junho"
- },
- {
-  "s": "Hóquei em Patins Feminino",
-  "c": "Campeonato Nacional Feminino | 25/26",
-  "h": "SL Benfica",
-  "a": "AD Sanjoanense",
-  "hg": 4,
-  "ag": 2,
-  "v": "Pavilhão Fidelidade",
-  "d": "sábado 30 maio"
  },
  {
   "s": "Andebol",
@@ -902,6 +902,16 @@
  {
   "s": "Voleibol",
   "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "Castêlo da Maia GC",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 3,
+  "v": "Pavilhão do Castêlo da Maia Ginásio Clube",
+  "d": "domingo 22 novembro"
+ },
+ {
+  "s": "Voleibol",
+  "c": "Campeonato Nacional Masculino | 26/27",
   "h": "VC Viana",
   "a": "SL Benfica",
   "hg": 2,
@@ -988,16 +998,6 @@
   "ag": 3,
   "v": "Pavilhão Moisés Ruiz",
   "d": "quarta-feira 07 outubro"
- },
- {
-  "s": "Voleibol",
-  "c": "Jogo amigável | 26/27",
-  "h": "Unicaja Almería Voley",
-  "a": "SL Benfica",
-  "hg": 0,
-  "ag": 0,
-  "v": "Pavilhão Moisés Ruiz",
-  "d": "terça-feira 06 outubro"
  },
  {
   "s": "Voleibol Feminino",

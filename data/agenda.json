@@ -1,20 +1,6 @@
 [
  {
   "t": 1795345200000,
-  "title": "SL Benfica vs Vasco da Gama",
-  "detail": "Campeonato Nacional Sub-17 II Divisão | 26/27 - Jornada 9 (M)",
-  "loc": "Benfica Campus (campo 7)",
-  "sport": "Futebol"
- },
- {
-  "t": 1795345200000,
-  "title": "CD Nacional vs SL Benfica",
-  "detail": "Campeonato Nacional de Sub 17 | 26/27 - Jornada 12 (M)",
-  "loc": "Cristiano Ronaldo Campus Futebol",
-  "sport": "Futebol"
- },
- {
-  "t": 1795345200000,
   "title": "AF Atlântico vs SL Benfica",
   "detail": "Campeonato Nacional Sub 15 II Divisão | 26/27 - Jornada 9 (M)",
   "loc": "Colégio Atlântico Academia De Futebol",
@@ -26,27 +12,6 @@
   "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 4 (F)",
   "loc": "Piscina Algés e Dafundo",
   "sport": "Polo Aquático"
- },
- {
-  "t": 1795359600000,
-  "title": "Biblioteca IR vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 3 (F)",
-  "loc": "Pavilhão Amável dos Santos Pereira",
-  "sport": "Hóquei em Patins"
- },
- {
-  "t": 1795359600000,
-  "title": "SL Benfica vs Ovarense",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Grupo G Jornada 8 (M)",
-  "loc": "Pavilhão Fidelidade",
-  "sport": "Basquetebol"
- },
- {
-  "t": 1795363200000,
-  "title": "Castêlo da Maia GC vs SL Benfica",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 1 (M)",
-  "loc": "Pavilhão do Castêlo da Maia Ginásio Clube",
-  "sport": "Voleibol"
  },
  {
   "t": 1795375800000,
@@ -698,6 +663,41 @@
   "detail": "Campeonato Nacional Liga Feminina | 26/27 - Jornada 14 (F)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Basquetebol"
+ },
+ {
+  "t": 1799180100000,
+  "title": "FC Porto vs SL Benfica",
+  "detail": "Taça da Liga 26/27 - Semi Final (M)",
+  "loc": "Estádio Municipal de Leiria",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1799352000000,
+  "title": "SL Benfica vs FC Barcelona",
+  "detail": "WSE Champions League Men | 26/27 - Jornada 3 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1799506800000,
+  "title": "SL Benfica vs FC Porto",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 13 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
+ },
+ {
+  "t": 1799506800000,
+  "title": "Sporting CP vs SL Benfica",
+  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 17 (M)",
+  "loc": "",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1799510400000,
+  "title": "Sporting CP vs SL Benfica",
+  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 6 (F)",
+  "loc": "Alvalade",
+  "sport": "Polo Aquático"
  },
  {
   "t": 1815804000000,
