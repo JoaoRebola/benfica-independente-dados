@@ -14,20 +14,6 @@
   "sport": "Polo Aquático"
  },
  {
-  "t": 1795375800000,
-  "title": "Sporting CP vs SL Benfica",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 3 (M)",
-  "loc": "Pavilhão João Rocha",
-  "sport": "Hóquei em Patins"
- },
- {
-  "t": 1795380300000,
-  "title": "SCU Torreense vs SL Benfica",
-  "detail": "Taça de Portugal 26/27 - Fase 4 Jornada 1 (M)",
-  "loc": "Estádio Nacional do Jamor",
-  "sport": "Futebol"
- },
- {
   "t": 1795456800000,
   "title": "Kauno Zalgiris vs SL Benfica",
   "detail": "UEFA Futsal Champions League | 26/27 - Oitavos de Final Jornada 1 (M)",
@@ -698,6 +684,20 @@
   "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 6 (F)",
   "loc": "Alvalade",
   "sport": "Polo Aquático"
+ },
+ {
+  "t": 1799582400000,
+  "title": "FC Arouca vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Municipal de Arouca",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1799582400000,
+  "title": "Porto B vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Dr. Jorge Sampaio",
+  "sport": "Futebol"
  },
  {
   "t": 1815804000000,

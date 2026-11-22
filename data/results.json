@@ -1,6 +1,16 @@
 [
  {
   "s": "Futebol",
+  "c": "Taça de Portugal 26/27",
+  "h": "SCU Torreense",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 3,
+  "v": "Estádio Nacional do Jamor",
+  "d": "domingo 22 novembro"
+ },
+ {
+  "s": "Futebol",
   "c": "Liga Portugal 26/27",
   "h": "CF Estrela Amadora",
   "a": "SL Benfica",
@@ -88,16 +98,6 @@
   "ag": 1,
   "v": "Estádio do Dragão",
   "d": "domingo 20 setembro"
- },
- {
-  "s": "Futebol",
-  "c": "Liga Europa UEFA 26/27",
-  "h": "AC Milan",
-  "a": "SL Benfica",
-  "hg": 0,
-  "ag": 2,
-  "v": "San Siro",
-  "d": "quarta-feira 16 setembro"
  },
  {
   "s": "Futebol Feminino",
@@ -602,6 +602,16 @@
  {
   "s": "Hóquei em Patins",
   "c": "Campeonato Nacional Masculino | 26/27",
+  "h": "Sporting CP",
+  "a": "SL Benfica",
+  "hg": 6,
+  "ag": 6,
+  "v": "Pavilhão João Rocha",
+  "d": "domingo 22 novembro"
+ },
+ {
+  "s": "Hóquei em Patins",
+  "c": "Campeonato Nacional Masculino | 26/27",
   "h": "SL Benfica",
   "a": "Riba d'Ave HC",
   "hg": 4,
@@ -688,16 +698,6 @@
   "ag": 10,
   "v": "Pavilhão Professor João Campelo",
   "d": "sexta-feira 25 setembro"
- },
- {
-  "s": "Hóquei em Patins",
-  "c": "Taça Jesus Correia | 26/27",
-  "h": "Parede FC",
-  "a": "SL Benfica",
-  "hg": 3,
-  "ag": 7,
-  "v": "Pavilhão da Parede",
-  "d": "terça-feira 22 setembro"
  },
  {
   "s": "Hóquei em Patins Feminino",

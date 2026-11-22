@@ -1,5 +1,148 @@
 [
  {
+  "id": "401931822",
+  "t": 1795380300000,
+  "comp": "Taça de Portugal",
+  "home": "Torreense",
+  "away": "Benfica",
+  "hs": 1,
+  "as": 3,
+  "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21615.png",
+  "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+  "venue": "Estádio do Jamor",
+  "goals": [
+   {
+    "min": "30'",
+    "who": "Jhon Durán",
+    "team": "Benfica",
+    "how": "Goal"
+   },
+   {
+    "min": "50'",
+    "who": "Musa Drammeh",
+    "team": "Torreense",
+    "how": "Goal"
+   },
+   {
+    "min": "64'",
+    "who": "Gianluca Prestianni",
+    "team": "Benfica",
+    "how": "Goal"
+   },
+   {
+    "min": "85'",
+    "who": "Jakub Kaminski",
+    "team": "Benfica",
+    "how": "Goal"
+   }
+  ],
+  "events": [
+   {
+    "min": "30'",
+    "k": "golo",
+    "who": "Jhon Durán",
+    "side": "a"
+   },
+   {
+    "min": "50'",
+    "k": "golo",
+    "who": "Musa Drammeh",
+    "side": "h"
+   },
+   {
+    "min": "64'",
+    "k": "golo",
+    "who": "Gianluca Prestianni",
+    "side": "a"
+   },
+   {
+    "min": "85'",
+    "k": "golo",
+    "who": "Jakub Kaminski",
+    "side": "a"
+   }
+  ],
+  "stats": [
+   {
+    "n": "Posse de bola (%)",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Remates",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Remates à baliza",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Cantos",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Faltas",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Foras de jogo",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Defesas",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Cartões amarelos",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Cartões vermelhos",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Passes",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Passes certos",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Desarmes",
+    "h": "0",
+    "a": "0"
+   }
+  ],
+  "lineups": [
+   {
+    "side": "h",
+    "formation": "",
+    "players": []
+   },
+   {
+    "side": "a",
+    "formation": "",
+    "players": []
+   }
+  ],
+  "title": "",
+  "text": "",
+  "agent": false,
+  "v": 2,
+  "video": ""
+ },
+ {
   "id": "401885401",
   "t": 1794169800000,
   "comp": "Liga Portugal",
