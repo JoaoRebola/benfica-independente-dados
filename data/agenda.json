@@ -1,19 +1,5 @@
 [
  {
-  "t": 1795267800000,
-  "title": "Conferência de Imprensa",
-  "detail": "Marco Silva faz a antevisão do jogo frente ao Torreense, referente à 4ª eliminatória da Taça de Portugal",
-  "loc": "Adidas Benfica Campus | BTV",
-  "sport": "Futebol"
- },
- {
-  "t": 1795296600000,
-  "title": "CP Esgueira vs SL Benfica",
-  "detail": "Campeonato Nacional Liga Feminina | 26/27 - Grupo G Jornada 7 (F)",
-  "loc": "Pavilhão CP de Esgueira",
-  "sport": "Basquetebol"
- },
- {
   "t": 1795345200000,
   "title": "SL Benfica vs Vasco da Gama",
   "detail": "Campeonato Nacional Sub-17 II Divisão | 26/27 - Jornada 9 (M)",
@@ -705,6 +691,13 @@
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 13 (M)",
   "loc": "Pavilhão Eduardo Soares",
   "sport": "Voleibol"
+ },
+ {
+  "t": 1799096400000,
+  "title": "SL Benfica vs CAB Madeira",
+  "detail": "Campeonato Nacional Liga Feminina | 26/27 - Jornada 14 (F)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
  },
  {
   "t": 1815804000000,

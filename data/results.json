@@ -302,6 +302,16 @@
  {
   "s": "Basquetebol Feminino",
   "c": "Campeonato Nacional Liga Feminina | 26/27",
+  "h": "CP Esgueira",
+  "a": "SL Benfica",
+  "hg": 72,
+  "ag": 91,
+  "v": "Pavilhão CP de Esgueira",
+  "d": "sábado 21 novembro"
+ },
+ {
+  "s": "Basquetebol Feminino",
+  "c": "Campeonato Nacional Liga Feminina | 26/27",
   "h": "SL Benfica",
   "a": "União Sportiva",
   "hg": 96,
@@ -388,16 +398,6 @@
   "ag": 50,
   "v": "Pavilhão Fidelidade",
   "d": "sábado 10 outubro"
- },
- {
-  "s": "Basquetebol Feminino",
-  "c": "Campeonato Nacional Liga Feminina | 26/27",
-  "h": "Sporting CP",
-  "a": "SL Benfica",
-  "hg": 63,
-  "ag": 75,
-  "v": "Pavilhão João Rocha",
-  "d": "domingo 04 outubro"
  },
  {
   "s": "Futsal",
