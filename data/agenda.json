@@ -16,7 +16,7 @@
  {
   "t": 1795549500000,
   "title": "BM Torrelavega vs SL Benfica",
-  "detail": "EHF European League | 26/27 - Grupo F Jornada 4 (M)",
+  "detail": "EHF European League | 26/27 - Grupo F Jornada 5 (M)",
   "loc": "Pabellon Vicente Trueba",
   "sport": "Andebol"
  },
@@ -32,6 +32,13 @@
   "title": "UD Leiria vs SL Benfica",
   "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 10 (M)",
   "loc": "Campo da Mata Santa Eufemia",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795633200000,
+  "title": "SL Benfica vs AD Almada",
+  "detail": "Campeonato Nacional Sub-17 II Divisão | 26/27 - Jornada 7 (M)",
+  "loc": "Benfica Campus (campo 7)",
   "sport": "Futebol"
  },
  {
@@ -84,13 +91,6 @@
   "sport": "Rugby"
  },
  {
-  "t": 1795878000000,
-  "title": "SL Benfica vs FC Alverca",
-  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 13 (M)",
-  "loc": "",
-  "sport": "Futebol"
- },
- {
   "t": 1795885200000,
   "title": "SL Benfica vs Vitória SC",
   "detail": "Campeonato Nacional Masculino | 26/27 - Grupo I Jornada 7 (M)",
@@ -124,6 +124,13 @@
   "detail": "Campeonato Nacional Liga Feminina | 26/27 - Grupo I Jornada 8 (F)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Basquetebol"
+ },
+ {
+  "t": 1795964400000,
+  "title": "SL Benfica vs FC Alverca",
+  "detail": "Campeonato Sub-19 26/27 - Jornada 13 (M)",
+  "loc": "Benfica Campus (campo 1)",
+  "sport": "Futebol"
  },
  {
   "t": 1795966200000,
@@ -690,13 +697,6 @@
   "title": "SL Benfica vs Candelária SC",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
   "loc": "Pavilhão Fidelidade",
-  "sport": "Hóquei em Patins"
- },
- {
-  "t": 1799604000000,
-  "title": "CRIAR-T vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 7 (F)",
-  "loc": "Pavilhão Municipal Leonel Fernandes",
   "sport": "Hóquei em Patins"
  },
  {
