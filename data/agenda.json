@@ -1,19 +1,5 @@
 [
  {
-  "t": 1795345200000,
-  "title": "AF Atlântico vs SL Benfica",
-  "detail": "Campeonato Nacional Sub 15 II Divisão | 26/27 - Jornada 9 (M)",
-  "loc": "Colégio Atlântico Academia De Futebol",
-  "sport": "Futebol"
- },
- {
-  "t": 1795357800000,
-  "title": "SL Benfica vs CA Pacense",
-  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 4 (F)",
-  "loc": "Piscina Algés e Dafundo",
-  "sport": "Polo Aquático"
- },
- {
   "t": 1795456800000,
   "title": "Kauno Zalgiris vs SL Benfica",
   "detail": "UEFA Futsal Champions League | 26/27 - Oitavos de Final Jornada 1 (M)",
@@ -38,7 +24,7 @@
   "t": 1795608000000,
   "title": "GNK Dinamo vs SL Benfica",
   "detail": "UEFA Liga Jovem 26/27 - round (M)",
-  "loc": "",
+  "loc": "Stadion Ivan Laljak-Ivic",
   "sport": "Futebol"
  },
  {
@@ -698,6 +684,20 @@
   "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
   "loc": "Estádio Dr. Jorge Sampaio",
   "sport": "Futebol"
+ },
+ {
+  "t": 1799593200000,
+  "title": "SL Benfica vs Candelária SC",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1799604000000,
+  "title": "CRIAR-T vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 7 (F)",
+  "loc": "Pavilhão Municipal Leonel Fernandes",
+  "sport": "Hóquei em Patins"
  },
  {
   "t": 1815804000000,
