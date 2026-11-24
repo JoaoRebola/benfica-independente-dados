@@ -101,6 +101,16 @@
  },
  {
   "s": "Futebol Feminino",
+  "c": "LIGA BPI | 26/27",
+  "h": "SC Braga",
+  "a": "SL Benfica",
+  "hg": 1,
+  "ag": 2,
+  "v": "Estádio Amélia Morais",
+  "d": "segunda-feira 23 novembro"
+ },
+ {
+  "s": "Futebol Feminino",
   "c": "Liga dos Campeões Feminina UEFA | 2026/27",
   "h": "SL Benfica",
   "a": "AS Roma",
@@ -188,16 +198,6 @@
   "ag": 3,
   "v": "Estádio do Sport Lisboa e Benfica",
   "d": "quarta-feira 30 setembro"
- },
- {
-  "s": "Futebol Feminino",
-  "c": "Liga dos Campeões Feminina UEFA | 2026/27",
-  "h": "Juventus FC",
-  "a": "SL Benfica",
-  "hg": 1,
-  "ag": 2,
-  "v": "Estádio Allianz",
-  "d": "terça-feira 22 setembro"
  },
  {
   "s": "Basquetebol",
@@ -401,6 +401,16 @@
  },
  {
   "s": "Futsal",
+  "c": "UEFA Futsal Champions League | 26/27",
+  "h": "Kauno Zalgiris",
+  "a": "SL Benfica",
+  "hg": 2,
+  "ag": 3,
+  "v": "S. Darius & S. Girenas Sport Center",
+  "d": "segunda-feira 23 novembro"
+ },
+ {
+  "s": "Futsal",
   "c": "Campeonato Nacional Masculino | 26/27",
   "h": "SL Benfica",
   "a": "FC Famalicão",
@@ -488,16 +498,6 @@
   "ag": 2,
   "v": "Pavilhão Gimnodesportivo de Portimão ",
   "d": "sábado 19 setembro"
- },
- {
-  "s": "Futsal",
-  "c": "Campeonato Nacional Masculino | 26/27",
-  "h": "SL Benfica",
-  "a": "UP Venda Nova",
-  "hg": 4,
-  "ag": 1,
-  "v": "Pavilhão Fidelidade",
-  "d": "sábado 12 setembro"
  },
  {
   "s": "Futsal Feminino",

@@ -1,19 +1,5 @@
 [
  {
-  "t": 1795456800000,
-  "title": "Kauno Zalgiris vs SL Benfica",
-  "detail": "UEFA Futsal Champions League | 26/27 - Oitavos de Final Jornada 1 (M)",
-  "loc": "S. Darius & S. Girenas Sport Center",
-  "sport": "Futsal"
- },
- {
-  "t": 1795460400000,
-  "title": "SC Braga vs SL Benfica",
-  "detail": "LIGA BPI | 26/27 - Jornada 7 (F)",
-  "loc": "Estádio Amélia Morais",
-  "sport": "Futebol Feminino"
- },
- {
   "t": 1795549500000,
   "title": "BM Torrelavega vs SL Benfica",
   "detail": "EHF European League | 26/27 - Grupo F Jornada 5 (M)",
@@ -85,7 +71,7 @@
  },
  {
   "t": 1795878000000,
-  "title": "SL Benfica vs CDUL",
+  "title": "SL Benfica vs CR São Miguel",
   "detail": "Super XV | 26/27 - Jornada 5 (M)",
   "loc": "Estádio de Honra",
   "sport": "Rugby"
@@ -119,6 +105,13 @@
   "sport": "Futsal"
  },
  {
+  "t": 1795950000000,
+  "title": "FC Penafiel vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 12 (M)",
+  "loc": "Estádio Municipal 25 de Abril",
+  "sport": "Futebol"
+ },
+ {
   "t": 1795951800000,
   "title": "SL Benfica vs GDESSA Barreiro",
   "detail": "Campeonato Nacional Liga Feminina | 26/27 - Grupo I Jornada 8 (F)",
@@ -130,13 +123,6 @@
   "title": "SL Benfica vs FC Alverca",
   "detail": "Campeonato Sub-19 26/27 - Jornada 13 (M)",
   "loc": "Benfica Campus (campo 1)",
-  "sport": "Futebol"
- },
- {
-  "t": 1795966200000,
-  "title": "FC Penafiel vs SL Benfica B",
-  "detail": "Segunda Liga 26/27 - Jornada 12 (M)",
-  "loc": "Estádio Municipal 25 de Abril",
   "sport": "Futebol"
  },
  {
@@ -455,6 +441,13 @@
   "sport": "Futebol"
  },
  {
+  "t": 1797429600000,
+  "title": "SL Benfica vs CD Tondela",
+  "detail": "Taça de Portugal 26/27 - round (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
   "t": 1797444000000,
   "title": "SL Benfica vs SCU Torreense",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 6 (M)",
@@ -511,6 +504,13 @@
   "sport": "Andebol"
  },
  {
+  "t": 1797699600000,
+  "title": "SC Ferreira Zêzere vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 11 (M)",
+  "loc": "Pavilhão Municipal Ferreira Do Zêzere",
+  "sport": "Futsal"
+ },
+ {
   "t": 1797703200000,
   "title": "Sporting CP vs SL Benfica",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 11 (M)",
@@ -523,6 +523,13 @@
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 13 (F)",
   "loc": "Pavilhão da Escola Secundária Gil Eanes",
   "sport": "Andebol"
+ },
+ {
+  "t": 1797703200000,
+  "title": "GD Direito vs SL Benfica",
+  "detail": "Super XV | 26/27 - Jornada 8 (M)",
+  "loc": "",
+  "sport": "Rugby"
  },
  {
   "t": 1797714000000,
@@ -616,6 +623,13 @@
   "sport": "Basquetebol"
  },
  {
+  "t": 1798909200000,
+  "title": "UP Venda Nova vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 12 (M)",
+  "loc": "Pavilhão António Ferreira",
+  "sport": "Futsal"
+ },
+ {
   "t": 1798988400000,
   "title": "SC Braga vs SL Benfica",
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 14 (F)",
@@ -684,20 +698,6 @@
   "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
   "loc": "Estádio Municipal de Arouca",
   "sport": "Futebol"
- },
- {
-  "t": 1799582400000,
-  "title": "Porto B vs SL Benfica B",
-  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
-  "loc": "Estádio Dr. Jorge Sampaio",
-  "sport": "Futebol"
- },
- {
-  "t": 1799593200000,
-  "title": "SL Benfica vs Candelária SC",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
-  "loc": "Pavilhão Fidelidade",
-  "sport": "Hóquei em Patins"
  },
  {
   "t": 1815804000000,
