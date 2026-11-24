@@ -801,6 +801,16 @@
  },
  {
   "s": "Andebol",
+  "c": "EHF European League | 26/27",
+  "h": "BM Torrelavega",
+  "a": "SL Benfica",
+  "hg": 25,
+  "ag": 30,
+  "v": "Pabellon Vicente Trueba",
+  "d": "terça-feira 24 novembro"
+ },
+ {
+  "s": "Andebol",
   "c": "Campeonato Nacional Masculino | 26/27",
   "h": "SL Benfica",
   "a": "Póvoa AC",
@@ -888,16 +898,6 @@
   "ag": 31,
   "v": "Gräkjaer Arena ",
   "d": "terça-feira 06 outubro"
- },
- {
-  "s": "Andebol",
-  "c": "Campeonato Nacional Masculino | 26/27",
-  "h": "SL Benfica",
-  "a": "GC Santo Tirso",
-  "hg": 38,
-  "ag": 21,
-  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
-  "d": "sábado 03 outubro"
  },
  {
   "s": "Voleibol",

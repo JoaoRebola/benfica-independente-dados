@@ -1,12 +1,5 @@
 [
  {
-  "t": 1795549500000,
-  "title": "BM Torrelavega vs SL Benfica",
-  "detail": "EHF European League | 26/27 - Grupo F Jornada 5 (M)",
-  "loc": "Pabellon Vicente Trueba",
-  "sport": "Andebol"
- },
- {
   "t": 1795608000000,
   "title": "GNK Dinamo vs SL Benfica",
   "detail": "UEFA Liga Jovem 26/27 - round (M)",
@@ -61,6 +54,13 @@
   "detail": "Campeonato Nacional de Ténis de Mesa, Div. Honra | 26/27 - Jornada 4 (M)",
   "loc": "Instituto Pupilos do Exército",
   "sport": "Ténis de Mesa"
+ },
+ {
+  "t": 1795861800000,
+  "title": "Campeonato Nacional de Clubes",
+  "detail": "1ª Divisão de Feeder | 6ª prova",
+  "loc": "Barrinha - Aveiro",
+  "sport": "Pesca Desportiva"
  },
  {
   "t": 1795878000000,
@@ -441,13 +441,6 @@
   "sport": "Futebol"
  },
  {
-  "t": 1797429600000,
-  "title": "SL Benfica vs CD Tondela",
-  "detail": "Taça de Portugal 26/27 - round (M)",
-  "loc": "Estádio do Sport Lisboa e Benfica",
-  "sport": "Futebol"
- },
- {
   "t": 1797444000000,
   "title": "SL Benfica vs SCU Torreense",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 6 (M)",
@@ -504,13 +497,6 @@
   "sport": "Andebol"
  },
  {
-  "t": 1797699600000,
-  "title": "SC Ferreira Zêzere vs SL Benfica",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 11 (M)",
-  "loc": "Pavilhão Municipal Ferreira Do Zêzere",
-  "sport": "Futsal"
- },
- {
   "t": 1797703200000,
   "title": "Sporting CP vs SL Benfica",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 11 (M)",
@@ -547,13 +533,6 @@
  },
  {
   "t": 1797768000000,
-  "title": "Rio Ave FC vs SL Benfica",
-  "detail": "Liga Portugal 26/27 - Jornada 15 (M)",
-  "loc": "Estádio dos Arcos",
-  "sport": "Futebol"
- },
- {
-  "t": 1797768000000,
   "title": "CD Tondela vs SL Benfica B",
   "detail": "Segunda Liga 26/27 - Jornada 15 (M)",
   "loc": "Estádio João Cardoso",
@@ -586,6 +565,13 @@
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 12 (M)",
   "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
   "sport": "Voleibol"
+ },
+ {
+  "t": 1797796800000,
+  "title": "SC Ferreira Zêzere vs SL Benfica",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 11 (M)",
+  "loc": "Pavilhão Municipal Ferreira Do Zêzere",
+  "sport": "Futsal"
  },
  {
   "t": 1798038000000,
@@ -697,6 +683,13 @@
   "title": "FC Arouca vs SL Benfica",
   "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
   "loc": "Estádio Municipal de Arouca",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1799582400000,
+  "title": "Porto B vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Dr. Jorge Sampaio",
   "sport": "Futebol"
  },
  {
