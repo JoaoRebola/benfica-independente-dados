@@ -816,8 +816,6 @@ FPF_COMPETICOES = [
     ("29910", "Futebol Feminino", "Equipa B", "Campeonato Nacional Feminino II Divisão"),
     ("29872", "Futebol Feminino", "Sub-19", "Liga Feminina Sub-19"),
     ("29873", "Futebol Feminino", "Sub-17", "Liga Feminina Sub-17"),
-    ("29817", "Futsal", "", "Liga Placard"),
-    ("29897", "Futsal Feminino", "", "Liga Feminina Placard"),
 ]
 SIGLAS = {"sl", "fc", "sc", "cd", "gd", "ud", "cf", "ad", "cs", "cp", "ac", "af", "aj", "gc", "cdr", "ccd", "scp", "sad", "ca", "cr", "ccr", "gdc", "gdr", "gs"}
 
@@ -1010,8 +1008,6 @@ RANKS_FORMACAO = {"Sub-23": "62d5a1a6-fae4-4a4a-871d-bd92831f9dbb", "Sub-19": "8
 ULTIMOS_APP = {
     "Futebol|Equipa B|Segunda Liga": ("Futebol", True, "72660737-f4f6-4c76-864f-d1ca2f545913", r"Segunda Liga"),
     "Futebol Feminino||Liga BPI": ("Futebol Feminino", False, RANK_PRINCIPAL, r"LIGA BPI"),
-    "Futsal||Liga Placard": ("Futsal", True, MAIN_TEAM, r"Campeonato Nacional"),
-    "Futsal Feminino||Liga Feminina Placard": ("Futsal Feminino", False, MAIN_TEAM, r"Campeonato Nacional"),
 }
 
 
@@ -1130,10 +1126,67 @@ def fpf_calcular(pag):
     return recalcular(jogos)
 
 
-def fpb_classificacoes():
-    """Basquetebol (federação, fpb.pt): ver class_extra.py. Os números das competições mudam de época para época."""
-    import class_extra
-    return [dict(e, src="fpb") for e in class_extra.extra_classificacoes() if e["src"] == "extra-fpb"]
+# ---- modalidades: o serviço de classificações do próprio site do clube
+CLUBE_MODALIDADES = [("voleibol", "Voleibol"), ("futsal", "Futsal"), ("basquetebol", "Basquetebol")]
+
+
+def _clube_pagina(url):
+    return get(url, timeout=90, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)", "X-Requested-With": "XMLHttpRequest", "Accept": "text/html,*/*"})
+
+
+def clube_tabela(pag):
+    """Lê a tabela devolvida pelo clube, pelos nomes das colunas (a ordem muda de modalidade para modalidade)."""
+    if "<table" not in pag:
+        return None, []
+    tab = pag.split("<table", 1)[1].split("</table>")[0]
+    cab = [_limpa(x).upper().rstrip(".") for x in re.findall(r"<th\b[^>]*>(.*?)</th>", tab, re.S)]
+
+    def col(*nomes):
+        return next((cab.index(n) for n in nomes if n in cab), None)
+    ix = [col("POS"), col("EQUIPA"), col("PTS"), col("J", "JG"), col("V"), col("E"), col("D"), col("GM", "PM"), col("GS", "PS")]
+    if any(i is None for i in (ix[0], ix[1], ix[2], ix[3], ix[4], ix[6], ix[7], ix[8])):
+        return None, []
+    linhas = []
+    for tr in tab.split("<tr")[1:]:
+        tds = [_limpa(x) for x in re.findall(r"<td\b[^>]*>(.*?)</td>", tr, re.S)]
+        if len(tds) < len(cab):
+            continue
+        equipa = "SL Benfica" if tds[ix[1]].strip().upper() == "BENFICA" else tds[ix[1]]
+        linhas.append([_num(tds[ix[0]]), equipa] + [0 if i is None else _num(tds[i]) for i in ix[2:]])
+    cap = re.search(r"<caption>(.*?)</caption>", pag, re.S)
+    nome = _limpa(cap.group(1)) if cap else "Campeonato Nacional"
+    nome = re.sub(r"^(Tabela de )?Classifica[çc][ãa]o d[oa]s? ", "", nome)
+    nome = re.sub(r"\s*\|?\s*\d\.ª fase.*$|\s+da [ée]poca.*$", "", nome).strip(" |")
+    return nome or "Campeonato Nacional", linhas
+
+
+def modalidades_clube_classificacoes():
+    import urllib.parse
+    saida = []
+    for slug, base in CLUBE_MODALIDADES:
+        for fem in (False, True):
+            desporto = base + (" Feminino" if fem else "")
+            try:
+                pag = _clube_pagina("https://www.slbenfica.pt/pt-pt/modalidades/" + slug + ("?teamGender=female&teamRank=" + RANK_PRINCIPAL if fem else ""))
+                epocas = [a or b for a, b in re.findall(r'name="standings-radio-date"[^>]*value="([^"]+)"|value="([^"]+)"[^>]*name="standings-radio-date"', pag)]
+                provas = [(m.group(1), _limpa(m.group(2))) for m in re.finditer(r'value="(dp:tournament:[^"]+)"\s+name="standings-radio-competition"[^>]*/>\s*<label[^>]*>(.*?)</label>', pag, re.S)]
+                if not epocas:
+                    continue
+                for tid, prova in provas:
+                    if not re.search(r"Campeonato Nacional", prova, re.I) or re.search(r"Div|Acesso|Seniores|Sub|Ta[çc]a|Super", prova, re.I):
+                        continue
+                    nome, linhas = clube_tabela(_clube_pagina("https://www.slbenfica.pt/api/sitecore/OtherSports/GetClassification?"
+                                                             + urllib.parse.urlencode({"seasonYear": epocas[0], "tournamentId": tid})))
+                    if linhas and any(l[1] == "SL Benfica" for l in linhas):
+                        ent = {"s": desporto, "k": "", "c": nome, "t": linhas, "src": "clube-mod"}
+                        u = ultimo_clube(desporto, not fem, MAIN_TEAM, r"Campeonato Nacional|Liga Betclic|Liga Placard")
+                        if u:
+                            ent["n"], ent["ult"] = u
+                        saida.append(ent)
+                        break
+            except Exception as e:
+                log("classificações clube", desporto, "falhou:", type(e).__name__, e)
+    return saida
 
 
 def do_standings():
@@ -1141,7 +1194,7 @@ def do_standings():
     antes = {(e["s"], e["k"], e["c"]): e for e in old}
     agora = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     novo, falhou = [], set()
-    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes), ("fpf", fpf_classificacoes), ("fpb", fpb_classificacoes)):
+    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes), ("fpf", fpf_classificacoes), ("clube-mod", modalidades_clube_classificacoes)):
         try:
             got = fn()
         except Exception as e:
