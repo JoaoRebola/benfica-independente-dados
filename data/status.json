@@ -23,6 +23,12 @@
   "resultados_Voleibol Feminino": 10,
   "resultados_Rugby": 10,
   "resultados_Rugby Feminino": 10,
+  "resultados_Futebol_Equipa B": 10,
+  "resultados_Futebol_Sub-23": 10,
+  "resultados_Futebol_Sub-19": 10,
+  "resultados_Futebol_Sub-17": 10,
+  "resultados_Futebol_Sub-16": 3,
+  "resultados_Futebol_Sub-15": 10,
   "resultados_incoerentes": 0,
   "live": "upcoming",
   "cronicas": 22,
@@ -38,5 +44,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-25T16:17:31Z"
+ "atualizado": "2026-11-25T17:43:45Z"
 }

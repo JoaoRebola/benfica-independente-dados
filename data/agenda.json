@@ -1,12 +1,5 @@
 [
  {
-  "t": 1795618800000,
-  "title": "UD Leiria vs SL Benfica",
-  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 10 (M)",
-  "loc": "Campo da Mata Santa Eufemia",
-  "sport": "Futebol"
- },
- {
   "t": 1795633200000,
   "title": "SL Benfica vs AD Almada",
   "detail": "Campeonato Nacional Sub-17 II Divisão | 26/27 - Jornada 7 (M)",
@@ -782,6 +775,13 @@
   "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
   "loc": "MUN. Nazaré",
   "sport": "Andebol"
+ },
+ {
+  "t": 1799582400000,
+  "title": "FC Arouca vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Municipal de Arouca",
+  "sport": "Futebol"
  },
  {
   "t": 1799593200000,
