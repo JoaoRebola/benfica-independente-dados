@@ -727,6 +727,7 @@
   "j": 11,
   "u": "2026-11-21 17:15|JUVE LIS|SL BENFICA",
   "ok": true,
+  "prova": true,
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -873,6 +874,7 @@
   "j": 13,
   "u": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
   "ok": true,
+  "prova": true,
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -1041,6 +1043,7 @@
   "j": 3,
   "u": "2026-11-22 19:30|Sporting CP|SL Benfica",
   "ok": true,
+  "prova": true,
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -1121,6 +1124,7 @@
   "j": 2,
   "u": "2026-11-22 15:00|Biblioteca IR|SL Benfica",
   "ok": true,
+  "prova": true,
   "at": "2026-11-25T20:06:17Z"
  }
 ]

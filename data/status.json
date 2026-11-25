@@ -32,7 +32,7 @@
   "resultados_incoerentes": 0,
   "classificacoes": 8,
   "classificacoes_confirmadas": 6,
-  "live": "upcoming",
+  "live": "live",
   "cronicas": 22,
   "podcasts_com_video": 769,
   "podcasts_total": 976,
@@ -46,5 +46,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-25T20:14:02Z"
+ "atualizado": "2026-11-25T22:33:42Z"
 }

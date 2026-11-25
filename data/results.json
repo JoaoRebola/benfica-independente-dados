@@ -1683,6 +1683,17 @@
   "s": "Futebol",
   "c": "Campeonato Nacional Sub-17 II Divisão | 26/27",
   "h": "SL Benfica",
+  "a": "AD Almada",
+  "hg": 3,
+  "ag": 1,
+  "v": "Benfica Campus (campo 7)",
+  "d": "quarta-feira 25 novembro",
+  "k": "Sub-17"
+ },
+ {
+  "s": "Futebol",
+  "c": "Campeonato Nacional Sub-17 II Divisão | 26/27",
+  "h": "SL Benfica",
   "a": "Vasco da Gama",
   "hg": 7,
   "ag": 2,
@@ -1776,17 +1787,6 @@
   "ag": 2,
   "v": "Complexo Desportivo do Real SC",
   "d": "domingo 18 outubro",
-  "k": "Sub-17"
- },
- {
-  "s": "Futebol",
-  "c": "Campeonato Nacional de Sub 17 | 26/27",
-  "h": "SL Benfica",
-  "a": "Casa Pia AC",
-  "hg": 2,
-  "ag": 2,
-  "v": "Benfica Campus (campo 7)",
-  "d": "domingo 11 outubro",
   "k": "Sub-17"
  },
  {
