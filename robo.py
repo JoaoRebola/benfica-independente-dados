@@ -1130,12 +1130,18 @@ def fpf_calcular(pag):
     return recalcular(jogos)
 
 
+def fpb_classificacoes():
+    """Basquetebol (federação, fpb.pt): ver class_extra.py. Os números das competições mudam de época para época."""
+    import class_extra
+    return [dict(e, src="fpb") for e in class_extra.extra_classificacoes() if e["src"] == "extra-fpb"]
+
+
 def do_standings():
     old = load("classificacoes.json", [])
     antes = {(e["s"], e["k"], e["c"]): e for e in old}
     agora = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     novo, falhou = [], set()
-    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes), ("fpf", fpf_classificacoes)):
+    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes), ("fpf", fpf_classificacoes), ("fpb", fpb_classificacoes)):
         try:
             got = fn()
         except Exception as e:
