@@ -927,10 +927,40 @@ def fpp_classificacoes():
     return saida
 
 
+# Escalões do futebol de formação: o próprio site do clube publica a classificação de cada um.
+CLUBE_ESCALOES = [("Sub-23", "sub-23"), ("Sub-19", "juniores"), ("Sub-17", "juvenis"), ("Sub-15", "iniciados")]
+
+
+def clube_classificacoes():
+    saida = []
+    for k, slug in CLUBE_ESCALOES:
+        try:
+            pag = get("https://www.slbenfica.pt/pt-pt/futebol-formacao/%s/classificacao" % slug, timeout=60)
+        except Exception as e:
+            log("classificações clube", slug, "falhou:", type(e).__name__)
+            continue
+        for tab in pag.split("<table")[1:]:
+            tab = tab.split("</table>")[0]
+            cap = re.search(r"<caption>(.*?)</caption>", tab, re.S)
+            nome = _limpa(cap.group(1)) if cap else "Campeonato"
+            nome = re.sub(r"^Classifica[çc][ãa]o d[oa]s? ", "", nome)
+            nome = re.sub(r"\s+da [ée]poca \d{4}/\d{2}", "", nome).strip()
+            linhas = []
+            for tr in tab.split("<tr")[1:]:
+                tds = [_limpa(x) for x in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
+                if len(tds) < 9:
+                    continue
+                equipa = "SL Benfica" if tds[1].strip().upper() == "BENFICA" else tds[1]
+                linhas.append([_num(tds[0]), equipa, _num(tds[8]), _num(tds[2]), _num(tds[3]), _num(tds[4]), _num(tds[5]), _num(tds[6]), _num(tds[7])])
+            if linhas and any(l[1] == "SL Benfica" for l in linhas):
+                saida.append({"s": "Futebol", "k": k, "c": nome, "t": linhas, "src": "clube"})
+    return saida
+
+
 def do_standings():
     old = load("classificacoes.json", [])
     novo, falhou = [], set()
-    for fonte, fn in (("fpf", fpf_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes)):
+    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes)):
         try:
             got = fn()
             if got:
