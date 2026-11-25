@@ -283,6 +283,14 @@ def do_agenda():
                 status["robo"]["agenda_andebol_formacao"] = len(form)
         except Exception as e:
             log("agenda: andebol camadas jovens (federação) falhou:", e)
+        for chave, desporto, fonte in (("hoquei", "Hóquei em Patins", fpp_hoquei), ("basquetebol", "Basquetebol", fpb_basquetebol)):
+            try:
+                novos = [e for e in modalidade_agenda(fonte(), desporto) if not ja_tem(events, e)]
+                if novos:
+                    events += novos
+                    status["robo"]["agenda_" + chave] = len(novos)
+            except Exception as e:
+                log("agenda: %s (federação) falhou:" % chave, e)
         events.sort(key=lambda e: e["t"])
         save("agenda.json", events)
         status[who]["agenda"] = len(events)
@@ -436,6 +444,123 @@ def fpa_agenda(jogos, genero="F"):
     return saida
 
 
+# ---------------------------------------------------------------- Federação de Hóquei em Patins (hp.fpp.pt)
+HP = "https://hp.fpp.pt"
+
+
+def _limpa(t):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", t))).strip()
+
+
+def fpp_competicoes():
+    """(id, nome) de todas as competições da época em curso, lidas da página inicial (muda sozinha de época)."""
+    comps = []
+    for caminho in sorted(set(re.findall(r'href="(/\d+/\d+)"', get(HP + "/", timeout=60)))):
+        pag = get(HP + caminho, timeout=60)
+        for cid, nome in re.findall(r'href="/Competicao/(\d+)"[^>]*>.*?<p>(.*?)</p>', pag, re.S):
+            comps.append((cid, _limpa(nome)))
+    return comps
+
+
+def fpp_hoquei():
+    """Jogos do SL Benfica (equipas "SL Benfica" exatas, sem a B) em todas as competições de hóquei da época."""
+    jogos = []
+    for cid, nome in fpp_competicoes():
+        try:
+            pag = get(HP + "/Competicao/" + cid, timeout=60)
+        except Exception:
+            continue
+        jornada = ""
+        for tr in pag.split("<tr")[1:]:
+            mj = re.search(r"(\d+)\s*[ªa]?\s*Jornada", _limpa(tr)) if "coluna-data" not in tr else None
+            if mj:
+                jornada = "Jornada " + mj.group(1)
+                continue
+            quando = re.search(r"(\d{4}-\d{2}-\d{2})\s*<br>\s*(\d{2}:\d{2})", tr)
+            equipas = [_limpa(x) for x in re.findall(r'<p class="visit[^"]*">(.*?)</p>', tr, re.S)]
+            if not quando or len(equipas) != 2 or "SL Benfica" not in equipas:
+                continue
+            res = re.search(r'class="resultado"[^>]*>\s*(\d+)\s*-\s*(\d+)', tr)
+            jogos.append({"data": quando.group(1), "hora": quando.group(2), "casa": equipas[0], "fora": equipas[1], "prova": nome,
+                          "jornada": jornada, "gc": int(res.group(1)) if res else None, "gf": int(res.group(2)) if res else None})
+    return jogos
+
+
+def _genero_prova(nome):
+    return "F" if re.search(r"feminin", nome, re.I) else "M"
+
+
+def modalidade_resultados(jogos, desporto, limite=10):
+    """No formato dos resultados do clube; o feminino vai para "<desporto> Feminino"."""
+    saida = []
+    for g in sorted([g for g in jogos if g["gc"] is not None], key=lambda g: (g["data"], g["hora"]), reverse=True):
+        fem = _genero_prova(g["prova"]) == "F"
+        if re.search(r"sub[\s-]?\d|juniores|juvenis|iniciados", g["prova"], re.I):
+            continue                           # formação não tem resultados na lista
+        d = datetime.strptime(g["data"], "%Y-%m-%d")
+        saida.append({"s": desporto + (" Feminino" if fem else ""), "c": g["prova"], "h": g["casa"], "a": g["fora"], "hg": g["gc"], "ag": g["gf"],
+                      "v": "", "d": "%s %02d %s" % (SEMANA[d.weekday()], d.day, MESES_PT[d.month - 1])})
+    por = {}
+    for r in saida:
+        por.setdefault(r["s"], []).append(r)
+    return [r for lista in por.values() for r in lista[:limite]]
+
+
+def modalidade_agenda(jogos, desporto):
+    agora = time.time() - 3 * 3600
+    saida = []
+    for g in jogos:
+        if g["gc"] is not None:
+            continue
+        try:
+            quando = datetime.strptime(g["data"] + " " + g["hora"], "%Y-%m-%d %H:%M").replace(tzinfo=LISBON)
+        except Exception:
+            continue
+        if quando.timestamp() < agora:
+            continue
+        saida.append({"t": int(quando.timestamp() * 1000), "title": "%s vs %s" % (g["casa"], g["fora"]),
+                      "detail": " - ".join(x for x in (g["prova"], g.get("jornada", "")) if x) + " (%s)" % _genero_prova(g["prova"]),
+                      "loc": g.get("local", ""), "sport": desporto})
+    return saida
+
+
+# ---------------------------------------------------------------- Federação de Basquetebol (fpb.pt)
+FPB = "https://www.fpb.pt"
+MES3 = {"JAN": 1, "FEV": 2, "MAR": 3, "ABR": 4, "MAI": 5, "JUN": 6, "JUL": 7, "AGO": 8, "SET": 9, "OUT": 10, "NOV": 11, "DEZ": 12}
+
+
+def fpb_basquetebol():
+    """Próximos jogos do SL Benfica nas competições da federação (a página do calendário mostra as próximas jornadas)."""
+    base = get(FPB + "/competicao/11440/", timeout=60)
+    ids = sorted(set(re.findall(r'href="/calendario/(\d+)"', base)) | set(re.findall(r'href="/competicao/(\d+)"', base)) | {"11440"})
+    jogos = []
+    for cid in ids:
+        try:
+            pag = get(FPB + "/calendario/" + cid, timeout=60)
+        except Exception:
+            continue
+        datas = [(m.start(), m.group(1), m.group(2), m.group(3)) for m in re.finditer(r"(\d{1,2})\s+(JAN|FEV|MAR|ABR|MAI|JUN|JUL|AGO|SET|OUT|NOV|DEZ)\s+(\d{4})", pag)]
+        for m in re.finditer(r'<a href="/ficha-de-jogo\?internalID=(\d+)"(.*?)(?=<a href="/ficha-de-jogo|<footer|$)', pag, re.S):
+            bloco = m.group(2)
+            siglas = [_limpa(x) for x in re.findall(r'<span class="sigla">(.*?)</span>', bloco, re.S)]
+            if len(siglas) < 2 or "SL Benfica" not in siglas[:2]:
+                continue
+            hora = re.search(r"(\d{2})H(\d{2})", bloco)
+            anteriores = [d for d in datas if d[0] < m.start()]
+            if not hora or not anteriores:
+                continue
+            _p, dia, mes, ano = anteriores[-1]
+            local = re.search(r"<b>\s*(.*?)\s*</b>", bloco, re.S)
+            comp = re.search(r'<div class="competition">\s*<span>(.*?)</span>', bloco, re.S)
+            prova = _limpa(comp.group(1)) if comp else ""
+            if not prova or "<?" in (comp.group(1) if comp else ""):
+                prova = re.search(r"(Liga[^<]*|Ta[çc]a[^<]*|Supertaça[^<]*)", _limpa(bloco)).group(1).strip() if re.search(r"(Liga[^<]*|Ta[çc]a[^<]*|Supertaça[^<]*)", _limpa(bloco)) else ""
+            jogos.append({"data": "%04d-%02d-%02d" % (int(ano), MES3[mes], int(dia)), "hora": "%s:%s" % hora.groups(), "casa": siglas[0], "fora": siglas[1],
+                          "prova": prova, "jornada": "", "local": _limpa(local.group(1)) if local else "", "gc": None, "gf": None, "fpb": m.group(1)})
+    unicos = {j["fpb"]: j for j in jogos}
+    return list(unicos.values())
+
+
 # ---------------------------------------------------------------- resultados
 DAY = re.compile(r"^(segunda|terça|quarta|quinta|sexta|sábado|domingo)", re.I)
 
@@ -587,6 +712,14 @@ def do_results():
                 log("resultados: andebol feminino vindo da federação:", len(fem))
         except Exception as e:
             log("resultados: andebol feminino (federação) falhou:", e)
+    try:
+        ja = {x["s"] for x in merged}
+        for r in modalidade_resultados(fpp_hoquei(), "Hóquei em Patins"):
+            if r["s"] not in ja:
+                merged.append(r)
+                status["robo"]["resultados_" + r["s"]] = status["robo"].get("resultados_" + r["s"], 0) + 1
+    except Exception as e:
+        log("resultados: hóquei (federação) falhou:", e)
     merged, tirados, zeros = filtrar_incoerencias(merged)
     if zeros:
         log("resultados: jogos sem resultado registado (0-0) deixados de fora:", len(zeros))
