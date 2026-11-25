@@ -1227,14 +1227,23 @@ def do_live():
                 marcado = info
     escolhido = vivo or marcado or {}
     estado = "live" if vivo else ("upcoming" if marcado else "none")
-    save("live.json", {
+    novo = {
         "estado": estado,
         "id": escolhido.get("id", ""),
         "titulo": escolhido.get("titulo", ""),
         "agendado": int(escolhido.get("agendado") or 0),
         "inicio": int(escolhido.get("inicio") or 0),
-        "atualizado": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-    })
+    }
+    # Só grava quando o estado muda (ou de tempos a tempos, para a app saber que está em dia):
+    # assim não há uma gravação nova a cada execução do robô.
+    antigo = load("live.json", {})
+    try:
+        idade = (datetime.now(timezone.utc) - datetime.strptime(antigo.get("atualizado", ""), "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)).total_seconds()
+    except Exception:
+        idade = 10 ** 9
+    if not (all(antigo.get(k) == v for k, v in novo.items()) and idade < 100 * 60):
+        novo["atualizado"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        save("live.json", novo)
     status["robo"]["live"] = estado
     log("live: %s %s" % (estado, escolhido.get("titulo", "")))
 
