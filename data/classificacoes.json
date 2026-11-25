@@ -225,7 +225,13 @@
     17
    ]
   ],
-  "src": "clube"
+  "src": "clube",
+  "n": 13,
+  "ult": "|Estoril Praia|SL Benfica",
+  "j": 11,
+  "u": null,
+  "ok": null,
+  "at": "2026-11-25T19:53:34Z"
  },
  {
   "s": "Futebol",
@@ -343,7 +349,13 @@
     27
    ]
   ],
-  "src": "clube"
+  "src": "clube",
+  "n": 12,
+  "ult": "quarta-feira 25 novembro|UD Leiria|SL Benfica",
+  "j": 12,
+  "u": "quarta-feira 25 novembro|UD Leiria|SL Benfica",
+  "ok": true,
+  "at": "2026-11-25T19:53:34Z"
  },
  {
   "s": "Futebol",
@@ -461,7 +473,13 @@
     24
    ]
   ],
-  "src": "clube"
+  "src": "clube",
+  "n": 13,
+  "ult": "domingo 22 novembro|CD Nacional|SL Benfica",
+  "j": 13,
+  "u": "domingo 22 novembro|CD Nacional|SL Benfica",
+  "ok": true,
+  "at": "2026-11-25T19:53:34Z"
  },
  {
   "s": "Futebol",
@@ -579,7 +597,13 @@
     35
    ]
   ],
-  "src": "clube"
+  "src": "clube",
+  "n": 9,
+  "ult": "sábado 21 novembro|Sporting CP|SL Benfica",
+  "j": 12,
+  "u": null,
+  "ok": null,
+  "at": "2026-11-25T19:53:34Z"
  },
  {
   "s": "Andebol Feminino",
@@ -697,7 +721,13 @@
     368
    ]
   ],
-  "src": "fpa"
+  "src": "fpa",
+  "n": 11,
+  "ult": "2026-11-21 17:15|JUVE LIS|SL BENFICA",
+  "j": 11,
+  "u": "2026-11-21 17:15|JUVE LIS|SL BENFICA",
+  "ok": true,
+  "at": "2026-11-25T19:53:34Z"
  },
  {
   "s": "Andebol",
@@ -837,7 +867,13 @@
     440
    ]
   ],
-  "src": "fpa"
+  "src": "fpa",
+  "n": 13,
+  "ult": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
+  "j": 13,
+  "u": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
+  "ok": true,
+  "at": "2026-11-25T19:53:34Z"
  },
  {
   "s": "Hóquei em Patins",
@@ -999,7 +1035,13 @@
     18
    ]
   ],
-  "src": "fpp"
+  "src": "fpp",
+  "n": 3,
+  "ult": "2026-11-22 19:30|Sporting CP|SL Benfica",
+  "j": 3,
+  "u": "2026-11-22 19:30|Sporting CP|SL Benfica",
+  "ok": true,
+  "at": "2026-11-25T19:53:34Z"
  },
  {
   "s": "Hóquei em Patins Feminino",
@@ -1073,6 +1115,12 @@
     16
    ]
   ],
-  "src": "fpp"
+  "src": "fpp",
+  "n": 2,
+  "ult": "2026-11-22 15:00|Biblioteca IR|SL Benfica",
+  "j": 2,
+  "u": "2026-11-22 15:00|Biblioteca IR|SL Benfica",
+  "ok": true,
+  "at": "2026-11-25T19:53:34Z"
  }
 ]
