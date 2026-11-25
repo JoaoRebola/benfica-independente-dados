@@ -262,9 +262,119 @@ def do_agenda():
         events = agent_agenda(page)
         who = "agente"
     if events:
+        try:
+            fem = fpa_agenda(fpa_andebol_feminino())
+            if fem:
+                events = [e for e in events if not (e.get("sport") == "Andebol" and e.get("detail", "").rstrip().endswith("(F)"))] + fem
+                events.sort(key=lambda e: e["t"])
+                status["robo"]["agenda_andebol_feminino"] = len(fem)
+        except Exception as e:
+            log("agenda: andebol feminino (federação) falhou:", e)
         save("agenda.json", events)
         status[who]["agenda"] = len(events)
     log("agenda:", len(events), "por", who)
+
+
+# ---------------------------------------------------------------- Federação de Andebol (andebol feminino)
+# O site do clube nem sempre tem os jogos do andebol feminino. A federação publica tudo em ws.fpa.pt.
+FPA = "https://ws.fpa.pt/index.php/"
+FPA_EPOCA_PAGINA = "https://portal.fpa.pt/competicoes-nacionais-andebol-feminino/"
+SEMANA = ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado", "domingo"]
+MESES_PT = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
+FPA_TROCAS = [("Taca Portugal", "Taça de Portugal"), ("Taca da Liga", "Taça da Liga"), ("Supertaca", "Supertaça"), ("Divisao", "Divisão"), ("Eliminatoria", "Eliminatória")]
+
+
+def fpa_get(caminho):
+    return json.loads(get(FPA + caminho, timeout=60))
+
+
+def fpa_epoca():
+    """Número da época em curso na federação (a primeira da lista do site); 374 = 2026/27."""
+    try:
+        m = re.search(r'"id":"season","label":"[^"]*","options":\[\{"term_id":"(\d+)"', get(FPA_EPOCA_PAGINA, timeout=60))
+        if m:
+            return m.group(1)
+    except Exception:
+        pass
+    return "374"
+
+
+def fpa_nome(texto):
+    """'SL BENFICA' -> 'SL Benfica', 'ABC DE BRAGA /OBO' -> 'ABC de Braga /OBO'."""
+    pequenas = {"de", "da", "do", "dos", "das", "e"}
+
+    def troca(m):
+        w = m.group(0)
+        if w.lower() in pequenas:
+            return w.lower()
+        return w.upper() if len(w) <= 3 else w.capitalize()
+    return re.sub(r"\s+", " ", re.sub(r"[A-Za-zÀ-ÿ]+", troca, texto.strip())).strip()
+
+
+def fpa_prova(descricao):
+    nome = re.sub(r"^PO\.?\d+[A-Z]?\s*-\s*", "", descricao).strip()
+    for a, b in FPA_TROCAS:
+        nome = nome.replace(a, b)
+    return re.sub(r"\s+", " ", nome)
+
+
+def fpa_andebol_feminino():
+    """Jogos da equipa principal feminina do Benfica (campeonato, taça e supertaça): jogados e por jogar."""
+    epoca = fpa_epoca()
+    jogos = []
+    for c in fpa_get("getCompeticoes/%s/8/F/" % epoca):
+        if c.get("ESC_DESCRICAO") != "Seniores F" or "Honra" in c.get("PRO_DESCRICAO", ""):
+            continue                      # só a equipa principal (a Divisão de Honra é da equipa B)
+        prova = fpa_prova(c["PRO_DESCRICAO"])
+        for f in fpa_get("getFases/" + c["ID_PROVA"]):
+            for g in fpa_get("getResultadosCalendario/%s/%s" % (c["ID_PROVA"], f["ID_FASE"])):
+                casa, fora = (g.get("EQUIPA_CASA") or "").strip().upper(), (g.get("EQUIPA_FORA") or "").strip().upper()
+                if "SL BENFICA" in (casa, fora):
+                    g["_prova"] = prova
+                    jogos.append(g)
+    return jogos
+
+
+def _fpa_jogado(g):
+    return str(g.get("JOG_GOLOS_CASA") or "").strip() != "" and str(g.get("JOG_GOLOS_FORA") or "").strip() != ""
+
+
+def fpa_resultados(jogos):
+    """No mesmo formato dos resultados do site do clube (os 10 mais recentes)."""
+    feitos = sorted([g for g in jogos if _fpa_jogado(g)], key=lambda g: (g["JOG_DATA"], g.get("JOG_HORA") or ""), reverse=True)[:10]
+    saida = []
+    for g in feitos:
+        d = datetime.strptime(g["JOG_DATA"], "%Y-%m-%d")
+        saida.append({
+            "s": "Andebol Feminino", "c": g["_prova"], "h": fpa_nome(g["EQUIPA_CASA"]), "a": fpa_nome(g["EQUIPA_FORA"]),
+            "hg": int(g["JOG_GOLOS_CASA"]), "ag": int(g["JOG_GOLOS_FORA"]), "v": fpa_nome(g.get("REC_NOME") or ""),
+            "d": "%s %02d %s" % (SEMANA[d.weekday()], d.day, MESES_PT[d.month - 1]),
+        })
+    return saida
+
+
+def fpa_agenda(jogos):
+    """Jogos por jogar, no formato da agenda do clube."""
+    agora = time.time() - 3 * 3600
+    saida = []
+    for g in jogos:
+        if _fpa_jogado(g):
+            continue
+        try:
+            quando = datetime.strptime(g["JOG_DATA"] + " " + (g.get("JOG_HORA") or "00:00")[:5], "%Y-%m-%d %H:%M").replace(tzinfo=LISBON)
+        except Exception:
+            continue
+        if quando.timestamp() < agora:
+            continue
+        jornada = ("Jornada %s" % g["PJO_NUM_JORNADA"]) if g.get("PJO_NUM_JORNADA") else ""
+        saida.append({
+            "t": int(quando.timestamp() * 1000),
+            "title": "%s vs %s" % (fpa_nome(g["EQUIPA_CASA"]), fpa_nome(g["EQUIPA_FORA"])),
+            "detail": " - ".join(x for x in (g["_prova"], jornada) if x) + " (F)",
+            "loc": fpa_nome(g.get("REC_NOME") or ""),
+            "sport": "Andebol",
+        })
+    return saida
 
 
 # ---------------------------------------------------------------- resultados
@@ -409,6 +519,15 @@ def do_results():
             merged += got
             if got:
                 status[who]["resultados_" + name] = len(got)
+    if not any(r["s"] == "Andebol Feminino" for r in merged):
+        try:
+            fem = fpa_resultados(fpa_andebol_feminino())
+            if fem:
+                merged += fem
+                status["robo"]["resultados_Andebol Feminino"] = len(fem)
+                log("resultados: andebol feminino vindo da federação:", len(fem))
+        except Exception as e:
+            log("resultados: andebol feminino (federação) falhou:", e)
     merged, tirados, zeros = filtrar_incoerencias(merged)
     if zeros:
         log("resultados: jogos sem resultado registado (0-0) deixados de fora:", len(zeros))
