@@ -333,11 +333,29 @@ def fpa_nome(texto):
     return re.sub(r"\s+", " ", re.sub(r"[A-Za-zÀ-ÿ]+", troca, texto.strip())).strip()
 
 
+def nome_competicao(nome):
+    """O mesmo campeonato com o mesmo nome venha de onde vier (clube ou federação): assim os menus da app não o repetem."""
+    n = re.sub(r"\s+", " ", nome).strip()
+    trocas = [
+        (r"^Campeonato Betclic (Masculino|Feminino)$", r"Campeonato Nacional \1"),
+        (r"^Campeonato Placard HP.*$", "Campeonato Nacional Masculino"),
+        (r"^CN Feminino (Norte|Centro|Sul)$", "Campeonato Nacional Feminino"),
+        (r"^Super ?Ta[çc]a Feminina.*$", "Supertaça Feminina"),
+        (r"^Super ?Ta[çc]a Ant[óo]nio Livramento.*$", "Supertaça Masculina"),
+        (r"^Super ?Ta[çc]a Kempa (Masculina|Feminina)$", r"Supertaça \1"),
+        (r"^Ta[çc]a de Portugal Betclic (Masculina|Feminina)$", r"Taça de Portugal \1"),
+    ]
+    for rx, novo in trocas:
+        if re.match(rx, n, re.I):
+            return re.sub(rx, novo, n, flags=re.I)
+    return n
+
+
 def fpa_prova(descricao):
     nome = re.sub(r"^PO\.?\d+[A-Z]?\s*-\s*", "", descricao).strip()
     for a, b in FPA_TROCAS:
         nome = nome.replace(a, b)
-    return re.sub(r"\s+", " ", nome)
+    return nome_competicao(re.sub(r"\s+", " ", nome))
 
 
 def fpa_andebol_feminino():
@@ -481,7 +499,7 @@ def fpp_hoquei():
             if not quando or len(equipas) != 2 or "SL Benfica" not in equipas:
                 continue
             res = re.search(r'class="resultado"[^>]*>\s*(\d+)\s*-\s*(\d+)', tr)
-            jogos.append({"data": quando.group(1), "hora": quando.group(2), "casa": equipas[0], "fora": equipas[1], "prova": nome,
+            jogos.append({"data": quando.group(1), "hora": quando.group(2), "casa": equipas[0], "fora": equipas[1], "prova": nome_competicao(nome),
                           "jornada": jornada, "gc": int(res.group(1)) if res else None, "gf": int(res.group(2)) if res else None})
     return jogos
 
