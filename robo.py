@@ -1209,6 +1209,95 @@ def modalidades_clube_classificacoes():
     return saida
 
 
+# ---- Equipa B (Liga Portugal 2) e râguebi: também publicados no site do clube
+def liga2_tabela(pag):
+    """Tabela total (a primeira) do serviço de classificações do futebol do clube."""
+    if "<table" not in pag:
+        return []
+    linhas = []
+    for tr in pag.split("<table", 1)[1].split("</table>")[0].split("<tr")[1:]:
+        def campo(classe):
+            m = re.search(r'class="[^"]*\b%s\b[^"]*"[^>]*>(.*?)</(?:td|span)>' % classe, tr, re.S)
+            return _limpa(m.group(1)) if m else None
+        v = [campo(c) for c in ("rt-position", "team-name", "rt-points", "rt-games", "rt-wins", "rt-ties", "rt-defeats", "rt-gm", "rt-gs")]
+        if any(x is None for x in v):
+            continue
+        equipa = "SL Benfica" if v[1] in ("SL Benfica B", "SL Benfica") else v[1]
+        linhas.append([_num(v[0]), equipa] + [_num(x) for x in v[2:]])
+    return linhas
+
+
+def liga2_classificacao():
+    import urllib.parse
+    pag = _clube_pagina("https://www.slbenfica.pt/pt-pt/futebol/classificacao?tournamentId=sr:tournament:239")
+    ctx = re.search(r'id="standings" data-context-id="([^"]+)"', pag)
+    epoca = re.search(r'sr:season:\d+', pag)              # a primeira é a época em curso
+    if not ctx or not epoca:
+        return []
+    linhas = liga2_tabela(_clube_pagina("https://www.slbenfica.pt/api/sitecore/Standing/StandingByTournament?"
+                                        + urllib.parse.urlencode({"seasonId": epoca.group(0), "contextId": ctx.group(1)})))
+    if not any(l[1] == "SL Benfica" for l in linhas):
+        return []
+    ent = {"s": "Futebol", "k": "Equipa B", "c": "Segunda Liga", "t": linhas, "src": "clube-liga"}
+    u = ultimo_clube(*ULTIMOS_APP["Futebol|Equipa B|Segunda Liga"])
+    if u:
+        ent["n"], ent["ult"] = u
+    return [ent]
+
+
+def rugby_pagina(pag):
+    """(linhas, jogos jogados do campeonato, assinatura do último) da página de râguebi. Não há pontos marcados/sofridos, só a diferença (10.º valor)."""
+    tabelas = [t.split("</table>")[0] for t in pag.split("<table")[1:]]
+    linhas, jogados, sig = [], 0, None
+    for tab in tabelas:
+        filas = [[_limpa(x) for x in re.findall(r"<td\b[^>]*>(.*?)</td>", tr, re.S)] for tr in tab.split("<tr")[1:]]
+        cab = [_limpa(x).upper() for x in re.findall(r"<th\b[^>]*>(.*?)</th>", tab, re.S)]
+        if cab == ["POS", "EQUIPA", "J", "V", "E", "D", "B", "DIF", "PTS"] and "Campeonato Nacional" in _limpa(tab):
+            for f in filas:
+                if len(f) == 9:
+                    equipa = "SL Benfica" if f[1].upper() == "BENFICA" else f[1]
+                    linhas.append([_num(f[0]), equipa, _num(f[8]), _num(f[2]), _num(f[3]), _num(f[4]), _num(f[5]), 0, 0, _num(f[7])])
+        elif not sig or "jornada" in tab:
+            feitos = [f for f in filas if len(f) >= 4 and re.fullmatch(r"\d+\s*-\s*\d+", f[1]) and "jornada" in f[3]]
+            if feitos:
+                jogados, sig = len(feitos), "|".join((feitos[-1][3], feitos[-1][0], feitos[-1][2]))
+    return linhas, jogados, sig
+
+
+def rugby_classificacao():
+    linhas, jogados, sig = rugby_pagina(_clube_pagina("https://www.slbenfica.pt/pt-pt/modalidades/rugby/masculino/calendario"))
+    if not any(l[1] == "SL Benfica" for l in linhas) or sum(l[9] for l in linhas) != 0:    # as diferenças anulam-se
+        return []
+    ent = {"s": "Rugby", "k": "", "c": "Campeonato Nacional", "t": linhas, "src": "clube-rugby"}
+    if sig:
+        ent["n"], ent["ult"] = jogados, sig
+    return [ent]
+
+
+def futfem_classificacoes():
+    """Liga BPI e Liga dos Campeões feminina: o mesmo serviço das modalidades, na página do futebol feminino."""
+    import urllib.parse
+    pag = _clube_pagina("https://www.slbenfica.pt/pt-pt/futebol/feminino?teamGender=female&teamRank=" + RANK_PRINCIPAL)
+    epocas = [a or b for a, b in re.findall(r'name="standings-radio-date"[^>]*value="([^"]+)"|value="([^"]+)"[^>]*name="standings-radio-date"', pag)]
+    provas = [(m.group(1), _limpa(m.group(2))) for m in re.finditer(r'value="(dp:tournament:[^"]+)"\s+name="standings-radio-competition"[^>]*/>\s*<label[^>]*>(.*?)</label>', pag, re.S)]
+    saida = []
+    for padrao, nome in ((r"Liga BPI", "Liga BPI"), (r"Liga dos Campe", "Liga dos Campeões Feminina")):
+        tid = next((t for t, p in provas if re.search(padrao, p, re.I)), None)
+        if not epocas or not tid:
+            continue
+        _c, linhas = clube_tabela(_clube_pagina("https://www.slbenfica.pt/api/sitecore/OtherSports/GetClassification?"
+                                                + urllib.parse.urlencode({"seasonYear": epocas[0], "tournamentId": tid})))
+        if not any(l[1] == "SL Benfica" for l in linhas):
+            continue
+        ent = {"s": "Futebol Feminino", "k": "", "c": nome, "t": linhas, "src": "clube-fem"}
+        if nome == "Liga BPI":
+            u = ultimo_clube(*ULTIMOS_APP["Futebol Feminino||Liga BPI"])
+            if u:
+                ent["n"], ent["ult"] = u
+        saida.append(ent)
+    return saida
+
+
 def do_standings():
     old = load("classificacoes.json", [])
     antes = {(e["s"], e["k"], e["c"]): e for e in old}
@@ -1218,7 +1307,8 @@ def do_standings():
         aquecer_ultimos()
     except Exception as e:
         log("pedidos ao clube falharam:", type(e).__name__)
-    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes), ("clube-mod", modalidades_clube_classificacoes)):
+    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes), ("clube-mod", modalidades_clube_classificacoes),
+                      ("clube-liga", liga2_classificacao), ("clube-fem", futfem_classificacoes), ("clube-rugby", rugby_classificacao)):
         try:
             got = fn()
         except Exception as e:
