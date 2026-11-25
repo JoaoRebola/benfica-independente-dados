@@ -276,6 +276,13 @@ def do_agenda():
                 status["robo"]["agenda_andebol_masculino"] = len(masc)
         except Exception as e:
             log("agenda: andebol masculino (federação) falhou:", e)
+        try:
+            form = [e for e in fpa_agenda_formacao() if not ja_tem(events, e)]
+            if form:
+                events += form
+                status["robo"]["agenda_andebol_formacao"] = len(form)
+        except Exception as e:
+            log("agenda: andebol camadas jovens (federação) falhou:", e)
         events.sort(key=lambda e: e["t"])
         save("agenda.json", events)
         status[who]["agenda"] = len(events)
@@ -377,6 +384,32 @@ def ja_tem(eventos, novo):
         if datetime.fromtimestamp(e["t"] / 1000, LISBON).date() == dia and _palavras(e.get("title", "")) & _palavras(novo["title"]):
             return True
     return False
+
+
+def fpa_agenda_formacao():
+    """Todos os jogos por jogar das outras equipas do Benfica no andebol (camadas jovens e equipa B), da agenda geral da federação."""
+    agora = time.time() - 3 * 3600
+    saida = []
+    for g in fpa_get("getAgendaJogosFAP/"):
+        casa, fora = (g.get("EQUIPA_CASA") or "").upper(), (g.get("EQUIPA_FORA") or "").upper()
+        if "SL BENFICA" not in casa and "SL BENFICA" not in fora:
+            continue
+        try:
+            quando = datetime.strptime(g["JOG_DATA"] + " " + (g.get("JOG_HORA") or "00:00")[:5], "%Y-%m-%d %H:%M").replace(tzinfo=LISBON)
+        except Exception:
+            continue
+        if quando.timestamp() < agora:
+            continue
+        prova = fpa_prova(g.get("PROVA") or "")
+        fase = (g.get("FASE") or "").strip()
+        saida.append({
+            "t": int(quando.timestamp() * 1000),
+            "title": "%s vs %s" % (fpa_nome(g["EQUIPA_CASA"]), fpa_nome(g["EQUIPA_FORA"])),
+            "detail": " - ".join(x for x in (prova, fase) if x) + " (%s)" % (g.get("PRO_SEXO") or "M"),
+            "loc": fpa_nome(g.get("LOCAL") or ""),
+            "sport": "Andebol",
+        })
+    return saida
 
 
 def fpa_agenda(jogos, genero="F"):
