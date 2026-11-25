@@ -1087,7 +1087,7 @@ def do_standings():
                     novo.append(antes[chave])
                 continue
             estado_tabela(e, antes.get(chave))
-            e["at"] = agora
+            e["at"] = agora if (chave not in antes or antes[chave]["t"] != e["t"]) else antes[chave].get("at", agora)   # so muda quando a tabela muda
             novo.append(e)
         log("classificações", fonte, len(got))
     chaves = {(e["s"], e["k"], e["c"]) for e in novo}
