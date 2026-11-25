@@ -900,6 +900,106 @@
   "d": "terça-feira 06 outubro"
  },
  {
+  "s": "Andebol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Juve Lis",
+  "a": "SL Benfica",
+  "hg": 19,
+  "ag": 40,
+  "v": "Pavilhão da Juventude Desportiva do Lis",
+  "d": "sábado 21 novembro"
+ },
+ {
+  "s": "Andebol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "CD Feirense",
+  "a": "SL Benfica",
+  "hg": 19,
+  "ag": 41,
+  "v": "Pavilhão Mun. São João de Ver",
+  "d": "quarta-feira 18 novembro"
+ },
+ {
+  "s": "Andebol Feminino",
+  "c": "EHF European League Women | 26/27",
+  "h": "HK SK CHEB",
+  "a": "SL Benfica",
+  "hg": 30,
+  "ag": 41,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "domingo 15 novembro"
+ },
+ {
+  "s": "Andebol Feminino",
+  "c": "EHF European League Women | 26/27",
+  "h": "SL Benfica",
+  "a": "HK SK CHEB",
+  "hg": 44,
+  "ag": 29,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sexta-feira 13 novembro"
+ },
+ {
+  "s": "Andebol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "CA Leça",
+  "a": "SL Benfica",
+  "hg": 22,
+  "ag": 29,
+  "v": "Pavilhão Municipal de Leça da Palmeira",
+  "d": "sábado 07 novembro"
+ },
+ {
+  "s": "Andebol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "Academia São Pedro do Sul",
+  "hg": 34,
+  "ag": 17,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "domingo 01 novembro"
+ },
+ {
+  "s": "Andebol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "CJ Almeida Garrett",
+  "hg": 33,
+  "ag": 20,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "domingo 18 outubro"
+ },
+ {
+  "s": "Andebol Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Alavarium ACA",
+  "a": "SL Benfica",
+  "hg": 15,
+  "ag": 36,
+  "v": "Pavilhão Municipal Mariana Lopes",
+  "d": "sábado 17 outubro"
+ },
+ {
+  "s": "Andebol Feminino",
+  "c": "EHF European League Women | 26/27",
+  "h": "ZRK Zrinski Cakovec",
+  "a": "SL Benfica",
+  "hg": 21,
+  "ag": 41,
+  "v": "Graditeljska Skola Cakovec",
+  "d": "sábado 10 outubro"
+ },
+ {
+  "s": "Andebol Feminino",
+  "c": "EHF European League Women | 26/27",
+  "h": "SL Benfica",
+  "a": "ZRK Zrinski Cakovec",
+  "hg": 31,
+  "ag": 16,
+  "v": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "d": "sábado 03 outubro"
+ },
+ {
   "s": "Voleibol",
   "c": "Campeonato Nacional Masculino | 26/27",
   "h": "Castêlo da Maia GC",
@@ -1097,6 +1197,156 @@
   "hg": 0,
   "ag": 3,
   "v": "(menos uma hora nos Açores) Complexo Desportivo das Laranjeiras",
+  "d": "domingo 11 outubro"
+ },
+ {
+  "s": "Rugby",
+  "c": "Super XV | 26/27",
+  "h": "CF Belenenses",
+  "a": "SL Benfica",
+  "hg": 21,
+  "ag": 29,
+  "v": "Belenenses Rugby Park",
+  "d": "sábado 31 outubro"
+ },
+ {
+  "s": "Rugby",
+  "c": "Super XV | 26/27",
+  "h": "SL Benfica",
+  "a": "AAC Rugby",
+  "hg": 37,
+  "ag": 28,
+  "v": "Estádio Universitário de Lisboa (campo 2)",
+  "d": "sábado 24 outubro"
+ },
+ {
+  "s": "Rugby",
+  "c": "Super XV | 26/27",
+  "h": "CDUP",
+  "a": "SL Benfica",
+  "hg": 18,
+  "ag": 36,
+  "v": "Estádio Universitário do Porto",
+  "d": "sábado 17 outubro"
+ },
+ {
+  "s": "Rugby",
+  "c": "Super XV | 26/27",
+  "h": "SL Benfica",
+  "a": "Agronomia",
+  "hg": 24,
+  "ag": 23,
+  "v": "Estádio Universitário",
+  "d": "sábado 10 outubro"
+ },
+ {
+  "s": "Rugby",
+  "c": "Supertaça Masculina | 26/27",
+  "h": "SL Benfica",
+  "a": "GDS Cascais",
+  "hg": 11,
+  "ag": 34,
+  "v": "CAR Rugby do Jamor ",
+  "d": "segunda-feira 05 outubro"
+ },
+ {
+  "s": "Rugby",
+  "c": "Campeonato Nacional de Honra | 25/26",
+  "h": "GDS Cascais",
+  "a": "SL Benfica",
+  "hg": 28,
+  "ag": 14,
+  "v": "Hipódromo Manuel Possolo",
+  "d": "sábado 16 maio"
+ },
+ {
+  "s": "Rugby",
+  "c": "Campeonato Nacional de Honra | 25/26",
+  "h": "SL Benfica",
+  "a": "CDUL",
+  "hg": 27,
+  "ag": 27,
+  "v": "Estádio Universitário",
+  "d": "sábado 09 maio"
+ },
+ {
+  "s": "Rugby",
+  "c": "Campeonato Nacional de Honra | 25/26",
+  "h": "SL Benfica",
+  "a": "CR São Miguel",
+  "hg": 38,
+  "ag": 7,
+  "v": "Estádio Universitário",
+  "d": "domingo 03 maio"
+ },
+ {
+  "s": "Rugby",
+  "c": "Campeonato Nacional de Honra | 25/26",
+  "h": "CF Belenenses",
+  "a": "SL Benfica",
+  "hg": 15,
+  "ag": 21,
+  "v": "Belém Rugby Park",
+  "d": "sábado 25 abril"
+ },
+ {
+  "s": "Rugby",
+  "c": "Campeonato Nacional de Honra | 25/26",
+  "h": "SL Benfica",
+  "a": "GD Direito",
+  "hg": 24,
+  "ag": 17,
+  "v": "Estádio Universitário",
+  "d": "domingo 12 abril"
+ },
+ {
+  "s": "Rugby Feminino",
+  "c": "Campeonato Nacional de Divisão de Honra Feminino 26/27",
+  "h": "TOMBAI",
+  "a": "SL Benfica",
+  "hg": 17,
+  "ag": 35,
+  "v": "Campo da Bairrada",
+  "d": "domingo 15 novembro"
+ },
+ {
+  "s": "Rugby Feminino",
+  "c": "Campeonato Nacional de Rugby Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "Agrária de Coimbra",
+  "hg": 129,
+  "ag": 0,
+  "v": "Estádio Universitário de Lisboa (campo 2)",
+  "d": "sábado 07 novembro"
+ },
+ {
+  "s": "Rugby Feminino",
+  "c": "Campeonato Nacional de Rugby Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "Sporting CP",
+  "hg": 17,
+  "ag": 8,
+  "v": "Estádio Universitário de Lisboa (campo 2)",
+  "d": "domingo 25 outubro"
+ },
+ {
+  "s": "Rugby Feminino",
+  "c": "Campeonato Nacional de Divisão de Honra Feminino 26/27",
+  "h": "Sport CP/ CRAV",
+  "a": "SL Benfica",
+  "hg": 30,
+  "ag": 14,
+  "v": "Parque Desportivo Ramalde - Inatel",
+  "d": "domingo 18 outubro"
+ },
+ {
+  "s": "Rugby Feminino",
+  "c": "Campeonato Nacional de Rugby Feminino | 26/27",
+  "h": "SL Benfica",
+  "a": "CR São Miguel",
+  "hg": 139,
+  "ag": 5,
+  "v": "Estádio Universitário",
   "d": "domingo 11 outubro"
  }
 ]

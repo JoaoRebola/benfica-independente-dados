@@ -1,12 +1,5 @@
 [
  {
-  "t": 1795608000000,
-  "title": "GNK Dinamo vs SL Benfica",
-  "detail": "UEFA Liga Jovem 26/27 - round (M)",
-  "loc": "Stadion Ivan Laljak-Ivic",
-  "sport": "Futebol"
- },
- {
   "t": 1795618800000,
   "title": "UD Leiria vs SL Benfica",
   "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 10 (M)",
@@ -407,9 +400,9 @@
  },
  {
   "t": 1797102000000,
-  "title": "SL Benfica vs ABC de Braga",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 12 (F)",
-  "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
+  "title": "SL Benfica vs ABC de Braga /OBO Bettermann",
+  "detail": "Campeonato Betclic Feminino - Jornada 12 (F)",
+  "loc": "PAV. LUZ 2",
   "sport": "Andebol"
  },
  {
@@ -526,17 +519,17 @@
  },
  {
   "t": 1797703200000,
-  "title": "CDE Gil Eanes vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 13 (F)",
-  "loc": "Pavilhão da Escola Secundária Gil Eanes",
-  "sport": "Andebol"
- },
- {
-  "t": 1797703200000,
   "title": "GD Direito vs SL Benfica",
   "detail": "Super XV | 26/27 - Jornada 8 (M)",
   "loc": "",
   "sport": "Rugby"
+ },
+ {
+  "t": 1797703200000,
+  "title": "CDE GIL Eanes vs SL Benfica",
+  "detail": "Campeonato Betclic Feminino - Jornada 13 (F)",
+  "loc": "ESC. GIL Eanes",
+  "sport": "Andebol"
  },
  {
   "t": 1797714000000,
@@ -691,6 +684,48 @@
   "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 17 (M)",
   "loc": "",
   "sport": "Futebol"
+ },
+ {
+  "t": 1799510400000,
+  "title": "Sporting CP vs SL Benfica",
+  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 6 (F)",
+  "loc": "Alvalade",
+  "sport": "Polo Aquático"
+ },
+ {
+  "t": 1800194400000,
+  "title": "SL Benfica vs Madeira SAD",
+  "detail": "Campeonato Betclic Feminino - Jornada 14 (F)",
+  "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1801330200000,
+  "title": "CJ A. Garrett /Gesti Douro UAE vs SL Benfica",
+  "detail": "Campeonato Betclic Feminino - Jornada 15 (F)",
+  "loc": "MUN. Fernando Gomes",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1802012400000,
+  "title": "SL Benfica vs Alavarium",
+  "detail": "Campeonato Betclic Feminino - Jornada 16 (F)",
+  "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1802541600000,
+  "title": "AD Academia Andebol SPS /Multisac vs SL Benfica",
+  "detail": "Campeonato Betclic Feminino - Jornada 17 (F)",
+  "loc": "MUN. S. Pedro SUL",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1803146400000,
+  "title": "SL Benfica vs Cale",
+  "detail": "Campeonato Betclic Feminino - Jornada 18 (F)",
+  "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
  },
  {
   "t": 1815804000000,

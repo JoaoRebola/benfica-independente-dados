@@ -1,6 +1,11 @@
 {
  "robo": {
-  "agenda": 100,
+  "agenda_andebol_feminino": 7,
+  "agenda": 105,
+  "sem_resultados": [
+   "Ténis de Mesa",
+   "Polo Aquático Feminino"
+  ],
   "resultados_Futebol": 10,
   "resultados_Futebol Feminino": 10,
   "resultados_Basquetebol": 10,
@@ -10,9 +15,13 @@
   "resultados_Hóquei em Patins": 10,
   "resultados_Hóquei em Patins Feminino": 10,
   "resultados_Andebol": 10,
+  "resultados_Andebol Feminino": 10,
   "resultados_Voleibol": 10,
   "resultados_Voleibol Feminino": 10,
-  "live": "none",
+  "resultados_Rugby": 10,
+  "resultados_Rugby Feminino": 10,
+  "resultados_incoerentes": 0,
+  "live": "upcoming",
   "cronicas": 22,
   "podcasts_com_video": 769,
   "podcasts_total": 976,
@@ -26,5 +35,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-25T05:07:43Z"
+ "atualizado": "2026-11-25T15:32:11Z"
 }
