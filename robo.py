@@ -807,6 +807,151 @@ def do_results():
     log("resultados:", len(merged))
 
 
+# ---------------------------------------------------------------- classificações (federações)
+# Cada entrada: {"s": modalidade, "k": escalão ("" = equipa principal), "c": competição, "t": [[pos, equipa, pts, j, v, e, d, gm, gs], ...]}
+FPF = "https://resultados.fpf.pt"
+# (competição na FPF, modalidade, escalão, nome mostrado). Só entram as tabelas em que o Benfica aparece.
+FPF_COMPETICOES = [
+    ("29809", "Futebol", "Equipa B", "Segunda Liga"),
+    ("29536", "Futebol", "Sub-23", "Liga Next Gen"),
+    ("29534", "Futebol", "Sub-19", "Campeonato Nacional Sub-19"),
+    ("29866", "Futebol", "Sub-19", "Campeonato Nacional Sub-19 II Divisão"),
+    ("29535", "Futebol", "Sub-17", "Campeonato Nacional Sub-17"),
+    ("29858", "Futebol", "Sub-17", "Campeonato Nacional Sub-17 II Divisão"),
+    ("29836", "Futebol", "Sub-15", "Campeonato Nacional Sub-15"),
+    ("29990", "Futebol", "Sub-15", "Campeonato Nacional Sub-15 II Divisão"),
+    ("29839", "Futebol Feminino", "", "Liga BPI"),
+    ("29910", "Futebol Feminino", "Equipa B", "Campeonato Nacional Feminino II Divisão"),
+    ("29872", "Futebol Feminino", "Sub-19", "Liga Feminina Sub-19"),
+    ("29873", "Futebol Feminino", "Sub-17", "Liga Feminina Sub-17"),
+    ("29817", "Futsal", "", "Liga Placard"),
+    ("29897", "Futsal Feminino", "", "Liga Feminina Placard"),
+]
+SIGLAS = {"sl", "fc", "sc", "cd", "gd", "ud", "cf", "ad", "cs", "cp", "ac", "af", "aj", "gc", "cdr", "ccd", "scp", "sad", "ca", "cr", "ccr", "gdc", "gdr", "gs"}
+
+
+def nome_equipa(n):
+    """"Sl Benfica, Sad" -> "SL Benfica"; "Fc Porto Sad" -> "FC Porto"."""
+    n = re.sub(r"[,\s]+SAD\s*$", "", html.unescape(n).strip(), flags=re.I)
+    return " ".join(w.upper() if w.lower() in SIGLAS else w for w in n.split())
+
+
+def _num(x):
+    try:
+        return int(str(x).strip().replace("+", ""))
+    except Exception:
+        return 0
+
+
+def fpf_classificacoes():
+    """Tabelas das competições da FPF onde o Benfica joga (a página mostra a classificação do grupo de cada fase)."""
+    saida = []
+    lista = get(FPF + "/Competition", timeout=60)
+    epoca = dict(re.findall(r"competitionId=(\d+)&amp;seasonId=(\d+)", lista))
+    for cid, desporto, k, nome in FPF_COMPETICOES:
+        if cid not in epoca:
+            continue                                  # a competição ainda não está na época em curso
+        pag = None
+        time.sleep(4)                                  # o site da federação recusa pedidos seguidos demais
+        for _tentativa in range(4):
+            try:
+                pag = get("%s/Competition/Details?competitionId=%s&seasonId=%s" % (FPF, cid, epoca[cid]), timeout=60)
+                break
+            except Exception as e:
+                log("classificações FPF", cid, "falhou:", type(e).__name__, getattr(e, "code", ""))
+                time.sleep(15 * (_tentativa + 1))
+        if pag is None:
+            continue
+        for bloco_ in pag.split('<div id="classification">')[1:]:
+            linhas = []
+            for row in bloco_.split("game classification")[1:]:
+                row = row.split("</div></div>")[0] if False else row
+                cel = [_limpa(x) for x in re.findall(r'<div class="col[^>]*>(.*?)</div>', row, re.S)]
+                if len(cel) < 9:
+                    continue
+                linhas.append([_num(cel[0]), nome_equipa(cel[1]), _num(cel[8]), _num(cel[2]), _num(cel[3]), _num(cel[4]), _num(cel[5]), _num(cel[6]), _num(cel[7])])
+            if linhas and any(l[1] == "SL Benfica" for l in linhas):
+                saida.append({"s": desporto, "k": k, "c": nome, "t": linhas, "src": "fpf"})
+                break                                  # o grupo do Benfica
+    return saida
+
+
+def fpa_classificacoes():
+    """Andebol (seniores masculino e feminino): campeonatos onde o SL Benfica joga."""
+    saida = []
+    epoca = fpa_epoca()
+    for genero, desporto in (("F", "Andebol Feminino"), ("M", "Andebol")):
+        for c in fpa_get("getCompeticoes/%s/8/%s/" % (epoca, genero)):
+            if c.get("ESC_DESCRICAO") != "Seniores " + genero or "Honra" in c.get("PRO_DESCRICAO", ""):
+                continue
+            prova = fpa_prova(c["PRO_DESCRICAO"])
+            if re.search(r"Ta[çc]a|Super", prova, re.I):
+                continue
+            for f in fpa_get("getFases/" + c["ID_PROVA"]):
+                try:
+                    tab = fpa_get("getClassificacoes/%s/%s" % (c["ID_PROVA"], f["ID_FASE"]))
+                except Exception:
+                    continue
+                linhas = [[_num(r.get("PEQ_CLASS_CLASSIFICACAO")), fpa_nome(r.get("CLU_NOME") or ""), _num(r.get("PEQ_CLASS_PONTOS")), _num(r.get("PEQ_CLASS_NUMERO_JOGOS")),
+                           _num(r.get("PEQ_CLASS_NUMERO_VITORIAS")), _num(r.get("PEQ_CLASS_NUMERO_EMPATES")), _num(r.get("PEQ_CLASS_NUMERO_DERROTAS")),
+                           _num(r.get("PEQ_CLASS_GOLOS_MARCADOS")), _num(r.get("PEQ_CLASS_GOLOS_SOFRIDOS"))] for r in tab]
+                if linhas and any(l[1] == "SL Benfica" for l in linhas):
+                    saida.append({"s": desporto, "k": "", "c": prova, "t": sorted(linhas, key=lambda l: l[0]), "src": "fpa"})
+    return saida
+
+
+def fpp_classificacoes():
+    """Hóquei em patins (seniores): classificação de cada competição onde o SL Benfica joga."""
+    saida = []
+    for cid, nome in fpp_competicoes():
+        if re.search(r"sub[\s-]?\d|juniores|juvenis|iniciados|ta[çc]a|cup|super", nome, re.I):
+            continue
+        try:
+            pag = get(HP + "/Classificacao/" + cid, timeout=60)
+        except Exception:
+            continue
+        linhas = []
+        for tr in pag.split("<tr")[1:]:
+            pos = re.search(r'class="classificacao">\s*<p>(\d+)</p>', tr)
+            if not pos:
+                continue
+            clube = re.search(r'<p>([^<]+?)\s*</p>\s*</a>', tr)
+            nums = [_num(x) for x in re.findall(r"<td>\s*(-?\d+)\s*</td>", tr)]
+            if not clube or len(nums) < 7:
+                continue
+            p_, j, v, e, d, gm, gs = nums[:7]
+            linhas.append([int(pos.group(1)), _limpa(clube.group(1)), p_, j, v, e, d, gm, gs])
+        if linhas and any(l[1] == "SL Benfica" for l in linhas):
+            fem = _genero_prova(nome) == "F"
+            saida.append({"s": "Hóquei em Patins" + (" Feminino" if fem else ""), "k": "", "c": nome_competicao(nome), "t": linhas, "src": "fpp"})
+    return saida
+
+
+def do_standings():
+    old = load("classificacoes.json", [])
+    novo, falhou = [], set()
+    for fonte, fn in (("fpf", fpf_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes)):
+        try:
+            got = fn()
+            if got:
+                novo += got
+                log("classificações", fonte, len(got))
+            else:
+                falhou.add(fonte)
+        except Exception as e:
+            falhou.add(fonte)
+            log("classificações", fonte, "falhou:", type(e).__name__, e)
+    chaves = {(e["s"], e["k"], e["c"]) for e in novo}
+    for e in old:
+        if e.get("src") in falhou and (e["s"], e["k"], e["c"]) not in chaves:
+            novo.append(e)          # a fonte falhou: mantém o que havia
+    if novo:
+        save("classificacoes.json", novo)
+        status["robo"]["classificacoes"] = len(novo)
+    log("classificações:", len(novo))
+
+
+
 # ---------------------------------------------------------------- vídeos
 RULE_WORDS = ["WATCHALONG", "WATCH ALONG", "VOO PICADO", "RESCALDO", "ANTEVISAO", "MODALIDADES", "VIAGENS EM VERMELHO",
               "VIAGENS EUROPEIAS", "FORUM BENFI", "ANALISE TA", "BI ON TOUR", "HISTORIA GLORIOSA", "BRINCO DO BAPTISTA",
@@ -1719,7 +1864,7 @@ def do_live():
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_videos, do_live, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_quiz, do_jogos_reais, do_chat_check):
+    for step in (do_agenda, do_results, do_standings, do_videos, do_live, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_quiz, do_jogos_reais, do_chat_check):
         try:
             step()
         except Exception as e:
