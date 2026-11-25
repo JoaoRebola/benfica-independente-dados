@@ -84,6 +84,13 @@
   "sport": "Voleibol"
  },
  {
+  "t": 1795885200000,
+  "title": "SL Benfica vs Lagoa AC",
+  "detail": "Campeonato Nacional Sub 18 Masculino - 1a Fase - Zona 4 (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
   "t": 1795888800000,
   "title": "FC Porto vs SL Benfica",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 14 (M)",
@@ -168,6 +175,13 @@
   "sport": "Futebol"
  },
  {
+  "t": 1796137200000,
+  "title": "SL Benfica 'B' vs Sporting CP 'B'",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
   "t": 1796146200000,
   "title": "SL Benfica vs Leixões SC",
   "detail": "Campeonato Nacional Masculino | 26/27 - Grupo I Jornada 8 (M)",
@@ -224,6 +238,13 @@
   "sport": "Futsal"
  },
  {
+  "t": 1796479200000,
+  "title": "CSS Pinhal Frades vs SL Benfica",
+  "detail": "Campeonato Nacional Sub 18 Masculino - 1a Fase - Zona 4 (M)",
+  "loc": "PAV. CSS Pinhal Frades",
+  "sport": "Andebol"
+ },
+ {
   "t": 1796482800000,
   "title": "SL Benfica vs Boa Hora FC",
   "detail": "Campeonato Nacional de Ténis de Mesa, Div. Honra | 26/27 - Jornada 5 (M)",
@@ -259,6 +280,13 @@
   "sport": "Basquetebol"
  },
  {
+  "t": 1796499000000,
+  "title": "SL Benfica 'B' vs FC Gaia / Empril",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
   "t": 1796554800000,
   "title": "VRAC vs SL Benfica",
   "detail": "Taça Ibérica 26/27 - round (M)",
@@ -278,6 +306,13 @@
   "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 14 (M)",
   "loc": "",
   "sport": "Futebol"
+ },
+ {
+  "t": 1796569200000,
+  "title": "SL Benfica vs Alavarium",
+  "detail": "Campeonato Nacional Sub 18 Feminino - 1a Fase - Zona 3 (F)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
  },
  {
   "t": 1796576400000,
@@ -336,6 +371,20 @@
   "sport": "Basquetebol"
  },
  {
+  "t": 1796754600000,
+  "title": "SL Benfica 'B' vs AC Cacém",
+  "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1796763600000,
+  "title": "SL Benfica 'B' vs Almada AC",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
   "t": 1796828400000,
   "title": "SL Benfica vs GNK Dinamo",
   "detail": "UEFA Liga Jovem 26/27 - round (M)",
@@ -392,6 +441,13 @@
   "sport": "Basquetebol"
  },
  {
+  "t": 1797094800000,
+  "title": "Almada AC vs SL Benfica",
+  "detail": "Campeonato Nacional Sub 18 Masculino - 1a Fase - Zona 4 (M)",
+  "loc": "Adelino Moura",
+  "sport": "Andebol"
+ },
+ {
   "t": 1797098400000,
   "title": "GDRAR vs SL Benfica",
   "detail": "Campeonato Nacional Liga Feminina | 26/27 - Jornada 11 (F)",
@@ -403,6 +459,13 @@
   "title": "SL Benfica vs ABC de Braga /OBO Bettermann",
   "detail": "Campeonato Betclic Feminino - Jornada 12 (F)",
   "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1797103800000,
+  "title": "CD Mafra vs SL Benfica 'B'",
+  "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
+  "loc": "Gimn. CD Mafra",
   "sport": "Andebol"
  },
  {
@@ -425,6 +488,13 @@
   "detail": "Super XV | 26/27 - Jornada 7 (M)",
   "loc": "Pavilhão Universitário de Lisboa",
   "sport": "Rugby"
+ },
+ {
+  "t": 1797177600000,
+  "title": "UD Serra vs SL Benfica",
+  "detail": "Campeonato Nacional Sub 18 Feminino - 1a Fase - Zona 3 (F)",
+  "loc": "MUN. do Arrabal",
+  "sport": "Andebol"
  },
  {
   "t": 1797181200000,
@@ -532,6 +602,13 @@
   "sport": "Andebol"
  },
  {
+  "t": 1797703200000,
+  "title": "Arsenal C. Devesa vs SL Benfica 'B'",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "MUN. Maximinos",
+  "sport": "Andebol"
+ },
+ {
   "t": 1797714000000,
   "title": "SL Benfica vs Parede FC",
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 6 (F)",
@@ -558,6 +635,13 @@
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 13 (F)",
   "loc": "Pavilhão Nº 2 (Estádio do SL Benfica)",
   "sport": "Voleibol"
+ },
+ {
+  "t": 1797778800000,
+  "title": "SL Benfica vs CSS Pinhal Frades",
+  "detail": "Campeonato Nacional Sub 18 Feminino - 1a Fase - Zona 3 (F)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
  },
  {
   "t": 1797786000000,
@@ -693,10 +777,66 @@
   "sport": "Polo Aquático"
  },
  {
+  "t": 1799514000000,
+  "title": "Nazaré D. Fuas AC vs SL Benfica 'B'",
+  "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
+  "loc": "MUN. Nazaré",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1800111600000,
+  "title": "SL Benfica 'B' vs UD Serra",
+  "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1800118800000,
+  "title": "SL Benfica vs CF OS Belenenses / Esfera AM",
+  "detail": "Campeonato Nacional Sub 18 Masculino - 1a Fase - Zona 4 (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
   "t": 1800194400000,
   "title": "SL Benfica vs Madeira SAD",
   "detail": "Campeonato Betclic Feminino - Jornada 14 (F)",
   "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1800205200000,
+  "title": "SL Benfica 'B' vs FC Porto 'B'",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1800718200000,
+  "title": "CCR Alto Moinho vs SL Benfica",
+  "detail": "Campeonato Nacional Sub 18 Masculino - 1a Fase - Zona 4 (M)",
+  "loc": "MUN. Alto Moinho",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1800729000000,
+  "title": "CD SÃO Bernardo vs SL Benfica 'B'",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "MUN. SÃO Bernardo",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1801328400000,
+  "title": "SL Benfica vs C Naval Setubalense",
+  "detail": "Campeonato Nacional Sub 18 Masculino - 1a Fase - Zona 4 (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1801328400000,
+  "title": "Batalha AC vs SL Benfica 'B'",
+  "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
+  "loc": "MUN. Batalha",
   "sport": "Andebol"
  },
  {
@@ -707,10 +847,38 @@
   "sport": "Andebol"
  },
  {
+  "t": 1801337400000,
+  "title": "SL Benfica 'B' vs SC Horta",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1801342800000,
+  "title": "Ginásiocstirso / Retrotarget vs SL Benfica",
+  "detail": "Campeonato Betclic Masculino - Jornada 18 (M)",
+  "loc": "MUN. STº Tirso",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1801933200000,
+  "title": "SL Benfica 'B' vs SIR 1º Maio /Equipa Pedro Marques",
+  "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
   "t": 1802012400000,
   "title": "SL Benfica vs Alavarium",
   "detail": "Campeonato Betclic Feminino - Jornada 16 (F)",
   "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1802530800000,
+  "title": "CF OS Belenenses vs SL Benfica",
+  "detail": "Campeonato Betclic Masculino - Jornada 19 (M)",
+  "loc": "PAV. Acácio Rosa",
   "sport": "Andebol"
  },
  {
@@ -721,10 +889,73 @@
   "sport": "Andebol"
  },
  {
+  "t": 1802545200000,
+  "title": "AA SAO Mamede vs SL Benfica 'B'",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "PAV. Eduardo Soares",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1802552400000,
+  "title": "AC Cacém vs SL Benfica 'B'",
+  "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
+  "loc": "ESC. SEC. Gama Barros",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1803142800000,
+  "title": "SL Benfica 'B' vs Académico C Funchal",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
   "t": 1803146400000,
   "title": "SL Benfica vs Cale",
   "detail": "Campeonato Betclic Feminino - Jornada 18 (F)",
   "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1803151800000,
+  "title": "SL Benfica 'B' vs CD Mafra",
+  "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1803236400000,
+  "title": "SL Benfica vs AD Carvalhos / Sernox",
+  "detail": "Campeonato Betclic Masculino - Jornada 20 (M)",
+  "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1803747600000,
+  "title": "Marítimo Madeira Andebol SAD vs SL Benfica",
+  "detail": "Campeonato Betclic Masculino - Jornada 21 (M)",
+  "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1804345200000,
+  "title": "SL Benfica 'B' vs BOA-Hora FC",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "ESC. QTA. Marrocos",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1804356000000,
+  "title": "SL Benfica vs Vitória SC",
+  "detail": "Campeonato Betclic Masculino - Jornada 22 (M)",
+  "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
+ },
+ {
+  "t": 1805554800000,
+  "title": "Sporting CP 'B' vs SL Benfica 'B'",
+  "detail": "Divisão de Honra Masculina - 1a Fase (M)",
+  "loc": "Ginasio Clube SUL",
   "sport": "Andebol"
  },
  {
