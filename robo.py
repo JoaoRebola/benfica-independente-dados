@@ -49,6 +49,7 @@ SPORTS = [
     ("Hóquei em Patins", "{A8B9BC3D-E1BA-4AB6-8C92-BFEE8771E59C}", True),
     ("Hóquei em Patins Feminino", "{A8B9BC3D-E1BA-4AB6-8C92-BFEE8771E59C}", False),
     ("Andebol", "{698B2A89-1519-40B6-85E6-DD80B3325693}", True),
+    ("Andebol Feminino", "{698B2A89-1519-40B6-85E6-DD80B3325693}", False),
     ("Voleibol", "{61FF7D89-5327-4A5E-82C8-6E4CD35D8314}", True),
     ("Voleibol Feminino", "{61FF7D89-5327-4A5E-82C8-6E4CD35D8314}", False),
 ]
@@ -320,10 +321,73 @@ def one_sport(sport):
     return name, None, "robo"
 
 
+YOUTH_RX = re.compile(r"\bsub[\s-]?\d|juniores|juvenis|iniciados|infantis|benjamins|traquinas|liga jovem|youth|next gen|revela[çc][ãa]o|\bB\b", re.I)
+
+
+def genero_evento(e):
+    """'F', 'M' ou None, pelo que o próprio jogo da agenda diz (ex.: "... Jornada 12 (F)")."""
+    d = (e.get("detail") or "").strip()
+    if re.search(r"\(F\)\s*$", d) or re.search(r"femin|women", d, re.I):
+        return "F"
+    if re.search(r"\(M\)\s*$", d) or re.search(r"masculin", d, re.I):
+        return "M"
+    return None
+
+
+def modalidades_da_agenda():
+    """Modalidades e géneros que têm jogos da equipa principal na agenda mas não estão na lista fixa dos resultados.
+
+    Devolve (extras, sem_resultados): extras = modalidades novas que se sabe obter (mesmo identificador da modalidade);
+    sem_resultados = nomes que a agenda tem mas que a origem não permite obter. Assim, se o clube passar a ter uma
+    equipa nova (como aconteceu com o andebol feminino), os resultados aparecem sem ser preciso mexer no código."""
+    ids = {n: sid for n, sid, _m in SPORTS}
+    conhecidos = set(ids)
+    extras, sem, vistos = [], [], set()
+    for e in load("agenda.json", []):
+        sp = (e.get("sport") or "").strip()
+        if not sp or not re.search(r"\bvs\b", e.get("title", ""), re.I):
+            continue
+        if YOUTH_RX.search((e.get("title") or "") + " " + (e.get("detail") or "")):
+            continue                       # formação e equipa B não têm resultados na lista
+        g = genero_evento(e)
+        base = sp[:-len(" Feminino")] if sp.endswith(" Feminino") else sp
+        nome = sp if sp.endswith(" Feminino") else (base + " Feminino" if g == "F" else base)
+        if nome in conhecidos or nome in vistos:
+            continue
+        vistos.add(nome)
+        sid = ids.get(base) or ids.get(sp)
+        if sid:
+            extras.append((nome, sid, not nome.endswith(" Feminino")))
+        else:
+            sem.append(nome)
+    return extras, sem
+
+
+def filtrar_incoerencias(lista):
+    """Rede de segurança: um resultado cuja competição diz o contrário do género da modalidade não entra
+    (ex.: "Campeonato Nacional Masculino" na lista do andebol feminino). Devolve (limpa, tirados)."""
+    fem = re.compile(r"femin|women", re.I)
+    mas = re.compile(r"masculin|\bmen\b", re.I)
+    boa, tirados = [], []
+    for r in lista:
+        c = r.get("c", "")
+        feminina = r["s"].endswith(" Feminino")
+        if (feminina and mas.search(c) and not fem.search(c)) or (not feminina and fem.search(c) and not mas.search(c)):
+            tirados.append(r)
+        else:
+            boa.append(r)
+    return boa, tirados
+
+
 def do_results():
     old = load("results.json", [])
-    with ThreadPoolExecutor(max_workers=len(SPORTS)) as pool:
-        parts = list(pool.map(one_sport, SPORTS))
+    extras, sem = modalidades_da_agenda()
+    if extras:
+        log("resultados: modalidades novas na agenda:", ", ".join(n for n, _s, _m in extras))
+    status["robo"]["sem_resultados"] = sem        # a plataforma avisa quando há jogos sem resultados possíveis
+    sports = SPORTS + extras
+    with ThreadPoolExecutor(max_workers=len(sports)) as pool:
+        parts = list(pool.map(one_sport, sports))
     if all(p[1] is None for p in parts):
         log("resultados: nada (mantém os anteriores)")
         return
@@ -335,6 +399,10 @@ def do_results():
             merged += got
             if got:
                 status[who]["resultados_" + name] = len(got)
+    merged, tirados = filtrar_incoerencias(merged)
+    if tirados:
+        log("resultados: tirados por género incoerente:", [(r["s"], r["c"], r["h"], r["a"]) for r in tirados])
+    status["robo"]["resultados_incoerentes"] = len(tirados)
     save("results.json", merged)
     log("resultados:", len(merged))
 
