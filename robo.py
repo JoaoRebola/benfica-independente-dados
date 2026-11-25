@@ -710,7 +710,6 @@ FUT_CATEGORIAS = [
     ("Sub-23", "62d5a1a6-fae4-4a4a-871d-bd92831f9dbb", True),
     ("Sub-19", "808fa96a-376b-4402-9686-813fcd769edd", True),
     ("Sub-17", "37200436-af91-424d-8e2c-8659a0dc71d8", True),
-    ("Sub-16", "ea04962e-4b80-41e6-aa64-731f111b175d", True),
     ("Sub-15", "a8f08244-7fa6-4e6d-99ae-faab1b2c136c", True),
     ("Equipa B", "6c7c8f78-4d64-4ca2-a3a4-392cd8ac3f03", False),
     ("Sub-19", "872be730-26ca-427d-ada4-a09919fb9487", False),
