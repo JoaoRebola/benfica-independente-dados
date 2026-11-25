@@ -813,13 +813,6 @@ FPF = "https://resultados.fpf.pt"
 # (competição na FPF, modalidade, escalão, nome mostrado). Só entram as tabelas em que o Benfica aparece.
 FPF_COMPETICOES = [
     ("29809", "Futebol", "Equipa B", "Segunda Liga"),
-    ("29536", "Futebol", "Sub-23", "Liga Next Gen"),
-    ("29534", "Futebol", "Sub-19", "Campeonato Nacional Sub-19"),
-    ("29866", "Futebol", "Sub-19", "Campeonato Nacional Sub-19 II Divisão"),
-    ("29535", "Futebol", "Sub-17", "Campeonato Nacional Sub-17"),
-    ("29858", "Futebol", "Sub-17", "Campeonato Nacional Sub-17 II Divisão"),
-    ("29836", "Futebol", "Sub-15", "Campeonato Nacional Sub-15"),
-    ("29990", "Futebol", "Sub-15", "Campeonato Nacional Sub-15 II Divisão"),
     ("29839", "Futebol Feminino", "", "Liga BPI"),
     ("29910", "Futebol Feminino", "Equipa B", "Campeonato Nacional Feminino II Divisão"),
     ("29872", "Futebol Feminino", "Sub-19", "Liga Feminina Sub-19"),
@@ -828,6 +821,34 @@ FPF_COMPETICOES = [
     ("29897", "Futsal Feminino", "", "Liga Feminina Placard"),
 ]
 SIGLAS = {"sl", "fc", "sc", "cd", "gd", "ud", "cf", "ad", "cs", "cp", "ac", "af", "aj", "gc", "cdr", "ccd", "scp", "sad", "ca", "cr", "ccr", "gdc", "gdr", "gs"}
+
+
+WORKER_FPF = "https://despertador-robo-bi.benficaindependente-app.workers.dev/fpf?u="
+
+
+def fpf_get(url):
+    """Páginas da FPF pelo Worker do Cloudflare (o site da federação bloqueia o servidor do robô)."""
+    import urllib.parse
+    ultimo = None
+    for espera in (0, 8, 25, 60):
+        time.sleep(espera)
+        try:
+            return get(WORKER_FPF + urllib.parse.quote(url, safe=""), timeout=90, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)", "Accept": "text/html,*/*"})
+        except Exception as e:
+            ultimo = e                                  # 403/429 do site da federação: espera e tenta outra vez
+    raise ultimo
+
+
+def fpf_jogos(pagina):
+    """[(casa, fora, golos_casa, golos_fora)] de uma jornada da FPF (só jogos com resultado)."""
+    out = []
+    for bloco in pagina.split('class="game-link"')[1:]:
+        c = re.search(r'class="home-team[^"]*"[^>]*>(.*?)</div>', bloco)
+        p = re.search(r"<span>\s*(\d+)\s*-\s*(\d+)\s*</span>", bloco)
+        f = re.search(r'class="away-team[^"]*"[^>]*>(.*?)</div>', bloco)
+        if c and p and f:
+            out.append((nome_equipa(c.group(1)), nome_equipa(f.group(1)), int(p.group(1)), int(p.group(2))))
+    return out
 
 
 def nome_equipa(n):
@@ -846,16 +867,16 @@ def _num(x):
 def fpf_classificacoes():
     """Tabelas das competições da FPF onde o Benfica joga (a página mostra a classificação do grupo de cada fase)."""
     saida = []
-    lista = get(FPF + "/Competition", timeout=60)
+    lista = fpf_get(FPF + "/Competition")
     epoca = dict(re.findall(r"competitionId=(\d+)&amp;seasonId=(\d+)", lista))
     for cid, desporto, k, nome in FPF_COMPETICOES:
         if cid not in epoca:
             continue                                  # a competição ainda não está na época em curso
         pag = None
-        time.sleep(4)                                  # o site da federação recusa pedidos seguidos demais
+        time.sleep(1)
         for _tentativa in range(4):
             try:
-                pag = get("%s/Competition/Details?competitionId=%s&seasonId=%s" % (FPF, cid, epoca[cid]), timeout=60)
+                pag = fpf_get("%s/Competition/Details?competitionId=%s&seasonId=%s" % (FPF, cid, epoca[cid]))
                 break
             except Exception as e:
                 log("classificações FPF", cid, "falhou:", type(e).__name__, getattr(e, "code", ""))
@@ -871,7 +892,8 @@ def fpf_classificacoes():
                     continue
                 linhas.append([_num(cel[0]), nome_equipa(cel[1]), _num(cel[8]), _num(cel[2]), _num(cel[3]), _num(cel[4]), _num(cel[5]), _num(cel[6]), _num(cel[7])])
             if linhas and any(l[1] == "SL Benfica" for l in linhas):
-                saida.append({"s": desporto, "k": k, "c": nome, "t": linhas, "src": "fpf"})
+                ent = {"s": desporto, "k": k, "c": nome, "t": linhas, "src": "fpf", "_pag": pag}
+                saida.append(ent)
                 break                                  # o grupo do Benfica
     return saida
 
@@ -1092,12 +1114,27 @@ def estado_tabela(e, antes):
     return e
 
 
+def fpf_calcular(pag):
+    """Tabela recalculada a partir de todas as jornadas da competição na FPF; None se alguma falhar."""
+    ids = list(dict.fromkeys(re.findall(r"GetClassificationAndMatchesByFixture\?fixtureId=(\d+)", pag)))
+    if not ids:
+        return None
+    jogos = []
+    for fid in ids:
+        try:
+            jogos += fpf_jogos(fpf_get("%s/Competition/GetClassificationAndMatchesByFixture?fixtureId=%s" % (FPF, fid)))
+        except Exception:
+            return None
+        time.sleep(0.5)
+    return recalcular(jogos)
+
+
 def do_standings():
     old = load("classificacoes.json", [])
     antes = {(e["s"], e["k"], e["c"]): e for e in old}
     agora = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     novo, falhou = [], set()
-    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes)):
+    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes), ("fpf", fpf_classificacoes)):
         try:
             got = fn()
         except Exception as e:
@@ -1114,7 +1151,28 @@ def do_standings():
                 if chave in antes:
                     novo.append(antes[chave])
                 continue
-            estado_tabela(e, antes.get(chave))
+            pag = e.pop("_pag", None)
+            ant = antes.get(chave)
+            if e.get("src") == "fpf":
+                ku = "%s|%s|%s" % (e["s"], e["k"], e["c"])
+                if ku in ULTIMOS_APP:
+                    r = ultimo_clube(*ULTIMOS_APP[ku])
+                    if r:
+                        e["n"], e["ult"] = r
+                igual = bool(ant and ant.get("prova") and ant.get("t") == e["t"])
+                if igual:
+                    # Mesma tabela já provada por recálculo: só deixa de estar atualizada se houver um jogo mais recente.
+                    e["j"], e["u"], e["prova"] = ant.get("j"), ant.get("u"), True
+                    e["ok"] = (e.get("ult") == ant.get("u")) if (e.get("ult") and ant.get("u")) else ant.get("ok")
+                    e["at"] = ant.get("at", agora)
+                    novo.append(e)
+                    continue
+                if pag:
+                    try:
+                        e["calc"] = fpf_calcular(pag)
+                    except Exception as ex:
+                        log("recálculo FPF falhou:", type(ex).__name__)
+            estado_tabela(e, ant)
             e["at"] = agora if (chave not in antes or antes[chave]["t"] != e["t"]) else antes[chave].get("at", agora)   # so muda quando a tabela muda
             novo.append(e)
         log("classificações", fonte, len(got))
