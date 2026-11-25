@@ -898,8 +898,9 @@ def fpa_classificacoes():
                 if linhas and any(l[1] == "SL Benfica" for l in linhas):
                     ent = {"s": desporto, "k": "", "c": prova, "t": sorted(linhas, key=lambda l: l[0]), "src": "fpa"}
                     try:
-                        feitos = [g for g in fpa_get("getResultadosCalendario/%s/%s" % (c["ID_PROVA"], f["ID_FASE"]))
-                                  if _fpa_jogado(g) and "SL BENFICA" in ((g.get("EQUIPA_CASA") or "").strip().upper(), (g.get("EQUIPA_FORA") or "").strip().upper())]
+                        todos = [g for g in fpa_get("getResultadosCalendario/%s/%s" % (c["ID_PROVA"], f["ID_FASE"])) if _fpa_jogado(g)]
+                        ent["calc"] = recalcular([(fpa_nome(g["EQUIPA_CASA"]), fpa_nome(g["EQUIPA_FORA"]), int(g["JOG_GOLOS_CASA"]), int(g["JOG_GOLOS_FORA"])) for g in todos])
+                        feitos = [g for g in todos if "SL BENFICA" in ((g.get("EQUIPA_CASA") or "").strip().upper(), (g.get("EQUIPA_FORA") or "").strip().upper())]
                         ent["n"] = len(feitos)
                         if feitos:
                             m = max(feitos, key=lambda g: (g["JOG_DATA"], g.get("JOG_HORA") or ""))
@@ -935,7 +936,7 @@ def fpp_classificacoes():
             fem = _genero_prova(nome) == "F"
             ent = {"s": "Hóquei em Patins" + (" Feminino" if fem else ""), "k": "", "c": nome_competicao(nome), "t": linhas, "src": "fpp"}
             try:
-                ent["n"], ent["ult"] = fpp_ultimo(cid)
+                ent["n"], ent["ult"], ent["calc"] = fpp_ultimo(cid)
             except Exception as ex:
                 log("hóquei último jogo falhou:", type(ex).__name__)
             saida.append(ent)
@@ -1035,13 +1036,37 @@ def ultimo_clube(desporto, masculino, rank, familia, excluir=None):
 def fpp_ultimo(cid):
     """(n.º de jogos do SL Benfica já jogados, assinatura do mais recente) na competição de hóquei."""
     pag = get(HP + "/Competicao/" + cid, timeout=60)
-    jogos = []
+    jogos, todos = [], []
     for tr in pag.split("<tr")[1:]:
         quando = re.search(r"(\d{4}-\d{2}-\d{2})\s*<br>\s*(\d{2}:\d{2})", tr)
         equipas = [_limpa(x) for x in re.findall(r'<p class="visit[^"]*">(.*?)</p>', tr, re.S)]
-        if quando and len(equipas) == 2 and "SL Benfica" in equipas and re.search(r'class="resultado"[^>]*>\s*\d+\s*-\s*\d+', tr):
-            jogos.append((quando.group(1) + " " + quando.group(2), equipas[0], equipas[1]))
-    return len(jogos), ("|".join(max(jogos)) if jogos else None)
+        res = re.search(r'class="resultado"[^>]*>\s*(\d+)\s*-\s*(\d+)', tr)
+        if quando and len(equipas) == 2 and res:
+            todos.append((equipas[0], equipas[1], int(res.group(1)), int(res.group(2))))
+            if "SL Benfica" in equipas:
+                jogos.append((quando.group(1) + " " + quando.group(2), equipas[0], equipas[1]))
+    return len(jogos), ("|".join(max(jogos)) if jogos else None), recalcular(todos)
+
+
+def recalcular(jogos):
+    """Tabela feita a partir de todos os jogos com resultado: {equipa: (J, V, E, D, GM, GS)}. jogos = [(casa, fora, golos_casa, golos_fora)]."""
+    t = {}
+    for casa, fora, gc, gf in jogos:
+        for eq, m, s_ in ((casa, gc, gf), (fora, gf, gc)):
+            j, v, e, d, gm, gs = t.get(eq, (0, 0, 0, 0, 0, 0))
+            t[eq] = (j + 1, v + (m > s_), e + (m == s_), d + (m < s_), gm + m, gs + s_)
+    return t
+
+
+def confere(linhas, calc):
+    """True se a tabela publicada é igual à recalculada em todas as equipas (prova de que inclui todos os jogos); False se não;
+    None se não se pode comparar."""
+    if not calc:
+        return None
+    pub = {l[1]: (l[3], l[4], l[5], l[6], l[7], l[8]) for l in linhas}
+    if set(pub) != set(calc):
+        return None                              # nomes diferentes entre as duas listas: não se compara
+    return all(pub[k] == calc[k] for k in pub)
 
 
 def estado_tabela(e, antes):
@@ -1051,7 +1076,10 @@ def estado_tabela(e, antes):
     j = ben[3] if ben else None
     ult, n = e.get("ult"), e.get("n")
     e["j"] = j
-    if j is not None and n is not None and n == j:
+    prova = confere(e["t"], e.pop("calc", None))
+    if prova is not None:
+        e["u"], e["ok"], e["prova"] = ult, prova, True      # confirmado por recálculo (ou desmentido)
+    elif j is not None and n is not None and n == j:
         e["u"], e["ok"] = ult, True                         # os jogos jogados batem certo com os da tabela
     elif antes is not None and antes.get("j") is not None:
         if j != antes["j"]:
