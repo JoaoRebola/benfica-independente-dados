@@ -701,6 +701,52 @@ def filtrar_incoerencias(lista):
     return boa, tirados, zeros
 
 
+# ---------------------------------------------------------------- futebol: equipa B e camadas jovens (resultados)
+FUT_MASC = "{ECCFEB41-A0FD-4830-A3BB-7E57A0A15D00}"
+FUT_FEM = "{37A610A0-2CCD-4F89-A589-A1F995F8FCB5}"
+# (escalão, identificador da equipa no site do clube, masculino?)
+FUT_CATEGORIAS = [
+    ("Equipa B", "72660737-f4f6-4c76-864f-d1ca2f545913", True),
+    ("Sub-23", "62d5a1a6-fae4-4a4a-871d-bd92831f9dbb", True),
+    ("Sub-19", "808fa96a-376b-4402-9686-813fcd769edd", True),
+    ("Sub-17", "37200436-af91-424d-8e2c-8659a0dc71d8", True),
+    ("Sub-16", "ea04962e-4b80-41e6-aa64-731f111b175d", True),
+    ("Sub-15", "a8f08244-7fa6-4e6d-99ae-faab1b2c136c", True),
+    ("Equipa B", "6c7c8f78-4d64-4ca2-a3a4-392cd8ac3f03", False),
+    ("Sub-19", "872be730-26ca-427d-ada4-a09919fb9487", False),
+]
+
+
+def epoca_atual():
+    """Ex.: ("26/27", "2026/27") em novembro de 2026."""
+    h = datetime.now(LISBON)
+    a = h.year if h.month >= 7 else h.year - 1
+    return "%02d/%02d" % (a % 100, (a + 1) % 100), "%d/%02d" % (a, (a + 1) % 100)
+
+
+def one_categoria(cat):
+    """Resultados de um escalão (só os desta época: os antigos não interessam). Devolve (cat, lista ou None)."""
+    k, rank, male = cat
+    sport = "Futebol" if male else "Futebol Feminino"
+    body = {"filters": {"Menu": "last", "Modality": FUT_MASC if male else FUT_FEM, "IsMaleTeam": male, "Rank": rank,
+                        "Tournaments": [], "Seasons": [], "PageNumber": 0}}
+    curta, longa = epoca_atual()
+    for _ in range(2):
+        try:
+            page = post_json(RESULTS_URL, body, timeout=150)
+            out = []
+            for r in parse_results(page, sport):
+                if curta in r["c"] or longa in r["c"]:
+                    r["k"] = k
+                    out.append(r)
+            return cat, out
+        except Exception as e:
+            log("resultados", sport, k, "falhou:", type(e).__name__)
+            time.sleep(5)
+    return cat, None
+
+
+
 def do_results():
     old = load("results.json", [])
     extras, sem = modalidades_da_agenda()
@@ -715,8 +761,8 @@ def do_results():
         return
     merged = []
     for name, got, who in parts:
-        if got is None or (not got and any(r["s"] == name for r in old)):
-            merged += [r for r in old if r["s"] == name]  # falhou: mantém o que havia
+        if got is None or (not got and any(r["s"] == name and not r.get("k") for r in old)):
+            merged += [r for r in old if r["s"] == name and not r.get("k")]  # falhou: mantém o que havia
         else:
             merged += got
             if got:
@@ -738,6 +784,19 @@ def do_results():
                 status["robo"]["resultados_" + r["s"]] = status["robo"].get("resultados_" + r["s"], 0) + 1
     except Exception as e:
         log("resultados: hóquei (federação) falhou:", e)
+    try:
+        with ThreadPoolExecutor(max_workers=len(FUT_CATEGORIAS)) as pool2:
+            cats = list(pool2.map(one_categoria, FUT_CATEGORIAS))
+        for (k, rank, male), got in cats:
+            sport = "Futebol" if male else "Futebol Feminino"
+            if got is None:
+                merged += [r for r in old if r.get("k") == k and r["s"] == sport]      # falhou: mantém o que havia
+            else:
+                merged += got
+                if got:
+                    status["robo"]["resultados_%s_%s" % (sport, k)] = len(got)
+    except Exception as e:
+        log("resultados: escalões do futebol falharam:", e)
     merged, tirados, zeros = filtrar_incoerencias(merged)
     if zeros:
         log("resultados: jogos sem resultado registado (0-0) deixados de fora:", len(zeros))
