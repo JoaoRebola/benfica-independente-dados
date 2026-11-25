@@ -63,6 +63,13 @@
   "sport": "Pesca Desportiva"
  },
  {
+  "t": 1795863600000,
+  "title": "SL Benfica vs GD Estoril Praia",
+  "detail": "Campeonato Nacional de Iniciados Sub 15 | 26/27 - Jornada 13 (M)",
+  "loc": "Benfica Campus (campo 7)",
+  "sport": "Futebol"
+ },
+ {
   "t": 1795878000000,
   "title": "SL Benfica vs GD Árvore",
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 9 (F)",
@@ -127,10 +134,24 @@
  },
  {
   "t": 1795968000000,
+  "title": "SL Benfica vs Louletano DC",
+  "detail": "Campeonato Nacional Sub-17 II Divisão | 26/27 - Jornada 10 (M)",
+  "loc": "Benfica Campus (campo 7)",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1795968000000,
   "title": "FC Porto vs SL Benfica",
   "detail": "Campeonato Nacional Feminino | 26/27 - Grupo I Jornada 9 (F)",
   "loc": "Dragão Arena",
   "sport": "Voleibol"
+ },
+ {
+  "t": 1795968000000,
+  "title": "SL Benfica vs FC Barreirense",
+  "detail": "Campeonato Nacional Sub 15 II Divisão | 26/27 - Jornada 10 (M)",
+  "loc": "Benfica Campus (campo 5)",
+  "sport": "Futebol"
  },
  {
   "t": 1795978800000,
@@ -669,27 +690,6 @@
   "title": "Sporting CP vs SL Benfica",
   "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 17 (M)",
   "loc": "",
-  "sport": "Futebol"
- },
- {
-  "t": 1799510400000,
-  "title": "Sporting CP vs SL Benfica",
-  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 6 (F)",
-  "loc": "Alvalade",
-  "sport": "Polo Aquático"
- },
- {
-  "t": 1799582400000,
-  "title": "FC Arouca vs SL Benfica",
-  "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
-  "loc": "Estádio Municipal de Arouca",
-  "sport": "Futebol"
- },
- {
-  "t": 1799582400000,
-  "title": "Porto B vs SL Benfica B",
-  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
-  "loc": "Estádio Dr. Jorge Sampaio",
   "sport": "Futebol"
  },
  {

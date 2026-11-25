@@ -17,7 +17,6 @@
   "podcasts_com_video": 769,
   "podcasts_total": 976,
   "comunidade": 4,
-  "quiz": 2,
   "jogos_reais": 0,
   "chat": {
    "ok": true,
@@ -25,10 +24,7 @@
   }
  },
  "agente": {
-  "ativo": true,
-  "erro": 503,
-  "modelo": "gemini-3.6-flash",
-  "ok": true
+  "ativo": true
  },
- "atualizado": "2026-11-24T22:50:12Z"
+ "atualizado": "2026-11-25T05:07:43Z"
 }
