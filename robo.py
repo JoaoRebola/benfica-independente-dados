@@ -263,13 +263,20 @@ def do_agenda():
         who = "agente"
     if events:
         try:
-            fem = fpa_agenda(fpa_andebol_feminino())
+            fem = fpa_agenda(fpa_andebol("F"), "F")
             if fem:
                 events = [e for e in events if not (e.get("sport") == "Andebol" and e.get("detail", "").rstrip().endswith("(F)"))] + fem
-                events.sort(key=lambda e: e["t"])
                 status["robo"]["agenda_andebol_feminino"] = len(fem)
         except Exception as e:
             log("agenda: andebol feminino (federação) falhou:", e)
+        try:
+            masc = [e for e in fpa_agenda(fpa_andebol("M"), "M") if not ja_tem(events, e)]
+            if masc:
+                events += masc
+                status["robo"]["agenda_andebol_masculino"] = len(masc)
+        except Exception as e:
+            log("agenda: andebol masculino (federação) falhou:", e)
+        events.sort(key=lambda e: e["t"])
         save("agenda.json", events)
         status[who]["agenda"] = len(events)
     log("agenda:", len(events), "por", who)
@@ -319,11 +326,15 @@ def fpa_prova(descricao):
 
 
 def fpa_andebol_feminino():
-    """Jogos da equipa principal feminina do Benfica (campeonato, taça e supertaça): jogados e por jogar."""
+    return fpa_andebol("F")
+
+
+def fpa_andebol(genero="F"):
+    """Jogos da equipa principal do Benfica (campeonato, taça e supertaça), jogados e por jogar. genero: "F" ou "M"."""
     epoca = fpa_epoca()
     jogos = []
-    for c in fpa_get("getCompeticoes/%s/8/F/" % epoca):
-        if c.get("ESC_DESCRICAO") != "Seniores F" or "Honra" in c.get("PRO_DESCRICAO", ""):
+    for c in fpa_get("getCompeticoes/%s/8/%s/" % (epoca, genero)):
+        if c.get("ESC_DESCRICAO") != "Seniores " + genero or "Honra" in c.get("PRO_DESCRICAO", ""):
             continue                      # só a equipa principal (a Divisão de Honra é da equipa B)
         prova = fpa_prova(c["PRO_DESCRICAO"])
         for f in fpa_get("getFases/" + c["ID_PROVA"]):
@@ -353,7 +364,22 @@ def fpa_resultados(jogos):
     return saida
 
 
-def fpa_agenda(jogos):
+def _palavras(t):
+    return {w for w in re.findall(r"[a-z]{4,}", unicodedata.normalize("NFD", t.lower()).encode("ascii", "ignore").decode()) if w not in ("benfica", "vs")}
+
+
+def ja_tem(eventos, novo):
+    """Já há na agenda um jogo do mesmo desporto, no mesmo dia, com um adversário parecido?"""
+    dia = datetime.fromtimestamp(novo["t"] / 1000, LISBON).date()
+    for e in eventos:
+        if e.get("sport") != novo.get("sport"):
+            continue
+        if datetime.fromtimestamp(e["t"] / 1000, LISBON).date() == dia and _palavras(e.get("title", "")) & _palavras(novo["title"]):
+            return True
+    return False
+
+
+def fpa_agenda(jogos, genero="F"):
     """Jogos por jogar, no formato da agenda do clube."""
     agora = time.time() - 3 * 3600
     saida = []
@@ -370,7 +396,7 @@ def fpa_agenda(jogos):
         saida.append({
             "t": int(quando.timestamp() * 1000),
             "title": "%s vs %s" % (fpa_nome(g["EQUIPA_CASA"]), fpa_nome(g["EQUIPA_FORA"])),
-            "detail": " - ".join(x for x in (g["_prova"], jornada) if x) + " (F)",
+            "detail": " - ".join(x for x in (g["_prova"], jornada) if x) + " (%s)" % genero,
             "loc": fpa_nome(g.get("REC_NOME") or ""),
             "sport": "Andebol",
         })
