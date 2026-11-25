@@ -896,7 +896,17 @@ def fpa_classificacoes():
                            _num(r.get("PEQ_CLASS_NUMERO_VITORIAS")), _num(r.get("PEQ_CLASS_NUMERO_EMPATES")), _num(r.get("PEQ_CLASS_NUMERO_DERROTAS")),
                            _num(r.get("PEQ_CLASS_GOLOS_MARCADOS")), _num(r.get("PEQ_CLASS_GOLOS_SOFRIDOS"))] for r in tab]
                 if linhas and any(l[1] == "SL Benfica" for l in linhas):
-                    saida.append({"s": desporto, "k": "", "c": prova, "t": sorted(linhas, key=lambda l: l[0]), "src": "fpa"})
+                    ent = {"s": desporto, "k": "", "c": prova, "t": sorted(linhas, key=lambda l: l[0]), "src": "fpa"}
+                    try:
+                        feitos = [g for g in fpa_get("getResultadosCalendario/%s/%s" % (c["ID_PROVA"], f["ID_FASE"]))
+                                  if _fpa_jogado(g) and "SL BENFICA" in ((g.get("EQUIPA_CASA") or "").strip().upper(), (g.get("EQUIPA_FORA") or "").strip().upper())]
+                        ent["n"] = len(feitos)
+                        if feitos:
+                            m = max(feitos, key=lambda g: (g["JOG_DATA"], g.get("JOG_HORA") or ""))
+                            ent["ult"] = "%s %s|%s|%s" % (m["JOG_DATA"], m.get("JOG_HORA") or "", m["EQUIPA_CASA"], m["EQUIPA_FORA"])
+                    except Exception as ex:
+                        log("andebol último jogo falhou:", type(ex).__name__)
+                    saida.append(ent)
     return saida
 
 
@@ -923,7 +933,12 @@ def fpp_classificacoes():
             linhas.append([int(pos.group(1)), _limpa(clube.group(1)), p_, j, v, e, d, gm, gs])
         if linhas and any(l[1] == "SL Benfica" for l in linhas):
             fem = _genero_prova(nome) == "F"
-            saida.append({"s": "Hóquei em Patins" + (" Feminino" if fem else ""), "k": "", "c": nome_competicao(nome), "t": linhas, "src": "fpp"})
+            ent = {"s": "Hóquei em Patins" + (" Feminino" if fem else ""), "k": "", "c": nome_competicao(nome), "t": linhas, "src": "fpp"}
+            try:
+                ent["n"], ent["ult"] = fpp_ultimo(cid)
+            except Exception as ex:
+                log("hóquei último jogo falhou:", type(ex).__name__)
+            saida.append(ent)
     return saida
 
 
@@ -953,24 +968,128 @@ def clube_classificacoes():
                 equipa = "SL Benfica" if tds[1].strip().upper() == "BENFICA" else tds[1]
                 linhas.append([_num(tds[0]), equipa, _num(tds[8]), _num(tds[2]), _num(tds[3]), _num(tds[4]), _num(tds[5]), _num(tds[6]), _num(tds[7])])
             if linhas and any(l[1] == "SL Benfica" for l in linhas):
-                saida.append({"s": "Futebol", "k": k, "c": nome, "t": linhas, "src": "clube"})
+                ent = {"s": "Futebol", "k": k, "c": nome, "t": linhas, "src": "clube"}
+                u = ultimo_clube("Futebol", True, RANKS_FORMACAO[k], FAMILIA_FORMACAO, EXCLUI_FORMACAO)
+                if u:
+                    ent["n"], ent["ult"] = u
+                saida.append(ent)
     return saida
+
+
+RANK_PRINCIPAL = "16094ecf-9e78-4e3e-bcdf-28e4f765de9f"
+FAMILIA_FORMACAO = r"^(Campeonato|Liga Next Gen)"
+EXCLUI_FORMACAO = r"II Divis|Ta[çc]a|Jovem|Trophy|Super|Torneio"
+RANKS_FORMACAO = {"Sub-23": "62d5a1a6-fae4-4a4a-871d-bd92831f9dbb", "Sub-19": "808fa96a-376b-4402-9686-813fcd769edd",
+                  "Sub-17": "37200436-af91-424d-8e2c-8659a0dc71d8", "Sub-15": "a8f08244-7fa6-4e6d-99ae-faab1b2c136c"}
+# Tabelas que a app lê sozinha (o site da federação de futebol bloqueia o robô): o robô só diz qual foi o último jogo do Benfica.
+# chave "modalidade|escalão|competição" -> (modalidade, masculino, rank, família de competições nos resultados do clube)
+ULTIMOS_APP = {
+    "Futebol|Equipa B|Segunda Liga": ("Futebol", True, "72660737-f4f6-4c76-864f-d1ca2f545913", r"Segunda Liga"),
+    "Futebol Feminino||Liga BPI": ("Futebol Feminino", False, RANK_PRINCIPAL, r"LIGA BPI"),
+    "Futsal||Liga Placard": ("Futsal", True, MAIN_TEAM, r"Campeonato Nacional"),
+    "Futsal Feminino||Liga Feminina Placard": ("Futsal Feminino", False, MAIN_TEAM, r"Campeonato Nacional"),
+}
+
+
+def tabela_valida(linhas):
+    """Rede de segurança: uma tabela mal lida (colunas trocadas, linhas em falta) não é publicada."""
+    if len(linhas) < 4 or min(l[0] for l in linhas) != 1:
+        return False
+    if any(l[4] + l[5] + l[6] != l[3] for l in linhas):                 # V + E + D = J em todas as equipas
+        return False
+    if sum(l[7] for l in linhas) != sum(l[8] for l in linhas):          # os golos marcados são os sofridos por alguém
+        return False
+    return len({l[1] for l in linhas}) == len(linhas)
+
+
+def ultimo_clube(desporto, masculino, rank, familia, excluir=None):
+    """(n.º de jogos jogados nesta época numa família de competições, assinatura do jogo mais recente) segundo o site do clube; None se falhar."""
+    curta, longa = epoca_atual()
+    ids = {n: sid for n, sid, _m in SPORTS}
+    base = desporto[:-len(" Feminino")] if desporto.endswith(" Feminino") else desporto
+    sid = ids.get(desporto) or ids.get(base)
+    if not sid:
+        sid = FUT_MASC if base == "Futebol" and masculino else FUT_FEM
+    n, sig = 0, None
+    for pg in range(4):
+        body = {"filters": {"Menu": "last", "Modality": sid, "IsMaleTeam": masculino, "Rank": rank, "Tournaments": [], "Seasons": [], "PageNumber": pg}}
+        try:
+            rs = parse_results(post_json(RESULTS_URL, body, timeout=150), desporto)
+        except Exception as e:
+            log("último jogo", desporto, "falhou:", type(e).__name__)
+            return None
+        if not rs:
+            break
+        for r in rs:
+            c = r["c"]
+            if not (curta in c or longa in c) or not re.search(familia, c, re.I) or (excluir and re.search(excluir, c, re.I)):
+                continue
+            n += 1
+            if sig is None:
+                sig = "%s|%s|%s" % (r["d"], r["h"], r["a"])
+        if any(not (curta in r["c"] or longa in r["c"]) for r in rs):
+            break
+    return n, sig
+
+
+def fpp_ultimo(cid):
+    """(n.º de jogos do SL Benfica já jogados, assinatura do mais recente) na competição de hóquei."""
+    pag = get(HP + "/Competicao/" + cid, timeout=60)
+    jogos = []
+    for tr in pag.split("<tr")[1:]:
+        quando = re.search(r"(\d{4}-\d{2}-\d{2})\s*<br>\s*(\d{2}:\d{2})", tr)
+        equipas = [_limpa(x) for x in re.findall(r'<p class="visit[^"]*">(.*?)</p>', tr, re.S)]
+        if quando and len(equipas) == 2 and "SL Benfica" in equipas and re.search(r'class="resultado"[^>]*>\s*\d+\s*-\s*\d+', tr):
+            jogos.append((quando.group(1) + " " + quando.group(2), equipas[0], equipas[1]))
+    return len(jogos), ("|".join(max(jogos)) if jogos else None)
+
+
+def estado_tabela(e, antes):
+    """Preenche j (jogos do Benfica na tabela), u (último jogo incluído) e ok.
+    ok = True: a tabela já inclui o último jogo; False: há um jogo mais recente que ainda não entrou; None: sem forma de saber."""
+    ben = next((l for l in e["t"] if l[1] == "SL Benfica"), None)
+    j = ben[3] if ben else None
+    ult, n = e.get("ult"), e.get("n")
+    e["j"] = j
+    if j is not None and n is not None and n == j:
+        e["u"], e["ok"] = ult, True                         # os jogos jogados batem certo com os da tabela
+    elif antes is not None and antes.get("j") is not None:
+        if j != antes["j"]:
+            e["u"], e["ok"] = ult, True                     # a linha do Benfica mudou: a tabela foi atualizada
+        else:
+            e["u"] = antes.get("u")
+            e["ok"] = None if e["u"] is None else (ult == e["u"])
+    else:
+        e["u"], e["ok"] = None, None                        # primeira vez que se vê: só dá para confirmar quando mudar
+    return e
 
 
 def do_standings():
     old = load("classificacoes.json", [])
+    antes = {(e["s"], e["k"], e["c"]): e for e in old}
+    agora = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     novo, falhou = [], set()
     for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes)):
         try:
             got = fn()
-            if got:
-                novo += got
-                log("classificações", fonte, len(got))
-            else:
-                falhou.add(fonte)
         except Exception as e:
             falhou.add(fonte)
             log("classificações", fonte, "falhou:", type(e).__name__, e)
+            continue
+        if not got:
+            falhou.add(fonte)
+            continue
+        for e in got:
+            chave = (e["s"], e["k"], e["c"])
+            if not tabela_valida(e["t"]):
+                log("classificação INVÁLIDA (fica a anterior):", chave)
+                if chave in antes:
+                    novo.append(antes[chave])
+                continue
+            estado_tabela(e, antes.get(chave))
+            e["at"] = agora
+            novo.append(e)
+        log("classificações", fonte, len(got))
     chaves = {(e["s"], e["k"], e["c"]) for e in novo}
     for e in old:
         if e.get("src") in falhou and (e["s"], e["k"], e["c"]) not in chaves:
@@ -978,6 +1097,16 @@ def do_standings():
     if novo:
         save("classificacoes.json", novo)
         status["robo"]["classificacoes"] = len(novo)
+        status["robo"]["classificacoes_confirmadas"] = sum(1 for e in novo if e.get("ok"))
+    # Último jogo das tabelas que a app lê sozinha (para ela confirmar que estão atualizadas).
+    ult_old = load("ultimos.json", {})
+    ult = dict(ult_old)
+    for chave, (desp, masc, rank, fam) in ULTIMOS_APP.items():
+        r = ultimo_clube(desp, masc, rank, fam)
+        if r:
+            ult[chave] = {"n": r[0], "u": r[1]}
+    if ult != ult_old:
+        save("ultimos.json", ult)
     log("classificações:", len(novo))
 
 
