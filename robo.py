@@ -966,14 +966,16 @@ def fpp_classificacoes():
 
 
 # Escalões do futebol de formação: o próprio site do clube publica a classificação de cada um.
-CLUBE_ESCALOES = [("Sub-23", "sub-23"), ("Sub-19", "juniores"), ("Sub-17", "juvenis"), ("Sub-15", "iniciados")]
+CLUBE_ESCALOES = [("Sub-23", "sub-23/classificacao"), ("Sub-19", "juniores/classificacao"),
+                  ("Sub-17", "juvenis/classificacao"), ("Sub-17", "juvenis/classificacao-b"),
+                  ("Sub-15", "iniciados/classificacao"), ("Sub-15", "iniciados/classificacao-b")]
 
 
 def clube_classificacoes():
     saida = []
     for k, slug in CLUBE_ESCALOES:
         try:
-            pag = get("https://www.slbenfica.pt/pt-pt/futebol-formacao/%s/classificacao" % slug, timeout=60)
+            pag = get("https://www.slbenfica.pt/pt-pt/futebol-formacao/%s" % slug, timeout=60)
         except Exception as e:
             log("classificações clube", slug, "falhou:", type(e).__name__)
             continue
@@ -988,11 +990,11 @@ def clube_classificacoes():
                 tds = [_limpa(x) for x in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
                 if len(tds) < 9:
                     continue
-                equipa = "SL Benfica" if tds[1].strip().upper() == "BENFICA" else tds[1]
+                equipa = "SL Benfica" if tds[1].strip().upper() in (("BENFICA", "BENFICA B") if slug.endswith("-b") else ("BENFICA",)) else tds[1]
                 linhas.append([_num(tds[0]), equipa, _num(tds[8]), _num(tds[2]), _num(tds[3]), _num(tds[4]), _num(tds[5]), _num(tds[6]), _num(tds[7])])
             if linhas and any(l[1] == "SL Benfica" for l in linhas):
                 ent = {"s": "Futebol", "k": k, "c": nome, "t": linhas, "src": "clube"}
-                u = ultimo_clube("Futebol", True, RANKS_FORMACAO[k], FAMILIA_FORMACAO, EXCLUI_FORMACAO)
+                u = None if slug.endswith("-b") else ultimo_clube("Futebol", True, RANKS_FORMACAO[k], FAMILIA_FORMACAO, EXCLUI_FORMACAO)
                 if u:
                     ent["n"], ent["ult"] = u
                 saida.append(ent)
