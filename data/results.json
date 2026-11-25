@@ -702,6 +702,16 @@
  {
   "s": "Hóquei em Patins Feminino",
   "c": "Campeonato Nacional Feminino | 26/27",
+  "h": "Parede FC",
+  "a": "SL Benfica",
+  "hg": 0,
+  "ag": 9,
+  "v": "Pavilhão da Parede",
+  "d": "quarta-feira 25 novembro"
+ },
+ {
+  "s": "Hóquei em Patins Feminino",
+  "c": "Campeonato Nacional Feminino | 26/27",
   "h": "Biblioteca IR",
   "a": "SL Benfica",
   "hg": 0,
@@ -788,16 +798,6 @@
   "ag": 0,
   "v": "Pavilhão Fidelidade",
   "d": "domingo 21 junho"
- },
- {
-  "s": "Hóquei em Patins Feminino",
-  "c": "Campeonato Nacional Feminino | 25/26",
-  "h": "AD Sanjoanense",
-  "a": "SL Benfica",
-  "hg": 5,
-  "ag": 7,
-  "v": "Pavilhão da Associação Desportiva Sanjoanense",
-  "d": "quarta-feira 10 junho"
  },
  {
   "s": "Andebol",

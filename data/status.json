@@ -10,7 +10,6 @@
    "Polo Aquático Feminino"
   ],
   "resultados_Futebol": 10,
-  "resultados_Futebol Feminino": 10,
   "resultados_Basquetebol": 10,
   "resultados_Basquetebol Feminino": 10,
   "resultados_Futsal": 10,
@@ -29,8 +28,8 @@
   "resultados_Futebol_Sub-17": 10,
   "resultados_Futebol_Sub-15": 10,
   "resultados_incoerentes": 0,
-  "classificacoes": 16,
-  "classificacoes_confirmadas": 8,
+  "classificacoes": 20,
+  "classificacoes_confirmadas": 9,
   "live": "live",
   "cronicas": 22,
   "podcasts_com_video": 769,
@@ -45,5 +44,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-25T23:20:47Z"
+ "atualizado": "2026-11-25T23:34:57Z"
 }
