@@ -52,7 +52,14 @@ SPORTS = [
     ("Andebol Feminino", "{698B2A89-1519-40B6-85E6-DD80B3325693}", False),
     ("Voleibol", "{61FF7D89-5327-4A5E-82C8-6E4CD35D8314}", True),
     ("Voleibol Feminino", "{61FF7D89-5327-4A5E-82C8-6E4CD35D8314}", False),
+    # O site do clube chama-lhe "Râguebi"; a agenda e a app dizem "Rugby". O feminino usa o MESMO identificador com IsMaleTeam=false
+    # (o identificador próprio "Râguebi feminino" não filtra: devolve jogos de todas as modalidades).
+    ("Rugby", "{4F2A2B71-D436-4BF2-AB38-4D191F48862C}", True),
+    ("Rugby Feminino", "{4F2A2B71-D436-4BF2-AB38-4D191F48862C}", False),
 ]
+
+# Modalidades em que um marcador "0 - 0" é um jogo sem resultado registado (no râguebi não há 0-0): não entra na tabela.
+SEM_ZEROS = {"Rugby", "Rugby Feminino"}
 
 DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 status = {"robo": {}, "agente": {}}
@@ -365,18 +372,21 @@ def modalidades_da_agenda():
 
 def filtrar_incoerencias(lista):
     """Rede de segurança: um resultado cuja competição diz o contrário do género da modalidade não entra
-    (ex.: "Campeonato Nacional Masculino" na lista do andebol feminino). Devolve (limpa, tirados)."""
+    (ex.: "Campeonato Nacional Masculino" na lista do andebol feminino). Devolve (limpa, tirados por género, tirados por 0-0)."""
     fem = re.compile(r"femin|women", re.I)
     mas = re.compile(r"masculin|\bmen\b", re.I)
-    boa, tirados = [], []
+    boa, tirados, zeros = [], [], []
     for r in lista:
         c = r.get("c", "")
+        if r["s"] in SEM_ZEROS and r.get("hg") == 0 and r.get("ag") == 0:
+            zeros.append(r)
+            continue
         feminina = r["s"].endswith(" Feminino")
         if (feminina and mas.search(c) and not fem.search(c)) or (not feminina and fem.search(c) and not mas.search(c)):
             tirados.append(r)
         else:
             boa.append(r)
-    return boa, tirados
+    return boa, tirados, zeros
 
 
 def do_results():
@@ -399,7 +409,9 @@ def do_results():
             merged += got
             if got:
                 status[who]["resultados_" + name] = len(got)
-    merged, tirados = filtrar_incoerencias(merged)
+    merged, tirados, zeros = filtrar_incoerencias(merged)
+    if zeros:
+        log("resultados: jogos sem resultado registado (0-0) deixados de fora:", len(zeros))
     if tirados:
         log("resultados: tirados por género incoerente:", [(r["s"], r["c"], r["h"], r["a"]) for r in tirados])
     status["robo"]["resultados_incoerentes"] = len(tirados)
