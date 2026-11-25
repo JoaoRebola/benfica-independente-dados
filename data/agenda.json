@@ -457,7 +457,7 @@
  {
   "t": 1797102000000,
   "title": "SL Benfica vs ABC de Braga /OBO Bettermann",
-  "detail": "Campeonato Betclic Feminino - Jornada 12 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 12 (F)",
   "loc": "PAV. LUZ 2",
   "sport": "Andebol"
  },
@@ -597,7 +597,7 @@
  {
   "t": 1797703200000,
   "title": "CDE GIL Eanes vs SL Benfica",
-  "detail": "Campeonato Betclic Feminino - Jornada 13 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 13 (F)",
   "loc": "ESC. GIL Eanes",
   "sport": "Andebol"
  },
@@ -786,14 +786,14 @@
  {
   "t": 1799593200000,
   "title": "SL Benfica vs Candelária SC",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 8 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 8 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1799604000000,
   "title": "Criar-T Grupo Desportivo vs SL Benfica",
-  "detail": "CN Feminino Sul - Jornada 7 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 7 (F)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
@@ -814,7 +814,7 @@
  {
   "t": 1800194400000,
   "title": "SL Benfica vs Madeira SAD",
-  "detail": "Campeonato Betclic Feminino - Jornada 14 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 14 (F)",
   "loc": "PAV. LUZ 2",
   "sport": "Andebol"
  },
@@ -842,21 +842,21 @@
  {
   "t": 1800817200000,
   "title": "SL Benfica vs Biblioteca IR",
-  "detail": "CN Feminino Sul - Jornada 8 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 8 (F)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1801085400000,
   "title": "AD Valongo / Colquímica vs SL Benfica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 9 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 9 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1801325700000,
   "title": "A Stuart HC Massamá vs SL Benfica",
-  "detail": "CN Feminino Sul - Jornada 9 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 9 (F)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
@@ -877,14 +877,14 @@
  {
   "t": 1801330200000,
   "title": "CJ A. Garrett /Gesti Douro UAE vs SL Benfica",
-  "detail": "Campeonato Betclic Feminino - Jornada 15 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 15 (F)",
   "loc": "MUN. Fernando Gomes",
   "sport": "Andebol"
  },
  {
   "t": 1801335600000,
   "title": "SL Benfica vs HC Braga SAD/SPORMEX",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 10 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 10 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
@@ -898,14 +898,14 @@
  {
   "t": 1801342800000,
   "title": "Ginásiocstirso / Retrotarget vs SL Benfica",
-  "detail": "Campeonato Betclic Masculino - Jornada 18 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 18 (M)",
   "loc": "MUN. STº Tirso",
   "sport": "Andebol"
  },
  {
   "t": 1801688400000,
   "title": "AD Oeiras vs SL Benfica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 12 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 12 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
@@ -919,35 +919,35 @@
  {
   "t": 1801933200000,
   "title": "SL Benfica vs SCT / UP TOMAR",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 11 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 11 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1802012400000,
   "title": "SL Benfica vs Alavarium",
-  "detail": "Campeonato Betclic Feminino - Jornada 16 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 16 (F)",
   "loc": "PAV. LUZ 2",
   "sport": "Andebol"
  },
  {
   "t": 1802023200000,
   "title": "SL Benfica vs HC Sintra",
-  "detail": "CN Feminino Sul - Jornada 10 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 10 (F)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1802530800000,
   "title": "CF OS Belenenses vs SL Benfica",
-  "detail": "Campeonato Betclic Masculino - Jornada 19 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 19 (M)",
   "loc": "PAV. Acácio Rosa",
   "sport": "Andebol"
  },
  {
   "t": 1802541600000,
   "title": "AD Academia Andebol SPS /Multisac vs SL Benfica",
-  "detail": "Campeonato Betclic Feminino - Jornada 17 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 17 (F)",
   "loc": "MUN. S. Pedro SUL",
   "sport": "Andebol"
  },
@@ -968,7 +968,7 @@
  {
   "t": 1803135600000,
   "title": "SL Benfica vs OC Barcelos SAD",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 13 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 13 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
@@ -982,7 +982,7 @@
  {
   "t": 1803146400000,
   "title": "SL Benfica vs Cale",
-  "detail": "Campeonato Betclic Feminino - Jornada 18 (F)",
+  "detail": "Campeonato Nacional Feminino - Jornada 18 (F)",
   "loc": "PAV. LUZ 2",
   "sport": "Andebol"
  },
@@ -996,28 +996,28 @@
  {
   "t": 1803236400000,
   "title": "SL Benfica vs AD Carvalhos / Sernox",
-  "detail": "Campeonato Betclic Masculino - Jornada 20 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 20 (M)",
   "loc": "PAV. LUZ 2",
   "sport": "Andebol"
  },
  {
   "t": 1803747600000,
   "title": "Marítimo Madeira Andebol SAD vs SL Benfica",
-  "detail": "Campeonato Betclic Masculino - Jornada 21 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 21 (M)",
   "loc": "PAV. LUZ 2",
   "sport": "Andebol"
  },
  {
   "t": 1803826800000,
   "title": "SL Benfica vs FC Porto",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 14 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 14 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1804107600000,
   "title": "Riba d' Ave HC / CSJ Group vs SL Benfica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 15 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 15 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
@@ -1031,14 +1031,14 @@
  {
   "t": 1804356000000,
   "title": "SL Benfica vs Vitória SC",
-  "detail": "Campeonato Betclic Masculino - Jornada 22 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 22 (M)",
   "loc": "PAV. LUZ 2",
   "sport": "Andebol"
  },
  {
   "t": 1804446000000,
   "title": "SL Benfica vs Sporting CP",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 16 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 16 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
@@ -1052,70 +1052,70 @@
  {
   "t": 1805556600000,
   "title": "UD Oliveirense / Simoldes vs SL Benfica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 17 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 17 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1806775200000,
   "title": "SL Benfica vs J. Pacense / Des Compagnons",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 18 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 18 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1807389000000,
   "title": "AJ Viana vs SL Benfica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 19 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 19 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1807970400000,
   "title": "SL Benfica vs AD Sanjoanense",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 20 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 20 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1808596800000,
   "title": "Candelária SC vs SL Benfica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 21 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 21 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1808938800000,
   "title": "SL Benfica vs AD Valongo / Colquímica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 22 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 22 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1809795600000,
   "title": "HC Braga SAD/SPORMEX vs SL Benfica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 23 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 23 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1810152000000,
   "title": "SCT / UP TOMAR vs SL Benfica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 24 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 24 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1810389600000,
   "title": "SL Benfica vs AD Oeiras",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 25 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 25 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
   "t": 1811005200000,
   "title": "OC Barcelos SAD vs SL Benfica",
-  "detail": "Campeonato Placard HP - Fase Regular - Jornada 26 (M)",
+  "detail": "Campeonato Nacional Masculino - Jornada 26 (M)",
   "loc": "",
   "sport": "Hóquei em Patins"
  },
