@@ -1022,7 +1022,28 @@ def tabela_valida(linhas):
     return len({l[1] for l in linhas}) == len(linhas)
 
 
+_ULTIMO = {}
+
+
 def ultimo_clube(desporto, masculino, rank, familia, excluir=None):
+    chave = (desporto, masculino, rank, familia, excluir)
+    if chave not in _ULTIMO:
+        _ULTIMO[chave] = _ultimo_clube(*chave)
+    return _ULTIMO[chave]
+
+
+def aquecer_ultimos():
+    """Faz de uma vez, em paralelo, os pedidos ao clube (cada um demora cerca de 40 s)."""
+    _ULTIMO.clear()
+    pedidos = [("Futebol", True, r, FAMILIA_FORMACAO, EXCLUI_FORMACAO) for r in RANKS_FORMACAO.values()]
+    pedidos += [(base + (" Feminino" if fem else ""), not fem, MAIN_TEAM, r"Campeonato Nacional|Liga Betclic|Liga Placard", None)
+                for _slug, base in CLUBE_MODALIDADES for fem in (False, True)]
+    pedidos += [v + (None,) for v in ULTIMOS_APP.values()]
+    with ThreadPoolExecutor(max_workers=len(pedidos)) as pool:
+        list(pool.map(lambda p: ultimo_clube(*p), pedidos))
+
+
+def _ultimo_clube(desporto, masculino, rank, familia, excluir=None):
     """(n.º de jogos jogados nesta época numa família de competições, assinatura do jogo mais recente) segundo o site do clube; None se falhar."""
     curta, longa = epoca_atual()
     ids = {n: sid for n, sid, _m in SPORTS}
@@ -1030,8 +1051,8 @@ def ultimo_clube(desporto, masculino, rank, familia, excluir=None):
     sid = ids.get(desporto) or ids.get(base)
     if not sid:
         sid = FUT_MASC if base == "Futebol" and masculino else FUT_FEM
-    n, sig = 0, None
-    for pg in range(4):
+    n, sig, cortado = 0, None, False
+    for pg in range(1):
         body = {"filters": {"Menu": "last", "Modality": sid, "IsMaleTeam": masculino, "Rank": rank, "Tournaments": [], "Seasons": [], "PageNumber": pg}}
         try:
             rs = parse_results(post_json(RESULTS_URL, body, timeout=150), desporto)
@@ -1047,9 +1068,8 @@ def ultimo_clube(desporto, masculino, rank, familia, excluir=None):
             n += 1
             if sig is None:
                 sig = "%s|%s|%s" % (r["d"], r["h"], r["a"])
-        if any(not (curta in r["c"] or longa in r["c"]) for r in rs):
-            break
-    return n, sig
+        cortado = len(rs) >= 10 and all(curta in r["c"] or longa in r["c"] for r in rs)
+    return (None if cortado else n), sig             # página cheia desta época: a contagem pode estar incompleta
 
 
 def fpp_ultimo(cid):
@@ -1194,7 +1214,11 @@ def do_standings():
     antes = {(e["s"], e["k"], e["c"]): e for e in old}
     agora = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     novo, falhou = [], set()
-    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes), ("fpf", fpf_classificacoes), ("clube-mod", modalidades_clube_classificacoes)):
+    try:
+        aquecer_ultimos()
+    except Exception as e:
+        log("pedidos ao clube falharam:", type(e).__name__)
+    for fonte, fn in (("clube", clube_classificacoes), ("fpa", fpa_classificacoes), ("fpp", fpp_classificacoes), ("clube-mod", modalidades_clube_classificacoes)):
         try:
             got = fn()
         except Exception as e:
