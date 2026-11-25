@@ -30,7 +30,7 @@
   "resultados_Futebol_Sub-16": 3,
   "resultados_Futebol_Sub-15": 10,
   "resultados_incoerentes": 0,
-  "classificacoes": 8,
+  "classificacoes": 10,
   "classificacoes_confirmadas": 6,
   "live": "live",
   "cronicas": 22,
@@ -46,5 +46,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-25T22:33:42Z"
+ "atualizado": "2026-11-25T22:59:50Z"
 }
