@@ -3,13 +3,14 @@
   "agenda_andebol_feminino": 7,
   "agenda_andebol_masculino": 5,
   "agenda_andebol_formacao": 28,
-  "agenda_hoquei": 23,
-  "agenda": 161,
+  "agenda_hoquei": 22,
+  "agenda": 160,
   "sem_resultados": [
    "Ténis de Mesa",
    "Polo Aquático Feminino"
   ],
   "resultados_Futebol": 10,
+  "resultados_Futebol Feminino": 10,
   "resultados_Basquetebol": 10,
   "resultados_Basquetebol Feminino": 10,
   "resultados_Futsal": 10,
@@ -30,7 +31,7 @@
   "resultados_incoerentes": 0,
   "classificacoes": 20,
   "classificacoes_confirmadas": 9,
-  "live": "live",
+  "live": "none",
   "cronicas": 22,
   "podcasts_com_video": 769,
   "podcasts_total": 976,
@@ -44,5 +45,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-25T23:34:57Z"
+ "atualizado": "2026-11-25T23:55:46Z"
 }

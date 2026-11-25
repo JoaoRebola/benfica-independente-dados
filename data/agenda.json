@@ -1,12 +1,5 @@
 [
  {
-  "t": 1795643100000,
-  "title": "Parede FC vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 1 (F)",
-  "loc": "Pavilhão da Parede",
-  "sport": "Hóquei em Patins"
- },
- {
   "t": 1795715100000,
   "title": "Viktoria Plzen vs SL Benfica",
   "detail": "Liga Europa UEFA 26/27 - Jornada 5 (M)",
@@ -786,8 +779,8 @@
  {
   "t": 1799593200000,
   "title": "SL Benfica vs Candelária SC",
-  "detail": "Campeonato Nacional Masculino - Jornada 8 (M)",
-  "loc": "",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
+  "loc": "Pavilhão Fidelidade",
   "sport": "Hóquei em Patins"
  },
  {
