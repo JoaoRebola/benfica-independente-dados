@@ -27,11 +27,10 @@
   "resultados_Futebol_Sub-23": 10,
   "resultados_Futebol_Sub-19": 10,
   "resultados_Futebol_Sub-17": 10,
-  "resultados_Futebol_Sub-16": 3,
   "resultados_Futebol_Sub-15": 10,
   "resultados_incoerentes": 0,
-  "classificacoes": 10,
-  "classificacoes_confirmadas": 6,
+  "classificacoes": 16,
+  "classificacoes_confirmadas": 8,
   "live": "live",
   "cronicas": 22,
   "podcasts_com_video": 769,
@@ -46,5 +45,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-25T22:59:50Z"
+ "atualizado": "2026-11-25T23:20:47Z"
 }
