@@ -28,11 +28,25 @@
   "sport": "Bilhar"
  },
  {
+  "t": 1795762800000,
+  "title": "Baja de Lagos",
+  "detail": "(Dia 1) Piloto do SL Benfica: André Rodrigues",
+  "loc": "Lagos",
+  "sport": "Todo o terreno"
+ },
+ {
   "t": 1795806000000,
   "title": "SL Benfica vs SLU Serpense",
   "detail": "Campeonato Nacional de Ténis de Mesa, Div. Honra | 26/27 - Jornada 4 (M)",
   "loc": "Instituto Pupilos do Exército",
   "sport": "Ténis de Mesa"
+ },
+ {
+  "t": 1795849200000,
+  "title": "Baja de Lagos",
+  "detail": "(Dia 2) Piloto do SL Benfica: André Rodrigues",
+  "loc": "Lagos",
+  "sport": "Todo o terreno"
  },
  {
   "t": 1795861800000,
@@ -96,6 +110,13 @@
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 9 (M)",
   "loc": "Pavilhão Municipal de Ponte de Sor",
   "sport": "Futsal"
+ },
+ {
+  "t": 1795935600000,
+  "title": "Baja de Lagos",
+  "detail": "(Dia 3) Piloto do SL Benfica: André Rodrigues",
+  "loc": "Lagos",
+  "sport": "Todo o terreno"
  },
  {
   "t": 1795950000000,

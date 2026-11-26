@@ -4,7 +4,7 @@
   "agenda_andebol_masculino": 5,
   "agenda_andebol_formacao": 28,
   "agenda_hoquei": 22,
-  "agenda": 163,
+  "agenda": 166,
   "sem_resultados": [
    "Bilhar",
    "Ténis de Mesa",
@@ -48,5 +48,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-26T15:36:55Z"
+ "atualizado": "2026-11-26T15:47:15Z"
 }
