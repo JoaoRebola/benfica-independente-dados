@@ -9,7 +9,12 @@ Corre sozinho no GitHub (de 30 em 30 minutos) e prepara para a app:
   data/club.json      - ficha do clube e do estádio (TheSportsDB)
   data/history.json   - história e palmarés de todas as modalidades (Wikipédia)
   data/podcast_videos.json - episódio do podcast -> vídeo do YouTube (API oficial)
+  data/europeia.json  - competição europeia da época (futebol principal)
+  data/jogos_reais.json - resultado (e onze, se existir) dos jogos acabados, para os prognósticos
   data/status.json    - quando correu e quem fez o trabalho (robô ou agente)
+  data/alertas.json   - avisos do robô (também vão em status.json, em robo.alertas)
+
+A agenda e os resultados NUNCA vêm da IA: se a leitura falhar, ficam os anteriores e sai um alerta.
 
 O "agente" (Gemini) só entra se existir a chave GEMINI_API_KEY nos segredos do
 repositório. Se não houver chave, se falhar ou se acabarem os pedidos grátis do
@@ -63,6 +68,7 @@ SEM_ZEROS = {"Rugby", "Rugby Feminino"}
 
 DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 status = {"robo": {}, "agente": {}}
+ALERTAS = []          # avisos para a plataforma: {"mau": bool, "texto": str} (textos sem horas, para só haver commit quando mudam)
 
 
 def log(*a):
@@ -82,6 +88,12 @@ def post_json(url, body, timeout=120):
     )
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read().decode("utf-8", "replace")
+
+
+def alerta(texto, mau=True):
+    log("ALERTA:", texto)
+    if all(a["texto"] != texto for a in ALERTAS):
+        ALERTAS.append({"mau": mau, "texto": texto})
 
 
 def plain(fragment):
@@ -229,39 +241,15 @@ def parse_agenda(page):
     return out[:150]
 
 
-def agent_agenda(page):
-    text = plain(page)
-    i = text.find("Agenda")
-    text = text[max(0, i):][:60000]
-    now = datetime.now(LISBON).strftime("%Y-%m-%d %H:%M")
-    res = gemini(
-        "És um assistente que extrai a agenda de jogos do Benfica do texto abaixo. Agora são " + now +
-        " (hora de Lisboa). Devolve um array JSON de objetos com: date (\"YYYY-MM-DD HH:MM\" hora de Lisboa), "
-        "title (ex.: \"Benfica x Porto\"), detail (competição), loc (local) e sport (modalidade em português). "
-        "Só jogos de hoje em diante. Não inventes nada.\n\n" + text
-    )
-    if not isinstance(res, list):
-        return []
-    out = []
-    for e in res:
-        try:
-            start = datetime.strptime(e["date"], "%Y-%m-%d %H:%M").replace(tzinfo=LISBON)
-            out.append({"t": int(start.timestamp() * 1000), "title": e.get("title", ""), "detail": e.get("detail", ""),
-                        "loc": e.get("loc", ""), "sport": e.get("sport", "")})
-        except Exception:
-            pass
-    return sorted(out, key=lambda e: e["t"])
-
-
 def do_agenda():
-    page = get(AGENDA_URL, timeout=90)
-    events = parse_agenda(page)
-    who = "robo"
+    try:
+        events = parse_agenda(get(AGENDA_URL, timeout=90))
+    except Exception as e:
+        log("agenda: o site do clube falhou:", type(e).__name__, e)
+        events = []
     if not events:
-        # O site mudou de formato? O agente tenta perceber a página.
-        events = agent_agenda(page)
-        who = "agente"
-    if events:
+        alerta("Não consegui ler a agenda no site do clube: a app fica com a agenda anterior.")
+    else:
         try:
             fem = fpa_agenda(fpa_andebol("F"), "F")
             if fem:
@@ -293,8 +281,8 @@ def do_agenda():
                 log("agenda: %s (federação) falhou:" % chave, e)
         events.sort(key=lambda e: e["t"])
         save("agenda.json", events)
-        status[who]["agenda"] = len(events)
-    log("agenda:", len(events), "por", who)
+        status["robo"]["agenda"] = len(events)
+    log("agenda:", len(events))
 
 
 # ---------------------------------------------------------------- Federação de Andebol (andebol feminino)
@@ -592,30 +580,13 @@ def parse_results(page, sport):
         score = re.fullmatch(r"(\d+) a (\d+)", parts[3].strip())
         if not score:
             continue
-        di = next((i for i, p in enumerate(parts) if DAY.search(p.strip())), -1)
+        # A data vem depois do resultado: assim "Segunda Liga" (a competição) não passa por segunda-feira.
+        di = next((i for i, p in enumerate(parts) if i >= 4 and DAY.search(p.strip())), -1)
         out.append({
             "s": sport, "c": parts[0].strip(), "h": parts[1].strip(), "a": parts[2].strip(),
             "hg": int(score.group(1)), "ag": int(score.group(2)),
             "v": ", ".join(parts[4:di]) if di > 4 else "", "d": parts[di].strip() if di >= 4 else "",
         })
-    return out
-
-
-def agent_results(page, sport):
-    res = gemini(
-        "Extrai os resultados dos jogos do Benfica (" + sport + ") do texto abaixo. Devolve um array JSON de objetos com: "
-        "c (competição), h (equipa da casa), a (equipa de fora), hg (golos/pontos da casa, número), ag (de fora, número), "
-        "v (local), d (data por extenso, ex.: \"domingo 08 novembro\"). Não inventes nada.\n\n" + plain(page)[:50000]
-    )
-    if not isinstance(res, list):
-        return []
-    out = []
-    for r in res:
-        try:
-            out.append({"s": sport, "c": str(r["c"]), "h": str(r["h"]), "a": str(r["a"]), "hg": int(r["hg"]),
-                        "ag": int(r["ag"]), "v": str(r.get("v", "")), "d": str(r.get("d", ""))})
-        except Exception:
-            pass
     return out
 
 
@@ -627,17 +598,13 @@ def one_sport(sport):
         try:
             page = post_json(RESULTS_URL, body, timeout=150)
             got = parse_results(page, name)
-            if got:
-                return name, got, "robo"
-            if "calendar-item" in page:
-                agent = agent_results(page, name)
-                if agent:
-                    return name, agent, "agente"
-            return name, [], "robo"
+            if not got and "calendar-item-description-" in page:
+                return name, None                  # há jogos na página mas não se conseguem ler: é uma falha
+            return name, got
         except Exception as e:
             log("resultados", name, "falhou:", type(e).__name__)
             time.sleep(5)
-    return name, None, "robo"
+    return name, None
 
 
 YOUTH_RX = re.compile(r"\bsub[\s-]?\d|juniores|juvenis|iniciados|infantis|benjamins|traquinas|liga jovem|youth|next gen|revela[çc][ãa]o|\bB\b", re.I)
@@ -733,8 +700,11 @@ def one_categoria(cat):
     for _ in range(2):
         try:
             page = post_json(RESULTS_URL, body, timeout=150)
+            lidos = parse_results(page, sport)
+            if not lidos and "calendar-item-description-" in page:
+                return cat, None
             out = []
-            for r in parse_results(page, sport):
+            for r in lidos:
                 if curta in r["c"] or longa in r["c"]:
                     r["k"] = k
                     out.append(r)
@@ -756,16 +726,18 @@ def do_results():
     with ThreadPoolExecutor(max_workers=len(sports)) as pool:
         parts = list(pool.map(one_sport, sports))
     if all(p[1] is None for p in parts):
-        log("resultados: nada (mantém os anteriores)")
+        alerta("Não consegui ler os resultados no site do clube: a app fica com os resultados anteriores.")
         return
-    merged = []
-    for name, got, who in parts:
-        if got is None or (not got and any(r["s"] == name and not r.get("k") for r in old)):
-            merged += [r for r in old if r["s"] == name and not r.get("k")]  # falhou: mantém o que havia
+    merged, falhas = [], []
+    for name, got in parts:
+        antes = [r for r in old if r["s"] == name and not r.get("k")]
+        if got is None or (not got and antes):
+            merged += antes  # falhou: mantém o que havia
+            falhas.append(name)
         else:
             merged += got
             if got:
-                status[who]["resultados_" + name] = len(got)
+                status["robo"]["resultados_" + name] = len(got)
     if not any(r["s"] == "Andebol Feminino" for r in merged):
         try:
             fem = fpa_resultados(fpa_andebol_feminino())
@@ -789,6 +761,7 @@ def do_results():
         for (k, rank, male), got in cats:
             sport = "Futebol" if male else "Futebol Feminino"
             if got is None:
+                falhas.append("%s %s" % (sport, k))
                 merged += [r for r in old if r.get("k") == k and r["s"] == sport]      # falhou: mantém o que havia
             else:
                 merged += got
@@ -796,6 +769,10 @@ def do_results():
                     status["robo"]["resultados_%s_%s" % (sport, k)] = len(got)
     except Exception as e:
         log("resultados: escalões do futebol falharam:", e)
+        falhas.append("escalões do futebol")
+        merged += [r for r in old if r.get("k")]
+    if falhas:
+        alerta("Não consegui ler os resultados de: %s. Ficam os anteriores." % ", ".join(falhas))
     merged, tirados, zeros = filtrar_incoerencias(merged)
     if zeros:
         log("resultados: jogos sem resultado registado (0-0) deixados de fora:", len(zeros))
@@ -808,91 +785,11 @@ def do_results():
 
 # ---------------------------------------------------------------- classificações (federações)
 # Cada entrada: {"s": modalidade, "k": escalão ("" = equipa principal), "c": competição, "t": [[pos, equipa, pts, j, v, e, d, gm, gs], ...]}
-FPF = "https://resultados.fpf.pt"
-# (competição na FPF, modalidade, escalão, nome mostrado). Só entram as tabelas em que o Benfica aparece.
-FPF_COMPETICOES = [
-    ("29809", "Futebol", "Equipa B", "Segunda Liga"),
-    ("29839", "Futebol Feminino", "", "Liga BPI"),
-    ("29910", "Futebol Feminino", "Equipa B", "Campeonato Nacional Feminino II Divisão"),
-    ("29872", "Futebol Feminino", "Sub-19", "Liga Feminina Sub-19"),
-    ("29873", "Futebol Feminino", "Sub-17", "Liga Feminina Sub-17"),
-]
-SIGLAS = {"sl", "fc", "sc", "cd", "gd", "ud", "cf", "ad", "cs", "cp", "ac", "af", "aj", "gc", "cdr", "ccd", "scp", "sad", "ca", "cr", "ccr", "gdc", "gdr", "gs"}
-
-
-WORKER_FPF = "https://despertador-robo-bi.benficaindependente-app.workers.dev/fpf?u="
-
-
-def fpf_get(url):
-    """Páginas da FPF pelo Worker do Cloudflare (o site da federação bloqueia o servidor do robô)."""
-    import urllib.parse
-    ultimo = None
-    for espera in (0, 8, 25, 60):
-        time.sleep(espera)
-        try:
-            return get(WORKER_FPF + urllib.parse.quote(url, safe=""), timeout=90, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)", "Accept": "text/html,*/*"})
-        except Exception as e:
-            ultimo = e                                  # 403/429 do site da federação: espera e tenta outra vez
-    raise ultimo
-
-
-def fpf_jogos(pagina):
-    """[(casa, fora, golos_casa, golos_fora)] de uma jornada da FPF (só jogos com resultado)."""
-    out = []
-    for bloco in pagina.split('class="game-link"')[1:]:
-        c = re.search(r'class="home-team[^"]*"[^>]*>(.*?)</div>', bloco)
-        p = re.search(r"<span>\s*(\d+)\s*-\s*(\d+)\s*</span>", bloco)
-        f = re.search(r'class="away-team[^"]*"[^>]*>(.*?)</div>', bloco)
-        if c and p and f:
-            out.append((nome_equipa(c.group(1)), nome_equipa(f.group(1)), int(p.group(1)), int(p.group(2))))
-    return out
-
-
-def nome_equipa(n):
-    """"Sl Benfica, Sad" -> "SL Benfica"; "Fc Porto Sad" -> "FC Porto"."""
-    n = re.sub(r"[,\s]+SAD\s*$", "", html.unescape(n).strip(), flags=re.I)
-    return " ".join(w.upper() if w.lower() in SIGLAS else w for w in n.split())
-
-
 def _num(x):
     try:
         return int(str(x).strip().replace("+", ""))
     except Exception:
         return 0
-
-
-def fpf_classificacoes():
-    """Tabelas das competições da FPF onde o Benfica joga (a página mostra a classificação do grupo de cada fase)."""
-    saida = []
-    lista = fpf_get(FPF + "/Competition")
-    epoca = dict(re.findall(r"competitionId=(\d+)&amp;seasonId=(\d+)", lista))
-    for cid, desporto, k, nome in FPF_COMPETICOES:
-        if cid not in epoca:
-            continue                                  # a competição ainda não está na época em curso
-        pag = None
-        time.sleep(1)
-        for _tentativa in range(4):
-            try:
-                pag = fpf_get("%s/Competition/Details?competitionId=%s&seasonId=%s" % (FPF, cid, epoca[cid]))
-                break
-            except Exception as e:
-                log("classificações FPF", cid, "falhou:", type(e).__name__, getattr(e, "code", ""))
-                time.sleep(15 * (_tentativa + 1))
-        if pag is None:
-            continue
-        for bloco_ in pag.split('<div id="classification">')[1:]:
-            linhas = []
-            for row in bloco_.split("game classification")[1:]:
-                row = row.split("</div></div>")[0] if False else row
-                cel = [_limpa(x) for x in re.findall(r'<div class="col[^>]*>(.*?)</div>', row, re.S)]
-                if len(cel) < 9:
-                    continue
-                linhas.append([_num(cel[0]), nome_equipa(cel[1]), _num(cel[8]), _num(cel[2]), _num(cel[3]), _num(cel[4]), _num(cel[5]), _num(cel[6]), _num(cel[7])])
-            if linhas and any(l[1] == "SL Benfica" for l in linhas):
-                ent = {"s": desporto, "k": k, "c": nome, "t": linhas, "src": "fpf", "_pag": pag}
-                saida.append(ent)
-                break                                  # o grupo do Benfica
-    return saida
 
 
 def fpa_classificacoes():
@@ -987,13 +884,16 @@ def clube_classificacoes():
                 tds = [_limpa(x) for x in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
                 if len(tds) < 9:
                     continue
-                equipa = "SL Benfica" if tds[1].strip().upper() in (("BENFICA", "BENFICA B") if slug.endswith("-b") else ("BENFICA",)) else tds[1]
+                if slug.endswith("-b"):          # 2.ª Divisão: é a equipa B, não a principal do escalão
+                    equipa = "SL Benfica B" if tds[1].strip().upper() in ("BENFICA", "BENFICA B") else tds[1]
+                else:
+                    equipa = "SL Benfica" if tds[1].strip().upper() == "BENFICA" else tds[1]
                 linhas.append([_num(tds[0]), equipa, _num(tds[8]), _num(tds[2]), _num(tds[3]), _num(tds[4]), _num(tds[5]), _num(tds[6]), _num(tds[7])])
-            if linhas and any(l[1] == "SL Benfica" for l in linhas):
+            if linha_benfica(linhas):
                 ent = {"s": "Futebol", "k": k, "c": nome, "t": linhas, "src": "clube"}
                 u = None if slug.endswith("-b") else ultimo_clube("Futebol", True, RANKS_FORMACAO[k], FAMILIA_FORMACAO, EXCLUI_FORMACAO)
                 if u:
-                    ent["n"], ent["ult"] = u
+                    ent["n"], ent["ult"], ent["ved"] = u
                 saida.append(ent)
     return saida
 
@@ -1023,6 +923,7 @@ def tabela_valida(linhas):
 
 
 _ULTIMO = {}
+PAGINAS = 3          # páginas de resultados (10 jogos cada) que se leem, no máximo, para contar os jogos da época
 
 
 def ultimo_clube(desporto, masculino, rank, familia, excluir=None):
@@ -1044,32 +945,64 @@ def aquecer_ultimos():
 
 
 def _ultimo_clube(desporto, masculino, rank, familia, excluir=None):
-    """(n.º de jogos jogados nesta época numa família de competições, assinatura do jogo mais recente) segundo o site do clube; None se falhar."""
+    """Jogos desta época numa família de competições, segundo o site do clube. None se o pedido falhar.
+    Devolve (n, assinatura do mais recente, [V, E, D, GM, GS] do Benfica nesses jogos).
+    n = None quando a contagem pode estar incompleta."""
     curta, longa = epoca_atual()
+    a = int(longa[:4]) - 1
+    anterior = ("%02d/%02d" % (a % 100, (a + 1) % 100), "%d/%02d" % (a, (a + 1) % 100))
     ids = {n: sid for n, sid, _m in SPORTS}
     base = desporto[:-len(" Feminino")] if desporto.endswith(" Feminino") else desporto
     sid = ids.get(desporto) or ids.get(base)
     if not sid:
         sid = FUT_MASC if base == "Futebol" and masculino else FUT_FEM
-    n, sig, cortado = 0, None, False
-    for pg in range(1):
+
+    def da_familia(c):
+        return bool(re.search(familia, c, re.I)) and not (excluir and re.search(excluir, c, re.I))
+
+    n, sig, incompleto, vistos, ved = 0, None, False, set(), [0, 0, 0, 0, 0]
+    for pg in range(PAGINAS):
         body = {"filters": {"Menu": "last", "Modality": sid, "IsMaleTeam": masculino, "Rank": rank, "Tournaments": [], "Seasons": [], "PageNumber": pg}}
         try:
-            rs = parse_results(post_json(RESULTS_URL, body, timeout=150), desporto)
+            pagina = post_json(RESULTS_URL, body, timeout=150)
         except Exception as e:
             log("último jogo", desporto, "falhou:", type(e).__name__)
             return None
-        if not rs:
-            break
+        rs = parse_results(pagina, desporto)
+        brutos = re.findall(r'id="calendar-item-description-[^"]*"[^>]*>(.*?)</span>', pagina, re.S)
+        for b in brutos:                      # um jogo do campeonato que não se consegue ler estraga a contagem
+            partes = plain(b).split(", ")
+            c = partes[0].strip()
+            if (curta in c or longa in c) and da_familia(c) and not (len(partes) >= 4 and re.fullmatch(r"\d+ a \d+", partes[3].strip())):
+                incompleto = True
+        velhos, chegou_ao_fim = 0, False
         for r in rs:
             c = r["c"]
-            if not (curta in c or longa in c) or not re.search(familia, c, re.I) or (excluir and re.search(excluir, c, re.I)):
+            if any(x in c for x in anterior):
+                velhos += 1
+                # Um campeonato da época passada (mesmo um excluído da contagem, como a II Divisão) marca o fim.
+                chegou_ao_fim = chegou_ao_fim or bool(re.search(familia, c, re.I))
+            if not (curta in c or longa in c) or not da_familia(c):
                 continue
+            jogo = (c, r["d"], r["h"], r["a"], r["hg"], r["ag"])
+            if jogo in vistos:
+                continue
+            vistos.add(jogo)
             n += 1
             if sig is None:
-                sig = "%s|%s|%s" % (r["d"], r["h"], r["a"])
-        cortado = len(rs) >= 10 and all(curta in r["c"] or longa in r["c"] for r in rs)
-    return (None if cortado else n), sig             # página cheia desta época: a contagem pode estar incompleta
+                sig = "%s|%s|%s" % (r["d"], r["h"], r["a"]) if r["d"] else "%s|%s|%s|%d-%d" % (c, r["h"], r["a"], r["hg"], r["ag"])
+            casa, fora = "benfica" in r["h"].lower(), "benfica" in r["a"].lower()
+            if casa == fora:
+                incompleto = True
+                continue
+            gm, gs = (r["hg"], r["ag"]) if casa else (r["ag"], r["hg"])
+            ved = [ved[0] + (gm > gs), ved[1] + (gm == gs), ved[2] + (gm < gs), ved[3] + gm, ved[4] + gs]
+        # Só se lê a página seguinte se esta veio cheia e ainda não se chegou à época passada.
+        if len(brutos) < 10 or chegou_ao_fim or velhos >= 3:
+            break
+    else:
+        incompleto = True                     # as páginas lidas não chegaram ao início da época
+    return (None if incompleto else n), sig, ved
 
 
 def fpp_ultimo(cid):
@@ -1108,42 +1041,56 @@ def confere(linhas, calc):
     return all(pub[k] == calc[k] for k in pub)
 
 
-def estado_tabela(e, antes):
-    """Preenche j (jogos do Benfica na tabela), u (último jogo incluído) e ok.
-    ok = True: a tabela já inclui o último jogo; False: há um jogo mais recente que ainda não entrou; None: sem forma de saber."""
-    ben = next((l for l in e["t"] if l[1] == "SL Benfica"), None)
+NOSSAS = ("SL Benfica", "SL Benfica B")        # "B" só nas tabelas da 2.ª Divisão da formação
+
+
+def linha_benfica(linhas):
+    return next((l for nome in NOSSAS for l in linhas if l[1] == nome), None)
+
+
+def estado_tabela(e, antes, agora):
+    """Preenche j (jogos do Benfica na tabela), u (último jogo incluído), ok e verificado.
+    ok = True só com prova: a tabela é igual à recalculada com todos os jogos (federações), ou o número de jogos do
+    Benfica nos resultados é o J da tabela (e as vitórias/empates/derrotas batem certo; no futebol e futsal também os golos).
+    False: há jogos que a tabela ainda não tem. None: sem forma de saber.
+    verificado = quando a confirmação atual foi estabelecida. Só muda quando muda a linha do Benfica (sem contar o
+    lugar e a mudança dos adversários) ou o último jogo: um resultado de outros clubes não renova o visto."""
+    ben = linha_benfica(e["t"])
     j = ben[3] if ben else None
-    ult, n = e.get("ult"), e.get("n")
+    ult, n, ved = e.get("ult"), e.get("n"), e.pop("ved", None)
     e["j"] = j
     prova = confere(e["t"], e.pop("calc", None))
     if prova is not None:
-        e["u"], e["ok"], e["prova"] = ult, prova, True      # confirmado por recálculo (ou desmentido)
-    elif j is not None and n is not None and n == j:
-        e["u"], e["ok"] = ult, True                         # os jogos jogados batem certo com os da tabela
-    elif antes is not None and antes.get("j") is not None:
-        if j != antes["j"]:
-            e["u"], e["ok"] = ult, True                     # a linha do Benfica mudou: a tabela foi atualizada
-        else:
-            e["u"] = antes.get("u")
-            e["ok"] = None if e["u"] is None else (ult == e["u"])
+        ok, e["prova"] = prova, True                        # confirmado por recálculo (ou desmentido)
+    elif j and n is not None and n == j:
+        ok = True
+        if ved is not None:
+            golos = re.match(r"Futebol|Futsal", e["s"])
+            if ved[:3] != ben[4:7] or (golos and ved[3:] != ben[7:9]):
+                ok = None                                   # o mesmo número de jogos, mas não são os mesmos jogos
+    elif j is not None and n is not None and n > j:
+        ok = False
     else:
-        e["u"], e["ok"] = None, None                        # primeira vez que se vê: só dá para confirmar quando mudar
+        ok = None
+    e["ok"], e["u"] = ok, ult if ok else None
+    ben_antes = linha_benfica(antes["t"]) if antes else None
+    mesma_linha = bool(ben and ben_antes and ben[3:] == ben_antes[3:])
+    confirmado_antes = bool(antes and antes.get("ok") and antes.get("verificado"))
+    if ok:
+        igual = confirmado_antes and mesma_linha and antes.get("u") == e["u"]
+        e["verificado"] = antes["verificado"] if igual else agora
+    elif ok is None and "ult" not in e and confirmado_antes and mesma_linha:
+        for k in ("n", "ult", "u", "ok", "verificado"):    # o pedido dos resultados falhou: nada mudou, fica a confirmação
+            if k in antes:
+                e[k] = antes[k]
     return e
 
 
-def fpf_calcular(pag):
-    """Tabela recalculada a partir de todas as jornadas da competição na FPF; None se alguma falhar."""
-    ids = list(dict.fromkeys(re.findall(r"GetClassificationAndMatchesByFixture\?fixtureId=(\d+)", pag)))
-    if not ids:
-        return None
-    jogos = []
-    for fid in ids:
-        try:
-            jogos += fpf_jogos(fpf_get("%s/Competition/GetClassificationAndMatchesByFixture?fixtureId=%s" % (FPF, fid)))
-        except Exception:
-            return None
-        time.sleep(0.5)
-    return recalcular(jogos)
+def sem_visto_antigo(e):
+    """Uma tabela que se mantém do ficheiro anterior só conserva o visto se tiver a hora da confirmação."""
+    if e.get("ok") and not e.get("verificado"):
+        e = {**e, "ok": None}
+    return e
 
 
 # ---- modalidades: o serviço de classificações do próprio site do clube
@@ -1201,7 +1148,7 @@ def modalidades_clube_classificacoes():
                         ent = {"s": desporto, "k": "", "c": nome, "t": linhas, "src": "clube-mod"}
                         u = ultimo_clube(desporto, not fem, MAIN_TEAM, r"Campeonato Nacional|Liga Betclic|Liga Placard")
                         if u:
-                            ent["n"], ent["ult"] = u
+                            ent["n"], ent["ult"], ent["ved"] = u
                         saida.append(ent)
                         break
             except Exception as e:
@@ -1241,7 +1188,7 @@ def liga2_classificacao():
     ent = {"s": "Futebol", "k": "Equipa B", "c": "Segunda Liga", "t": linhas, "src": "clube-liga"}
     u = ultimo_clube(*ULTIMOS_APP["Futebol|Equipa B|Segunda Liga"])
     if u:
-        ent["n"], ent["ult"] = u
+        ent["n"], ent["ult"], ent["ved"] = u
     return [ent]
 
 
@@ -1293,7 +1240,7 @@ def futfem_classificacoes():
         if nome == "Liga BPI":
             u = ultimo_clube(*ULTIMOS_APP["Futebol Feminino||Liga BPI"])
             if u:
-                ent["n"], ent["ult"] = u
+                ent["n"], ent["ult"], ent["ved"] = u
         saida.append(ent)
     return saida
 
@@ -1323,44 +1270,23 @@ def do_standings():
             if not tabela_valida(e["t"]):
                 log("classificação INVÁLIDA (fica a anterior):", chave)
                 if chave in antes:
-                    novo.append(antes[chave])
+                    novo.append(sem_visto_antigo(antes[chave]))
                 continue
-            pag = e.pop("_pag", None)
-            ant = antes.get(chave)
-            if e.get("src") == "fpf":
-                ku = "%s|%s|%s" % (e["s"], e["k"], e["c"])
-                if ku in ULTIMOS_APP:
-                    r = ultimo_clube(*ULTIMOS_APP[ku])
-                    if r:
-                        e["n"], e["ult"] = r
-                igual = bool(ant and ant.get("prova") and ant.get("t") == e["t"])
-                if igual:
-                    # Mesma tabela já provada por recálculo: só deixa de estar atualizada se houver um jogo mais recente.
-                    e["j"], e["u"], e["prova"] = ant.get("j"), ant.get("u"), True
-                    e["ok"] = (e.get("ult") == ant.get("u")) if (e.get("ult") and ant.get("u")) else ant.get("ok")
-                    e["at"] = ant.get("at", agora)
-                    novo.append(e)
-                    continue
-                if pag:
-                    try:
-                        e["calc"] = fpf_calcular(pag)
-                    except Exception as ex:
-                        log("recálculo FPF falhou:", type(ex).__name__)
-            estado_tabela(e, ant)
+            estado_tabela(e, antes.get(chave), agora)
             e["at"] = agora if (chave not in antes or antes[chave]["t"] != e["t"]) else antes[chave].get("at", agora)   # so muda quando a tabela muda
             novo.append(e)
         log("classificações", fonte, len(got))
     chaves = {(e["s"], e["k"], e["c"]) for e in novo}
     for e in old:
         if e.get("src") in falhou and (e["s"], e["k"], e["c"]) not in chaves:
-            novo.append(e)          # a fonte falhou: mantém o que havia
+            novo.append(sem_visto_antigo(e))          # a fonte falhou: mantém o que havia
     if novo:
         save("classificacoes.json", novo)
         status["robo"]["classificacoes"] = len(novo)
         status["robo"]["classificacoes_confirmadas"] = sum(1 for e in novo if e.get("ok"))
     # Último jogo das tabelas que a app lê sozinha (para ela confirmar que estão atualizadas).
     ult_old = load("ultimos.json", {})
-    ult = dict(ult_old)
+    ult = {k: ult_old[k] for k in ULTIMOS_APP if k in ult_old}     # só as chaves em uso (as antigas saem)
     for chave, (desp, masc, rank, fam) in ULTIMOS_APP.items():
         r = ultimo_clube(desp, masc, rank, fam)
         if r:
@@ -1441,6 +1367,7 @@ ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer"
 COMPETITIONS = {
     "por.1": "Liga Portugal", "uefa.europa": "Liga Europa", "uefa.europa_qual": "Liga Europa (pré-eliminatória)",
     "uefa.champions": "Liga dos Campeões", "uefa.champions_qual": "Liga dos Campeões (pré-eliminatória)",
+    "uefa.europa.conf": "Liga Conferência", "uefa.europa.conf_qual": "Liga Conferência",
     "por.taca.portugal": "Taça de Portugal", "por.league_cup": "Taça da Liga", "por.super_cup": "Supertaça",
     "club.friendly": "Particular",
 }
@@ -1704,6 +1631,53 @@ def do_summaries():
     save("summaries.json", out)
     status["agente" if any(m.get("agent") for m in out) else "robo"]["cronicas"] = len(out)
     log("crónicas:", len(out), "dados novos:", fetched, "textos novos:", written)
+
+
+# ---------------------------------------------------------------- competição europeia da época
+EUROPEIAS = {
+    "uefa.champions": "Liga dos Campeões", "uefa.champions_qual": "Liga dos Campeões",
+    "uefa.europa": "Liga Europa", "uefa.europa_qual": "Liga Europa",
+    "uefa.europa.conf": "Liga Conferência", "uefa.europa.conf_qual": "Liga Conferência",
+}
+
+
+def escolher_europeia(eventos, ano, agora):
+    """A europeia mais recente a começar na época que arranca a 1 de julho de `ano`: (competição, data do 1.º jogo) ou None."""
+    inicio = datetime(ano, 7, 1, tzinfo=LISBON)
+    primeiros = {}
+    for e in eventos:
+        nome = EUROPEIAS.get((e.get("league") or {}).get("slug") or "")
+        if not nome:
+            continue
+        estado = (e.get("competitions") or [{}])[0].get("status", {}).get("type", {})
+        if estado.get("state") == "post" and not estado.get("completed"):
+            continue                                          # adiado ou anulado
+        quando = datetime.strptime(e["date"][:16], "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
+        if inicio <= quando <= agora and (nome not in primeiros or quando < primeiros[nome]):
+            primeiros[nome] = quando
+    if not primeiros:
+        return None
+    nome = max(primeiros, key=primeiros.get)
+    return nome, primeiros[nome].strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def do_europeia():
+    """data/europeia.json para a app. Vale até 30 de junho, mesmo depois de uma eliminação; {} se a época ainda não tem europeia."""
+    epoca = epoca_atual()[1]
+    ano = int(epoca[:4])
+    antigo = load("europeia.json", {})
+    atual = antigo if isinstance(antigo, dict) and antigo.get("epoca") == epoca else {}
+    if not atual:
+        save("europeia.json", {})                             # nunca fica publicada a da época anterior
+    eventos = []
+    for extra in ("", "&fixture=true"):                       # jogos feitos e jogos marcados da época
+        eventos += json.loads(get(f"{ESPN}/all/teams/1929/schedule?season={ano}{extra}", timeout=60)).get("events", [])
+    achada = escolher_europeia(eventos, ano, datetime.now(timezone.utc))
+    if achada and not (atual and achada[1] < atual.get("desde", "")):       # nunca volta para uma anterior
+        atual = {"epoca": epoca, "competicao": achada[0], "desde": achada[1]}
+    save("europeia.json", atual)
+    status["robo"]["europeia"] = atual.get("competicao", "")
+    log("europeia:", atual or "ainda não há nesta época")
 
 
 # ---------------------------------------------------------------- clube e estádio
@@ -2172,7 +2146,8 @@ def do_jogos_reais():
         log("jogos reais: sem plantel (%s)" % e)
     agora = datetime.now(timezone.utc)
     ids = {}
-    for url in (f"{ESPN}/all/teams/{BENFICA_ID}/schedule?fixture=true", f"{ESPN}/por.1/teams/{BENFICA_ID}/schedule"):
+    # O 1.º tem os jogos já feitos de todas as competições (taças incluídas); o 2.º os marcados; o 3.º reforça a Liga.
+    for url in (f"{ESPN}/all/teams/{BENFICA_ID}/schedule", f"{ESPN}/all/teams/{BENFICA_ID}/schedule?fixture=true", f"{ESPN}/por.1/teams/{BENFICA_ID}/schedule"):
         try:
             for e in json.loads(get(url, timeout=60)).get("events", []):
                 quando = datetime.strptime(e["date"].replace("Z", "")[:16], "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
@@ -2180,13 +2155,14 @@ def do_jogos_reais():
                     ids[e["id"]] = quando
         except Exception as e:
             log("jogos reais: agenda falhou (%s)" % e)
-    antigos = {x["jogo"]: x for x in load("jogos_reais.json", [])}
+    antigos = {x["jogo"]: x for x in load("jogos_reais.json", [])}          # pela ordem em que entraram
     lista = []
-    for eid in ids:
+    for eid in sorted(ids, key=ids.get):
         try:
             d = json.loads(get(f"{ESPN}/all/summary?event={eid}", timeout=60))
             comp = d["header"]["competitions"][0]
-            if comp["status"]["type"]["state"] != "post":
+            tipo = comp["status"]["type"]
+            if tipo.get("state") != "post" or not tipo.get("completed"):    # adiados e interrompidos também são "post"
                 continue
             eq = {c["team"]["id"]: c for c in comp["competitors"]}
             if BENFICA_ID not in eq or len(eq) != 2:
@@ -2199,14 +2175,16 @@ def do_jogos_reais():
                 if r.get("team", {}).get("id") == BENFICA_ID:
                     onze = [_nome_plantel(p["athlete"]["displayName"], plantel) for p in r.get("roster", []) if p.get("starter")]
             if len(onze) != 11:
-                continue
+                onze = []                      # nas taças o ESPN não publica o onze: o resultado entra na mesma
             lista.append({"jogo": eid, "titulo": "%s - %s" % (casa["team"]["displayName"], fora["team"]["displayName"]),
                           "golos_b": int(eq[BENFICA_ID]["score"]), "golos_r": int(eq[rival]["score"]), "onze": onze})
         except Exception as e:
             log("jogos reais: %s falhou (%s)" % (eid, e))
     for x in lista:
+        if not x["onze"]:
+            x["onze"] = antigos.get(x["jogo"], {}).get("onze", [])
         antigos[x["jogo"]] = x
-    final = sorted(antigos.values(), key=lambda x: x["jogo"])[-10:]
+    final = list(antigos.values())[-10:]       # os 10 que entraram por último (o número do ESPN não segue as datas)
     save("jogos_reais.json", final)
     status["robo"]["jogos_reais"] = len(final)
     log("jogos reais: %d" % len(final))
@@ -2283,11 +2261,13 @@ def do_live():
 def main():
     os.makedirs(DATA, exist_ok=True)
     status["agente"]["ativo"] = bool(GEMINI_KEY)
-    for step in (do_agenda, do_results, do_standings, do_videos, do_live, do_summaries, do_club, do_history, do_podcast_links, do_comunidade, do_quiz, do_jogos_reais, do_chat_check):
+    for step in (do_agenda, do_results, do_standings, do_videos, do_live, do_summaries, do_europeia, do_club, do_history, do_podcast_links, do_comunidade, do_quiz, do_jogos_reais, do_chat_check):
         try:
             step()
         except Exception as e:
             log(step.__name__, "falhou:", type(e).__name__, e)
+    status["robo"]["alertas"] = ALERTAS
+    save("alertas.json", ALERTAS)       # faz parte da lista do commit: assim um aviso chega à plataforma mesmo sem mais novidades
     status["atualizado"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     with open(os.path.join(DATA, "status.json"), "w", encoding="utf-8", newline="\n") as f:
         json.dump(status, f, ensure_ascii=False, indent=1)
