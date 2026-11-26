@@ -301,6 +301,16 @@
  },
  {
   "s": "Basquetebol Feminino",
+  "c": "Euro Cup Women | 26/27",
+  "h": "SL Benfica",
+  "a": "UZKK Student Nis",
+  "hg": 93,
+  "ag": 71,
+  "v": "Pavilhão Fidelidade",
+  "d": "quinta-feira 26 novembro"
+ },
+ {
+  "s": "Basquetebol Feminino",
   "c": "Campeonato Nacional Liga Feminina | 26/27",
   "h": "CP Esgueira",
   "a": "SL Benfica",
@@ -388,16 +398,6 @@
   "ag": 65,
   "v": "Pavilhão Fidelidade",
   "d": "terça-feira 13 outubro"
- },
- {
-  "s": "Basquetebol Feminino",
-  "c": "Campeonato Nacional Liga Feminina | 26/27",
-  "h": "SL Benfica",
-  "a": "AD Sanjoanense",
-  "hg": 97,
-  "ag": 50,
-  "v": "Pavilhão Fidelidade",
-  "d": "sábado 10 outubro"
  },
  {
   "s": "Futsal",
@@ -601,6 +601,16 @@
  },
  {
   "s": "Hóquei em Patins",
+  "c": "WSE Champions League Men | 26/27",
+  "h": "FC Porto",
+  "a": "SL Benfica",
+  "hg": 2,
+  "ag": 1,
+  "v": "Dragão Arena",
+  "d": "quinta-feira 26 novembro"
+ },
+ {
+  "s": "Hóquei em Patins",
   "c": "Campeonato Nacional Masculino | 26/27",
   "h": "Sporting CP",
   "a": "SL Benfica",
@@ -688,16 +698,6 @@
   "ag": 1,
   "v": "Pavilhão da Parede",
   "d": "sábado 10 outubro"
- },
- {
-  "s": "Hóquei em Patins",
-  "c": "Taça Jesus Correia | 26/27",
-  "h": "Stuart HC Massamá",
-  "a": "SL Benfica",
-  "hg": 1,
-  "ag": 10,
-  "v": "Pavilhão Professor João Campelo",
-  "d": "sexta-feira 25 setembro"
  },
  {
   "s": "Hóquei em Patins Feminino",

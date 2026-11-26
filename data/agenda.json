@@ -7,13 +7,6 @@
   "sport": "Basquetebol"
  },
  {
-  "t": 1795723200000,
-  "title": "FC Porto vs SL Benfica",
-  "detail": "WSE Champions League Men | 26/27 - Jornada 1 (M)",
-  "loc": "Dragão Arena",
-  "sport": "Hóquei em Patins"
- },
- {
   "t": 1795726800000,
   "title": "Hot Shot 2 vs SL Benfica",
   "detail": "Pool Masculino | Campeonato Distrital - Lisboa 1.ª Divisão - 7.ª Jornada - Hot shot 2 - SL Benfica",
@@ -834,9 +827,9 @@
  },
  {
   "t": 1799604000000,
-  "title": "Criar-T Grupo Desportivo vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino - Jornada 7 (F)",
-  "loc": "",
+  "title": "CRIAR-T vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 7 (F)",
+  "loc": "Pavilhão Municipal Leonel Fernandes",
   "sport": "Hóquei em Patins"
  },
  {

@@ -226,10 +226,8 @@
    ]
   ],
   "src": "clube",
-  "n": 13,
-  "ult": "Liga Next Gen | 26/27|Estoril Praia|SL Benfica|0-0",
   "j": 11,
-  "ok": false,
+  "ok": null,
   "u": null,
   "at": "2026-11-25T20:06:17Z"
  },
@@ -475,8 +473,6 @@
    ]
   ],
   "src": "clube",
-  "n": 13,
-  "ult": "domingo 22 novembro|CD Nacional|SL Benfica",
   "j": 13,
   "ok": null,
   "u": null,
@@ -2610,11 +2606,11 @@
    ]
   ],
   "src": "clube-fem",
-  "n": 6,
-  "ult": "segunda-feira 23 novembro|SC Braga|SL Benfica",
   "j": 6,
   "ok": true,
   "u": "segunda-feira 23 novembro|SC Braga|SL Benfica",
+  "n": 6,
+  "ult": "segunda-feira 23 novembro|SC Braga|SL Benfica",
   "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:33:12Z"
  },
