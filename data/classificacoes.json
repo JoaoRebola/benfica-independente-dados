@@ -226,10 +226,8 @@
    ]
   ],
   "src": "clube",
-  "n": 13,
-  "ult": "Liga Next Gen | 26/27|Estoril Praia|SL Benfica|0-0",
   "j": 11,
-  "ok": false,
+  "ok": null,
   "u": null,
   "at": "2026-11-25T20:06:17Z"
  },
@@ -743,11 +741,11 @@
    ]
   ],
   "src": "clube",
-  "n": 12,
-  "ult": "sábado 21 novembro|Sporting CP|SL Benfica",
   "j": 12,
   "ok": true,
   "u": "sábado 21 novembro|Sporting CP|SL Benfica",
+  "n": 12,
+  "ult": "sábado 21 novembro|Sporting CP|SL Benfica",
   "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T20:06:17Z"
  },
@@ -1854,11 +1852,11 @@
    ]
   ],
   "src": "clube-mod",
-  "n": 7,
-  "ult": "quarta-feira 18 novembro|SL Benfica|FC Famalicão",
   "j": 7,
   "ok": true,
   "u": "quarta-feira 18 novembro|SL Benfica|FC Famalicão",
+  "n": 7,
+  "ult": "quarta-feira 18 novembro|SL Benfica|FC Famalicão",
   "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:19:04Z"
  },
@@ -2272,11 +2270,11 @@
    ]
   ],
   "src": "clube-mod",
-  "n": 7,
-  "ult": "sábado 21 novembro|CP Esgueira|SL Benfica",
   "j": 7,
   "ok": true,
   "u": "sábado 21 novembro|CP Esgueira|SL Benfica",
+  "n": 7,
+  "ult": "sábado 21 novembro|CP Esgueira|SL Benfica",
   "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:19:04Z"
  },
@@ -2485,11 +2483,11 @@
    ]
   ],
   "src": "clube-liga",
-  "n": 10,
-  "ult": "domingo 08 novembro|SC Farense|SL Benfica B",
   "j": 10,
   "ok": true,
   "u": "domingo 08 novembro|SC Farense|SL Benfica B",
+  "n": 10,
+  "ult": "domingo 08 novembro|SC Farense|SL Benfica B",
   "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:33:12Z"
  },
