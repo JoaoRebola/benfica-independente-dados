@@ -5,5 +5,24 @@
   "golos_b": 3,
   "golos_r": 1,
   "onze": []
+ },
+ {
+  "jogo": "401915518",
+  "titulo": "Viktoria Plzen - Benfica",
+  "golos_b": 0,
+  "golos_r": 4,
+  "onze": [
+   "Trubin",
+   "Tomás Araújo",
+   "Circati",
+   "El Karouani",
+   "Banjaqui",
+   "Rafa",
+   "Manu",
+   "Barrenechea",
+   "Pavlidis",
+   "Kaminski",
+   "Lukebakio"
+  ]
  }
 ]
