@@ -1,12 +1,5 @@
 [
  {
-  "t": 1795715100000,
-  "title": "Viktoria Plzen vs SL Benfica",
-  "detail": "Liga Europa UEFA 26/27 - Jornada 5 (M)",
-  "loc": "Arena Doosan",
-  "sport": "Futebol"
- },
- {
   "t": 1795723200000,
   "title": "SL Benfica vs UZKK Student Nis",
   "detail": "Euro Cup Women | 26/27 - Grupo I Jornada 5 (F)",
@@ -835,8 +828,8 @@
  {
   "t": 1799593200000,
   "title": "SL Benfica vs Candelária SC",
-  "detail": "Campeonato Nacional Masculino - Jornada 8 (M)",
-  "loc": "",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
+  "loc": "Pavilhão Fidelidade",
   "sport": "Hóquei em Patins"
  },
  {
