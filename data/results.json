@@ -1,6 +1,16 @@
 [
  {
   "s": "Futebol",
+  "c": "Liga Europa UEFA 26/27",
+  "h": "Viktoria Plzen",
+  "a": "SL Benfica",
+  "hg": 4,
+  "ag": 0,
+  "v": "Arena Doosan",
+  "d": "quinta-feira 26 novembro"
+ },
+ {
+  "s": "Futebol",
   "c": "Taça de Portugal 26/27",
   "h": "SCU Torreense",
   "a": "SL Benfica",
@@ -88,16 +98,6 @@
   "ag": 0,
   "v": "Estádio do Sport Lisboa e Benfica",
   "d": "domingo 11 outubro"
- },
- {
-  "s": "Futebol",
-  "c": "Liga Portugal 26/27",
-  "h": "FC Porto",
-  "a": "SL Benfica",
-  "hg": 3,
-  "ag": 1,
-  "v": "Estádio do Dragão",
-  "d": "domingo 20 setembro"
  },
  {
   "s": "Futebol Feminino",

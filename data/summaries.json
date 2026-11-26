@@ -1,5 +1,608 @@
 [
  {
+  "id": "401915518",
+  "t": 1795715100000,
+  "comp": "Liga Europa",
+  "home": "Viktoria Plzen",
+  "away": "Benfica",
+  "hs": 4,
+  "as": 0,
+  "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11706.png",
+  "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+  "venue": "Doosan Arena",
+  "goals": [
+   {
+    "min": "30'",
+    "who": "Patrik Hrosovský",
+    "team": "Viktoria Plzen",
+    "how": "Goal"
+   },
+   {
+    "min": "43'",
+    "who": "Prince Adu",
+    "team": "Viktoria Plzen",
+    "how": "Goal"
+   },
+   {
+    "min": "44'",
+    "who": "Christophe Kabongo",
+    "team": "Viktoria Plzen",
+    "how": "Goal"
+   },
+   {
+    "min": "46'",
+    "who": "Christophe Kabongo",
+    "team": "Viktoria Plzen",
+    "how": "Goal"
+   }
+  ],
+  "events": [
+   {
+    "min": "30'",
+    "k": "golo",
+    "who": "Patrik Hrosovský",
+    "side": "h",
+    "ast": "Lukás Cerv"
+   },
+   {
+    "min": "43'",
+    "k": "golo",
+    "who": "Prince Adu",
+    "side": "h",
+    "ast": "Christophe Kabongo"
+   },
+   {
+    "min": "44'",
+    "k": "golo",
+    "who": "Christophe Kabongo",
+    "side": "h"
+   },
+   {
+    "min": "45'",
+    "k": "troca",
+    "who": "Georgiy Sudakov",
+    "side": "a",
+    "out": "Enzo Barrenechea"
+   },
+   {
+    "min": "46'",
+    "k": "golo",
+    "who": "Christophe Kabongo",
+    "side": "h",
+    "ast": "Patrik Hrosovský"
+   },
+   {
+    "min": "59'",
+    "k": "troca",
+    "who": "João Palhinha",
+    "side": "a",
+    "out": "Manu Silva"
+   },
+   {
+    "min": "59'",
+    "k": "troca",
+    "who": "Andreas Schjelderup",
+    "side": "a",
+    "out": "Rafa Silva"
+   },
+   {
+    "min": "59'",
+    "k": "troca",
+    "who": "Claudio Echeverri",
+    "side": "a",
+    "out": "Dodi Lukébakio"
+   },
+   {
+    "min": "70'",
+    "k": "troca",
+    "who": "Denis Visinský",
+    "side": "h",
+    "out": "Amar Memic"
+   },
+   {
+    "min": "70'",
+    "k": "troca",
+    "who": "Stefan Pirgic",
+    "side": "h",
+    "out": "Lukás Cerv"
+   },
+   {
+    "min": "75'",
+    "k": "troca",
+    "who": "Tomás Ladra",
+    "side": "h",
+    "out": "Christophe Kabongo"
+   },
+   {
+    "min": "75'",
+    "k": "troca",
+    "who": "Matej Vydra",
+    "side": "h",
+    "out": "Prince Adu"
+   },
+   {
+    "min": "77'",
+    "k": "amarelo",
+    "who": "Adam Gabriel",
+    "side": "h"
+   },
+   {
+    "min": "78'",
+    "k": "amarelo",
+    "who": "Andreas Schjelderup",
+    "side": "a"
+   },
+   {
+    "min": "80'",
+    "k": "troca",
+    "who": "Alexandr Sojka",
+    "side": "h",
+    "out": "Patrik Hrosovský"
+   },
+   {
+    "min": "83'",
+    "k": "troca",
+    "who": "Jhon Durán",
+    "side": "a",
+    "out": "Vangelis Pavlidis"
+   }
+  ],
+  "stats": [
+   {
+    "n": "Posse de bola (%)",
+    "h": "30.8",
+    "a": "69.2"
+   },
+   {
+    "n": "Remates",
+    "h": "15",
+    "a": "16"
+   },
+   {
+    "n": "Remates à baliza",
+    "h": "11",
+    "a": "2"
+   },
+   {
+    "n": "Cantos",
+    "h": "4",
+    "a": "10"
+   },
+   {
+    "n": "Faltas",
+    "h": "15",
+    "a": "8"
+   },
+   {
+    "n": "Foras de jogo",
+    "h": "1",
+    "a": "2"
+   },
+   {
+    "n": "Defesas",
+    "h": "2",
+    "a": "7"
+   },
+   {
+    "n": "Cartões amarelos",
+    "h": "1",
+    "a": "1"
+   },
+   {
+    "n": "Cartões vermelhos",
+    "h": "0",
+    "a": "0"
+   },
+   {
+    "n": "Passes",
+    "h": "320",
+    "a": "724"
+   },
+   {
+    "n": "Passes certos",
+    "h": "264",
+    "a": "640"
+   },
+   {
+    "n": "Desarmes",
+    "h": "14",
+    "a": "22"
+   },
+   {
+    "n": "Interceções",
+    "h": "22",
+    "a": "6"
+   }
+  ],
+  "lineups": [
+   {
+    "side": "h",
+    "formation": "5-4-1",
+    "players": [
+     {
+      "n": "Florian Wiegele",
+      "no": "44",
+      "pos": "G",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Sampson Dweh",
+      "no": "40",
+      "pos": "CD",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Filip Prebsl",
+      "no": "98",
+      "pos": "CD-L",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Tobiás Paliscák",
+      "no": "2",
+      "pos": "CD-R",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Merchas Doski",
+      "no": "14",
+      "pos": "LB",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Adam Gabriel",
+      "no": "29",
+      "pos": "RB",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Lukás Cerv",
+      "no": "6",
+      "pos": "CM-L",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Patrik Hrosovský",
+      "no": "17",
+      "pos": "CM-R",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Christophe Kabongo",
+      "no": "25",
+      "pos": "LM",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Amar Memic",
+      "no": "99",
+      "pos": "RM",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Prince Adu",
+      "no": "80",
+      "pos": "F",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Denis Visinský",
+      "no": "9",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Dominik Tapaj",
+      "no": "1",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Cheick Souare",
+      "no": "19",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Tomás Ladra",
+      "no": "18",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Denis Vavro",
+      "no": "3",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Jan Paluska",
+      "no": "22",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Salim Lawal",
+      "no": "7",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Stefan Pirgic",
+      "no": "36",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Karel Spácil",
+      "no": "5",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Alexandr Sojka",
+      "no": "12",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Matej Vydra",
+      "no": "11",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Baboucarr Faal",
+      "no": "23",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     }
+    ]
+   },
+   {
+    "side": "a",
+    "formation": "4-2-3-1",
+    "players": [
+     {
+      "n": "Anatoliy Trubin",
+      "no": "1",
+      "pos": "G",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Tomás Araújo",
+      "no": "44",
+      "pos": "CD-L",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Alessandro Circati",
+      "no": "3",
+      "pos": "CD-R",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Souffian El Karouani",
+      "no": "34",
+      "pos": "LB",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Daniel Banjaqui",
+      "no": "58",
+      "pos": "RB",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Rafa Silva",
+      "no": "27",
+      "pos": "AM",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Manu Silva",
+      "no": "16",
+      "pos": "LM",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Enzo Barrenechea",
+      "no": "5",
+      "pos": "RM",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Vangelis Pavlidis",
+      "no": "14",
+      "pos": "F",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Jakub Kaminski",
+      "no": "13",
+      "pos": "AM-L",
+      "s": true,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Dodi Lukébakio",
+      "no": "11",
+      "pos": "AM-R",
+      "s": true,
+      "in": false,
+      "out": true
+     },
+     {
+      "n": "Gonçalo Moreira",
+      "no": "77",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Claudio Echeverri",
+      "no": "30",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Jhon Durán",
+      "no": "22",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Anísio Cabral",
+      "no": "72",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Samuel Dahl",
+      "no": "26",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Andreas Schjelderup",
+      "no": "21",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Georgiy Sudakov",
+      "no": "10",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Clément Lenglet",
+      "no": "2",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Alexander Bah",
+      "no": "6",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "Tiago Dias Freitas",
+      "no": "88",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     },
+     {
+      "n": "João Palhinha",
+      "no": "36",
+      "pos": "SUB",
+      "s": false,
+      "in": true,
+      "out": false
+     },
+     {
+      "n": "Samuel Soares",
+      "no": "24",
+      "pos": "SUB",
+      "s": false,
+      "in": false,
+      "out": false
+     }
+    ]
+   }
+  ],
+  "title": "",
+  "text": "",
+  "agent": false,
+  "v": 2,
+  "video": ""
+ },
+ {
   "id": "401931822",
   "t": 1795380300000,
   "comp": "Taça de Portugal",
