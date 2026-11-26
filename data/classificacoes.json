@@ -226,11 +226,11 @@
    ]
   ],
   "src": "clube",
-  "n": null,
-  "ult": "|Estoril Praia|SL Benfica",
+  "n": 13,
+  "ult": "Liga Next Gen | 26/27|Estoril Praia|SL Benfica|0-0",
   "j": 11,
+  "ok": false,
   "u": null,
-  "ok": null,
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -350,11 +350,12 @@
    ]
   ],
   "src": "clube",
-  "n": null,
+  "n": 12,
   "ult": "quarta-feira 25 novembro|UD Leiria|SL Benfica",
   "j": 12,
-  "u": "quarta-feira 25 novembro|UD Leiria|SL Benfica",
   "ok": true,
+  "u": "quarta-feira 25 novembro|UD Leiria|SL Benfica",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -474,11 +475,11 @@
    ]
   ],
   "src": "clube",
-  "n": null,
+  "n": 13,
   "ult": "domingo 22 novembro|CD Nacional|SL Benfica",
   "j": 13,
-  "u": "domingo 22 novembro|CD Nacional|SL Benfica",
-  "ok": true,
+  "ok": null,
+  "u": null,
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -488,7 +489,7 @@
   "t": [
    [
     1,
-    "SL Benfica",
+    "SL Benfica B",
     24,
     9,
     8,
@@ -621,9 +622,9 @@
   ],
   "src": "clube",
   "j": 9,
-  "u": null,
   "ok": null,
-  "at": "2026-11-25T22:50:49Z"
+  "u": null,
+  "at": "2026-11-26T00:35:36Z"
  },
  {
   "s": "Futebol",
@@ -742,11 +743,12 @@
    ]
   ],
   "src": "clube",
-  "n": null,
+  "n": 12,
   "ult": "sábado 21 novembro|Sporting CP|SL Benfica",
   "j": 12,
-  "u": null,
-  "ok": null,
+  "ok": true,
+  "u": "sábado 21 novembro|Sporting CP|SL Benfica",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -767,7 +769,7 @@
    ],
    [
     2,
-    "SL Benfica",
+    "SL Benfica B",
     23,
     9,
     7,
@@ -889,9 +891,9 @@
   ],
   "src": "clube",
   "j": 9,
-  "u": null,
   "ok": null,
-  "at": "2026-11-25T22:50:49Z"
+  "u": null,
+  "at": "2026-11-26T00:35:36Z"
  },
  {
   "s": "Andebol Feminino",
@@ -1013,9 +1015,10 @@
   "n": 11,
   "ult": "2026-11-21 17:15|JUVE LIS|SL BENFICA",
   "j": 11,
-  "u": "2026-11-21 17:15|JUVE LIS|SL BENFICA",
-  "ok": true,
   "prova": true,
+  "ok": true,
+  "u": "2026-11-21 17:15|JUVE LIS|SL BENFICA",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -1160,9 +1163,10 @@
   "n": 13,
   "ult": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
   "j": 13,
-  "u": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
-  "ok": true,
   "prova": true,
+  "ok": true,
+  "u": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -1329,9 +1333,10 @@
   "n": 3,
   "ult": "2026-11-22 19:30|Sporting CP|SL Benfica",
   "j": 3,
-  "u": "2026-11-22 19:30|Sporting CP|SL Benfica",
-  "ok": true,
   "prova": true,
+  "ok": true,
+  "u": "2026-11-22 19:30|Sporting CP|SL Benfica",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T20:06:17Z"
  },
  {
@@ -1410,9 +1415,10 @@
   "n": 3,
   "ult": "2026-11-25 21:45|Parede FC|SL Benfica",
   "j": 3,
-  "u": "2026-11-25 21:45|Parede FC|SL Benfica",
-  "ok": true,
   "prova": true,
+  "ok": true,
+  "u": "2026-11-25 21:45|Parede FC|SL Benfica",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:19:04Z"
  },
  {
@@ -1557,8 +1563,9 @@
   "n": 6,
   "ult": "domingo 22 novembro|Castêlo da Maia GC|SL Benfica",
   "j": 6,
-  "u": "domingo 22 novembro|Castêlo da Maia GC|SL Benfica",
   "ok": true,
+  "u": "domingo 22 novembro|Castêlo da Maia GC|SL Benfica",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:19:04Z"
  },
  {
@@ -1700,11 +1707,12 @@
    ]
   ],
   "src": "clube-mod",
-  "n": null,
+  "n": 8,
   "ult": "sábado 21 novembro|SL Benfica|Vitória SC",
   "j": 8,
-  "u": null,
-  "ok": null,
+  "ok": true,
+  "u": "sábado 21 novembro|SL Benfica|Vitória SC",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:19:04Z"
  },
  {
@@ -1846,11 +1854,12 @@
    ]
   ],
   "src": "clube-mod",
-  "n": null,
+  "n": 7,
   "ult": "quarta-feira 18 novembro|SL Benfica|FC Famalicão",
   "j": 7,
-  "u": null,
-  "ok": null,
+  "ok": true,
+  "u": "quarta-feira 18 novembro|SL Benfica|FC Famalicão",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:19:04Z"
  },
  {
@@ -1973,8 +1982,9 @@
   "n": 8,
   "ult": "domingo 15 novembro|Maia FC|SL Benfica",
   "j": 8,
-  "u": "domingo 15 novembro|Maia FC|SL Benfica",
   "ok": true,
+  "u": "domingo 15 novembro|Maia FC|SL Benfica",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:19:04Z"
  },
  {
@@ -2116,11 +2126,11 @@
    ]
   ],
   "src": "clube-mod",
-  "n": null,
+  "n": 8,
   "ult": "domingo 22 novembro|SL Benfica|Ovarense",
   "j": 9,
-  "u": null,
   "ok": null,
+  "u": null,
   "at": "2026-11-25T23:19:04Z"
  },
  {
@@ -2262,11 +2272,12 @@
    ]
   ],
   "src": "clube-mod",
-  "n": null,
+  "n": 7,
   "ult": "sábado 21 novembro|CP Esgueira|SL Benfica",
   "j": 7,
-  "u": null,
-  "ok": null,
+  "ok": true,
+  "u": "sábado 21 novembro|CP Esgueira|SL Benfica",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:19:04Z"
  },
  {
@@ -2474,11 +2485,12 @@
    ]
   ],
   "src": "clube-liga",
-  "n": null,
-  "ult": "|SC Farense|SL Benfica B",
+  "n": 10,
+  "ult": "domingo 08 novembro|SC Farense|SL Benfica B",
   "j": 10,
-  "u": null,
-  "ok": null,
+  "ok": true,
+  "u": "domingo 08 novembro|SC Farense|SL Benfica B",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:33:12Z"
  },
  {
@@ -2598,11 +2610,12 @@
    ]
   ],
   "src": "clube-fem",
-  "n": null,
+  "n": 6,
   "ult": "segunda-feira 23 novembro|SC Braga|SL Benfica",
   "j": 6,
-  "u": null,
-  "ok": null,
+  "ok": true,
+  "u": "segunda-feira 23 novembro|SC Braga|SL Benfica",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:33:12Z"
  },
  {
@@ -2811,8 +2824,8 @@
   ],
   "src": "clube-fem",
   "j": 5,
-  "u": null,
   "ok": null,
+  "u": null,
   "at": "2026-11-25T23:33:12Z"
  },
  {
@@ -2969,8 +2982,9 @@
   "n": 4,
   "ult": "31 de outubro 2026 4.ª jornada|Belenenses|BENFICA",
   "j": 4,
-  "u": "31 de outubro 2026 4.ª jornada|Belenenses|BENFICA",
   "ok": true,
+  "u": "31 de outubro 2026 4.ª jornada|Belenenses|BENFICA",
+  "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:33:12Z"
  }
 ]
