@@ -399,6 +399,13 @@
   "sport": "Andebol"
  },
  {
+  "t": 1796761800000,
+  "title": "SCU Torreense vs SL Benfica",
+  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 11 (F)",
+  "loc": "Pavilhão Desportivo do Externato de Penafirme",
+  "sport": "Futsal"
+ },
+ {
   "t": 1796763600000,
   "title": "SL Benfica 'B' vs Almada AC",
   "detail": "Divisão de Honra Masculina - 1a Fase (M)",
@@ -502,13 +509,6 @@
   "detail": "WSE Champions League Women | 26/27 - Jornada 2 (F)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Hóquei em Patins"
- },
- {
-  "t": 1797120000000,
-  "title": "SCU Torreense vs SL Benfica",
-  "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 11 (F)",
-  "loc": "Pavilhão Desportivo do Externato de Penafirme",
-  "sport": "Futsal"
  },
  {
   "t": 1797175800000,
@@ -835,8 +835,8 @@
  {
   "t": 1799593200000,
   "title": "SL Benfica vs Candelária SC",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
-  "loc": "Pavilhão Fidelidade",
+  "detail": "Campeonato Nacional Masculino - Jornada 8 (M)",
+  "loc": "",
   "sport": "Hóquei em Patins"
  },
  {
