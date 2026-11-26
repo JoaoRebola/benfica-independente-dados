@@ -1,12 +1,5 @@
 [
  {
-  "t": 1795723200000,
-  "title": "SL Benfica vs UZKK Student Nis",
-  "detail": "Euro Cup Women | 26/27 - Grupo I Jornada 5 (F)",
-  "loc": "Pavilhão Fidelidade",
-  "sport": "Basquetebol"
- },
- {
   "t": 1795726800000,
   "title": "Hot Shot 2 vs SL Benfica",
   "detail": "Pool Masculino | Campeonato Distrital - Lisboa 1.ª Divisão - 7.ª Jornada - Hot shot 2 - SL Benfica",
@@ -831,6 +824,13 @@
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 7 (F)",
   "loc": "Pavilhão Municipal Leonel Fernandes",
   "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1799604000000,
+  "title": "FC Arouca vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Municipal de Arouca",
+  "sport": "Futebol"
  },
  {
   "t": 1800111600000,
