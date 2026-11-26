@@ -686,18 +686,18 @@
   "sport": "Futebol"
  },
  {
-  "t": 1798545600000,
-  "title": "SL Benfica vs Sporting CP",
-  "detail": "Liga Portugal 26/27 - Jornada 16 (M)",
-  "loc": "Estádio do Sport Lisboa e Benfica",
-  "sport": "Futebol"
- },
- {
   "t": 1798572600000,
   "title": "Sporting CP vs SL Benfica",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 12 (M)",
   "loc": "Pavilhão João Rocha",
   "sport": "Basquetebol"
+ },
+ {
+  "t": 1798577100000,
+  "title": "SL Benfica vs Sporting CP",
+  "detail": "Liga Portugal 26/27 - Jornada 16 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
  },
  {
   "t": 1798664400000,
@@ -785,13 +785,6 @@
  },
  {
   "t": 1799582400000,
-  "title": "FC Arouca vs SL Benfica",
-  "detail": "Liga Portugal 26/27 - Jornada 17 (M)",
-  "loc": "Estádio Municipal de Arouca",
-  "sport": "Futebol"
- },
- {
-  "t": 1799582400000,
   "title": "Porto B vs SL Benfica B",
   "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
   "loc": "Estádio Dr. Jorge Sampaio",
@@ -800,8 +793,8 @@
  {
   "t": 1799593200000,
   "title": "SL Benfica vs Candelária SC",
-  "detail": "Campeonato Nacional Masculino - Jornada 8 (M)",
-  "loc": "",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
+  "loc": "Pavilhão Fidelidade",
   "sport": "Hóquei em Patins"
  },
  {
