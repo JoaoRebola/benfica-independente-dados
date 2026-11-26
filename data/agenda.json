@@ -413,6 +413,13 @@
   "sport": "Futsal"
  },
  {
+  "t": 1797093000000,
+  "title": "SL Benfica vs Sport Rugby Porto",
+  "detail": "Campeonato Nacional de Rugby Feminino | 26/27 - Jornada 7 (F)",
+  "loc": "Estádio Universitário de Lisboa (campo 2)",
+  "sport": "Rugby"
+ },
+ {
   "t": 1797094800000,
   "title": "SL Benfica vs Vitória SC",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 10 (M)",
@@ -546,6 +553,13 @@
   "sport": "Andebol"
  },
  {
+  "t": 1797540300000,
+  "title": "SL Benfica vs CD Tondela",
+  "detail": "Taça de Portugal 26/27 - round (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
   "t": 1797692400000,
   "title": "SL Benfica vs CD Póvoa",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 11 (M)",
@@ -651,6 +665,13 @@
   "sport": "Futsal"
  },
  {
+  "t": 1797878700000,
+  "title": "Rio Ave FC vs SL Benfica",
+  "detail": "Liga Portugal 26/27 - Jornada 15 (M)",
+  "loc": "Estádio dos Arcos",
+  "sport": "Futebol"
+ },
+ {
   "t": 1798038000000,
   "title": "LANDAU Lions vs SL Benfica",
   "detail": "Fiba Europe Cup | 26/27 - Jornada 10 (M)",
@@ -659,16 +680,16 @@
  },
  {
   "t": 1798372800000,
-  "title": "SL Benfica vs Sporting CP",
-  "detail": "Liga Portugal 26/27 - Jornada 16 (M)",
-  "loc": "Estádio do Sport Lisboa e Benfica",
-  "sport": "Futebol"
- },
- {
-  "t": 1798372800000,
   "title": "SL Benfica B vs Sporting CP B",
   "detail": "Segunda Liga 26/27 - Jornada 16 (M)",
   "loc": "Benfica Campus",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1798545600000,
+  "title": "SL Benfica vs Sporting CP",
+  "detail": "Liga Portugal 26/27 - Jornada 16 (M)",
+  "loc": "Estádio do Sport Lisboa e Benfica",
   "sport": "Futebol"
  },
  {
@@ -779,8 +800,8 @@
  {
   "t": 1799593200000,
   "title": "SL Benfica vs Candelária SC",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 8 (M)",
-  "loc": "Pavilhão Fidelidade",
+  "detail": "Campeonato Nacional Masculino - Jornada 8 (M)",
+  "loc": "",
   "sport": "Hóquei em Patins"
  },
  {

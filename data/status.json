@@ -3,8 +3,8 @@
   "agenda_andebol_feminino": 7,
   "agenda_andebol_masculino": 5,
   "agenda_andebol_formacao": 28,
-  "agenda_hoquei": 22,
-  "agenda": 160,
+  "agenda_hoquei": 23,
+  "agenda": 163,
   "sem_resultados": [
    "Ténis de Mesa",
    "Polo Aquático Feminino"
@@ -47,5 +47,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-26T09:37:30Z"
+ "atualizado": "2026-11-26T10:16:45Z"
 }
