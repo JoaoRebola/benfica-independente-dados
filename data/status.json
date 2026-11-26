@@ -4,7 +4,7 @@
   "agenda_andebol_masculino": 5,
   "agenda_andebol_formacao": 28,
   "agenda_hoquei": 22,
-  "agenda": 166,
+  "agenda": 168,
   "sem_resultados": [
    "Bilhar",
    "Ténis de Mesa",
@@ -35,8 +35,8 @@
   "live": "upcoming",
   "cronicas": 22,
   "europeia": "Liga Europa",
-  "podcasts_com_video": 770,
-  "podcasts_total": 977,
+  "podcasts_com_video": 769,
+  "podcasts_total": 976,
   "comunidade": 4,
   "jogos_reais": 1,
   "chat": {
@@ -48,5 +48,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-26T15:47:15Z"
+ "atualizado": "2026-11-26T15:57:00Z"
 }

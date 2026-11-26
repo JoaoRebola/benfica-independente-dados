@@ -56,6 +56,13 @@
   "sport": "Pesca Desportiva"
  },
  {
+  "t": 1795861800000,
+  "title": "Campeonato Nacional de Seniores",
+  "detail": "",
+  "loc": "Pavilhão Multiusos de Odivelas",
+  "sport": "Judo"
+ },
+ {
   "t": 1795863600000,
   "title": "SL Benfica vs GD Estoril Praia",
   "detail": "Campeonato Nacional de Iniciados Sub 15 | 26/27 - Jornada 13 (M)",
@@ -117,6 +124,13 @@
   "detail": "(Dia 3) Piloto do SL Benfica: André Rodrigues",
   "loc": "Lagos",
   "sport": "Todo o terreno"
+ },
+ {
+  "t": 1795948200000,
+  "title": "Campeonato Nacional de Absolutos",
+  "detail": "",
+  "loc": "Pavilhão Multiusos de Odivelas",
+  "sport": "Judo"
  },
  {
   "t": 1795950000000,
