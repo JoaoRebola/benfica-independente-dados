@@ -13,9 +13,7 @@
   "resultados_Futebol Feminino": 10,
   "resultados_Basquetebol": 10,
   "resultados_Basquetebol Feminino": 10,
-  "resultados_Futsal": 10,
   "resultados_Futsal Feminino": 10,
-  "resultados_Hóquei em Patins": 10,
   "resultados_Hóquei em Patins Feminino": 10,
   "resultados_Andebol": 10,
   "resultados_Andebol Feminino": 10,
@@ -23,11 +21,6 @@
   "resultados_Voleibol Feminino": 10,
   "resultados_Rugby": 10,
   "resultados_Rugby Feminino": 10,
-  "resultados_Futebol_Equipa B": 10,
-  "resultados_Futebol_Sub-23": 10,
-  "resultados_Futebol_Sub-19": 10,
-  "resultados_Futebol_Sub-17": 10,
-  "resultados_Futebol_Sub-15": 10,
   "resultados_incoerentes": 0,
   "classificacoes": 20,
   "classificacoes_confirmadas": 14,
@@ -42,10 +35,15 @@
    "ok": true,
    "conversas": 0
   },
-  "alertas": []
+  "alertas": [
+   {
+    "mau": true,
+    "texto": "Não consegui ler os resultados de: Futsal, Hóquei em Patins, Futebol Equipa B, Futebol Sub-23, Futebol Sub-19, Futebol Sub-17, Futebol Sub-15, Futebol Feminino Equipa B, Futebol Feminino Sub-19. Ficam os anteriores."
+   }
+  ]
  },
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-26T06:56:23Z"
+ "atualizado": "2026-11-26T07:47:16Z"
 }
