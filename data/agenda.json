@@ -1008,13 +1008,6 @@
   "sport": "Andebol"
  },
  {
-  "t": 1803146400000,
-  "title": "SL Benfica vs Cale",
-  "detail": "Campeonato Nacional Feminino - Jornada 18 (F)",
-  "loc": "PAV. LUZ 2",
-  "sport": "Andebol"
- },
- {
   "t": 1803151800000,
   "title": "SL Benfica 'B' vs CD Mafra",
   "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
@@ -1153,5 +1146,12 @@
   "detail": "Atleta : Leonor Coelho",
   "loc": "República Checa",
   "sport": "Dressage"
+ },
+ {
+  "t": 1828098000000,
+  "title": "SL Benfica vs Cale",
+  "detail": "Campeonato Nacional Feminino - Jornada 18 (F)",
+  "loc": "PAV. LUZ 2",
+  "sport": "Andebol"
  }
 ]
