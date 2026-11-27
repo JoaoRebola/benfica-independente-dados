@@ -1084,13 +1084,13 @@
    [
     6,
     "Águas Santas Milaneza",
-    23,
-    11,
+    25,
+    12,
     6,
-    0,
+    1,
     5,
-    321,
-    319
+    347,
+    345
    ],
    [
     7,
@@ -1138,6 +1138,17 @@
    ],
    [
     11,
+    "AD Carvalhos / Sernox",
+    17,
+    14,
+    1,
+    1,
+    12,
+    360,
+    466
+   ],
+   [
+    12,
     "Avanca /Bioria/Bondalti",
     16,
     13,
@@ -1146,17 +1157,6 @@
     11,
     317,
     444
-   ],
-   [
-    12,
-    "AD Carvalhos / Sernox",
-    15,
-    13,
-    1,
-    0,
-    12,
-    334,
-    440
    ]
   ],
   "src": "fpa",
@@ -1164,9 +1164,10 @@
   "ult": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
   "j": 13,
   "prova": true,
-  "ok": false,
-  "u": null,
-  "at": "2026-11-25T20:06:17Z"
+  "ok": true,
+  "u": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
+  "verificado": "2026-11-27T23:14:32Z",
+  "at": "2026-11-27T23:14:32Z"
  },
  {
   "s": "Hóquei em Patins",

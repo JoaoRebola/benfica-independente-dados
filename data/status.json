@@ -29,14 +29,13 @@
   "resultados_Futebol_Sub-15": 10,
   "resultados_incoerentes": 0,
   "classificacoes": 20,
-  "classificacoes_confirmadas": 13,
+  "classificacoes_confirmadas": 14,
   "live": "live",
   "cronicas": 23,
   "europeia": "Liga Europa",
   "podcasts_com_video": 771,
   "podcasts_total": 978,
   "comunidade": 4,
-  "quiz": 3,
   "jogos_reais": 2,
   "chat": {
    "ok": true,
@@ -45,10 +44,7 @@
   "alertas": []
  },
  "agente": {
-  "ativo": true,
-  "erro": "TimeoutError",
-  "modelo": "gemini-3.6-flash",
-  "ok": true
+  "ativo": true
  },
- "atualizado": "2026-11-27T23:00:27Z"
+ "atualizado": "2026-11-27T23:17:58Z"
 }
