@@ -255,7 +255,7 @@
   "t": 1796468400000,
   "title": "GUS Montemor vs SL Benfica",
   "detail": "Campeonato Nacional Sub 15 II Divisão | 26/27 - Jornada 11 (M)",
-  "loc": "Campo Major Baptista Silva",
+  "loc": "Campo Major Batista da Silva",
   "sport": "Futebol"
  },
  {
@@ -327,13 +327,6 @@
   "detail": "Divisão de Honra Masculina - 1a Fase (M)",
   "loc": "ESC. QTA. Marrocos",
   "sport": "Andebol"
- },
- {
-  "t": 1796554800000,
-  "title": "CF Belenenses vs SL Benfica",
-  "detail": "Campeonato Nacional de Sub 17 | 26/27 - Jornada 11 (M)",
-  "loc": "Campo Major Baptista Silva",
-  "sport": "Futebol"
  },
  {
   "t": 1796554800000,
@@ -817,6 +810,13 @@
   "detail": "WSE Champions League Men | 26/27 - Jornada 3 (M)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1799492400000,
+  "title": "Porto B vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Dr. Jorge Sampaio",
+  "sport": "Futebol"
  },
  {
   "t": 1799514000000,
