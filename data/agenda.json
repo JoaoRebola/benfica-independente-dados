@@ -630,13 +630,6 @@
   "sport": "Futebol"
  },
  {
-  "t": 1797768000000,
-  "title": "CD Tondela vs SL Benfica B",
-  "detail": "Segunda Liga 26/27 - Jornada 15 (M)",
-  "loc": "Estádio João Cardoso",
-  "sport": "Futebol"
- },
- {
   "t": 1797778800000,
   "title": "SL Benfica vs PV Colégio Efanor",
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 13 (F)",
@@ -693,10 +686,10 @@
   "sport": "Basquetebol"
  },
  {
-  "t": 1798372800000,
-  "title": "SL Benfica B vs Sporting CP B",
-  "detail": "Segunda Liga 26/27 - Jornada 16 (M)",
-  "loc": "Benfica Campus",
+  "t": 1798056900000,
+  "title": "CD Tondela vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 15 (M)",
+  "loc": "Estádio João Cardoso",
   "sport": "Futebol"
  },
  {
@@ -711,6 +704,13 @@
   "title": "SL Benfica vs Sporting CP",
   "detail": "Liga Portugal 26/27 - Jornada 16 (M)",
   "loc": "Estádio do Sport Lisboa e Benfica",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1798653600000,
+  "title": "SL Benfica B vs Sporting CP B",
+  "detail": "Segunda Liga 26/27 - Jornada 16 (M)",
+  "loc": "Benfica Campus",
   "sport": "Futebol"
  },
  {
@@ -770,6 +770,13 @@
   "sport": "Hóquei em Patins"
  },
  {
+  "t": 1799492400000,
+  "title": "Porto B vs SL Benfica B",
+  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
+  "loc": "Estádio Dr. Jorge Sampaio",
+  "sport": "Futebol"
+ },
+ {
   "t": 1799506800000,
   "title": "SL Benfica vs FC Porto",
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 13 (M)",
@@ -796,13 +803,6 @@
   "detail": "Campeonato Nacional 2a Divisão Feminina - 1a Fase - Zona 3 (F)",
   "loc": "MUN. Nazaré",
   "sport": "Andebol"
- },
- {
-  "t": 1799582400000,
-  "title": "Porto B vs SL Benfica B",
-  "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
-  "loc": "Estádio Dr. Jorge Sampaio",
-  "sport": "Futebol"
  },
  {
   "t": 1799593200000,
