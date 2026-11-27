@@ -475,8 +475,6 @@
    ]
   ],
   "src": "clube",
-  "n": 13,
-  "ult": "domingo 22 novembro|CD Nacional|SL Benfica",
   "j": 13,
   "ok": null,
   "u": null,
@@ -1854,11 +1852,11 @@
    ]
   ],
   "src": "clube-mod",
-  "n": 7,
-  "ult": "quarta-feira 18 novembro|SL Benfica|FC Famalicão",
   "j": 7,
   "ok": true,
   "u": "quarta-feira 18 novembro|SL Benfica|FC Famalicão",
+  "n": 7,
+  "ult": "quarta-feira 18 novembro|SL Benfica|FC Famalicão",
   "verificado": "2026-11-26T00:35:36Z",
   "at": "2026-11-25T23:19:04Z"
  },
