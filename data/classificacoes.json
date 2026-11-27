@@ -1164,9 +1164,8 @@
   "ult": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
   "j": 13,
   "prova": true,
-  "ok": true,
-  "u": "2026-11-21 17:00|SL BENFICA|PÓVOA AC /BODEGÃO/CCR/PROTEU",
-  "verificado": "2026-11-26T00:35:36Z",
+  "ok": false,
+  "u": null,
   "at": "2026-11-25T20:06:17Z"
  },
  {
