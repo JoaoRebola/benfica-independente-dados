@@ -260,6 +260,13 @@
  },
  {
   "t": 1796479200000,
+  "title": "Santa Clara vs SL Benfica",
+  "detail": "Liga Next Gen | 26/27 - Jornada 14 (M)",
+  "loc": "(menos uma hora nos Açores) Complexo Desportivo das Laranjeiras",
+  "sport": "Futebol"
+ },
+ {
+  "t": 1796479200000,
   "title": "CSS Pinhal Frades vs SL Benfica",
   "detail": "Campeonato Nacional Sub 18 Masculino - 1a Fase - Zona 4 (M)",
   "loc": "PAV. CSS Pinhal Frades",
@@ -292,6 +299,13 @@
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 6 (M)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1796491800000,
+  "title": "Sporting Clube Farense vs SL Benfica",
+  "detail": "Campeonato Sub-19 26/27 - Jornada 14 (M)",
+  "loc": "",
+  "sport": "Futebol"
  },
  {
   "t": 1796493600000,
@@ -327,13 +341,6 @@
   "detail": "Campeonato Nacional Liga Feminina | 26/27 - Grupo I Jornada 10 (F)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Basquetebol"
- },
- {
-  "t": 1796569200000,
-  "title": "Sporting Clube Farense vs SL Benfica",
-  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 14 (M)",
-  "loc": "",
-  "sport": "Futebol"
  },
  {
   "t": 1796569200000,
@@ -810,13 +817,6 @@
   "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
   "loc": "Estádio Dr. Jorge Sampaio",
   "sport": "Futebol"
- },
- {
-  "t": 1799506800000,
-  "title": "SL Benfica vs FC Porto",
-  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 13 (M)",
-  "loc": "Pavilhão Fidelidade",
-  "sport": "Basquetebol"
  },
  {
   "t": 1799514000000,
