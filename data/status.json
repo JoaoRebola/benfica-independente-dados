@@ -30,7 +30,7 @@
   "resultados_incoerentes": 0,
   "classificacoes": 20,
   "classificacoes_confirmadas": 13,
-  "live": "upcoming",
+  "live": "live",
   "cronicas": 23,
   "europeia": "Liga Europa",
   "podcasts_com_video": 771,
@@ -46,5 +46,5 @@
  "agente": {
   "ativo": true
  },
- "atualizado": "2026-11-27T21:47:19Z"
+ "atualizado": "2026-11-27T22:06:49Z"
 }
