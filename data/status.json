@@ -36,6 +36,7 @@
   "podcasts_com_video": 771,
   "podcasts_total": 978,
   "comunidade": 4,
+  "quiz": 3,
   "jogos_reais": 2,
   "chat": {
    "ok": true,
@@ -44,7 +45,10 @@
   "alertas": []
  },
  "agente": {
-  "ativo": true
+  "ativo": true,
+  "erro": "TimeoutError",
+  "modelo": "gemini-3.6-flash",
+  "ok": true
  },
- "atualizado": "2026-11-27T22:37:07Z"
+ "atualizado": "2026-11-27T23:00:27Z"
 }
