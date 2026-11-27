@@ -182,6 +182,13 @@
   "sport": "Andebol"
  },
  {
+  "t": 1796140800000,
+  "title": "SL Benfica vs GD Estoril Praia",
+  "detail": "Campeonato Nacional de Sub 17 | 26/27 - Jornada 14 (M)",
+  "loc": "Benfica Campus (campo 7)",
+  "sport": "Futebol"
+ },
+ {
   "t": 1796146200000,
   "title": "SL Benfica vs Leixões SC",
   "detail": "Campeonato Nacional Masculino | 26/27 - Grupo I Jornada 8 (M)",
@@ -285,6 +292,13 @@
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 6 (M)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Hóquei em Patins"
+ },
+ {
+  "t": 1796493600000,
+  "title": "SCU Torreense vs SL Benfica",
+  "detail": "Campeonato Nacional de Sub 17 | 26/27 - Jornada 15 (M)",
+  "loc": "Academia Torreense",
+  "sport": "Futebol"
  },
  {
   "t": 1796493600000,
@@ -803,20 +817,6 @@
   "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 13 (M)",
   "loc": "Pavilhão Fidelidade",
   "sport": "Basquetebol"
- },
- {
-  "t": 1799506800000,
-  "title": "Sporting CP vs SL Benfica",
-  "detail": "Campeonato Sub-19 26/27 - Grupo South Jornada 17 (M)",
-  "loc": "",
-  "sport": "Futebol"
- },
- {
-  "t": 1799510400000,
-  "title": "Sporting CP vs SL Benfica",
-  "detail": "Campeonato de Portugal A1 Femininos | 26/27 - Jornada 6 (F)",
-  "loc": "Alvalade",
-  "sport": "Polo Aquático"
  },
  {
   "t": 1799514000000,
