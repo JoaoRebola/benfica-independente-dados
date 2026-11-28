@@ -21,13 +21,6 @@
   "sport": "Judo"
  },
  {
-  "t": 1795863600000,
-  "title": "SL Benfica vs GD Estoril Praia",
-  "detail": "Campeonato Nacional de Iniciados Sub 15 | 26/27 - Jornada 13 (M)",
-  "loc": "Benfica Campus (campo 7)",
-  "sport": "Futebol"
- },
- {
   "t": 1795878000000,
   "title": "SL Benfica vs GD Árvore",
   "detail": "Campeonato Nacional Feminino | 26/27 - Jornada 9 (F)",
@@ -817,6 +810,13 @@
   "detail": "Segunda Liga 26/27 - Jornada 17 (M)",
   "loc": "Estádio Dr. Jorge Sampaio",
   "sport": "Futebol"
+ },
+ {
+  "t": 1799506800000,
+  "title": "SL Benfica vs FC Porto",
+  "detail": "Campeonato Nacional Masculino | 26/27 - Jornada 13 (M)",
+  "loc": "Pavilhão Fidelidade",
+  "sport": "Basquetebol"
  },
  {
   "t": 1799514000000,
