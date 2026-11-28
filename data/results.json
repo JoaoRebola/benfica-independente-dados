@@ -1791,6 +1791,17 @@
  },
  {
   "s": "Futebol",
+  "c": "Campeonato Nacional de Iniciados Sub 15 | 26/27",
+  "h": "SL Benfica",
+  "a": "GD Estoril Praia",
+  "hg": 2,
+  "ag": 0,
+  "v": "Benfica Campus (campo 7)",
+  "d": "sábado 28 novembro",
+  "k": "Sub-15"
+ },
+ {
+  "s": "Futebol",
   "c": "Campeonato Nacional Sub 15 II Divisão | 26/27",
   "h": "AF Atlântico",
   "a": "SL Benfica",
@@ -1886,17 +1897,6 @@
   "ag": 1,
   "v": "Benfica Campus (campo 7)",
   "d": "domingo 25 outubro",
-  "k": "Sub-15"
- },
- {
-  "s": "Futebol",
-  "c": "Campeonato Nacional Sub 15 II Divisão | 26/27",
-  "h": "SL Benfica",
-  "a": "CD Odiáxere",
-  "hg": 5,
-  "ag": 1,
-  "v": "Benfica Campus (campo 5)",
-  "d": "sábado 24 outubro",
   "k": "Sub-15"
  }
 ]

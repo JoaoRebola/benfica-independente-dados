@@ -743,12 +743,11 @@
    ]
   ],
   "src": "clube",
-  "n": 12,
-  "ult": "sábado 21 novembro|Sporting CP|SL Benfica",
+  "n": 13,
+  "ult": "sábado 28 novembro|SL Benfica|GD Estoril Praia",
   "j": 12,
-  "ok": true,
-  "u": "sábado 21 novembro|Sporting CP|SL Benfica",
-  "verificado": "2026-11-26T00:35:36Z",
+  "ok": false,
+  "u": null,
   "at": "2026-11-25T20:06:17Z"
  },
  {
